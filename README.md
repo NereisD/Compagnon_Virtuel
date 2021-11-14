@@ -67,7 +67,7 @@ idées :
 calculer des états dans le dialogue en implémentant des variables (rond triangle carré) pour analyser l’état émotionnel de la personne et ainsi adapter les réponses de l’IA.
 
 -----------------------------------
-Lundi 19 octobre :
+Mardi 19 octobre :
 
 On a réussi à :
 enregistrer un integer qui s’incrémente dans un fichier texte. 
@@ -98,7 +98,7 @@ Quelles technos pour définir les arbres de dialogues ? Il ne faut pas réinvent
 Utilisation possible de dialogflow ? 
 
 -----------------------------------
-Lundi 25 octobre - RDV avec Lydie du Bousquet :
+Mardi 9 novembre - RDV avec Lydie du Bousquet :
 
 On a présenté SQLite : la possibilité d’enregistrer les données en local - bonne idée 
 On a parlé de Dialogflow : ce n'est pas une bonne idée car ça nécessite d’envoyer les réponses en ligne sur un service Google (même si on ne les stockes pas). 
