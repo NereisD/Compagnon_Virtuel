@@ -23,7 +23,7 @@ Notre but sera de créer une application qui s’en rapproche.
 Mais parfois ce sont des données de santé, ce qui pose un problème si on passe par une application qui ne nous appartient pas. 
 C’est pourquoi nous devons développer notre propre application mobile.
 
-L’année dernière (en 2019/2020), un groupe d’étudiants de M1 a développé une première application fonctionnelle, sur laquelle une question est posée à l’utilisateur. 
+L’année dernière (en 2020/2021), un groupe d’étudiants de M1 a développé une première application fonctionnelle, sur laquelle une question est posée à l’utilisateur. 
 Cependant, la question est toujours la même et il n’y a pas de système de notification. 
 De plus, la réponse à la question n’est pas enregistrée. 
 
@@ -118,7 +118,7 @@ Pour rédiger le cahier des charges, exemple de tests utilisateurs :
 -demander à une personne âgée de télécharger l’application
 -télécharger l’application sur des téléphones différents
 
-Chercher dans l’ancien projet (celui de 2019/2020) si il y a des tests automatisés, sinon il faudra les implémenter.
+Chercher dans l’ancien projet (celui de 2020/2021) si il y a des tests automatisés, sinon il faudra les implémenter.
 
 
 
