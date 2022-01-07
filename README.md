@@ -122,6 +122,83 @@ Chercher dans l’ancien projet (celui de 2020/2021) si il y a des tests automat
 
 
 
+-----------------------------------
+Mardi 23 novembre - RDV avec Lydie du Bousquet :
+
+
+On a discuté du cahier des charges pour avancer dans la rédaction 
+Introduction d’un outil de développement : Flutterflow qui permet de créer des wigets en Flutter 
+
+suggestions : faire un diagramme de classe du programme
+et diagramme de classe du concepte de dialogue pour la BD 
+
+pour l’interface, respecter les critères de Bastiens et Scapin 
+
+On lui a montré un exemple de BDD avec les dialogues et des automates représentants différents scénarios, tel que le scénario de lancement 
+Il faut que la BD respecte le format 3NF, pour éviter les répétitions 
+
+Cet arbre de dialogue serait dans un module remplaçable, car par la suite on voudra peut etre améliorer l’application avec autre chose comme une reconnaissance vocale ou une interprétation des réponses ouvertes 
+
+Pour les mises a jour, fichier en format csv
+
+-----------------------------------
+lundi 29 novembre - RDV avec Damien Pellier :
+
+cahier de recettes : 3 acteurs
+un utilisateur de l’application
+un scientifique qui récupère les données
+un informaticien qui met à jour la BDD 
+
+diagrammes pour la bdd
+expliquer les choix techniques
+description des technos
+architecture de l’appli
+
+Plan de développement :
+diagramme de gantt sur le semestre
+sans oublier la dépendances entre les tâches 
+
+-----------------------------------
+lundi 6 décembre - RDV avec Lydie du Bousquet
+
+Lors de ce rendez-vous, nous avons présenté des idées à mettre dans le cahier des charges.
+Pour les nouveaux scénarios, Lydie ne souhaite pas qu’on poste les questions en ligne au travers d’une BDD mais plutôt avec un fichier brut en format CSV via un lien téléchargeable, car il n’est peut être pas possible de maintenir cette BDD dans le temps.
+
+Nous avons discuté d’un processus de développement de type agile, avec des sprints. 
+Dans le diagramme de Gantt, il y aura l’ordre et le temps passé pour chaque tâche à effectuer. Pour notre projet il n’y a pas forcément un ordre précis à respecter, mais seulement un ordre de priorité de tâches. 
+
+Pour le diagramme de classes, il faut représenter les concepts que l’on va manipuler avant l’implémentation.
+
+Nous avons proposé une idée de schéma de BDD, avec des bulles de dialogues, écrites soit par le robot soit par l’utilisateur. Ce dialogue sera enregistré dans un historique en local, pour ensuite pouvoir être visualisé dans la fenêtre de dialogue.
+
+
+-----------------------------------
+vendredi 17 décembre - Tournage d’une vidéo sur le projet SCUSI Kouno Tori
+
+Ce jour-là nous avons participé au tournage d’une vidéo de l’UGA concernant notre projet.
+Ce tournage avait pour but de montrer les relations internationales de l’UGA en montrant un exemple concret avec notre projet qui est en partenariat avec l’université de Kobe au Japon.
+
+Nous leur avons montré notre maquette de l’application et une vidéo de démonstration de son utilisation, puis nous avons été filmés dans le bâtiment de l’Imag, en train de travailler sur la maquette et de discuter pendant une réunion. 
+Il y a aussi eu des interviews individuelles de Lydie et de Mathis concernant nos motivations concernant le projet ainsi qu’un éventuel déplacement au Japon pour cet été si la situation sanitaire le permet.
+Mais malheureusement Néréïs n’a pas pu être présent pour les interviews ce jour-là. 
+
+Par ailleurs, Lydie a été filmée à titre individuelle en visioconférence avec un professeur de l’université de Kobe, et des plans de l’Imag ainsi que de l’UGA ont été filmés.
+
+-----------------------------------
+vendredi 7 janvier 2022 - RDV avec Lydie du Bousquet
+
+Lors de ce RDV nous avons présenté les documents au brouillon avant de les rédiger, afin de vérifier leurs informations ensemble. 
+Les documents concernés sont : le cahier des charges, le cahier de recettes et le plan de développement.
+
+Dans la partie “Organisation des tâches”, Lydie nous a conseillé de parler des actions produites par l’application, c'est -à -dire les Use-cases.
+
+Nous avons parlé d’exemples de Springs, tel que : un Spring pour la prise en main du sujet, un Spring pour l’élaboration des documents à rendre etc. 
+
+Nous avons aussi parlé des critères de qualités, ils doivent être mesurables.
+Par exemple, la pertinence des dialogues peut être mesurée grâce à un retour des utilisateurs comme un moyen de les évaluer. Par un système de “likes” ou sous la forme d’un sondage. 
+
+Une autre idée de fonctionnalité a émergée : la possibilité de “skip” les dialogues avec un bouton. 
+
 
 
 
