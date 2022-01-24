@@ -1,3 +1,7 @@
+//import 'dart:html';
+
+import 'package:timeago/timeago.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -10,9 +14,6 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   var info = "Ceci est une info";
-
-  // ignore: deprecated_member_use
-  var bullesDialogue = List.generate(4, (_) => List(3));
 
   // This widget is the root of your application.
   @override
@@ -35,8 +36,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  //getter de bullesDialogue
-  get bullesDialogue => null;
+  // ignore: deprecated_member_use
+  var bullesDialogue = List.generate(1, (_) => List(4));
 
   @override
   void initState() {
@@ -53,16 +54,29 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     bullesDialogue[0][2] =
         "Bonjour je m'appelle Bob, je suis votre nouveau compagnon virtuel";
     bullesDialogue[0][3] = DateTime.now().toString();
+    // ignore: avoid_print
+    print("bulles0 = " + bullesDialogue.toString());
   }
 
   //Fonction pour ajouter une bulle de dialogue
-  void ajoutBulle(int idBulle, String message, int isUser) {
+  void ajoutBulle(String message, int isUser) {
     setState(() {
       //value = $m;
-      bullesDialogue[idBulle][0] = idBulle;
-      bullesDialogue[idBulle][1] = isUser;
-      bullesDialogue[idBulle][2] = message;
-      bullesDialogue[idBulle][3] = DateTime.now().toString();
+      print("-------- Début ajoutBulle --------");
+
+      /* Augmentation de la taille du tableau */
+      int idBulle = bullesDialogue.length;
+      bullesDialogue.length = bullesDialogue.length + 1;
+
+      /* Attribution d'une nouvelle bulle au tableau */
+      var bulle = [idBulle, isUser, message, DateTime.now().toString()];
+      bullesDialogue[idBulle] = bulle;
+
+      // ignore: avoid_print
+      print(
+          "bullesDialogue[$idBulle]  = " + bullesDialogue[idBulle].toString());
+
+      print("-------- Fin ajoutBulle --------");
     });
   }
 
@@ -109,6 +123,162 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    for (int i = 0; i < bullesDialogue.length; i++)
+                      if (bullesDialogue[i][1] == 0)
+                        /* Bulle de dialogue du robot */
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 20, 0, 0),
+                              child: Container(
+                                width: 50,
+                                height: 50,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/robot.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                height: 75,
+                                decoration: BoxDecoration(),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              1,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: Image.asset(
+                                            'assets/images/bulle_gauche.png',
+                                          ).image,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 10, 10, 10),
+                                        child: Text(
+                                          bullesDialogue[i][2].toString(),
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 1),
+                                      child: Container(
+                                        width: 120,
+                                        height: 25,
+                                        decoration: BoxDecoration(),
+                                        child: Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: Text(
+                                            bullesDialogue[i][3].toString(),
+                                            style: FlutterFlowTheme.bodyText1,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      else
+                        /* Bulle de dialogue de l'utilisateur */
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                height: 75,
+                                decoration: BoxDecoration(
+                                  color: Color(0xFFEEEEEE),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              1,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: Image.asset(
+                                            'assets/images/bulle_droite.png',
+                                          ).image,
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 10, 10, 10),
+                                        child: Text(
+                                          bullesDialogue[i][2].toString(),
+                                          style: FlutterFlowTheme.bodyText1
+                                              .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(1, 1),
+                                      child: Container(
+                                        width: 120,
+                                        height: 25,
+                                        decoration: BoxDecoration(),
+                                        child: Align(
+                                          alignment: AlignmentDirectional(0, 0),
+                                          child: Text(
+                                            bullesDialogue[i][3].toString(),
+                                            style: FlutterFlowTheme.bodyText1,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 50,
+                              height: 50,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.asset(
+                                'assets/images/femme2.png',
+                              ),
+                            ),
+                          ],
+                        ),
+                    /*
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -183,7 +353,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ],
-                    ),
+                    ), */
+                    /*
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -258,7 +429,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ],
-                    ),
+                    ),*/
+                    /*
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -330,7 +502,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           ),
                         ),
                       ],
-                    ),
+                    ),*/
                   ],
                 ),
               ),
@@ -402,6 +574,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () {
+                          ajoutBulle('Un homme', 1);
                           print('Button1 pressed ...');
                         },
                         text: 'Un homme',
@@ -423,6 +596,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () {
+                          ajoutBulle('Une femme', 1);
                           print('Button2 pressed ...');
                         },
                         text: 'Une femme',
