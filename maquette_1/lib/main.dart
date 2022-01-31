@@ -243,8 +243,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(5, 20, 0, 0),
                               child: Container(
-                                width: 50,
-                                height: 50,
+                                width: 45,
+                                height: 45,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
@@ -375,8 +375,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               ),
                             ),
                             Container(
-                              width: 50,
-                              height: 50,
+                              width: 45,
+                              height: 45,
                               clipBehavior: Clip.antiAlias,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
@@ -396,55 +396,89 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0xFFEEEEEE),
-                      )
-                    ],
-                    border: Border.all(
-                      color: Colors.black,
-                    ),
-                  ),
-                  child: TextFormField(
-                    controller: textController,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      hintText: 'Ecrire un message',
-                      hintStyle: FlutterFlowTheme.bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 16,
-                      ),
-                      enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(4.0),
-                          topRight: Radius.circular(4.0),
-                        ),
-                      ),
-                      focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0x00000000),
-                          width: 1,
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(4.0),
-                          topRight: Radius.circular(4.0),
-                        ),
+                    width: MediaQuery.of(context).size.width,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFFEEEEEE),
+                        )
+                      ],
+                      border: Border.all(
+                        color: Colors.black,
                       ),
                     ),
-                    style: FlutterFlowTheme.bodyText1.override(
-                      fontFamily: 'Poppins',
-                      fontSize: 16,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
+                    child:
+                        /* La raw du text fild commence ici */
+                        Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                            child: TextFormField(
+                              controller: textController,
+                              obscureText: false,
+                              /* enabled permet de griser le textfield */
+                              enabled: true,
+                              decoration: InputDecoration(
+                                hintText: 'Écrire un message',
+                                hintStyle: FlutterFlowTheme.bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 16,
+                                ),
+                                enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1,
+                                  ),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                ),
+                              ),
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                        FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 30,
+                          borderWidth: 1,
+                          buttonSize: 60,
+                          icon: Icon(
+                            Icons.send,
+                            color: Colors.black,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            /* On récupère la valeur du text et on la vide */
+                            print('le text : ' + textController.text);
+
+                            ajoutBulle(textController.text, 1);
+                            textController.text = "";
+
+                            print('Bouton envoyer pressé ...');
+                          },
+                        ),
+                      ],
+                    )),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: pxReponses,
@@ -485,7 +519,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               textStyle: FlutterFlowTheme.subtitle2.override(
                                 fontFamily: 'Poppins',
                                 color: Colors.black,
-                                fontSize: 18,
+                                fontSize: 16,
                               ),
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.tertiaryColor,
