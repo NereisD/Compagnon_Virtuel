@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   // ignore: deprecated_member_use
-  var bullesDialogue = List.generate(1, (_) => List(4));
+  var bullesDialogue = List.generate(1, (_) => List(5));
 
   // ignore: deprecated_member_use
   var scenarioRobot = List.generate(10, (_) => List(3));
@@ -45,11 +45,20 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   // ignore: deprecated_member_use
   var scenarioUser = List.generate(12, (_) => List(3));
 
+  // ignore: deprecated_member_use
+  var dimensionsBulles = List.generate(3, (_) => List(3));
+
   /* iRobot permet de trouver l'indice dans le scénario du Robot */
   int iRobot = 0;
 
   /* pxReponses permet de définir la taille du widget réponses en px */
-  double pxReponses = 210;
+  double pxReponses;
+
+  /* typeBulle permet de définir la taille d'une bulle de dialogue.
+  Type 1 : la plus petite
+  Type 2 : intermédaire
+  Type 3 : la plus grosse */
+  int typeBulle;
 
   @override
   void initState() {
@@ -58,8 +67,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     scenarioRobot = initialiseScenarioRobot();
     scenarioUser = initialiseScenarioUser();
+    dimensionsBulles = initialiseDimensionsBulles();
 
     pxReponses = scenarioRobot[0][2].length.toDouble() * 60 + 20;
+    typeBulle = 3;
 
     //initialisation des bulles de dialogues
     //colonne 0 : ID_bulle,
@@ -71,9 +82,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     bullesDialogue[0][2] = scenarioRobot[0][1];
     bullesDialogue[0][3] =
         "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, "0")}";
+    bullesDialogue[0][4] = 2;
 
     // ignore: avoid_print
     print("bulles0 = " + bullesDialogue.toString());
+  }
+
+  List<List<dynamic>> initialiseDimensionsBulles() {
+    dimensionsBulles[0][0] = 0; //type de bulle
+    dimensionsBulles[0][1] = 50; //height
+    dimensionsBulles[0][2] = 0.3; //width
+    dimensionsBulles[1][0] = 1;
+    dimensionsBulles[1][1] = 50;
+    dimensionsBulles[1][2] = 0.6;
+    dimensionsBulles[2][0] = 2;
+    dimensionsBulles[2][1] = 70;
+    dimensionsBulles[2][2] = 0.8;
+
+    return dimensionsBulles;
   }
 
   List<List<dynamic>> initialiseScenarioRobot() {
@@ -110,7 +136,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     scenarioRobot[8][1] = "Tenez, au revoir ! ";
     scenarioRobot[8][2] = [10];
     scenarioRobot[9][0] = 9;
-    scenarioRobot[9][1] = "Tant pis, au revoir !";
+    scenarioRobot[9][1] =
+        "Tant pis, au revoir ! Ce fut un plaisir de vous, rencontrer. Et c'est un long message ! Oui vraiment long ? Ou pas. Peut etre bien que si en fait.";
     scenarioRobot[9][2] = [10];
 
     return scenarioRobot;
@@ -150,12 +177,39 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     scenarioUser[9][2] = 9;
     scenarioUser[10][0] = 10;
     scenarioUser[10][1] = "Au revoir ! ";
-    scenarioUser[10][2] = -1;
+    scenarioUser[10][2] = 0; //ici -1 mais pour boucler on laisse 0
     scenarioUser[11][0] = 11;
     scenarioUser[11][1] = "Je m'en vais manger des kiwis ";
     scenarioUser[11][2] = -1;
 
     return scenarioUser;
+  }
+
+  void creerBulle(String message, int isUser) {
+    if (message.length < 16) {
+      typeBulle = 0;
+    } else if (message.length < 32) {
+      typeBulle = 1;
+    } else {
+      typeBulle = 2;
+    }
+    print("message length = " + message.length.toString());
+    print("typeBulle = " + typeBulle.toString());
+
+    /* Augmentation de la taille du tableau */
+    int idBulle = bullesDialogue.length;
+    bullesDialogue.length = bullesDialogue.length + 1;
+
+    /* Attribution d'une nouvelle bulle au tableau */
+    var bulle = [
+      idBulle,
+      isUser,
+      message,
+      "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, "0")}",
+      typeBulle
+    ];
+    bullesDialogue[idBulle] = bulle;
+    print("bullesDialogue[" + idBulle.toString() + "] = " + bulle.toString());
   }
 
   //Fonction pour ajouter une bulle de dialogue
@@ -164,25 +218,42 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       //value = $m;
       print("-------- Début ajoutBulle --------");
 
-      /* Augmentation de la taille du tableau */
-      int idBulle = bullesDialogue.length;
-      bullesDialogue.length = bullesDialogue.length + 1;
+      int MAX = 70;
+      bool estRentreDansLeWhile = false;
+      bool stopWhile = false;
+      var splittedMessage = message;
+      while (message.length > MAX && stopWhile == false) {
+        splittedMessage = '';
+        estRentreDansLeWhile = true;
 
-      /* Attribution d'une nouvelle bulle au tableau */
-      var bulle = [
-        idBulle,
-        isUser,
-        message,
-        "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, "0")}"
-      ];
-      bullesDialogue[idBulle] = bulle;
+        if (message.contains('?') && message.indexOf('?') < MAX) {
+          splittedMessage = message.substring(0, message.indexOf('?') + 1);
+          message = message.substring(message.indexOf('?') + 1, message.length);
+        } else if (message.contains('!') && message.indexOf('!') < MAX) {
+          splittedMessage = message.substring(0, message.indexOf('!') + 1);
+          message = message.substring(message.indexOf('!') + 1, message.length);
+        } else if (message.contains('.') && message.indexOf('.') < MAX) {
+          splittedMessage = message.substring(0, message.indexOf('.') + 1);
+          message = message.substring(message.indexOf('.') + 1, message.length);
+        } else if (message.contains(',') && message.indexOf(',') < MAX) {
+          splittedMessage = message.substring(0, message.indexOf(',') + 1);
+          message = message.substring(message.indexOf(',') + 1, message.length);
+        } else {
+          stopWhile = true;
+          splittedMessage = message;
+        }
+        //print("splittedMessage = " + splittedMessage);
+        //print("message = " + message);
+
+        creerBulle(splittedMessage, isUser);
+      }
+
+      if (estRentreDansLeWhile == false || message != splittedMessage) {
+        creerBulle(message, isUser);
+      }
 
       /* Attribution de la taille du widget des boutons */
-      pxReponses = scenarioRobot[iRobot][2].length.toDouble() * 60 + 20;
-
-      // ignore: avoid_print
-      print(
-          "bullesDialogue[$idBulle]  = " + bullesDialogue[idBulle].toString());
+      pxReponses = scenarioRobot[iRobot][2].length.toDouble() * 60 + 10;
 
       print("-------- Fin ajoutBulle --------");
     });
@@ -229,7 +300,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     for (int i = 0; i < bullesDialogue.length; i++)
                       if (bullesDialogue[i][1] == 0)
@@ -241,7 +312,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           children: [
                             Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 20, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(6, 0, 0, 0),
                               child: Container(
                                 width: 45,
                                 height: 45,
@@ -259,8 +330,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   10, 10, 10, 10),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                height: 75,
+                                width: MediaQuery.of(context).size.width *
+                                    dimensionsBulles[bullesDialogue[i][4]][2],
+                                height: dimensionsBulles[bullesDialogue[i][4]]
+                                        [1]
+                                    .toDouble(),
                                 decoration: BoxDecoration(),
                                 child: Stack(
                                   children: [
@@ -273,7 +347,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         image: DecorationImage(
                                           fit: BoxFit.fill,
                                           image: Image.asset(
-                                            'assets/images/bulle_gauche.png',
+                                            'assets/images/bulle_gauche_' +
+                                                bullesDialogue[i][4]
+                                                    .toString() +
+                                                '.png',
                                           ).image,
                                         ),
                                       ),
@@ -286,7 +363,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 15,
+                                            fontSize: 14,
                                           ),
                                         ),
                                       ),
@@ -294,14 +371,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1, 1),
                                       child: Container(
-                                        width: 120,
-                                        height: 25,
+                                        width: 100,
+                                        height: 20,
                                         decoration: BoxDecoration(),
                                         child: Align(
                                           alignment: AlignmentDirectional(0, 0),
                                           child: Text(
                                             bullesDialogue[i][3].toString(),
-                                            style: FlutterFlowTheme.bodyText1,
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -316,14 +397,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         /* Bulle de dialogue de l'utilisateur */
                         Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   10, 10, 10, 10),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                height: 75,
+                                width: MediaQuery.of(context).size.width *
+                                    dimensionsBulles[bullesDialogue[i][4]][2],
+                                height: dimensionsBulles[bullesDialogue[i][4]]
+                                        [1]
+                                    .toDouble(),
                                 decoration: BoxDecoration(
                                   color: Color(0xFFEEEEEE),
                                 ),
@@ -338,7 +423,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         image: DecorationImage(
                                           fit: BoxFit.fill,
                                           image: Image.asset(
-                                            'assets/images/bulle_droite.png',
+                                            'assets/images/bulle_droite_' +
+                                                bullesDialogue[i][4]
+                                                    .toString() +
+                                                '.png',
                                           ).image,
                                         ),
                                       ),
@@ -350,7 +438,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           style: FlutterFlowTheme.bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 15,
+                                            fontSize: 14,
                                           ),
                                         ),
                                       ),
@@ -358,14 +446,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     Align(
                                       alignment: AlignmentDirectional(1, 1),
                                       child: Container(
-                                        width: 120,
-                                        height: 25,
+                                        width: 100,
+                                        height: 20,
                                         decoration: BoxDecoration(),
                                         child: Align(
                                           alignment: AlignmentDirectional(0, 0),
                                           child: Text(
                                             bullesDialogue[i][3].toString(),
-                                            style: FlutterFlowTheme.bodyText1,
+                                            style: FlutterFlowTheme.bodyText1
+                                                .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 12,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -374,15 +466,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ),
                             ),
-                            Container(
-                              width: 45,
-                              height: 45,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                              ),
-                              child: Image.asset(
-                                'assets/images/femme2.png',
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 6, 0),
+                              child: Container(
+                                width: 45,
+                                height: 45,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.asset(
+                                  'assets/images/femme2.png',
+                                ),
                               ),
                             ),
                           ],
@@ -415,8 +511,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20, 0, 0, 0),
                             child: TextFormField(
                               controller: textController,
                               obscureText: false,
@@ -428,22 +524,22 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   fontFamily: 'Poppins',
                                   fontSize: 16,
                                 ),
-                                enabledBorder: UnderlineInputBorder(
+                                enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
                                     topRight: Radius.circular(4.0),
                                   ),
                                 ),
-                                focusedBorder: UnderlineInputBorder(
+                                focusedBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
                                     width: 1,
                                   ),
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
                                     topRight: Radius.circular(4.0),
                                   ),
@@ -462,7 +558,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           borderRadius: 30,
                           borderWidth: 1,
                           buttonSize: 60,
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.send,
                             color: Colors.black,
                             size: 30,
@@ -514,12 +610,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           scenarioRobot[0][2][i],*/
                             options: FFButtonOptions(
                               width: 300,
-                              height: 32,
+                              height: 30,
                               color: Colors.white,
                               textStyle: FlutterFlowTheme.subtitle2.override(
                                 fontFamily: 'Poppins',
                                 color: Colors.black,
-                                fontSize: 16,
+                                fontSize: 15,
                               ),
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.tertiaryColor,
