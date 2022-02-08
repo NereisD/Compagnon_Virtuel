@@ -37,7 +37,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   // ignore: deprecated_member_use
-  var bullesDialogue = List.generate(1, (_) => List(5));
+  var bullesDialogue = List.generate(1, (_) => List(6));
 
   // ignore: deprecated_member_use
   var scenarioRobot = List.generate(10, (_) => List(3));
@@ -83,6 +83,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     bullesDialogue[0][3] =
         "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, "0")}";
     bullesDialogue[0][4] = 2;
+    bullesDialogue[0][5] = false;
 
     // ignore: avoid_print
     print("bulles0 = " + bullesDialogue.toString());
@@ -186,9 +187,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   }
 
   void creerBulle(String message, int isUser) {
-    if (message.length < 16) {
+    if (message.length < 15) {
       typeBulle = 0;
-    } else if (message.length < 32) {
+    } else if (message.length < 30) {
       typeBulle = 1;
     } else {
       typeBulle = 2;
@@ -206,7 +207,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       isUser,
       message,
       "${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, "0")}",
-      typeBulle
+      typeBulle,
+      false
     ];
     bullesDialogue[idBulle] = bulle;
     print("bullesDialogue[" + idBulle.toString() + "] = " + bulle.toString());
@@ -387,6 +389,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                       ),
                                     ),
+                                    if (bullesDialogue[i][5])
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.95, 0.10),
+                                        child: Icon(
+                                          Icons.favorite,
+                                          //color: FlutterFlowTheme.primaryColor,
+                                          color: Colors.red.shade900,
+                                          size: 20,
+                                        ),
+                                      ),
                                   ],
                                 ),
                               ),
@@ -462,6 +475,17 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                         ),
                                       ),
                                     ),
+                                    if (bullesDialogue[i][5])
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.90, 0.30),
+                                        child: Icon(
+                                          Icons.favorite,
+                                          //color: FlutterFlowTheme.primaryColor,
+                                          color: Colors.yellow.shade700,
+                                          size: 20,
+                                        ),
+                                      ),
                                   ],
                                 ),
                               ),
@@ -704,6 +728,18 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                     onPressed: () {
                       print('Icon_like pressed ...');
+                      //Ici on passe le bool du like à son inverse (indice [5])
+                      bullesDialogue[bullesDialogue.length - 1][5] =
+                          !bullesDialogue[bullesDialogue.length - 1][5];
+                      //Debug print pour voir le bool s'inverser
+                      /*print('bullesDialogue[' +
+                          bullesDialogue.length.toString() +
+                          '][5] = ' +
+                          bullesDialogue[bullesDialogue.length - 1][5]
+                              .toString());*/
+                      setState(() {
+                        //permet de reload l'UI même si c'est vide
+                      });
                     },
                   ),
                 ],
