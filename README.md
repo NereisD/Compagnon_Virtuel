@@ -199,6 +199,40 @@ Par exemple, la pertinence des dialogues peut être mesurée grâce à un retour
 
 Une autre idée de fonctionnalité a émergée : la possibilité de “skip” les dialogues avec un bouton. 
 
+-----------------------------------
+jeudi 27 janvier 2022 - RDV en visioconférence
+
+Nous lui avons montré une implémentation de l’interface de dialogue avec le robot avec un exemple de conversation de réponses fermées. (scénario des fruits)
+Nous avons discuté de la possibilité d’ajouter des “likes” ou des “dislikes” aux messages du robot. 
+Les prochaines étapes sont la possibilité d’écrire des réponses ouvertes dans les bulles de dialogues et d’implémenter le scénario de premier lancement de l’application.
+
+L’implémentation de la BD sur SQF lite ne viendra qu’une fois que nous pourrons écrire des réponses ouvertes pour les enregistrer dans des variables (tel que le genre, le nom et l'âge de la personne) car ces données devront être aussi enregistrées sur le téléphone. 
+
+Pour nous aider au débogage, nous pouvons écrire ifdef pour l'affichage des print. 
+
+Le prochain RDV sera le mercredi 9 février. 
+
+
+-----------------------------------
+mercredi 9 février 2022 - RDV en visioconférence 
+
+Sur l’interface :
+Nous lui avons montré des bulles de dialogues responsives avec 3 tailles différentes, ainsi que la possibilité de liker la dernière bulle affichée.  
+Lydie souhaite, de la même manière que les likes, qu’on puisse passer une bulle en bulle “secrète” qui ne serait pas enregistrée dans les tables et donc illisibles sur les données du téléphones. 
+Il faudrait aussi avoir la possibilité de liker ou non les messages qui précèdent la dernière bulle de dialogue.
+
+Sur les BDD :
+Nous lui avons montré un schéma relationnel des BDD des scénarios du robot et de l’utilisateur. Il faut effectuer un petit changement entre le lien de ces tables. 
+Il faut notamment réfléchir à comment savoir si le robot attend une réponse ouverte ou fermée de la part de l'utilisateur, en étant plus clair dans les tables sans “hard coder”. 
+
+Nous devons réfléchir aussi à comment passer d’un scénario à l’autre dans l’algorithme de discussion. 
+
+Pour des cas particulier tel que récupérer la variable du prénom de l’utilisateur, réfléchir à savoir comment ne récupérer que son prénom et pas toute la phrase (“par exemple récupérer nom = “Jean” et pas nom = “Mon nom est Jean”). 
+
+Nous avons brièvement parlé du Japon et les frontières sont toujours fermées. 
+
+Le prochain RDV aura lieu le mardi 1er mars. 
+
 
 
 
