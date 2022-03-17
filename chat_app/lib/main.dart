@@ -1,3 +1,5 @@
+import 'package:chat_app/class/Message.dart';
+import 'package:chat_app/class/Statement.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:grouped_list/grouped_list.dart';
@@ -6,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'flutter_flow/flutter_flow_icon_button.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_widgets.dart';
+import 'package:chat_app/JournalScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Compagnon virtuel',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -52,54 +56,6 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MainPageState();
-}
-
-/* Un Message correspond a une bulle de dialogue
-* Les messages seront inscrits dans l'historique (sauf les secrets)
-*/
-class Message {
-  final int id;
-  final String text;
-  final DateTime date;
-  final bool isSentByMe;
-  bool isLiked;
-  bool isSecret;
-
-  //Constructeur du message
-  Message({
-    @required this.id,
-    @required this.text,
-    @required this.date,
-    @required this.isSentByMe,
-  }) {
-    isLiked = false;
-    isSecret = false;
-  }
-
-  void setIsLiked(bool b) {
-    isLiked = b;
-  }
-
-  void setIsSecret(bool b) {
-    isSecret = b;
-  }
-}
-
-/* Un Statement correspond à une ligne du script
-* Peut appartenir au robot ou à l'utilisateur
-*/
-class Statement {
-  final int id;
-  final String text;
-  final bool isUser;
-  List<int> idAnswers = [];
-
-  Statement({
-    @required this.id,
-    @required this.text,
-    @required this.isUser,
-    this.idAnswers,
-  });
 }
 
 class _MainPageState extends State<MyHomePage> {
@@ -490,7 +446,7 @@ class _MainPageState extends State<MyHomePage> {
                       size: 30,
                     ),
                     onPressed: () {
-                      print('Icon_journal pressed ...');
+                       Navigator.push(context, MaterialPageRoute(builder: (context)=> JournalScreen()));
                     },
                   ),
                   FlutterFlowIconButton(
@@ -544,3 +500,5 @@ class _MainPageState extends State<MyHomePage> {
         ),
       );
 }
+
+
