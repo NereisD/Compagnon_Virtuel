@@ -28,6 +28,12 @@ class _JournalScreen extends State<JournalScreen> {
       date: DateTime.now().subtract(Duration(days: 2, minutes: 5)),
       isSentByMe: true,
     ),
+    Message(
+      id: 1,
+      text: 'Je vais bien aujourdhui',
+      date: DateTime.now().subtract(Duration(days: 3, minutes: 45)),
+      isSentByMe: true,
+    ),
   ].reversed.toList();
 
 
