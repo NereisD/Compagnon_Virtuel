@@ -233,6 +233,29 @@ Nous avons brièvement parlé du Japon et les frontières sont toujours fermées
 
 Le prochain RDV aura lieu le mardi 1er mars. 
 
+—------------
+mardi 1 mars 2022
+
+Nous avons montré de nouveaux exemples de BDD et parlé de la conception du backend avec SQLITE pour notre application.
+Pour les dialogues, il y aura des phrases qui incitent l’utilisateur à n’écrire que son nom par exemple, et pas “je m’appelle Jean” et des fonctions pour parser les réponses de l’utilisateur.
+
+Le focus sur le dernier message posté a été implémenté.
+
+—------------
+Jeudi 17 mars 2022
+
+Présentation d’une nouvelle interface de dialogue avec des objets messages.
+Dans le modèle des messages, il y a un booleen isSecret pour passer un message en secret en plus du booleen isLiked. 
+On pourra aussi passer des messages écrits dans le journal en secret.
+
+Pour la génération de nouveaux scénarios il faudra pouvoir lire un fichier de type csv.
+
+—------------
+lundi 11 avril 2022
+
+Nous avons parlé de l’organisation du stage au Japon et des documents à remplir pour les demandes de VISA. 
+Il faut attendre une réponse positive de l’administration de l’université de Kobe avant de pouvoir remplir la convention de stage et d’autres documents. 
+
 
 
 
