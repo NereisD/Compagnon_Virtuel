@@ -18,7 +18,7 @@ class TodoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(36),
         child: Slidable(
           actionPane: SlidableDrawerActionPane(),
           key: Key(todo.id),
@@ -46,7 +46,8 @@ class TodoWidget extends StatelessWidget {
         onTap: () => editTodo(context, todo),
         child: Container(
           color: Colors.white,
-          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.all(6), //bof
+          padding: EdgeInsets.all(14),
           child: Row(
             children: [
               Checkbox(
@@ -68,7 +69,7 @@ class TodoWidget extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,14 +79,14 @@ class TodoWidget extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
-                        fontSize: 22,
+                        fontSize: 20,
                       ),
                     ),
                     if (todo.description.isNotEmpty)
                       Container(
                         margin: EdgeInsets.only(top: 4),
                         child: Text(todo.description,
-                            style: TextStyle(fontSize: 18, height: 1.5)),
+                            style: TextStyle(fontSize: 16, height: 1.5)),
                       ),
                   ],
                 ),

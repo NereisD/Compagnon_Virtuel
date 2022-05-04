@@ -1,24 +1,26 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:flutter/cupertino.dart';
 import 'package:notes_app_ui/model/todo.dart';
 
 class TodosProvider extends ChangeNotifier {
   List<Todo> _todos = [
     Todo(
-        createdTime: DateTime.now(),
+        createdTime: DateTime.now().subtract(Duration(days: 2, minutes: 1)),
         title: 'Work on flutter',
         description: '''- finish this project
-      - eat some bananas
-      - do the sqflite
-      - wrap messages by date'''),
+- eat some bananas
+- do the sqflite
+- wrap messages by date'''),
     Todo(
-      createdTime: DateTime.now(),
-      title: 'Walk the dog',
+      createdTime: DateTime.now().subtract(Duration(days: 2, minutes: 2)),
+      title: 'Biking 🚴‍♂️',
     ),
     Todo(
-        createdTime: DateTime.now(),
+        createdTime: DateTime.now().subtract(Duration(days: 2, minutes: 3)),
         title: 'Liste de course',
         description: '''- bananes
-      - salade'''),
+- salade'''),
   ];
 
   //Pour filtrer les todos non secrets

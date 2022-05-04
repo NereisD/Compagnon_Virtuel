@@ -1,4 +1,4 @@
-# notse_app_ui
+# notes_app_ui
 
 A new Flutter project.
 

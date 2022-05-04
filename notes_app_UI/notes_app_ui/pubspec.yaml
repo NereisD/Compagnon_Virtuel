@@ -22,6 +22,12 @@ dependencies:
   #slidable
   flutter_slidable: ^0.5.7
 
+  # grouped list
+  grouped_list: ^4.2.0
+
+  #date format
+  intl: ^0.17.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

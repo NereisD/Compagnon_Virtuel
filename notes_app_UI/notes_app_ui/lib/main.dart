@@ -9,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Todo App';
+  static final String title = 'Journal';
 
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: title,
           theme: ThemeData(
-            primarySwatch: Colors.pink,
+            primarySwatch: Colors.teal,
+            secondaryHeaderColor: Colors.teal[800],
             scaffoldBackgroundColor: Color(0xFFf6f5ee),
           ),
           home: HomePage(),
