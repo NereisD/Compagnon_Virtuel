@@ -1,3 +1,4 @@
+import 'package:chat_app/class/ManageDatabase.dart';
 import 'package:chat_app/class/Message.dart';
 import 'package:chat_app/class/Statement.dart';
 import 'package:flutter/material.dart';
@@ -183,7 +184,14 @@ class _MainPageState extends State<MyHomePage> {
           elevation: 4,
         ),
         backgroundColor: Colors.white,
-        body: Column(
+        body: FutureBuilder<List<Message>>(
+          future : ManageDatabase.instance.messages(),
+          builder: (BuildContext context, AsyncSnapshot<List<Recipe>> snapshot){
+            if (snapshot.hasData){
+              List<Message> Recipes = snapshot.data;
+              return
+            }
+          }
           children: [
             //Pour mettre le textField en bas
             Expanded(
