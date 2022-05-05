@@ -53,6 +53,8 @@ class TodoWidget extends StatelessWidget {
               Checkbox(
                 activeColor: Theme.of(context).primaryColor,
                 checkColor: Colors.white,
+                //Icons.lock_open
+                shape: CircleBorder(), //A remplacer par un padlock
                 value: todo.isSecret,
                 /* Lorsqu'on clique dessus, passe d'un etat secret a l'autre 
               * et deplace la note 
