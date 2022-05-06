@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app_ui/model/todo.dart';
 import 'package:notes_app_ui/provider/todos.dart';
 import 'package:notes_app_ui/widget/todo_form_widget.dart';
@@ -35,13 +36,15 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
                 * Attention cette variable ne change pas le state,
                 * donc this.title sera vide.
                 */
+                title: DateFormat.Hm().format(DateTime.now()),
+                /*
                 title: DateTime.now().minute.toInt() < 10
                     ? DateTime.now().hour.toString() +
                         ':0' +
                         DateTime.now().minute.toString()
                     : DateTime.now().hour.toString() +
                         ':' +
-                        DateTime.now().minute.toString(),
+                        DateTime.now().minute.toString(),*/
                 onChangedTitle: (title) => setState(() => this.title = title),
                 onChangedDescription: (description) =>
                     setState(() => this.description = description),
@@ -63,20 +66,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
       final todo = Todo(
         id: DateTime.now().toString(),
         //Si le titre est vide on écrit l'heure:minutes
-        /*title: title.isEmpty
-            ? DateTime.now().hour.toString() +
-                ':' +
-                DateTime.now().minute.toString()
-            : title,*/
-        title: title.isEmpty
-            ? DateTime.now().minute.toInt() < 10
-                ? DateTime.now().hour.toString() +
-                    ':0' +
-                    DateTime.now().minute.toString()
-                : DateTime.now().hour.toString() +
-                    ':' +
-                    DateTime.now().minute.toString()
-            : title,
+        title: title.isEmpty ? DateFormat.Hm().format(DateTime.now()) : title,
         description: description,
         createdTime: DateTime.now(),
       );
