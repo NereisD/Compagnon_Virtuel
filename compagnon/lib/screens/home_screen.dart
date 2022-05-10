@@ -1,14 +1,10 @@
-
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/screens/chat/chat_body.dart';
-
 import 'package:compagnon/screens/journal/journal_screen.dart';
 import 'package:flutter/material.dart';
 
-
-
 class HomeScreen extends StatefulWidget {
-
-    HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -33,69 +29,67 @@ class MyHomeScreen extends State<HomeScreen> {
 
   BottomNavigationBar navigationbar() {
     return BottomNavigationBar(
-    backgroundColor: Colors.teal,
-    unselectedItemColor: Colors.white.withOpacity(0.7),
-    selectedItemColor: Colors.white,
-    showSelectedLabels: true,   // <-- HERE
-    showUnselectedLabels: true,
-    onTap: (int index) {
-          this.onTapHandler(index);
-        },
-    items : const [
-      BottomNavigationBarItem(
+      backgroundColor: Colors.teal,
+      unselectedItemColor: Colors.white.withOpacity(0.8),
+      selectedItemColor: Colors.white.withOpacity(0.8),
+      showSelectedLabels: true, // <-- HERE
+      showUnselectedLabels: true,
+      onTap: (int index) {
+        this.onTapHandler(index);
+      },
+      items: [
+        BottomNavigationBarItem(
           icon: Icon(
-                Icons.settings,
-                color: Colors.white,
-                size: 30.0,
-                semanticLabel: "Text",
-                
-             ),
+            Icons.settings,
+            color: Colors.white,
+            size: 30.0,
+            semanticLabel: "Text",
+          ),
           label: "Reglage",
           backgroundColor: Colors.teal,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-                Icons.delete,
-                color: Colors.white,
-                size: 30.0,
-                semanticLabel: "Text",
-            ),
-        label: 'Supprimer',
-        backgroundColor: Colors.teal,
-
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-                Icons.book,
-                color: Colors.white,
-                size: 30.0,
-                semanticLabel: "Text",
-            ),
-        label: "Journal",
-        backgroundColor: Colors.teal,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-                Icons.question_mark,
-                color: Colors.white,
-                size: 30.0,
-                semanticLabel: "Text",
-            ),
-        label: "Secret",
-        backgroundColor: Colors.teal,
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(
-                Icons.favorite,
-                color: Colors.white,
-                size: 30.0,
-                semanticLabel: "Text",
-            ),
-        label: "Like",
-        backgroundColor: Colors.teal,
-      ),
-    ],
-  );
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.delete,
+            color: keyValue == 1 ? Colors.black : Colors.white,
+            size: 30.0,
+            semanticLabel: "Text",
+          ),
+          label: 'Supprimer',
+          backgroundColor: Colors.teal,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.book,
+            color: Colors.white,
+            size: 30.0,
+            semanticLabel: "Text",
+          ),
+          label: "Journal",
+          backgroundColor: Colors.teal,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.favorite,
+            color: keyValue == 3 ? Colors.red : Colors.white,
+            size: 30.0,
+            semanticLabel: "Text",
+          ),
+          label: "Liker",
+          backgroundColor: Colors.teal,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.vpn_key,
+            color: keyValue == 4 ? Colors.orange : Colors.white,
+            size: 30.0,
+            semanticLabel: "Text",
+          ),
+          label: "Secret",
+          backgroundColor: Colors.teal,
+        ),
+      ],
+    );
   }
 
   AppBar buildAppBar() {
@@ -128,22 +122,22 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   Widget bodySelected() {
-    if(selectedIndex == 0) {
-          return this._chatBody;
-        } else if(this.selectedIndex==2) {
-          return this._journalBody;
-        }
-
+    if (selectedIndex == 2) {
+      return this._journalBody;
+    } else {
+      return this._chatBody;
+    }
   }
 
-    void onTapHandler(int index)  {
+  void onTapHandler(int index) {
     this.setState(() {
       this.selectedIndex = index;
+
+      if (keyValue == index) {
+        keyValue = 0;
+      } else {
+        keyValue = index;
+      }
     });
   }
-
-
-  
 }
-
-

@@ -133,15 +133,19 @@ class MessageWidget extends State<messagePlacement> {
           // Gère l'event de cliquer sur le message
           onTap: () {
             print("Id du message : " + message.id.toString());
-            var keyValue = 1; // a changer !!!
-            if (keyValue == 1) {
+            //var keyValue = 2; // a changer !!!
+            if (keyValue == 3) {
               message.setIsLiked(!message.isLiked);
               MessageDatabase.instance.update(message);
               keyValue = 0;
               setState(() {});
-            } else if (keyValue == 2) {
+            } else if (keyValue == 4) {
               message.setIsSecret(!message.isSecret);
               MessageDatabase.instance.update(message);
+              keyValue = 0;
+              setState(() {});
+            } else if (keyValue == 1) {
+              MessageDatabase.instance.delete(message.id);
               keyValue = 0;
               setState(() {});
             }
