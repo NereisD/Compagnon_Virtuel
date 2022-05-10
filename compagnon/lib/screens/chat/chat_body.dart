@@ -1,9 +1,8 @@
-import 'package:compagnon/screens/barNavigation.dart';
 import 'package:compagnon/screens/chat/components/InputMessage.dart';
 import 'package:compagnon/screens/chat/components/chatBox.dart';
 import 'package:flutter/material.dart';
 
-class Body extends StatelessWidget {
+class ChatBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
