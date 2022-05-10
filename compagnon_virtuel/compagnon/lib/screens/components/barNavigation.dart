@@ -10,6 +10,8 @@ class barnavigation extends StatelessWidget {
       backgroundColor: Colors.teal,
       unselectedItemColor: Colors.white.withOpacity(0.7),
       selectedItemColor: Colors.white,
+      showSelectedLabels: false,   // <-- HERE
+      showUnselectedLabels: false,
       items : const [
         BottomNavigationBarItem(
             icon: Icon(
@@ -24,7 +26,7 @@ class barnavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-                  Icons.linked_camera,
+                  Icons.question_mark,
                   color: Colors.white,
                   size: 30.0,
                   semanticLabel: "Text",
@@ -35,7 +37,7 @@ class barnavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-                  Icons.link,
+                  Icons.book,
                   color: Colors.white,
                   size: 30.0,
                   semanticLabel: "Text",
@@ -45,7 +47,7 @@ class barnavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-                  Icons.settings,
+                  Icons.gamepad,
                   color: Colors.white,
                   size: 30.0,
                   semanticLabel: "Text",
@@ -55,7 +57,7 @@ class barnavigation extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-                  Icons.settings,
+                  Icons.favorite,
                   color: Colors.white,
                   size: 30.0,
                   semanticLabel: "Text",

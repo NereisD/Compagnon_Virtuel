@@ -26,7 +26,7 @@ class InputMessage extends StatelessWidget {
                     onSubmitted: (text) {
                       print('Bouton envoyer pressé ...');
                       _textController.text = "";
-                      final messgaeinput = Message(1, text, "coucou", true, false, false);
+                      final messgaeinput = Message(1,text, DateTime.now().toString(), true, false, false);
                       MessageDatabase.instance.insertMessage(messgaeinput);
                     },
                   ),

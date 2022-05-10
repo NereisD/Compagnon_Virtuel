@@ -26,6 +26,7 @@ class Message {
     this.isSecret = false;
   }
 
+
   void setIsLiked(bool b) {
     isLiked = b;
   }

@@ -1,28 +1,15 @@
-import 'package:compagnon/models/Message.dart';
-import 'package:compagnon/models/MessageDatabase.dart';
-import 'package:compagnon/screens/barNavigation.dart';
-import 'package:compagnon/screens/chat/components/InputMessage.dart';
-import 'package:compagnon/screens/chat/components/chatBox.dart';
-import 'package:compagnon/screens/components/body.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreen extends StatelessWidget{
-  ChatScreen(BuildContext context);
+class appbar extends StatelessWidget {
+  const appbar({
+    Key key,
+    @required this.context,
+  }) : super(key: key);
 
+  final BuildContext context;
 
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: buildAppBar(context),
-      body: Body(),
-      bottomNavigationBar: barnavigation(),
-
-
-    );
-  }
-
-
-  AppBar buildAppBar(BuildContext context){
+  Widget build(BuildContext context) {
       return AppBar(
           backgroundColor: Colors.teal,
           automaticallyImplyLeading: true,
