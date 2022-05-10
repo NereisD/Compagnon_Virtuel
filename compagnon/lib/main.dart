@@ -1,4 +1,4 @@
-import 'package:compagnon/screens/home_screen.dart';
+import 'package:compagnon/screens/chat/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
             secondaryHeaderColor: Colors.teal[800],
             scaffoldBackgroundColor: Color(0xFFf6f5ee),
           ),
-      home: HomeScreen(),
+      home: ChatScreen(context),
     );
   }
 }

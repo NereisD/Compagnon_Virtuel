@@ -96,7 +96,7 @@ CREATE TABLE $tableMessages (
     return result.map((json) => Message.fromJson(json)).toList();
   }
 
-  //Modifie une message en fonction de son ID
+  //Modifie un message
   Future<int> update(Message message) async {
     final db = await instance.database;
 
