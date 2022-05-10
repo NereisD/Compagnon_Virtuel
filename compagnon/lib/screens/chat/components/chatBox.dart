@@ -1,15 +1,12 @@
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/MessageDatabase.dart';
 import 'package:flutter/material.dart';
-
-
-
-
+import 'package:intl/intl.dart';
 
 class chatBox extends StatefulWidget {
-
-    chatBox({Key key}) : super(key: key);
+  chatBox({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -18,7 +15,6 @@ class chatBox extends StatefulWidget {
 }
 
 class MychatBox extends State<chatBox> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,60 +42,111 @@ class MychatBox extends State<chatBox> {
         },
       ),
     );
-
-    //  ListView.builder(
-    //       itemCount: MessageDatabase.instance.defaultMessages.length,
-    //       itemBuilder: (context, index) => messagePlacement(message: MessageDatabase.instance.defaultMessages[index],)
-    //       ) ,
-    //     );
   }
 }
 
-
-
-
-
+// ignore: camel_case_types
 class messagePlacement extends StatefulWidget {
-
-  messagePlacement( {Key key, this.message}) : super(key: key);
-  final Message message; 
+  messagePlacement({Key key, this.message}) : super(key: key);
+  final Message message;
   @override
   State<StatefulWidget> createState() {
-    return MymessagePlacement();
+    return MessageWidget();
   }
 }
 
-class MymessagePlacement extends State<messagePlacement> {
-
-
+class MessageWidget extends State<messagePlacement> {
+  /* Widget message
+  */
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: kDefaultPadding),
-      child: Row(
-        mainAxisAlignment: widget.message.isSentByMe
-            ? MainAxisAlignment.end
-            : MainAxisAlignment.start,
-        children: [
-          if (!widget.message.isSentByMe) ...{
-            CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage("assets/images/robot.png")),
-          },
-          SizedBox(width: kDefaultPadding),
-          Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPadding * 0.75,
-                vertical: kDefaultPadding / 2,
+    final message = widget.message;
+    return Align(
+      alignment:
+          message.isSentByMe ? Alignment.centerRight : Alignment.centerLeft,
+      child: Card(
+        elevation: 8, //L'ombre des messages
+        child: InkWell(
+          // InkWell Permet de cliquer sur un message
+          child: Stack(
+            children: [
+              //Le container du message
+              Container(
+                color: message.isSentByMe
+                    ? Colors.lightGreen[100]
+                    : Colors.blueGrey[50],
+                child: Padding(
+                  padding: const EdgeInsets.all(14), //Le contour
+                  child: Text(
+                    message.text,
+                    //Ici on modifie le style du texte des bulles
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
               ),
-              decoration: BoxDecoration(
-                  color: widget.message.isSentByMe ? Colors.teal : Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(30)),
-              child: Text(
-                widget.message.text,
-                style: TextStyle(color: Colors.white),
-              )),
-        ],
+              /* ------ Widget de l'heure ------ */
+              Positioned.fill(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    DateFormat.Hm().format(message.date),
+                    style: FlutterFlowTheme.bodyText1.override(
+                      fontFamily: 'Poppins',
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+              /* ------ Widget du like ------ 
+                          * Positioned.fill permet de prendre toute 
+                          * tla taille disponible
+                          */
+              if (message.isLiked)
+                const Positioned.fill(
+                  child: Align(
+                    alignment: AlignmentDirectional(0.80, 1.00),
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.redAccent,
+                      size: 18,
+                    ),
+                  ),
+                ),
+              /* ------ Widget du secret ------ */
+              if (message.isSecret)
+                const Positioned.fill(
+                  child: Align(
+                    alignment: AlignmentDirectional(0.00, -1.00),
+                    child: Icon(
+                      Icons.vpn_key,
+                      color: Colors.orangeAccent,
+                      size: 20,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+
+          // Gère l'event de cliquer sur le message
+          onTap: () {
+            print("Id du message : " + message.id.toString());
+            var keyValue = 1; // a changer !!!
+            if (keyValue == 1) {
+              message.setIsLiked(!message.isLiked);
+              MessageDatabase.instance.update(message);
+              keyValue = 0;
+              setState(() {});
+            } else if (keyValue == 2) {
+              message.setIsSecret(!message.isSecret);
+              MessageDatabase.instance.update(message);
+              keyValue = 0;
+              setState(() {});
+            }
+          },
+        ),
       ),
     );
   }
