@@ -3,7 +3,22 @@ import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/MessageDatabase.dart';
 import 'package:flutter/material.dart';
 
-class chatBox extends StatelessWidget {
+
+
+
+
+class chatBox extends StatefulWidget {
+
+    chatBox({Key key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return MychatBox();
+  }
+}
+
+class MychatBox extends State<chatBox> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,25 +55,33 @@ class chatBox extends StatelessWidget {
   }
 }
 
-// ignore: camel_case_types
-class messagePlacement extends StatelessWidget {
-  const messagePlacement({
-    @required Key key,
-    this.message,
-  }) : super(key: key);
 
-  final Message message;
+
+
+
+class messagePlacement extends StatefulWidget {
+
+  messagePlacement( {Key key, this.message}) : super(key: key);
+  final Message message; 
+  @override
+  State<StatefulWidget> createState() {
+    return MymessagePlacement();
+  }
+}
+
+class MymessagePlacement extends State<messagePlacement> {
+
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: kDefaultPadding),
       child: Row(
-        mainAxisAlignment: message.isSentByMe
+        mainAxisAlignment: widget.message.isSentByMe
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         children: [
-          if (!message.isSentByMe) ...{
+          if (!widget.message.isSentByMe) ...{
             CircleAvatar(
                 radius: 20,
                 backgroundImage: AssetImage("assets/images/robot.png")),
@@ -70,10 +93,10 @@ class messagePlacement extends StatelessWidget {
                 vertical: kDefaultPadding / 2,
               ),
               decoration: BoxDecoration(
-                  color: message.isSentByMe ? Colors.teal : Colors.blueAccent,
+                  color: widget.message.isSentByMe ? Colors.teal : Colors.blueAccent,
                   borderRadius: BorderRadius.circular(30)),
               child: Text(
-                message.text,
+                widget.message.text,
                 style: TextStyle(color: Colors.white),
               )),
         ],
