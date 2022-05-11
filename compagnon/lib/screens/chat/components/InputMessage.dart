@@ -1,4 +1,6 @@
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/flutter_flow/flutter_flow_icon_button.dart';
+import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/MessageDatabase.dart';
 import 'package:compagnon/screens/chat/chat_body.dart';
@@ -26,24 +28,52 @@ class InputMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (iInput == 1) {
-      return Container(
-        color: Colors.grey.shade300,
-        child: TextField(
-          controller: _textController,
-          decoration: const InputDecoration(
-            contentPadding: EdgeInsets.all(12),
-            hintText: 'Ecrivez un message ici',
+      return Row(
+        children: [
+          /* Container input message
+          */
+          Expanded(
+            child: Container(
+              color: Colors.grey.shade300,
+              height: 50,
+              child: TextField(
+                controller: _textController,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.all(12),
+                  hintText: 'Ecrivez un message la',
+                ),
+                //NewMessageWidget( //creer un style
+                onSubmitted: (text) {
+                  print('Bouton envoyer pressé ...');
+                  addMessage(text, true);
+                  _textController.text = "";
+                  RestartWidget.restartApp(context); //Reload la page de tchat
+                },
+              ),
+            ),
           ),
-          //NewMessageWidget( //creer un style
-          onSubmitted: (text) {
-            print('Bouton envoyer pressé ...');
-            addMessage(text, true);
-            _textController.text = "";
-            RestartWidget.restartApp(context); //Reload la page de tchat
-          },
-        ),
+          /* Bouton envoyer
+          */
+          FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            borderWidth: 1,
+            buttonSize: 60,
+            icon: Icon(
+              Icons.send,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              print('IconButton pressed ...');
+              addMessage(_textController.text, true);
+              _textController.text = "";
+              RestartWidget.restartApp(context); //Reload la page de tchat
+            },
+          ),
+        ],
       );
-    } else {
+    } else if (iInput == 2) {
       return Container(
         width: MediaQuery.of(context).size.width,
         height: 140,

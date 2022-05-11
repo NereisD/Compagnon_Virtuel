@@ -1,5 +1,5 @@
 import 'package:compagnon/screens/chat/components/InputMessage.dart';
-import 'package:compagnon/screens/chat/components/chatBox.dart';
+import 'package:compagnon/screens/chat/components/ChatBox.dart';
 import 'package:flutter/material.dart';
 
 class RestartWidget extends StatefulWidget {
@@ -40,7 +40,7 @@ class ChatBody extends StatelessWidget {
       children: [
         Expanded(
           flex: 5,
-          child: chatBox(),
+          child: ChatBox(),
         ),
         InputMessage(iInput: 1),
       ],
