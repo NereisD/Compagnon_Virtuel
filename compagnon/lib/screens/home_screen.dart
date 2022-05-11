@@ -13,15 +13,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class MyHomeScreen extends State<HomeScreen> {
-  int selectedIndex = 0;
+  //int selectedIndex = 0;
 
-  Widget _chatBody = ChatBody();
+  Widget _chatBody = RestartWidget();
   Widget _journalBody = JournalScreen();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: buildAppBar(),
       body: bodySelected(),
       bottomNavigationBar: navigationbar(),
@@ -132,7 +131,9 @@ class MyHomeScreen extends State<HomeScreen> {
 
   void onTapHandler(int index) {
     this.setState(() {
-      this.selectedIndex = index;
+      selectedIndex = index;
+      print("(onTap) selectedIndex = ");
+      print(selectedIndex);
 
       if (keyValue == index) {
         keyValue = 0;

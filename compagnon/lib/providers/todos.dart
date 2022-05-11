@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_final_fields
 
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:flutter/cupertino.dart';
-
 
 class TodosProvider extends ChangeNotifier {
   /*
@@ -33,6 +33,10 @@ class TodosProvider extends ChangeNotifier {
   //Pour refresh la list des notes
   Future refreshNotes() async {
     _todos = await NotesDatabase.instance.readAllNotes();
+    if (journalReloadUI) {
+      reloadUI();
+      journalReloadUI = false;
+    }
   }
 
   /* permet de reload l'UI apres le temps d'accès à la BD

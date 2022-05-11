@@ -9,4 +9,8 @@ const kErrorColor = Color(0xFFF03738);
 
 const kDefaultPadding = 15.0;
 
+//valeur de la bottom nav bar
 int keyValue = 0;
+int selectedIndex = 0;
+//permet relaod l'UI du journal au démarrage
+bool journalReloadUI = true;

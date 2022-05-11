@@ -2,14 +2,18 @@ import 'package:compagnon/constants.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/MessageDatabase.dart';
+import 'package:compagnon/providers/todos.dart';
+import 'package:compagnon/screens/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class chatBox extends StatefulWidget {
   chatBox({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
+    print("call MychatBox()");
     return MychatBox();
   }
 }
@@ -148,6 +152,11 @@ class MessageWidget extends State<messagePlacement> {
               MessageDatabase.instance.delete(message.id);
               keyValue = 0;
               setState(() {});
+              RestartWidget.restartApp(context);
+              /*
+              final provider =
+                  Provider.of<TodosProvider>(context, listen: false);
+              provider.reloadUI();*/
             }
           },
         ),

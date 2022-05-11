@@ -1,5 +1,7 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/MessageDatabase.dart';
+import 'package:compagnon/screens/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 
 class InputMessage extends StatelessWidget {
@@ -37,6 +39,7 @@ class InputMessage extends StatelessWidget {
             print('Bouton envoyer pressé ...');
             addMessage(text, true);
             _textController.text = "";
+            RestartWidget.restartApp(context); //Reload la page de tchat
           },
         ),
       );

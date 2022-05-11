@@ -8,7 +8,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   static final String title = 'Compagnon';
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
@@ -25,5 +24,3 @@ class MyApp extends StatelessWidget {
         ),
       );
 }
-
-
