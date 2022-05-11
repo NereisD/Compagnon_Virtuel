@@ -40,7 +40,7 @@ class InputMessage extends StatelessWidget {
                 controller: _textController,
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsets.all(12),
-                  hintText: 'Ecrivez un message la',
+                  hintText: 'Ecrivez un message ici',
                 ),
                 //NewMessageWidget( //creer un style
                 onSubmitted: (text) {

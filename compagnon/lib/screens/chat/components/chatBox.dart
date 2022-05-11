@@ -135,6 +135,8 @@ class MessageWidget extends State<MessagePlacement> {
                 children: [
                   //Le container du message
                   Container(
+                    //Largeur max du widget message
+                    constraints: const BoxConstraints(maxWidth: 250),
                     color: message.isSentByMe
                         ? Colors.lightGreen[100]
                         : Colors.blueGrey[50],
