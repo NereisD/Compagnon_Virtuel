@@ -1,6 +1,14 @@
+import 'dart:io';
+
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/db/MessageDatabase.dart';
+import 'package:compagnon/db/manageJson.dart';
 import 'package:compagnon/screens/chat/chat_body.dart';
 import 'package:compagnon/screens/journal/journal_screen.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:csv/csv.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -123,6 +131,7 @@ class MyHomeScreen extends State<HomeScreen> {
 
   Widget bodySelected() {
     if (selectedIndex == 2) {
+      exportData();
       return this._journalBody;
     } else {
       return this._chatBody;
@@ -142,4 +151,5 @@ class MyHomeScreen extends State<HomeScreen> {
       }
     });
   }
+
 }
