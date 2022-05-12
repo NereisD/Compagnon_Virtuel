@@ -1,10 +1,9 @@
-import 'package:compagnon/constants.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
-import 'package:compagnon/db/MessageDatabase.dart';
-import 'package:compagnon/screens/chat/chat_body.dart';
+import 'package:compagnon/db/message_database.dart';
+import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:flutter/material.dart';
+import 'package:compagnon/constants.dart';
 
 class InputMessage extends StatelessWidget {
   int iInput = 1;
@@ -38,9 +37,9 @@ class InputMessage extends StatelessWidget {
               height: 50,
               child: TextField(
                 controller: _textController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(12),
-                  hintText: 'Ecrivez un message ici',
+                  hintText: writeTextField[lang],
                 ),
                 //NewMessageWidget( //creer un style
                 onSubmitted: (text) {

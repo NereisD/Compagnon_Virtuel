@@ -1,9 +1,9 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/journal/components/todo_form_widget.dart';
+import 'package:compagnon/pages/journal/components/todo_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 class EditTodoPage extends StatefulWidget {
   final Todo todo;
@@ -30,7 +30,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: Text('Edit Todo'),
+          title: Text(editJournalField[lang]),
           actions: [
             IconButton(
               //Icone de poubelle pour supprimer la note depuis l'edit

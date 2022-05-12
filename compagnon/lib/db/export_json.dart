@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compagnon/db/MessageDatabase.dart';
+import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -10,7 +10,7 @@ Future<String> getLocalPath() async {
   return directory.path;
 }
 
-void exportData() async {
+void exportMessages() async {
   List<Message> listOfMessages =
       await MessageDatabase.instance.readAllMessages();
 

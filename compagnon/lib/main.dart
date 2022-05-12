@@ -1,5 +1,6 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/home_screen.dart';
+import 'package:compagnon/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +9,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Compagnon';
+  static final String title = appTitle[lang];
   @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => TodosProvider(),

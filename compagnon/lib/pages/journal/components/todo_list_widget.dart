@@ -1,9 +1,9 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/journal/components/todo_widget.dart';
+import 'package:compagnon/pages/journal/components/todo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
-
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class TodoListWidget extends StatelessWidget {
     return todos.isEmpty
         ? Center(
             child: Text(
-              'No journal',
+              noDataField[lang],
               style: TextStyle(fontSize: 20),
             ),
           )
@@ -58,17 +58,5 @@ class TodoListWidget extends StatelessWidget {
               return TodoWidget(todo: todo);
             },
           );
-
-    /*ListView.separated(
-            physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.all(16),
-            separatorBuilder: (context, index) => Container(height: 10),
-            itemCount: todos.length,
-            itemBuilder: (context, index) {
-              final todo = todos[index];
-
-              return TodoWidget(todo: todo);
-            },
-          );*/
   }
 }

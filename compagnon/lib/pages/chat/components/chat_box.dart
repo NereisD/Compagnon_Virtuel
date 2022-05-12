@@ -1,13 +1,11 @@
 import 'package:compagnon/constants.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
-import 'package:compagnon/db/MessageDatabase.dart';
-import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/chat/chat_body.dart';
+import 'package:compagnon/db/message_database.dart';
+import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 class ChatBox extends StatefulWidget {
   ChatBox({Key key}) : super(key: key);
@@ -70,9 +68,9 @@ class MyChatBox extends State<ChatBox> {
               ),
             );
           } else {
-            return const Center(
+            return Center(
               child: Text(
-                "No Data",
+                noDataField[lang],
                 style: TextStyle(fontSize: 20),
               ),
             );

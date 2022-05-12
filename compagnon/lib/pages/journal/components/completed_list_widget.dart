@@ -1,6 +1,7 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/journal/components/todo_widget.dart';
+import 'package:compagnon/pages/journal/components/todo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -18,7 +19,7 @@ class CompletedListWidget extends StatelessWidget {
     return todos.isEmpty
         ? Center(
             child: Text(
-              'No secret journal',
+              noDataField[lang],
               style: TextStyle(fontSize: 20),
             ),
           )

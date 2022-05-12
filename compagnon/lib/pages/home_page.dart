@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:compagnon/constants.dart';
-import 'package:compagnon/db/MessageDatabase.dart';
-import 'package:compagnon/db/manageJson.dart';
-import 'package:compagnon/screens/chat/chat_body.dart';
-import 'package:compagnon/screens/journal/journal_screen.dart';
+import 'package:compagnon/db/export_json.dart';
+import 'package:compagnon/pages/chat/chat_body.dart';
+import 'package:compagnon/pages/journal/journal_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -50,7 +47,7 @@ class MyHomeScreen extends State<HomeScreen> {
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: "Reglage",
+          label: optionsButton[lang],
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
@@ -60,7 +57,7 @@ class MyHomeScreen extends State<HomeScreen> {
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: 'Supprimer',
+          label: deleteButton[lang],
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
@@ -70,7 +67,7 @@ class MyHomeScreen extends State<HomeScreen> {
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: "Journal",
+          label: journalButton[lang],
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
@@ -80,7 +77,7 @@ class MyHomeScreen extends State<HomeScreen> {
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: "Liker",
+          label: likeButton[lang],
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
@@ -90,7 +87,7 @@ class MyHomeScreen extends State<HomeScreen> {
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: "Secret",
+          label: secretsButton[lang],
           backgroundColor: Colors.teal,
         ),
       ],
@@ -130,7 +127,7 @@ class MyHomeScreen extends State<HomeScreen> {
     if (selectedIndex == 2) {
       return this._journalBody;
     } else if (selectedIndex == 0) {
-      exportData();
+      exportMessages();
       return this._chatBody;
     } else {
       return this._chatBody;

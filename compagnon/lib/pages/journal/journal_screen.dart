@@ -1,8 +1,8 @@
-import 'package:compagnon/screens/journal/components/add_todo_dialog_widget.dart';
-import 'package:compagnon/screens/journal/components/completed_list_widget.dart';
-import 'package:compagnon/screens/journal/components/todo_list_widget.dart';
+import 'package:compagnon/constants.dart';
+import 'package:compagnon/pages/journal/components/add_todo_dialog_widget.dart';
+import 'package:compagnon/pages/journal/components/completed_list_widget.dart';
+import 'package:compagnon/pages/journal/components/todo_list_widget.dart';
 import 'package:flutter/material.dart';
-
 
 class JournalScreen extends StatefulWidget {
   @override
@@ -23,7 +23,6 @@ class _HomePageState extends State<JournalScreen> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).secondaryHeaderColor,
         unselectedItemColor: Colors.white.withOpacity(0.7),
-        
         selectedItemColor: Colors.white,
         currentIndex: selectedIndex,
         onTap: (index) => setState(() {
@@ -32,11 +31,11 @@ class _HomePageState extends State<JournalScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
-            label: 'Journal',
+            label: journalButton[lang],
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.vpn_key, size: 28),
-            label: 'Secrets',
+            label: secretsButton[lang],
           ),
         ],
       ),

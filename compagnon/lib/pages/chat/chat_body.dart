@@ -1,5 +1,5 @@
-import 'package:compagnon/screens/chat/components/InputMessage.dart';
-import 'package:compagnon/screens/chat/components/ChatBox.dart';
+import 'package:compagnon/pages/chat/components/input_message.dart';
+import 'package:compagnon/pages/chat/components/chat_box.dart';
 import 'package:flutter/material.dart';
 
 class RestartWidget extends StatefulWidget {

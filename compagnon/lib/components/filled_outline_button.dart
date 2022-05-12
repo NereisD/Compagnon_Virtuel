@@ -1,6 +1,5 @@
+import 'package:compagnon/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../constants.dart';
 
 class FillOutlineButton extends StatelessWidget {
   const FillOutlineButton({

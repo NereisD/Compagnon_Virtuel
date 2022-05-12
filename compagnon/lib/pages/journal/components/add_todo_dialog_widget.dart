@@ -1,10 +1,10 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/journal/components/todo_form_widget.dart';
+import 'package:compagnon/pages/journal/components/todo_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-
 
 class AddTodoDialogWidget extends StatefulWidget {
   @override
@@ -25,7 +25,7 @@ class _AddTodoDialogWidgetState extends State<AddTodoDialogWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Add Note',
+                addNoteField[lang],
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,

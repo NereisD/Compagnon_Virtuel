@@ -1,12 +1,11 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
-import 'package:compagnon/screens/journal/edit_todo_page.dart';
+import 'package:compagnon/pages/journal/edit_todo_page.dart';
 import 'package:compagnon/utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
-
 
 class TodoWidget extends StatelessWidget {
   final Todo todo;
@@ -25,7 +24,7 @@ class TodoWidget extends StatelessWidget {
           actions: [
             IconSlideAction(
               color: Colors.green,
-              caption: 'Edit',
+              caption: editField[lang],
               onTap: () => editTodo(context, todo), //bouton edit
               icon: Icons.edit,
             )
@@ -33,7 +32,7 @@ class TodoWidget extends StatelessWidget {
           secondaryActions: [
             IconSlideAction(
               color: Colors.red,
-              caption: 'Delete',
+              caption: deleteField[lang],
               onTap: () => deleteTodo(context, todo), //bouton delete
               icon: Icons.delete,
             )
@@ -65,9 +64,7 @@ class TodoWidget extends StatelessWidget {
                   final isSecret = provider.toggleTodoStatus(todo);
                   Utils.showSnackBar(
                     context,
-                    isSecret
-                        ? 'Note is now secret'
-                        : 'Note is no longer secret',
+                    isSecret ? noteSecretSnack[lang] : noteNotSecretSnack[lang],
                   );
                 },
               ),
@@ -102,7 +99,7 @@ class TodoWidget extends StatelessWidget {
     final provider = Provider.of<TodosProvider>(context, listen: false);
     provider.removeTodo(todo);
 
-    Utils.showSnackBar(context, 'Deleted the task');
+    Utils.showSnackBar(context, noteDeletedSnack[lang]);
   }
 
   void editTodo(BuildContext context, Todo todo) => Navigator.of(context).push(

@@ -1,3 +1,4 @@
+import 'package:compagnon/constants.dart';
 import 'package:flutter/material.dart';
 
 class TodoFormWidget extends StatelessWidget {
@@ -36,13 +37,13 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangedTitle,
         validator: (title) {
           if (title.isEmpty) {
-            return 'The title cannot be empty';
+            return emptyTitleWarning[lang];
           }
           return null;
         },
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Title',
+          labelText: titleField[lang],
         ),
       );
 
@@ -52,7 +53,7 @@ class TodoFormWidget extends StatelessWidget {
         onChanged: onChangedDescription,
         decoration: InputDecoration(
           border: UnderlineInputBorder(),
-          labelText: 'Description',
+          labelText: descriptionField[lang],
         ),
       );
 
@@ -63,7 +64,7 @@ class TodoFormWidget extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all(Colors.black),
           ),
           onPressed: onSavedTodo,
-          child: Text('Save'),
+          child: Text(saveField[lang]),
         ),
       );
 }
