@@ -11,6 +11,6 @@ const kDefaultPadding = 10.0;
 
 //valeur de la bottom nav bar
 int keyValue = 0;
-int selectedIndex = 0;
+int selectedIndex = -1;
 //permet relaod l'UI du journal au démarrage
 bool journalReloadUI = true;

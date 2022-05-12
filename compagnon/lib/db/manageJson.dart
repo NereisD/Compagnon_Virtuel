@@ -1,37 +1,49 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:compagnon/db/MessageDatabase.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:path_provider/path_provider.dart';
 
+//Renvoie le path du ficher dans lequel écrire
+Future<String> getLocalPath() async {
+  final directory = await getApplicationDocumentsDirectory();
+  return directory.path;
+}
 
-Future<String> get  localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    print("directory path: "+directory.path);
-    return directory.path;
-  }
+void exportData() async {
+  List<Message> listOfMessages =
+      await MessageDatabase.instance.readAllMessages();
 
-  
-  String messageExportFile = localPath as String;
+  //Trie les messages (pas utile)
+  //messagesExport.sort((a, b) => a.id.compareTo(b.id));
 
+  //Créer une liste vide
+  List jsonList = [];
 
+  //Concatène les messages en fichier Json
+  listOfMessages.forEach((item) => jsonList.add(json.encode(item.toJson())));
+  print("listOfMessages = " + jsonList.toString());
 
-  void exportData() async {
-    List<Message> messagesExport =  await MessageDatabase.instance.readAllMessages();
-    try{
-      messagesExport.sort((a,b) => a.id.compareTo(b.id));
-      List jsonList = [];
-      Future<String> dfe = localPath;
-      new File("/data/user/0/com.example.compagnon/app_flutter/ExportMessage.json").create(recursive: true);
-      messagesExport.forEach((item) => jsonList.add(json.encode(item.toJson())));
-      print("test" + jsonList.toString());
-      File("/data/user/0/com.example.compagnon/app_flutter/ExportMessage.json").writeAsStringSync(jsonList.toString());
-      print('Saved data successfully!');
+  //Récupère le path du fichier en String
+  getLocalPath().then((String affichePath) {
+    print("directory path: " + affichePath);
+
+    try {
+      //Créer un nouveau fichier
+      new File(affichePath + "/exportFileMessages.json")
+          .create(recursive: true);
+
+      //Ecrit sur le fichier nouvellement créer
+      File(affichePath + "/exportFileMessages.json")
+          .writeAsStringSync(jsonList.toString());
+      print('Data saved successfully!');
+
+      //Sinon on affiche l'erreur
     } catch (e) {
       print('Error: $e');
     }
-  }
+  });
+}
 
 
   //   List<Game> getAllGamesfromfile(){
