@@ -13,7 +13,6 @@ Future<String> get  localPath async {
   }
 
   
-  String pathComputer = '/Users/jesushedo/Flutter/jsonfiles/assets/data/';
   String messageExportFile = localPath as String;
 
 
@@ -23,6 +22,7 @@ Future<String> get  localPath async {
     try{
       messagesExport.sort((a,b) => a.id.compareTo(b.id));
       List jsonList = [];
+      Future<String> dfe = localPath;
       new File("/data/user/0/com.example.compagnon/app_flutter/ExportMessage.json").create(recursive: true);
       messagesExport.forEach((item) => jsonList.add(json.encode(item.toJson())));
       print("test" + jsonList.toString());
