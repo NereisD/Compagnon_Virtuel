@@ -96,6 +96,20 @@ CREATE TABLE $tableMessages (
     return result.map((json) => Message.fromJson(json)).toList();
   }
 
+  //Pour lire les messages non secrets
+  Future<List<Message>> readAllMessagesNotSecret() async {
+    final db = await instance.database;
+
+    const orderBy = '${MessageField.date} ASC';
+    final result = await db.query(
+      tableMessages,
+      orderBy: orderBy,
+      where: '${MessageField.isSecret} == 0',
+    );
+
+    return result.map((json) => Message.fromJson(json)).toList();
+  }
+
   //Modifie un message
   Future<int> update(Message message) async {
     final db = await instance.database;

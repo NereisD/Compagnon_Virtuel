@@ -1,18 +1,43 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:compagnon/db/message_database.dart';
+import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/Message.dart';
+import 'package:compagnon/models/todo.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:ext_storage/ext_storage.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 //Renvoie le path du ficher dans lequel écrire
 Future<String> getLocalPath() async {
-  final directory = await getApplicationDocumentsDirectory();
-  return directory.path;
+  final directory = await ExtStorage.getExternalStoragePublicDirectory(
+      ExtStorage.DIRECTORY_DOWNLOADS);
+  return directory;
 }
 
-void exportMessages() async {
+/* Creer un pop up qui demande a l'utilisateur si l'application
+* peut accéder à ses dossiers en écriture
+*/
+void requestPermission() async {
+  Map<Permission, PermissionStatus> statuses = await [
+    Permission.storage,
+  ].request();
+}
+
+//Export des messages du chat
+void exportChat() async {
+  //Request la permission
+  requestPermission();
+
+  //On récupère l'ensemble des messages de la BD
   List<Message> listOfMessages =
-      await MessageDatabase.instance.readAllMessages();
+      await MessageDatabase.instance.readAllMessagesNotSecret();
+
+  /*
+  //On trie uniquement les messages non secrets
+  List<Message> listOfNotSecretMessages =
+      listOfMessages.where((message) => message.isSecret == false).toList();
+  */
 
   //Trie les messages (pas utile)
   //messagesExport.sort((a, b) => a.id.compareTo(b.id));
@@ -30,13 +55,12 @@ void exportMessages() async {
 
     try {
       //Créer un nouveau fichier
-      new File(affichePath + "/exportFileMessages.json")
-          .create(recursive: true);
+      new File(affichePath + "/exportFileChat.json").create(recursive: true);
 
       //Ecrit sur le fichier nouvellement créer
-      File(affichePath + "/exportFileMessages.json")
+      File(affichePath + "/exportFileChat.json")
           .writeAsStringSync(jsonList.toString());
-      print('Data saved successfully!');
+      print('Chat data saved successfully !');
 
       //Sinon on affiche l'erreur
     } catch (e) {
@@ -44,6 +68,51 @@ void exportMessages() async {
     }
   });
 }
+
+//Export des messages du journal
+void exportJournal() async {
+  //Request la permission
+  requestPermission();
+
+  //On récupère l'ensemble des messages de la BD
+  List<Todo> listOfJournal =
+      await NotesDatabase.instance.readAllNotesNotSecret();
+
+  //Trie les messages (pas utile)
+  //messagesExport.sort((a, b) => a.id.compareTo(b.id));
+
+  //Créer une liste vide
+  List jsonList = [];
+
+  //Concatène les messages en fichier Json
+  listOfJournal.forEach((item) => jsonList.add(json.encode(item.toJson())));
+  print("listOfJournal = " + jsonList.toString());
+
+  //Récupère le path du fichier en String
+  getLocalPath().then((String affichePath) {
+    //print("directory path: " + affichePath);
+
+    try {
+      //Créer un nouveau fichier
+      new File(affichePath + "/exportFileJournal.json").create(recursive: true);
+
+      //Ecrit sur le fichier nouvellement créer
+      File(affichePath + "/exportFileJournal.json")
+          .writeAsStringSync(jsonList.toString());
+      print('Journal data saved successfully !');
+
+      //Sinon on affiche l'erreur
+    } catch (e) {
+      print('Error: $e');
+    }
+  });
+}
+
+
+
+
+
+
 
 
   //   List<Game> getAllGamesfromfile(){

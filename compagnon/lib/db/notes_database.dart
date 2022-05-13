@@ -95,6 +95,20 @@ CREATE TABLE $tableNotes (
     return result.map((json) => Todo.fromJson(json)).toList();
   }
 
+  //Pour lire les pages du jouranl non secrètes
+  Future<List<Todo>> readAllNotesNotSecret() async {
+    final db = await instance.database;
+
+    const orderBy = '${TodoField.createdTime} ASC';
+    final result = await db.query(
+      tableNotes,
+      orderBy: orderBy,
+      where: '${TodoField.isSecret} == 0',
+    );
+
+    return result.map((json) => Todo.fromJson(json)).toList();
+  }
+
   //Modifie une note en fonction de son ID
   Future<int> update(Todo note) async {
     final db = await instance.database;
