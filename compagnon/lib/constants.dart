@@ -57,6 +57,11 @@ const noteNotSecretSnack = [
   "ページはもはや秘密ではありません"
 ];
 const noteDeletedSnack = ["Note is deleted", "Page supprimée", "削除されたページ"];
+const exportSnack = [
+  "Exporting data ...",
+  "Export des données ...",
+  "データのエクスポート"
+];
 
 /* Warnings */
 const emptyTitleWarning = [

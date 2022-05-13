@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/todo.dart';
+import 'package:compagnon/utils.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:ext_storage/ext_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,11 +27,15 @@ void requestPermission() async {
   ].request();
 }
 
-//Export des messages du chat
-void exportChat() async {
+void exportData() {
   //Request la permission
   requestPermission();
+  exportChat();
+  exportJournal();
+}
 
+//Export des messages du chat
+void exportChat() async {
   //On récupère l'ensemble des messages de la BD
   List<Message> listOfMessages =
       await MessageDatabase.instance.readAllMessagesNotSecret();

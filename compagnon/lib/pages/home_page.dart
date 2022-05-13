@@ -127,8 +127,7 @@ class MyHomeScreen extends State<HomeScreen> {
     if (selectedIndex == 2) {
       return this._journalBody;
     } else if (selectedIndex == 0) {
-      exportChat();
-      exportJournal();
+      exportData();
       return this._chatBody;
     } else {
       return this._chatBody;
