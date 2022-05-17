@@ -12,7 +12,7 @@ class ScenarioProvider extends ChangeNotifier {
 
   List<RelationQR> _relationsQR = [];
 
-  /* nom, prénom, age, idScénarioActuel, idQuestion, lang
+  /* nom, prénom, age, idScénarioActuel, idQuestionActuel, lang
   */
   List<Variable> _variables = [];
 
@@ -34,13 +34,25 @@ class ScenarioProvider extends ChangeNotifier {
 
   /* getQuestionByReply renvoie un la question qui suit une réponse
   *  fermée de l'utilisateur. 
+  *  Attention : Ne pas appeller cette fontion lorsque c'est la dernière 
+  *  réplique (c'est à dire reply.idQuestion == null)
   */
-  Iterable<Question> getQuestionByReply(Reply reply) {
-    return _questions.where((question) => question.id == reply.idQuestion);
+  Question getQuestionByReply(Reply reply) {
+    List<Question> theQuestion =
+        _questions.where((question) => question.id == reply.idQuestion);
+    if (theQuestion.length != 1) {
+      print("Error : theQuestion.length != 1");
+      return null;
+    }
+    return theQuestion[0];
   }
 
   /* getRepliesByQuestion renvoie la liste de réponses 
   *  en fonction d'une question, en passant par la table QR
+  *  Attention : ne pas appeller cette fonction lorsqu'il n'y a pas
+  *  de réponse fermée attendue à la question posée.
+  *  Pas de réponse fermée si : isOpenQuestion = true ou si isEnd = true 
+  *  ou si idNextQuestion != null 
   */
   List<Reply> getRepliesByQuestion(Question question) {
     List<RelationQR> relations =
@@ -56,5 +68,23 @@ class ScenarioProvider extends ChangeNotifier {
       }
     }
     return replies;
+  }
+
+  /* Retourne le type de réponse attendue après une question 
+  *  0 : dernière réplique
+  *  1 : question ouverte
+  *  2 : question fermée 
+  *  3 : robot continue
+  */
+  int typeReplyOfQuestion(Question question) {
+    if (question.isEnd) {
+      return 0;
+    } else if (question.isOpenQuestion) {
+      return 1;
+    } else if (question.idNextQuestion == null) {
+      return 2;
+    } else {
+      return 3;
+    }
   }
 }
