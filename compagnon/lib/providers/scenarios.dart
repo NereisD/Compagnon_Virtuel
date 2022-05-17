@@ -8,11 +8,77 @@ import 'package:compagnon/models/variable.dart';
 import 'package:flutter/cupertino.dart';
 
 class ScenarioProvider extends ChangeNotifier {
-  List<Question> _questions = [];
+  List<Question> _questions = [
+    Question(
+      idScenario: 2,
+      createdTime: DateTime.now(),
+      textFR: "Question scénario 2",
+      isFirst: true,
+      isOpenQuestion: false,
+    ),
+    Question(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      isOpenQuestion: false,
+      textFR: "Bonjour, je m'appelle Bob.",
+      idNextQuestion: 2,
+      isFirst: true,
+      isEnd: false,
+    ),
+    Question(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      isOpenQuestion: false,
+      textFR: "Aimez-vous les bananes ?",
+    ),
+    Question(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Moi aussi, j'adore !",
+      isOpenQuestion: false,
+      isEnd: true,
+    ),
+    Question(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Quel fruit préférez-vous ?",
+      isOpenQuestion: true,
+      isEnd: false,
+    )
+  ];
 
-  List<Reply> _replies = [];
+  List<Reply> _replies = [
+    Reply(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Oui j'aime les bananes",
+      idQuestion: 2, //Pas sur (commence a 0 ou 1 ?)
+    ),
+    Reply(
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Non je n'aime pas",
+      idQuestion: 3,
+    ),
+    Reply(
+      idScenario: 2,
+      createdTime: DateTime.now(),
+      textFR: "Reply senario2",
+    )
+  ];
 
-  List<RelationQR> _relationsQR = [];
+  List<RelationQR> _relationsQR = [
+    RelationQR(
+      createdTime: DateTime.now(),
+      idQuestion: 1,
+      idReply: 0,
+    ),
+    RelationQR(
+      createdTime: DateTime.now(),
+      idQuestion: 1,
+      idReply: 1,
+    )
+  ];
 
   /* nom, prénom, age, idScénarioActuel, idQuestionActuel, lang
   */

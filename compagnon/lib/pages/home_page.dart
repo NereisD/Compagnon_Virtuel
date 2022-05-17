@@ -2,8 +2,10 @@ import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
+import 'package:compagnon/providers/scenarios.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -127,7 +129,10 @@ class MyHomeScreen extends State<HomeScreen> {
     if (selectedIndex == 2) {
       return this._journalBody;
     } else if (selectedIndex == 0) {
-      exportData();
+      //exportData();
+      //final provider = Provider.of<ScenarioProvider>(context);
+      //provider.initScenario(1);
+
       return this._chatBody;
     } else {
       return this._chatBody;

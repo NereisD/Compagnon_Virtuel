@@ -4,10 +4,17 @@ import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/providers/scenarios.dart';
+import 'package:provider/provider.dart';
 
 class InputMessage extends StatelessWidget {
-  int iInput = 1;
+  /*
+    final provider = Provider.of<ScenarioProvider>(context);
 
+    Question question_test = provider.getFirstQuestion();
+    print(question_test.textFR);*/
+
+  int iInput = 1;
   final _textController = TextEditingController();
 
   InputMessage({iInput});
