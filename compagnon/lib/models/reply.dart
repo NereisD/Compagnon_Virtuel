@@ -11,7 +11,7 @@ class ReplyField {
     textFR,
     textJP,
     idQuestion,
-    idVariable
+    nameVariable
   ];
 
   static const String id = '_id';
@@ -20,7 +20,7 @@ class ReplyField {
   static const String textFR = 'textFR';
   static const String textJP = 'textJP';
   static const String idQuestion = 'idQuestion';
-  static const String idVariable = 'idVariable';
+  static const String nameVariable = 'nameVariable';
   static const String createdTime = 'createdTime';
 }
 
@@ -35,7 +35,7 @@ class Reply {
   String textFR;
   String textJP;
   int idQuestion;
-  int idVariable;
+  String nameVariable;
 
   Reply({
     this.id,
@@ -45,7 +45,7 @@ class Reply {
     this.textFR = '',
     this.textJP = '',
     this.idQuestion = null,
-    this.idVariable = null,
+    this.nameVariable = null,
   });
 
   Reply copy({
@@ -56,7 +56,7 @@ class Reply {
     String textFR,
     String textJP,
     int idQuestion,
-    int idVariable,
+    String nameVariable,
   }) =>
       Reply(
         id: id ?? this.id,
@@ -66,7 +66,7 @@ class Reply {
         textFR: textFR ?? this.textFR,
         textJP: textJP ?? this.textJP,
         idQuestion: idQuestion ?? this.idQuestion,
-        idVariable: idVariable ?? this.idVariable,
+        nameVariable: nameVariable ?? this.nameVariable,
       );
 
   //Transforme un Json en map
@@ -77,7 +77,7 @@ class Reply {
       textFR: json[ReplyField.textFR] as String,
       textJP: json[ReplyField.textJP] as String,
       idQuestion: json[ReplyField.idQuestion] as int,
-      idVariable: json[ReplyField.idVariable] as int,
+      nameVariable: json[ReplyField.nameVariable] as String,
       createdTime: DateTime.parse(
         json[ReplyField.createdTime] as String,
       ));
@@ -90,7 +90,7 @@ class Reply {
         ReplyField.textFR: textFR,
         ReplyField.textJP: textJP,
         ReplyField.idQuestion: idQuestion,
-        ReplyField.idVariable: idVariable,
+        ReplyField.nameVariable: nameVariable,
         ReplyField.createdTime: createdTime.toIso8601String(),
       };
 }

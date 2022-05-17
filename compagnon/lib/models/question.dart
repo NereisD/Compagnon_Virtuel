@@ -14,7 +14,7 @@ class QuestionField {
     isOpenQuestion,
     isFirst,
     isEnd,
-    idVariable
+    nameVariable
   ];
 
   static const String id = '_id';
@@ -27,11 +27,12 @@ class QuestionField {
   static const String isOpenQuestion = 'isOpenQuestion';
   static const String isFirst = 'isFirst';
   static const String isEnd = 'isEnd';
-  static const String idVariable = 'idVariable';
+  static const String nameVariable = 'nameVariable';
 }
 
 /* Question est une question du robot dans
-*  un scénario
+*  un scénario, plusieurs questions peuvent être
+*  succéssives. 
 */
 class Question {
   int id;
@@ -44,7 +45,7 @@ class Question {
   bool isOpenQuestion;
   bool isFirst;
   bool isEnd;
-  int idVariable;
+  String nameVariable;
 
   Question({
     this.id,
@@ -57,7 +58,7 @@ class Question {
     @required this.isOpenQuestion,
     this.isFirst = false,
     this.isEnd = false,
-    this.idVariable = null,
+    this.nameVariable = null,
   });
 
   Question copy({
@@ -71,7 +72,7 @@ class Question {
     bool isOpenQuestion,
     bool isFirst,
     bool isEnd,
-    int idVariable,
+    String nameVariable,
   }) =>
       Question(
         id: id ?? this.id,
@@ -84,7 +85,7 @@ class Question {
         isOpenQuestion: isOpenQuestion ?? this.isOpenQuestion,
         isFirst: isFirst ?? this.isFirst,
         isEnd: isEnd ?? this.isEnd,
-        idVariable: idVariable ?? this.idVariable,
+        nameVariable: nameVariable ?? this.nameVariable,
       );
 
   //Transforme un Json en map
@@ -99,7 +100,7 @@ class Question {
           json[QuestionField.isOpenQuestion] == 1, //True si 1 false si 0
       isFirst: json[QuestionField.isFirst] == 1,
       isEnd: json[QuestionField.isEnd] == 1,
-      idVariable: json[QuestionField.idVariable] as int,
+      nameVariable: json[QuestionField.nameVariable] as String,
       createdTime: DateTime.parse(
         json[QuestionField.createdTime] as String,
       ));
@@ -115,7 +116,7 @@ class Question {
         QuestionField.isOpenQuestion: isOpenQuestion ? 1 : 0,
         QuestionField.isFirst: isFirst ? 1 : 0,
         QuestionField.isEnd: isEnd ? 1 : 0,
-        QuestionField.idVariable: idVariable,
+        QuestionField.nameVariable: nameVariable,
         QuestionField.createdTime: createdTime.toIso8601String(),
       };
 }
