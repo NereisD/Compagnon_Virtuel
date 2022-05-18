@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/question.dart';
@@ -142,6 +143,12 @@ class Scenario {
       name: "idCurrentQuestion",
     ),
   ];
+
+  /* ============================================
+  *  Il faudra un constructeur qui récupère en base les variables
+  *  (pour lancer resumesOngoingScenario)
+  *  ============================================
+  */
 
   /* getScenarioQuestions renvoie la liste de questions correspondantes a
   *  un id de scenario souhaité
@@ -318,9 +325,24 @@ class Scenario {
     setVariable("idCurrentQuestion", null);
   }
 
-  /* Démarre un scénario
+  /* Fonction pour contrinuer un scénario en cours.
+  */
+  void resumesOngoingScenario() {
+    int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
+    //On init le scenario
+    _questions = getScenarioQuestions(idScenario);
+    _replies = getScenarioReplies(idScenario);
+
+    //On récupère la question en cours
+    Question currentQuestion = getCurrentQuestion();
+
+    displayQuestion(currentQuestion);
+  }
+
+  /* Démarre un nouveau scénario
   */
   void initScenario(int id) {
+    //print("Init scénario");
     //On init le scenario
     _questions = getScenarioQuestions(id);
     _replies = getScenarioReplies(id);
@@ -337,6 +359,7 @@ class Scenario {
 
   //Ajout d'un message en base
   void addMessage(textMessage, isSentByMeMessage) {
+    //print("Add message");
     final message = Message(
       date: DateTime.now(),
       text: textMessage,
@@ -369,6 +392,7 @@ class Scenario {
   /* Affiche a question actuelle 
   */
   void displayQuestion(Question question) {
+    //print("Display question");
     //Update l'id de la question
     setVariable("idCurrentQuestion", question.id.toString());
 

@@ -1,3 +1,4 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
@@ -55,9 +56,12 @@ CREATE TABLE $tableMessages (
   }
 
   Future<Message> create(Message message) async {
+    print("Create message");
     final db = await instance.database;
     //id généré par la db
     final id = await db.insert(tableMessages, message.toJson());
+    print("-- Message créé --");
+    //loadingMessage = false; //test
     return message.copy(id: id);
   }
 

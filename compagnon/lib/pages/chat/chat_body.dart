@@ -1,3 +1,4 @@
+import 'package:compagnon/constants.dart';
 import 'package:compagnon/pages/chat/components/input_message.dart';
 import 'package:compagnon/pages/chat/components/chat_box.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +35,31 @@ class _RestartWidgetState extends State<RestartWidget> {
 }
 
 class ChatBody extends StatelessWidget {
+  /*
+  Future<String> getLocalPath() async {
+  final directory = await ExtStorage.getExternalStoragePublicDirectory(
+      ExtStorage.DIRECTORY_DOWNLOADS);
+  return directory;
+}*/
+
   @override
   Widget build(BuildContext context) {
+    /* Fonction qui attend qu'un message soit posté pour relad l'UI
+    */
+    /*
+    Future waitLoadingMessage() async {
+      await Future.delayed(const Duration(seconds: 1), () {
+        print("Restarting ChatApp ...");
+        RestartWidget.restartApp(context);
+      });
+    }
+
+    print("(ChatBody) loadingMessage = ");
+    print(loadingMessage);
+    if (loadingMessage) {
+      //waitLoadingMessage();
+    }*/
+
     return Column(
       children: [
         Expanded(

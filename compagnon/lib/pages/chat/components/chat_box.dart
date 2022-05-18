@@ -27,9 +27,16 @@ class MyChatBox extends State<ChatBox> {
         builder: (BuildContext context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasData) {
             List<Message> messages = snapshot.data;
+            /* debug messages
+            for (int i = 0; i < messages.length; i++) {
+              print(messages[i].id);
+              print(messages[i].date);
+              print(messages[i].text);
+            }*/
             return GroupedListView<Message, DateTime>(
               padding: const EdgeInsets.all(8),
-              reverse: true,
+              reverse: false, //Avant : true
+              sort: false, //Avant : pas ici (défault true)
               order: GroupedListOrder.DESC,
               useStickyGroupSeparators: true,
               floatingHeader: true,
@@ -85,8 +92,11 @@ class MyChatBox extends State<ChatBox> {
 class MessagePlacement extends StatefulWidget {
   MessagePlacement({Key key, this.message}) : super(key: key);
   final Message message;
+
   @override
   State<StatefulWidget> createState() {
+    /*print(message.id);
+    print(message.text);*/
     return MessageWidget();
   }
 }
@@ -97,6 +107,7 @@ class MessageWidget extends State<MessagePlacement> {
   @override
   Widget build(BuildContext context) {
     final message = widget.message;
+
     return Align(
       alignment:
           message.isSentByMe ? Alignment.centerRight : Alignment.centerLeft,

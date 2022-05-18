@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/models/scenario.dart';
@@ -21,6 +23,7 @@ class MyHomeScreen extends State<HomeScreen> {
   //int selectedIndex = 0;
 
   Widget _chatBody = RestartWidget();
+  Widget _chatBody2 = RestartWidget();
   Widget _journalBody = JournalScreen();
 
   @override
@@ -128,17 +131,38 @@ class MyHomeScreen extends State<HomeScreen> {
 
   Widget bodySelected() {
     if (selectedIndex == 2) {
-      return this._journalBody;
+      return _journalBody;
     } else if (selectedIndex == 0) {
       //exportData();
       //final provider = Provider.of<ScenarioProvider>(context);
       //provider.initScenario(1);
 
-      currentScenario.initScenario(1);
+      //loadingMessage = true;
 
-      return this._chatBody;
+      currentScenario.initScenario(1);
+      selectedIndex = -1;
+
+      /*
+      while (loadingMessage) {
+        print("Waiting ...");
+      }*/
+
+      //Ici wait 200ms
+      /*
+      print("Waiting 5s ...");
+      sleep(const Duration(seconds: 5));
+      print("Waiting end");*/
+
+      print("return chatBody");
+      if (chatBodyOptions) {
+        chatBodyOptions = false;
+        return _chatBody;
+      } else {
+        chatBodyOptions = true;
+        return _chatBody2;
+      }
     } else {
-      return this._chatBody;
+      return _chatBody;
     }
   }
 

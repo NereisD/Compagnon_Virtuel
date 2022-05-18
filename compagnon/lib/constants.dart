@@ -70,3 +70,6 @@ const emptyTitleWarning = [
 ];
 
 Scenario currentScenario = Scenario();
+
+//bool loadingMessage = false;
+bool chatBodyOptions = false;
