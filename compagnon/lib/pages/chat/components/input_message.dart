@@ -41,7 +41,7 @@ class InputMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!currentScenario.isClosedQuestion) {
+    if (currentScenario.isOpenQuestion) {
       return Row(
         children: [
           /* Container input message
@@ -59,7 +59,12 @@ class InputMessage extends StatelessWidget {
                 //NewMessageWidget( //creer un style
                 onSubmitted: (text) {
                   print('Bouton envoyer pressé ...');
-                  currentScenario.addMessage(text, true);
+                  //currentScenario.addMessage(text, true);
+
+                  //On envoie la réponse écrite
+                  currentScenario.displayOpenReply(
+                      text, currentScenario.getCurrentQuestion());
+
                   _textController.text = "";
                   RestartWidget.restartApp(context); //Reload la page de tchat
                 },
@@ -80,14 +85,18 @@ class InputMessage extends StatelessWidget {
             ),
             onPressed: () {
               print('IconButton pressed ...');
-              currentScenario.addMessage(_textController.text, true);
+              //currentScenario.addMessage(_textController.text, true);
+
+              //On envoie la réponse écrite
+              currentScenario.displayOpenReply(
+                  _textController.text, currentScenario.getCurrentQuestion());
               _textController.text = "";
               RestartWidget.restartApp(context); //Reload la page de tchat
             },
           ),
         ],
       );
-    } else {
+    } else if (currentScenario.isClosedQuestion) {
       //Container des réponses fermées
       return Container(
         width: MediaQuery.of(context).size.width,
@@ -119,6 +128,8 @@ class InputMessage extends StatelessWidget {
                   ),
                   onPressed: () {
                     print(reply.textFR);
+                    currentScenario.displayClosedReply(reply);
+                    RestartWidget.restartApp(context); //Reload la page de tchat
                   },
                   child: Text(reply.textFR),
                 ),
@@ -165,6 +176,13 @@ class InputMessage extends StatelessWidget {
             ),
           ],*/
         ),
+      );
+    } else {
+      return Container(
+        width: MediaQuery.of(context).size.width,
+        height: 100,
+        padding: const EdgeInsets.all(10.0),
+        color: Colors.amber,
       );
     }
   }

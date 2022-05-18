@@ -15,22 +15,13 @@ class Scenario {
   List<RelationQR> _relationsQR = [];
   List<Variable> _variables = [];*/
 
-  bool isClosedQuestion = true;
-  List<Reply> currentReplies = [
-    Reply(
-      idScenario: 1,
-      createdTime: DateTime.now(),
-      textFR: "Une femme",
-    ),
-    Reply(
-      idScenario: 1,
-      createdTime: DateTime.now(),
-      textFR: "Un homme",
-    ),
-  ];
+  bool isClosedQuestion = false;
+  bool isOpenQuestion = false;
+  List<Reply> currentReplies = [];
 
   List<Question> _questions = [
     Question(
+      id: 1,
       idScenario: 2,
       createdTime: DateTime.now(),
       textFR: "Question scénario 2",
@@ -38,21 +29,24 @@ class Scenario {
       isOpenQuestion: false,
     ),
     Question(
+      id: 2,
       idScenario: 1,
       createdTime: DateTime.now(),
       isOpenQuestion: false,
       textFR: "Bonjour, je m'appelle Bob.",
-      idNextQuestion: 2,
+      idNextQuestion: 3,
       isFirst: true,
       isEnd: false,
     ),
     Question(
+      id: 3,
       idScenario: 1,
       createdTime: DateTime.now(),
       isOpenQuestion: false,
       textFR: "Aimez-vous les bananes ?",
     ),
     Question(
+      id: 4,
       idScenario: 1,
       createdTime: DateTime.now(),
       textFR: "Moi aussi, j'adore !",
@@ -60,44 +54,61 @@ class Scenario {
       isEnd: true,
     ),
     Question(
+      id: 5,
       idScenario: 1,
       createdTime: DateTime.now(),
       textFR: "Quel fruit préférez-vous ?",
       isOpenQuestion: true,
+      idNextQuestion: 6,
       isEnd: false,
+      nameVariable: "favoriteFruit",
+    ),
+    Question(
+      id: 6,
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      //textFR: "Les ${getVariableByName("favoriteFruit")} ont du gout",
+      textFR: "Les %%favoriteFruit ont du gout",
+      isOpenQuestion: false,
+      isEnd: true,
     )
   ];
 
   List<Reply> _replies = [
     Reply(
-      idScenario: 1,
-      createdTime: DateTime.now(),
-      textFR: "Oui j'aime les bananes",
-      idQuestion: 2, //Pas sur (commence a 0 ou 1 ?)
-    ),
-    Reply(
-      idScenario: 1,
-      createdTime: DateTime.now(),
-      textFR: "Non je n'aime pas",
-      idQuestion: 3,
-    ),
-    Reply(
+      id: 3,
       idScenario: 2,
       createdTime: DateTime.now(),
       textFR: "Reply senario2",
-    )
+    ),
+    Reply(
+      id: 1,
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Oui j'aime les bananes",
+      idQuestion: 4, //Pas sur (commence a 0 ou 1 ?)
+    ),
+    Reply(
+      id: 2,
+      idScenario: 1,
+      createdTime: DateTime.now(),
+      textFR: "Non je n'aime pas",
+      idQuestion: 5,
+    ),
   ];
 
   List<RelationQR> _relationsQR = [
     RelationQR(
+      id: 1,
       createdTime: DateTime.now(),
-      idQuestion: 1,
-      idReply: 0,
+      idQuestion: 3,
+      idReply: 1,
     ),
     RelationQR(
+      id: 2,
       createdTime: DateTime.now(),
-      idQuestion: 1,
-      idReply: 1,
+      idQuestion: 3,
+      idReply: 2,
     )
   ];
 
@@ -105,23 +116,28 @@ class Scenario {
   */
   List<Variable> _variables = [
     Variable(
+      id: 1,
       createdTime: DateTime.now(),
       name: "name",
     ),
     Variable(
+      id: 2,
       createdTime: DateTime.now(),
       name: "age",
     ),
     Variable(
+      id: 3,
       createdTime: DateTime.now(),
       name: "lang",
       value: "fr",
     ),
     Variable(
+      id: 4,
       createdTime: DateTime.now(),
       name: "idCurrentScenario",
     ),
     Variable(
+      id: 5,
       createdTime: DateTime.now(),
       name: "idCurrentQuestion",
     ),
@@ -207,7 +223,6 @@ class Scenario {
   */
   bool replyIsEnd(Reply reply) {
     if (reply.idQuestion == null) {
-      endScenario(); //Termine le scénario
       return true;
     } else {
       return false;
@@ -252,6 +267,50 @@ class Scenario {
     return null;
   }
 
+  /* Renvoie la dernière question posée
+  */
+  Question getCurrentQuestion() {
+    return getQuestionById(
+        int.tryParse(getVariableByName("idCurrentQuestion")));
+  }
+
+  /* Renvoie la valeur d'une variable en fonction de son
+  *  nom
+  */
+  String getVariableByName(name) {
+    for (int i = 0; i < _variables.length; i++) {
+      if (_variables[i].name == name) {
+        return _variables[i].value;
+      }
+    }
+    print("Error : variable.name not found");
+    return null;
+  }
+
+  /* Renvoie la question correspondant a son id
+  */
+  Question getQuestionById(id) {
+    for (int i = 0; i < _questions.length; i++) {
+      if (_questions[i].id == id) {
+        return _questions[i];
+      }
+    }
+    print("Error : ID question not found");
+    return null;
+  }
+
+  /* Renvoie la réponse correspondante a son id
+  */
+  Reply getReplyById(id) {
+    for (int i = 0; i < _replies.length; i++) {
+      if (_replies[i].id == id) {
+        return _replies[i];
+      }
+    }
+    print("Error : ID reply not found");
+    return null;
+  }
+
   /* Termine un scénario en passant les idCurrent à null
   */
   void endScenario() {
@@ -272,6 +331,8 @@ class Scenario {
     //On met a jour les variables
     setVariable("idCurrentScenario", id.toString());
     setVariable("idCurrentQuestion", firstQuestion.id.toString());
+
+    displayQuestion(firstQuestion);
   }
 
   //Ajout d'un message en base
@@ -285,12 +346,41 @@ class Scenario {
     MessageDatabase.instance.create(message); //Creer un message dans la BD
   }
 
+  /* Retire les %% d'une chaine de caractère
+  */
+  String removePercent(String text) {
+    return text.substring(2, text.length);
+  }
+
+  /* Renvoie une chaine de caractères avec une variable
+  *  si nécessaire.
+  */
+  String replaceStringToVariable(String text) {
+    //Créer un tableau de chaque mot
+    List<String> textSplit = text.split(" ");
+    for (var i = 0; i < textSplit.length; i++) {
+      if (textSplit[i].contains("%%")) {
+        textSplit[i] = getVariableByName(removePercent(textSplit[i]));
+      }
+    }
+    return textSplit.join(" ");
+  }
+
   /* Affiche a question actuelle 
   */
   void displayQuestion(Question question) {
+    //Update l'id de la question
     setVariable("idCurrentQuestion", question.id.toString());
-    addMessage(question.textFR, false);
+
+    //Ajoute les varialbes au texte si nécessaire
+    String text = replaceStringToVariable(question.textFR);
+
+    //Ajoute le message en base
+    addMessage(text, false);
+
+    //Remet bool a false (défault)
     isClosedQuestion = false;
+    isOpenQuestion = false;
 
     switch (typeOfQuestion(question)) {
       case 0: //fin
@@ -299,21 +389,64 @@ class Scenario {
         }
         break;
       case 1: //question ouverte
-        {}
+        {
+          isOpenQuestion = true;
+        }
         break;
       case 2: //question fermée
         {
           currentReplies = getRepliesByQuestion(question);
           isClosedQuestion = true;
+          print("length currentReplies = ");
+          print(currentReplies.length);
         }
         break;
       case 3: //robot continue
         {
           //wait 200ms pour pas que tout s'affiche d'un coup
-          displayQuestion(_questions[question.idNextQuestion]);
+          displayQuestion(getQuestionById(question.idNextQuestion));
+          //setVariable("idCurrentQuestion", question.idNextQuestion.toString());
         }
         break;
       default:
+    }
+  }
+
+  /* Affiche une réponse fermée et passe à la question suivante
+  */
+  void displayClosedReply(Reply reply) {
+    //On ajoute le message
+    addMessage(reply.textFR, true);
+    //On enregistre une variable si besoin
+    if (reply.nameVariable != null) {
+      setVariable(reply.nameVariable, reply.textFR);
+    }
+    //On vérifie si c'est la dernière réplique
+    if (replyIsEnd(reply)) {
+      //On termine le scénario
+      endScenario();
+    } else {
+      //On appelle la question suivante
+      displayQuestion(getQuestionById(reply.idQuestion));
+    }
+  }
+
+  /* Affiche une réponse ouverte et passe a la question suivante
+  */
+  void displayOpenReply(String text, Question question) {
+    //On ajoute le message
+    addMessage(text, true);
+    //On enregistre une variable si besoin
+    if (question.nameVariable != null) {
+      setVariable(question.nameVariable, text);
+    }
+    //On vérifie si c'est la dernière réplique
+    if (question.idNextQuestion == null) {
+      //On termine le scénario
+      endScenario();
+    } else {
+      //On appelle la question suivante
+      displayQuestion(getQuestionById(question.idNextQuestion));
     }
   }
 }
