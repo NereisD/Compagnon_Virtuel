@@ -1,6 +1,8 @@
 import 'package:compagnon/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/message_database.dart';
+import 'package:compagnon/models/question.dart';
+import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 import 'package:compagnon/constants.dart';
@@ -14,11 +16,12 @@ class InputMessage extends StatelessWidget {
     Question question_test = provider.getFirstQuestion();
     print(question_test.textFR);*/
 
-  int iInput = 1;
+  int iInput = 2;
   final _textController = TextEditingController();
 
   InputMessage({iInput});
 
+  /*
   //Ajout d'un message en base
   void addMessage(textMessage, isSentByMeMessage) {
     final message = Message(
@@ -27,13 +30,18 @@ class InputMessage extends StatelessWidget {
       isSentByMe: isSentByMeMessage,
     );
 
+    /*
+    Question test = currentScenario.getFirstQuestion();
+    print("TextFR de la première réplique : ");
+    print(test.textFR);*/
+
     MessageDatabase.instance.create(message); //Creer un message dans la BD
     //Navigator.of(context).pop();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
-    if (iInput == 1) {
+    if (!currentScenario.isClosedQuestion) {
       return Row(
         children: [
           /* Container input message
@@ -51,7 +59,7 @@ class InputMessage extends StatelessWidget {
                 //NewMessageWidget( //creer un style
                 onSubmitted: (text) {
                   print('Bouton envoyer pressé ...');
-                  addMessage(text, true);
+                  currentScenario.addMessage(text, true);
                   _textController.text = "";
                   RestartWidget.restartApp(context); //Reload la page de tchat
                 },
@@ -72,44 +80,90 @@ class InputMessage extends StatelessWidget {
             ),
             onPressed: () {
               print('IconButton pressed ...');
-              addMessage(_textController.text, true);
+              currentScenario.addMessage(_textController.text, true);
               _textController.text = "";
               RestartWidget.restartApp(context); //Reload la page de tchat
             },
           ),
         ],
       );
-    } else if (iInput == 2) {
+    } else {
+      //Container des réponses fermées
       return Container(
         width: MediaQuery.of(context).size.width,
-        height: 140,
-        decoration: BoxDecoration(
-          color: Colors.grey.shade300,
+        //height: 140,
+        padding: const EdgeInsets.all(10.0),
+        decoration: const BoxDecoration(
+          color: kLighterBackgroundColor,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextButton(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(16.0),
-                primary: Colors.white,
-                textStyle: const TextStyle(fontSize: 20),
+          //Pour chaque réponse à la question posée
+          children: <Widget>[
+            for (Reply reply in currentScenario.currentReplies)
+              Container(
+                margin: const EdgeInsets.all(6.0),
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  color: kSecondaryColor,
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    //padding: const EdgeInsets.all(10.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () {
+                    print(reply.textFR);
+                  },
+                  child: Text(reply.textFR),
+                ),
               ),
-              onPressed: () {},
-              child: const Text('Un homme'),
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(16.0),
-                primary: Colors.white,
-                textStyle: const TextStyle(fontSize: 20),
-              ),
-              onPressed: () {},
-              child: const Text('Une femme'),
-            ),
           ],
+
+          /*
+          children: [
+            Container(
+              margin: const EdgeInsets.all(6.0),
+              width: MediaQuery.of(context).size.width,
+              height: 40,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                color: kSecondaryColor,
+              ),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  //padding: const EdgeInsets.all(10.0),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+                onPressed: () {},
+                child: const Text('Un homme'),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.all(6.0),
+              width: MediaQuery.of(context).size.width,
+              height: 40,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                color: kSecondaryColor,
+              ),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  //padding: const EdgeInsets.all(10.0),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(fontSize: 18),
+                ),
+                onPressed: () {},
+                child: const Text('Une femme'),
+              ),
+            ),
+          ],*/
         ),
       );
     }

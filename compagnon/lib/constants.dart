@@ -1,11 +1,10 @@
+import 'package:compagnon/models/scenario.dart';
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF00BF6D);
-const kSecondaryColor = Color(0xFFFE9901);
-const kContentColorLightTheme = Color(0xFF1D1D35);
-const kContentColorDarkTheme = Color(0xFFF5FCF9);
-const kWarninngColor = Color(0xFFF3BB1C);
-const kErrorColor = Color(0xFFF03738);
+const kPrimaryColor = Colors.teal;
+const kSecondaryColor = Color(0xFF00695C);
+const kBackgroundColor = Color(0xFFf6f5ee);
+const kLighterBackgroundColor = Color(0xFF80CBC4);
 
 const kDefaultPadding = 10.0;
 
@@ -69,3 +68,5 @@ const emptyTitleWarning = [
   "Le titre doit être rempli",
   "タイトルを記入する必要があります"
 ];
+
+Scenario currentScenario = Scenario();

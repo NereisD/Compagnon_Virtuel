@@ -1,5 +1,6 @@
 import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/export_json.dart';
+import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
 import 'package:compagnon/providers/scenarios.dart';
@@ -132,6 +133,8 @@ class MyHomeScreen extends State<HomeScreen> {
       //exportData();
       //final provider = Provider.of<ScenarioProvider>(context);
       //provider.initScenario(1);
+
+      currentScenario.initScenario(1);
 
       return this._chatBody;
     } else {
