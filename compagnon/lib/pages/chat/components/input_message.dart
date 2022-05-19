@@ -6,7 +6,6 @@ import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:flutter/material.dart';
 import 'package:compagnon/constants.dart';
-import 'package:compagnon/providers/scenarios.dart';
 import 'package:provider/provider.dart';
 
 class InputMessage extends StatelessWidget {

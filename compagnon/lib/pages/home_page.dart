@@ -5,7 +5,6 @@ import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
-import 'package:compagnon/providers/scenarios.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
