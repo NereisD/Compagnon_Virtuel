@@ -158,11 +158,10 @@ class Scenario {
   /* getScenarioQuestions renvoie la liste de questions correspondantes a
   *  un id de scenario souhaité
   */
-  List<Question> getScenarioQuestions(int idScenario) {
+  Future<List<Question>> getScenarioQuestions(int idScenario) async {
     //Appel DB questions
-    /*
-    _questions =
-        ScenariosDatabase.instance.readAllQuestions() as List<Question>;*/
+
+    _questions = await ScenariosDatabase.instance.readAllQuestions();
     return _questions
         .where((question) => question.idScenario == idScenario)
         .toList();
@@ -171,27 +170,25 @@ class Scenario {
   /* getScenarioReplies renvoie la liste de réponses correspondantes a
   *  un id de scenario souhaité
   */
-  List<Reply> getScenarioReplies(int idScenario) {
+  Future<List<Reply>> getScenarioReplies(int idScenario) async {
     //Appel DB réponses
-    /*
-    _replies = ScenariosDatabase.instance.readAllReplies() as List<Reply>;*/
+
+    _replies = await ScenariosDatabase.instance.readAllReplies();
     return _replies.where((reply) => reply.idScenario == idScenario).toList();
   }
 
   //Init les relations Questions / Réponses depuis la DB
-  void initScenarioRelationsQR() {
+  void initScenarioRelationsQR() async {
     //Appel DB relationsQR
-    /*
-    _relationsQR =
-        ScenariosDatabase.instance.readAllRelationsQR() as List<RelationQR>;*/
+
+    _relationsQR = await ScenariosDatabase.instance.readAllRelationsQR();
   }
 
   //Init les variables de la DB
-  void initScenarioVariables() {
+  void initScenarioVariables() async {
     //Appel DB variables
-    /*
-    _variables =
-        ScenariosDatabase.instance.readAllVariables() as List<Variable>;*/
+
+    _variables = await ScenariosDatabase.instance.readAllVariables();
   }
 
   /* getQuestionByReply renvoie un la question qui suit une réponse
@@ -273,8 +270,8 @@ class Scenario {
         _variables[i].value = value;
 
         //On modifie aussi cette variable dans la DB
-        /*
-        ScenariosDatabase.instance.updateVariable(_variables[i]);*/
+
+        ScenariosDatabase.instance.updateVariable(_variables[i]);
       }
     }
     //Si la variable n'existe pas, on la créer
@@ -290,8 +287,8 @@ class Scenario {
       _variables.add(newVariable);
 
       //Puis on l'insère dans la DB
-      /*
-      ScenariosDatabase.instance.createVariable(newVariable);*/
+
+      ScenariosDatabase.instance.createVariable(newVariable);
     }
   }
 
@@ -361,7 +358,7 @@ class Scenario {
 
   /* Fonction pour contrinuer un scénario en cours.
   */
-  void resumesOngoingScenario() {
+  void resumesOngoingScenario() async {
     initScenarioVariables();
     int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
 
@@ -370,8 +367,8 @@ class Scenario {
       isResumeScenario = true;
 
       //On init le scenario
-      _questions = getScenarioQuestions(idScenario);
-      _replies = getScenarioReplies(idScenario);
+      _questions = await getScenarioQuestions(idScenario);
+      _replies = await getScenarioReplies(idScenario);
       initScenarioRelationsQR();
 
       //On récupère la question en cours
@@ -385,22 +382,26 @@ class Scenario {
 
   /* Démarre un nouveau scénario
   */
-  void initScenario(int id) {
+  void initScenario(int id) async {
     //print("Init scénario");
     //On init le scenario
-    _questions = getScenarioQuestions(id);
-    _replies = getScenarioReplies(id);
+    _questions = await getScenarioQuestions(id);
+    _replies = await getScenarioReplies(id);
     initScenarioRelationsQR();
     initScenarioVariables();
 
     //On récupère la première question
     Question firstQuestion = getFirstQuestion();
 
-    //On met a jour les variables
-    setVariable("idCurrentScenario", id.toString());
-    setVariable("idCurrentQuestion", firstQuestion.id.toString());
+    if (firstQuestion != null) {
+      //On met a jour les variables
+      setVariable("idCurrentScenario", id.toString());
+      setVariable("idCurrentQuestion", firstQuestion.id.toString());
 
-    displayQuestion(firstQuestion);
+      displayQuestion(firstQuestion);
+    } else {
+      print("Error : Scénario invalide");
+    }
   }
 
   //Ajout d'un message en base
@@ -412,8 +413,7 @@ class Scenario {
       isSentByMe: isSentByMeMessage,
     );
 
-    /*
-    MessageDatabase.instance.create(message);*/ //Creer un message dans la BD
+    MessageDatabase.instance.create(message); //Creer un message dans la BD
   }
 
   /* Retire les %% d'une chaine de caractère
