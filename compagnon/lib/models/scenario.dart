@@ -2,6 +2,8 @@
 
 import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/message_database.dart';
+import 'package:compagnon/db/scenarios_database.dart';
+import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/relation_question_reply.dart';
@@ -10,16 +12,19 @@ import 'package:compagnon/models/variable.dart';
 import 'package:flutter/cupertino.dart';
 
 class Scenario {
-  /*
+  //On initialise les listes vides
   List<Question> _questions = [];
   List<Reply> _replies = [];
   List<RelationQR> _relationsQR = [];
-  List<Variable> _variables = [];*/
+  List<Variable> _variables = [];
+  List<Reply> currentReplies = []; //PAS init via DB
 
+  //On initialise les booléens utiles
   bool isClosedQuestion = false;
   bool isOpenQuestion = false;
-  List<Reply> currentReplies = [];
+  bool isResumeScenario = false;
 
+  /*
   List<Question> _questions = [
     Question(
       id: 1,
@@ -142,7 +147,7 @@ class Scenario {
       createdTime: DateTime.now(),
       name: "idCurrentQuestion",
     ),
-  ];
+  ];*/
 
   /* ============================================
   *  Il faudra un constructeur qui récupère en base les variables
@@ -154,7 +159,10 @@ class Scenario {
   *  un id de scenario souhaité
   */
   List<Question> getScenarioQuestions(int idScenario) {
-    //ICI il faudra init toutes les questions de puis la base
+    //Appel DB questions
+    /*
+    _questions =
+        ScenariosDatabase.instance.readAllQuestions() as List<Question>;*/
     return _questions
         .where((question) => question.idScenario == idScenario)
         .toList();
@@ -164,8 +172,26 @@ class Scenario {
   *  un id de scenario souhaité
   */
   List<Reply> getScenarioReplies(int idScenario) {
-    //ICI il faudra init toutes les réponses depuis la base
+    //Appel DB réponses
+    /*
+    _replies = ScenariosDatabase.instance.readAllReplies() as List<Reply>;*/
     return _replies.where((reply) => reply.idScenario == idScenario).toList();
+  }
+
+  //Init les relations Questions / Réponses depuis la DB
+  void initScenarioRelationsQR() {
+    //Appel DB relationsQR
+    /*
+    _relationsQR =
+        ScenariosDatabase.instance.readAllRelationsQR() as List<RelationQR>;*/
+  }
+
+  //Init les variables de la DB
+  void initScenarioVariables() {
+    //Appel DB variables
+    /*
+    _variables =
+        ScenariosDatabase.instance.readAllVariables() as List<Variable>;*/
   }
 
   /* getQuestionByReply renvoie un la question qui suit une réponse
@@ -245,19 +271,27 @@ class Scenario {
       if (_variables[i].name == name) {
         nameExist = true;
         _variables[i].value = value;
-        //ICI il faudra la modifier en base
+
+        //On modifie aussi cette variable dans la DB
+        /*
+        ScenariosDatabase.instance.updateVariable(_variables[i]);*/
       }
     }
     //Si la variable n'existe pas, on la créer
     if (!nameExist) {
-      _variables.add(
-        Variable(
-          createdTime: DateTime.now(),
-          name: name,
-          value: value,
-        ),
+      //On créer une nouvelle variable
+      Variable newVariable = Variable(
+        createdTime: DateTime.now(),
+        name: name,
+        value: value,
       );
-      //ICI il faudra la créer en base
+
+      //On ajoute d'abord la variable en locale
+      _variables.add(newVariable);
+
+      //Puis on l'insère dans la DB
+      /*
+      ScenariosDatabase.instance.createVariable(newVariable);*/
     }
   }
 
@@ -328,15 +362,25 @@ class Scenario {
   /* Fonction pour contrinuer un scénario en cours.
   */
   void resumesOngoingScenario() {
+    initScenarioVariables();
     int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
-    //On init le scenario
-    _questions = getScenarioQuestions(idScenario);
-    _replies = getScenarioReplies(idScenario);
 
-    //On récupère la question en cours
-    Question currentQuestion = getCurrentQuestion();
+    if (idScenario != null) {
+      //Permet de ne pas afficher la question 2 fois
+      isResumeScenario = true;
 
-    displayQuestion(currentQuestion);
+      //On init le scenario
+      _questions = getScenarioQuestions(idScenario);
+      _replies = getScenarioReplies(idScenario);
+      initScenarioRelationsQR();
+
+      //On récupère la question en cours
+      Question currentQuestion = getCurrentQuestion();
+
+      displayQuestion(currentQuestion);
+    } else {
+      print("resumesOngoingScenario : Pas de scénario en cours");
+    }
   }
 
   /* Démarre un nouveau scénario
@@ -346,6 +390,8 @@ class Scenario {
     //On init le scenario
     _questions = getScenarioQuestions(id);
     _replies = getScenarioReplies(id);
+    initScenarioRelationsQR();
+    initScenarioVariables();
 
     //On récupère la première question
     Question firstQuestion = getFirstQuestion();
@@ -366,7 +412,8 @@ class Scenario {
       isSentByMe: isSentByMeMessage,
     );
 
-    MessageDatabase.instance.create(message); //Creer un message dans la BD
+    /*
+    MessageDatabase.instance.create(message);*/ //Creer un message dans la BD
   }
 
   /* Retire les %% d'une chaine de caractère
@@ -399,8 +446,13 @@ class Scenario {
     //Ajoute les varialbes au texte si nécessaire
     String text = replaceStringToVariable(question.textFR);
 
-    //Ajoute le message en base
-    addMessage(text, false);
+    //On ne réaffiche pas le message lorsqu'on reprend un scénario en cours
+    if (isResumeScenario) {
+      isResumeScenario = false;
+    } else {
+      //Ajoute le message en base
+      addMessage(text, false);
+    }
 
     //Remet bool a false (défault)
     isClosedQuestion = false;
