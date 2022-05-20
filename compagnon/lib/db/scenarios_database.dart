@@ -72,6 +72,7 @@ CREATE TABLE $tableQuestions(
     await db.execute('''
 CREATE TABLE $tableRelationsQR(
   ${RelationQRField.id} $idType,
+  ${RelationQRField.idScenario} $integerType,
   ${RelationQRField.idQuestion} $integerType,
   ${RelationQRField.idReply} $integerType,
   ${RelationQRField.createdTime} $textType

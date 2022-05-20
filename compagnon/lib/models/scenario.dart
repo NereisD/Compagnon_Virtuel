@@ -106,12 +106,14 @@ class Scenario {
   List<RelationQR> _relationsQR = [
     RelationQR(
       id: 1,
+      idScenario: 1,
       createdTime: DateTime.now(),
       idQuestion: 3,
       idReply: 1,
     ),
     RelationQR(
       id: 2,
+      idScenario: 1,
       createdTime: DateTime.now(),
       idQuestion: 3,
       idReply: 2,
@@ -177,11 +179,16 @@ class Scenario {
     return _replies.where((reply) => reply.idScenario == idScenario).toList();
   }
 
-  //Init les relations Questions / Réponses depuis la DB
-  void initScenarioRelationsQR() async {
+  /* getScenarioReplies renvoie la liste des relations Questions/Reponses 
+  *  correspondantes a un id de scenario souhaité
+  */
+  Future<List<RelationQR>> initScenarioRelationsQR(int idScenario) async {
     //Appel DB relationsQR
 
     _relationsQR = await ScenariosDatabase.instance.readAllRelationsQR();
+    return _relationsQR
+        .where((relationQR) => relationQR.idScenario == idScenario)
+        .toList();
   }
 
   //Init les variables de la DB
@@ -369,7 +376,7 @@ class Scenario {
       //On init le scenario
       _questions = await getScenarioQuestions(idScenario);
       _replies = await getScenarioReplies(idScenario);
-      initScenarioRelationsQR();
+      _relationsQR = await initScenarioRelationsQR(idScenario);
 
       //On récupère la question en cours
       Question currentQuestion = getCurrentQuestion();
@@ -384,10 +391,10 @@ class Scenario {
   */
   void initScenario(int id) async {
     //print("Init scénario");
-    //On init le scenario
+    //On init le scenario avec son id
     _questions = await getScenarioQuestions(id);
     _replies = await getScenarioReplies(id);
-    initScenarioRelationsQR();
+    _relationsQR = await initScenarioRelationsQR(id);
     initScenarioVariables();
 
     //On récupère la première question
