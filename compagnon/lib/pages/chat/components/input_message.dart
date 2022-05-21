@@ -4,6 +4,7 @@ import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
+import 'package:compagnon/providers/scenarios.dart';
 import 'package:flutter/material.dart';
 import 'package:compagnon/constants.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class InputMessage extends StatelessWidget {
   int iInput = 2;
   final _textController = TextEditingController();
 
-  InputMessage({iInput});
+  var input;
 
   /*
   //Ajout d'un message en base
@@ -178,11 +179,26 @@ class InputMessage extends StatelessWidget {
       );
     } else {
       return Container(
-        width: MediaQuery.of(context).size.width,
-        height: 100,
-        padding: const EdgeInsets.all(10.0),
-        color: Colors.amber,
-      );
+                margin: const EdgeInsets.all(6.0),
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  color: Colors.teal,
+                ),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    //padding: const EdgeInsets.all(10.0),
+                    primary: Colors.white,
+                    textStyle: const TextStyle(fontSize: 18),
+                  ),
+                  onPressed: () {
+                         currentScenario.initScenario(1);
+
+                  },
+                  child: Text("Lancer un scénario"),
+                ),
+              );
     }
   }
 }

@@ -14,7 +14,7 @@ int selectedIndex = -1;
 //permet relaod l'UI du journal au démarrage
 bool journalReloadUI = true;
 
-int lang = 0;
+int lang = 1;
 /* Variables des strings en différentes langues
 * indice 0 : Anglais
 * indice 1 : Français
@@ -23,8 +23,10 @@ int lang = 0;
 const appTitle = ["Compagnon", "Compagnon", "仲間"];
 
 /* Buttons */
+const chatButton = ["Chat", "Discution", ""];
 const optionsButton = ["Options", "Reglages", "設定"];
 const deleteButton = ["Delete", "Supprimer", "消去"];
+const deleteAllButton = ["Delete all", "Supprimer tout", "消去"];
 const journalButton = ["Journal", "Journal", "ジャーナル"];
 const secretsButton = ["Secrets", "Secrets", "秘密"];
 const likeButton = ["Like", "Aimer", "お気に入り"];

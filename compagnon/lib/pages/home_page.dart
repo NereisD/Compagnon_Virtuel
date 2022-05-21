@@ -4,6 +4,7 @@ import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
+import 'package:compagnon/pages/config/config_screen.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -19,11 +20,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class MyHomeScreen extends State<HomeScreen> {
-  //int selectedIndex = 0;
+  int selectedIndex = 0;
 
   Widget _chatBody = RestartWidget();
   Widget _chatBody2 = RestartWidget();
   Widget _journalBody = JournalScreen();
+  Widget _configBody = ConfigScreen();
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,24 +48,15 @@ class MyHomeScreen extends State<HomeScreen> {
         this.onTapHandler(index);
       },
       items: [
+        
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.settings,
+            Icons.chat,
             color: Colors.white,
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: optionsButton[lang],
-          backgroundColor: Colors.teal,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.delete,
-            color: keyValue == 1 ? Colors.black : Colors.white,
-            size: 30.0,
-            semanticLabel: "Text",
-          ),
-          label: deleteButton[lang],
+          label: chatButton[lang],
           backgroundColor: Colors.teal,
         ),
         BottomNavigationBarItem(
@@ -77,22 +71,12 @@ class MyHomeScreen extends State<HomeScreen> {
         ),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.favorite,
-            color: keyValue == 3 ? Colors.red : Colors.white,
+            Icons.settings,
+            color: Colors.white,
             size: 30.0,
             semanticLabel: "Text",
           ),
-          label: likeButton[lang],
-          backgroundColor: Colors.teal,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.vpn_key,
-            color: keyValue == 4 ? Colors.orange : Colors.white,
-            size: 30.0,
-            semanticLabel: "Text",
-          ),
-          label: secretsButton[lang],
+          label: optionsButton[lang],
           backgroundColor: Colors.teal,
         ),
       ],
@@ -129,7 +113,7 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   Widget bodySelected() {
-    if (selectedIndex == 2) {
+    if (selectedIndex == 1) {
       return _journalBody;
     } else if (selectedIndex == 0) {
       //exportData();
@@ -138,7 +122,7 @@ class MyHomeScreen extends State<HomeScreen> {
 
       //loadingMessage = true;
 
-      currentScenario.initScenario(1);
+      // currentScenario.initScenario(1);
       selectedIndex = -1;
 
       /*
@@ -160,8 +144,9 @@ class MyHomeScreen extends State<HomeScreen> {
         chatBodyOptions = true;
         return _chatBody2;
       }
-    } else {
-      return _chatBody;
+    } else if (selectedIndex == 2) {
+
+      return _configBody;
     }
   }
 

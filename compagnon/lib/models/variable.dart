@@ -42,6 +42,7 @@ class Variable {
         value: value ?? this.value,
       );
 
+
   //Transforme un Json en map
   static Variable fromJson(Map<String, Object> json) => Variable(
       id: json[VariableField.id] as int,
@@ -50,6 +51,10 @@ class Variable {
       createdTime: DateTime.parse(
         json[VariableField.createdTime] as String,
       ));
+
+  String getName(){
+    return name;
+  }
 
   //Transforme une map to Json
   Map<String, Object> toJson() => {

@@ -18,6 +18,29 @@ class ChatBox extends StatefulWidget {
 }
 
 class MyChatBox extends State<ChatBox> {
+  final ScrollController _scrollController = ScrollController();
+
+
+    _scrollToEnd() async {
+      _scrollController.animateTo(
+        _scrollController.position.maxScrollExtent,
+        );
+    }
+  @override
+  Widget build(BuildContext context) {
+    return chatbox(scrollController: _scrollController);
+
+  }
+}
+
+class chatbox extends StatelessWidget {
+  const chatbox({
+    Key key,
+    @required ScrollController scrollController,
+  }) : _scrollController = scrollController, super(key: key);
+
+  final ScrollController _scrollController;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,16 +50,13 @@ class MyChatBox extends State<ChatBox> {
         builder: (BuildContext context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasData) {
             List<Message> messages = snapshot.data;
-            /* debug messages
-            for (int i = 0; i < messages.length; i++) {
-              print(messages[i].id);
-              print(messages[i].date);
-              print(messages[i].text);
-            }*/
+
             return GroupedListView<Message, DateTime>(
+              controller: _scrollController, //The Controller
+              shrinkWrap: true,
               padding: const EdgeInsets.all(8),
-              reverse: false, //Avant : true
-              sort: false, //Avant : pas ici (défault true)
+              reverse: false,
+              sort: true, //Avant : pas ici (défault true)
               order: GroupedListOrder.DESC,
               useStickyGroupSeparators: true,
               floatingHeader: true,
@@ -47,10 +67,7 @@ class MyChatBox extends State<ChatBox> {
                 message.date.month,
                 message.date.day,
               ),
-              /* Un header pour chaque groupe de message 
-              * (un groupe étant un jour)
-              * C'est un Card widget avec la date du jour
-              */
+
               groupHeaderBuilder: (Message message) => SizedBox(
                 height: 40,
                 child: Center(
@@ -69,10 +86,14 @@ class MyChatBox extends State<ChatBox> {
                 ),
               ),
               //itemCount: messages.length,
-              itemBuilder: (context, Message message) => MessagePlacement(
-                message: message,
-                key: null,
-              ),
+              itemBuilder: (context, Message message) {
+              
+                 return  MessagePlacement(
+                  message: message,
+                  key: null,
+                );    
+              }
+              
             );
           } else {
             return Center(
@@ -208,12 +229,12 @@ class MessageWidget extends State<MessagePlacement> {
               onTap: () {
                 print("Id du message : " + message.id.toString());
                 //var keyValue = 2; // a changer !!!
-                if (keyValue == 3) {
+                if (keyValue == 2) {
                   message.setIsLiked(!message.isLiked);
                   MessageDatabase.instance.update(message);
                   keyValue = 0;
                   setState(() {});
-                } else if (keyValue == 4) {
+                } else if (keyValue == 3) {
                   message.setIsSecret(!message.isSecret);
                   MessageDatabase.instance.update(message);
                   keyValue = 0;

@@ -90,8 +90,9 @@ CREATE TABLE $tableMessages (
     }
   }
 
-  //Pour lire toutes les messages de la base
-  Future<List<Message>> readAllMessages() async {
+
+
+    Future<List<Message>> readAllMessages() async {
     final db = await instance.database;
 
     const orderBy = '${MessageField.date} ASC';

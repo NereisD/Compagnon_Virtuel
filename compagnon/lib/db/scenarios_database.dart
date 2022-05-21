@@ -292,21 +292,21 @@ CREATE TABLE $tableVariables(
   }
 
   //Récupère une variable en fonction de son ID
-  Future<Variable> readVariable(int id) async {
+  Future<Variable> readVariable(String name) async {
     final db = await instance.database;
 
     final maps = await db.query(
       tableVariables,
       columns: VariableField.values,
-      where: '${VariableField.id} = ?',
-      whereArgs: [id],
+      where: '${VariableField.name} = ?',
+      whereArgs: [name],
     );
 
     //Si la requête est un succès
     if (maps.isNotEmpty) {
       return Variable.fromJson(maps.first);
     } else {
-      throw Exception('ID $id Variable is not found');
+      return null;
     }
   }
 

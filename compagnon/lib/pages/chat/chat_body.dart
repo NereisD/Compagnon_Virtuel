@@ -1,4 +1,5 @@
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/pages/chat/components/Interact_Message.dart';
 import 'package:compagnon/pages/chat/components/input_message.dart';
 import 'package:compagnon/pages/chat/components/chat_box.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,10 @@ class ChatBody extends StatelessWidget {
           flex: 5,
           child: ChatBox(),
         ),
-        InputMessage(iInput: 1),
+        InputMessage(),
+        interactMessage(),
+
+
       ],
     );
   }
