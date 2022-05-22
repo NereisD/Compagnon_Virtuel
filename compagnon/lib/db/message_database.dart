@@ -57,6 +57,7 @@ CREATE TABLE $tableMessages (
 
   Future<Message> create(Message message) async {
     print("Create message");
+    //message.displayContent();
     final db = await instance.database;
     //id généré par la db
     final id = await db.insert(tableMessages, message.toJson());

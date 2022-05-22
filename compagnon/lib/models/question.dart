@@ -54,11 +54,11 @@ class Question {
     this.textEN = '',
     this.textFR = '',
     this.textJP = '',
-    this.idNextQuestion = null,
-    @required this.isOpenQuestion,
+    this.idNextQuestion = 0,
+    this.isOpenQuestion = false,
     this.isFirst = false,
     this.isEnd = false,
-    this.nameVariable = null,
+    this.nameVariable = '',
   });
 
   Question copy({
@@ -119,4 +119,19 @@ class Question {
         QuestionField.nameVariable: nameVariable,
         QuestionField.createdTime: createdTime.toIso8601String(),
       };
+
+  void displayContent() {
+    print("--- Content question : ---");
+    print("id : $id");
+    print("idScenario : $idScenario");
+    print("textEN : $textEN");
+    print("textFR : $textFR");
+    print("textJP : $textJP");
+    print("idNextQuestion : $idNextQuestion");
+    print("isOpenQuestion : $isOpenQuestion");
+    print("isFirst : $isFirst");
+    print("isEnd : $isEnd");
+    print("nameVariable : $nameVariable");
+    print("createdTime : $createdTime");
+  }
 }

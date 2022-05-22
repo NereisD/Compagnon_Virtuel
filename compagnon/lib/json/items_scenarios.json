@@ -1,0 +1,107 @@
+{
+    "questions" : [
+        {
+            "id": 1,
+            "idScenario": 2,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textEN": "",
+            "textFR": "Question scénario 2",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textEN": "",
+            "textFR": "Bonjour, je m'appelle Bob.",
+            "textJP": "",
+            "idNextQuestion": 3,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textEN": "",
+            "textFR": "Aimez-vous les bananes ?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 4,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Moi aussi, j'adore !",
+            "isOpenQuestion": 0,
+            "isEnd": 1
+        },
+        {
+            "id": 5,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Quel fruit préférez-vous ?",
+            "isOpenQuestion": 1,
+            "idNextQuestion": 6,
+            "isEnd": 0,
+            "nameVariable": "favoriteFruit"
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Les %%favoriteFruit ont du gout",
+            "isOpenQuestion": 0,
+            "isEnd": 1
+        }
+    ],
+    "replies" : [
+        {
+            "id": 1,
+            "idScenario": 2,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Reply senario2"
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Oui j'aime les bananes",
+            "idQuestion": 4
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "textFR": "Non je n'aime pas",
+            "idQuestion": 5
+        }
+    ],
+    "relationsQR" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "idQuestion": 3,
+            "idReply": 2
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "createdTime": "2022-05-20T10:56:32.880",
+            "idQuestion": 3,
+            "idReply": 3
+        }
+    ]
+}

@@ -44,8 +44,8 @@ class Reply {
     this.textEN = '',
     this.textFR = '',
     this.textJP = '',
-    this.idQuestion = null,
-    this.nameVariable = null,
+    this.idQuestion = 0,
+    this.nameVariable = '',
   });
 
   Reply copy({

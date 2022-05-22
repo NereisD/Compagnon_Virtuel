@@ -82,20 +82,20 @@ class Scenario {
 
   List<Reply> _replies = [
     Reply(
-      id: 3,
+      id: 1,
       idScenario: 2,
       createdTime: DateTime.now(),
       textFR: "Reply senario2",
     ),
     Reply(
-      id: 1,
+      id: 2,
       idScenario: 1,
       createdTime: DateTime.now(),
       textFR: "Oui j'aime les bananes",
       idQuestion: 4, //Pas sur (commence a 0 ou 1 ?)
     ),
     Reply(
-      id: 2,
+      id: 3,
       idScenario: 1,
       createdTime: DateTime.now(),
       textFR: "Non je n'aime pas",
@@ -109,14 +109,14 @@ class Scenario {
       idScenario: 1,
       createdTime: DateTime.now(),
       idQuestion: 3,
-      idReply: 1,
+      idReply: 2,
     ),
     RelationQR(
       id: 2,
       idScenario: 1,
       createdTime: DateTime.now(),
       idQuestion: 3,
-      idReply: 2,
+      idReply: 3,
     )
   ];
 
@@ -247,7 +247,7 @@ class Scenario {
       return 0;
     } else if (question.isOpenQuestion) {
       return 1;
-    } else if (question.idNextQuestion == null) {
+    } else if (question.idNextQuestion == 0) {
       return 2;
     } else {
       return 3;
@@ -259,7 +259,7 @@ class Scenario {
   *  false : le robot conitnue 
   */
   bool replyIsEnd(Reply reply) {
-    if (reply.idQuestion == null) {
+    if (reply.idQuestion == 0) {
       return true;
     } else {
       return false;
@@ -359,8 +359,8 @@ class Scenario {
   /* Termine un scénario en passant les idCurrent à null
   */
   void endScenario() {
-    setVariable("idCurrentScenario", null);
-    setVariable("idCurrentQuestion", null);
+    setVariable("idCurrentScenario", '');
+    setVariable("idCurrentQuestion", '');
   }
 
   /* Fonction pour contrinuer un scénario en cours.
@@ -369,7 +369,7 @@ class Scenario {
     initScenarioVariables();
     int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
 
-    if (idScenario != null) {
+    if (idScenario != 0) {
       //Permet de ne pas afficher la question 2 fois
       isResumeScenario = true;
 
@@ -501,7 +501,7 @@ class Scenario {
     //On ajoute le message
     addMessage(reply.textFR, true);
     //On enregistre une variable si besoin
-    if (reply.nameVariable != null) {
+    if (reply.nameVariable != '') {
       setVariable(reply.nameVariable, reply.textFR);
     }
     //On vérifie si c'est la dernière réplique
@@ -520,11 +520,11 @@ class Scenario {
     //On ajoute le message
     addMessage(text, true);
     //On enregistre une variable si besoin
-    if (question.nameVariable != null) {
+    if (question.nameVariable != '') {
       setVariable(question.nameVariable, text);
     }
     //On vérifie si c'est la dernière réplique
-    if (question.idNextQuestion == null) {
+    if (question.idNextQuestion == 0) {
       //On termine le scénario
       endScenario();
     } else {

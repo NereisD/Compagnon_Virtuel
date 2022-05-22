@@ -109,4 +109,14 @@ class Message {
   void setIsSecret(bool b) {
     isSecret = b;
   }
+
+  void displayContent() {
+    print("--- Content message : ---");
+    print("id : $id");
+    print("text : $text");
+    print("date : $date");
+    print("isSentByMe : $isSentByMe");
+    print("isLiked : $isLiked");
+    print("isSecret : $isSecret");
+  }
 }

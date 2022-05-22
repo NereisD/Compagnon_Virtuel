@@ -12,6 +12,12 @@ class ScenariosDatabase {
 
   ScenariosDatabase._init();
 
+  //Pour créer un identifiant en SQLITE
+  final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+  final textType = 'TEXT NOT NULL';
+  final boolType = 'BOOLEAN NOT NULL';
+  final integerType = 'INTEGER NOT NULL';
+
   //Ouvrir une connextion avec la DB
   Future<Database> get database async {
     //Si elle existe déjà on la retourne directement
@@ -34,12 +40,6 @@ class ScenariosDatabase {
   }
 
   Future _createDB(Database db, int version) async {
-    //Pour créer un identifiant en SQLITE
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final textType = 'TEXT NOT NULL';
-    final boolType = 'BOOLEAN NOT NULL';
-    final integerType = 'INTEGER NOT NULL';
-
     await db.execute('''
 CREATE TABLE $tableReplies(
   ${ReplyField.id} $idType,
@@ -157,11 +157,37 @@ CREATE TABLE $tableVariables(
     );
   }
 
+  //Supprime la table des réponses
+  void dropTableReplies() async {
+    final db = await instance.database;
+    db.execute("DROP TABLE IF EXISTS $tableReplies");
+  }
+
+  //Créer la table des réponses
+  void createTableReplies() async {
+    final db = await instance.database;
+    await db.execute('''
+CREATE TABLE $tableReplies(
+  ${ReplyField.id} $idType,
+  ${ReplyField.idScenario} $integerType,
+  ${ReplyField.textEN} $textType,
+  ${ReplyField.textFR} $textType,
+  ${ReplyField.textJP} $textType,
+  ${ReplyField.idQuestion} $integerType,
+  ${ReplyField.nameVariable} $textType,
+  ${ReplyField.createdTime} $textType
+)
+''');
+  }
+
   /* ========== CRUD Questions ========== */
 
   //Créer une question
   Future<Question> createQuestion(Question question) async {
+    question.displayContent();
+
     final db = await instance.database;
+
     //id généré par la db
     final id = await db.insert(tableQuestions, question.toJson());
     return question.copy(id: id);
@@ -182,7 +208,9 @@ CREATE TABLE $tableVariables(
     if (maps.isNotEmpty) {
       return Question.fromJson(maps.first);
     } else {
-      throw Exception('ID $id Question is not found');
+      //throw Exception('ID $id Question is not found');
+      print("(readQuestion) ID question doesn't exist");
+      return null;
     }
   }
 
@@ -217,6 +245,32 @@ CREATE TABLE $tableVariables(
       where: '${QuestionField.id} = ?',
       whereArgs: [id],
     );
+  }
+
+  //Supprime la table des questions
+  void dropTableQuestions() async {
+    final db = await instance.database;
+    db.execute("DROP TABLE IF EXISTS $tableQuestions");
+  }
+
+  //Creer la table des questions
+  void createTableQuestions() async {
+    final db = await instance.database;
+    await db.execute('''
+CREATE TABLE $tableQuestions(
+  ${QuestionField.id} $idType,
+  ${QuestionField.idScenario} $integerType,
+  ${QuestionField.createdTime} $integerType,
+  ${QuestionField.textEN} $textType,
+  ${QuestionField.textFR} $textType,
+  ${QuestionField.textJP} $textType,
+  ${QuestionField.idNextQuestion} $integerType,
+  ${QuestionField.isOpenQuestion} $boolType,
+  ${QuestionField.isFirst} $boolType,
+  ${QuestionField.isEnd} $boolType,
+  ${QuestionField.nameVariable} $textType
+)
+''');
   }
 
   /* ========== CRUD Relation QR ========== */
@@ -281,6 +335,26 @@ CREATE TABLE $tableVariables(
     );
   }
 
+  //Supprime la table des relations QR
+  void dropTableRelationsQR() async {
+    final db = await instance.database;
+    db.execute("DROP TABLE IF EXISTS $tableRelationsQR");
+  }
+
+  //Créer la table relations QR
+  void createTableRelationsQR() async {
+    final db = await instance.database;
+    await db.execute('''
+CREATE TABLE $tableRelationsQR(
+  ${RelationQRField.id} $idType,
+  ${RelationQRField.idScenario} $integerType,
+  ${RelationQRField.idQuestion} $integerType,
+  ${RelationQRField.idReply} $integerType,
+  ${RelationQRField.createdTime} $textType
+)
+''');
+  }
+
   /* ========== CRUD variables ========== */
 
   //Créer une variable
@@ -341,6 +415,12 @@ CREATE TABLE $tableVariables(
       where: '${VariableField.id} = ?',
       whereArgs: [id],
     );
+  }
+
+  //Supprime la table des variables
+  void dropTableVariables() async {
+    final db = await instance.database;
+    db.execute("DROP TABLE IF EXISTS $tableVariables");
   }
 
   /* ========== Close DB ========== */
