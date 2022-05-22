@@ -1,4 +1,6 @@
 import 'package:compagnon/constants.dart';
+import 'package:compagnon/db/export_json.dart';
+import 'package:compagnon/db/import_json.dart';
 import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_util.dart';
 import 'package:compagnon/models/scenario.dart';
@@ -163,14 +165,18 @@ class _ConfigScreen extends State<ConfigScreen> {
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                   ),
-                  onPressed: () { },
+                  onPressed: () {
+                    importScenarios();
+                   },
                   child: Text('Importer'),
                 ),
                 TextButton(
                   style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
                   ),
-                  onPressed: () { },
+                  onPressed: () {
+                    exportData();
+                   },
                   child: Text('Exporter'),
                 )
             ],

@@ -56,7 +56,7 @@ class chatbox extends StatelessWidget {
               shrinkWrap: true,
               padding: const EdgeInsets.all(8),
               reverse: false,
-              sort: true, //Avant : pas ici (défault true)
+              sort: false, //Avant : pas ici (défault true)
               order: GroupedListOrder.DESC,
               useStickyGroupSeparators: true,
               floatingHeader: true,

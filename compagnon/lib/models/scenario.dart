@@ -413,7 +413,7 @@ class Scenario {
 
   //Ajout d'un message en base
   void addMessage(textMessage, isSentByMeMessage) {
-    //print("Add message");
+    print("Add message");
     final message = Message(
       date: DateTime.now(),
       text: textMessage,

@@ -123,7 +123,7 @@ class MyHomeScreen extends State<HomeScreen> {
       //loadingMessage = true;
 
       // currentScenario.initScenario(1);
-      selectedIndex = -1;
+      // selectedIndex = -1;
 
       /*
       while (loadingMessage) {

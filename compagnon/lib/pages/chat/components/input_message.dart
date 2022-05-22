@@ -193,7 +193,9 @@ class InputMessage extends StatelessWidget {
                     textStyle: const TextStyle(fontSize: 18),
                   ),
                   onPressed: () {
-                         currentScenario.initScenario(1);
+                        currentScenario.initScenario(1);
+                         print("restart widget");
+                        RestartWidget.restartApp(context); //Reload la page de tchat
 
                   },
                   child: Text("Lancer un scénario"),
