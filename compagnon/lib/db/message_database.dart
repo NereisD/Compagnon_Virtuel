@@ -56,7 +56,7 @@ CREATE TABLE $tableMessages (
   }
 
   Future<Message> create(Message message) async {
-    print("Create message");
+    //print("Create message");
     //message.displayContent();
     final db = await instance.database;
     //id généré par la db
@@ -91,9 +91,7 @@ CREATE TABLE $tableMessages (
     }
   }
 
-
-
-    Future<List<Message>> readAllMessages() async {
+  Future<List<Message>> readAllMessages() async {
     final db = await instance.database;
 
     const orderBy = '${MessageField.date} ASC';

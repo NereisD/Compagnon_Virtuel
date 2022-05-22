@@ -23,7 +23,7 @@ int lang = 1;
 const appTitle = ["Compagnon", "Compagnon", "仲間"];
 
 /* Buttons */
-const chatButton = ["Chat", "Discution", ""];
+const chatButton = ["Chat", "Discussion", ""];
 const optionsButton = ["Options", "Reglages", "設定"];
 const deleteButton = ["Delete", "Supprimer", "消去"];
 const deleteAllButton = ["Delete all", "Supprimer tout", "消去"];

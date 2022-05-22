@@ -8,15 +8,11 @@ class interactMessage extends StatefulWidget {
   State<interactMessage> createState() => _interactMessageState();
 }
 
-
-
-
-
 class _interactMessageState extends State<interactMessage> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.teal,
+      backgroundColor: kSecondaryColor,
       unselectedItemColor: Colors.white.withOpacity(0.8),
       selectedItemColor: Colors.white.withOpacity(0.8),
       showSelectedLabels: true, // <-- HERE
@@ -33,44 +29,43 @@ class _interactMessageState extends State<interactMessage> {
             semanticLabel: "Text",
           ),
           label: deleteAllButton[lang],
-          backgroundColor: Colors.teal,
+          backgroundColor: kSecondaryColor,
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.delete,
             color: keyValue == 1 ? Colors.black : Colors.white,
-            size: 30.0,
+            size: 25.0,
             semanticLabel: "Text",
           ),
           label: deleteButton[lang],
-          backgroundColor: Colors.teal,
+          backgroundColor: kSecondaryColor,
         ),
-       
         BottomNavigationBarItem(
           icon: Icon(
             Icons.favorite,
             color: keyValue == 2 ? Colors.red : Colors.white,
-            size: 30.0,
+            size: 25.0,
             semanticLabel: "Text",
           ),
           label: likeButton[lang],
-          backgroundColor: Colors.teal,
+          backgroundColor: kSecondaryColor,
         ),
         BottomNavigationBarItem(
           icon: Icon(
             Icons.vpn_key,
-            color: keyValue == 3 ? Colors.yellow : Colors.white,
-            size: 30.0,
+            color: keyValue == 3 ? Colors.orange : Colors.white,
+            size: 25.0,
             semanticLabel: "Text",
           ),
           label: secretsButton[lang],
-          backgroundColor: Colors.teal,
+          backgroundColor: kSecondaryColor,
         ),
       ],
     );
   }
 
-    void onTapHandler(int index) {
+  void onTapHandler(int index) {
     this.setState(() {
       selectedIndex = index;
       print("(onTap) selectedIndex = ");

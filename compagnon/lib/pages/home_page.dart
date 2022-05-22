@@ -4,7 +4,7 @@ import 'package:compagnon/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
-import 'package:compagnon/pages/config/config_screen.dart';
+import 'package:compagnon/pages/settings/settings_body.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
 
 import 'package:flutter/material.dart';
@@ -25,8 +25,7 @@ class MyHomeScreen extends State<HomeScreen> {
   Widget _chatBody = RestartWidget();
   Widget _chatBody2 = RestartWidget();
   Widget _journalBody = JournalScreen();
-  Widget _configBody = ConfigScreen();
-
+  Widget _configBody = SettingsBody();
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +47,6 @@ class MyHomeScreen extends State<HomeScreen> {
         this.onTapHandler(index);
       },
       items: [
-        
         BottomNavigationBarItem(
           icon: Icon(
             Icons.chat,
@@ -145,7 +143,6 @@ class MyHomeScreen extends State<HomeScreen> {
         return _chatBody2;
       }
     } else if (selectedIndex == 2) {
-
       return _configBody;
     }
   }

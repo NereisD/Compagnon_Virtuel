@@ -4,7 +4,6 @@ import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
-import 'package:compagnon/providers/scenarios.dart';
 import 'package:flutter/material.dart';
 import 'package:compagnon/constants.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +37,14 @@ class InputMessage extends StatelessWidget {
     MessageDatabase.instance.create(message); //Creer un message dans la BD
     //Navigator.of(context).pop();
   }*/
+
+  /* permet de reload l'UI apres le temps d'accès à la BD
+  */
+  Future reloadUI(BuildContext context) async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    print("restart widget");
+    RestartWidget.restartApp(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,28 +186,37 @@ class InputMessage extends StatelessWidget {
       );
     } else {
       return Container(
-                margin: const EdgeInsets.all(6.0),
-                width: MediaQuery.of(context).size.width,
-                height: 40,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(8)),
-                  color: Colors.teal,
-                ),
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    //padding: const EdgeInsets.all(10.0),
-                    primary: Colors.white,
-                    textStyle: const TextStyle(fontSize: 18),
-                  ),
-                  onPressed: () {
-                        currentScenario.initScenario(1);
-                         print("restart widget");
-                        RestartWidget.restartApp(context); //Reload la page de tchat
+        width: MediaQuery.of(context).size.width,
+        //height: 140,
+        padding: const EdgeInsets.all(10.0),
+        decoration: const BoxDecoration(
+          color: kLighterBackgroundColor,
+        ),
+        child: Container(
+          margin: const EdgeInsets.all(6.0),
+          width: MediaQuery.of(context).size.width,
+          height: 40,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+            color: kSecondaryColor,
+          ),
+          child: TextButton(
+            style: TextButton.styleFrom(
+              //padding: const EdgeInsets.all(10.0),
+              primary: Colors.white,
+              textStyle: const TextStyle(fontSize: 18),
+            ),
+            onPressed: () {
+              currentScenario.addMessage("Bonjour !", true);
+              currentScenario.initScenario(1);
 
-                  },
-                  child: Text("Lancer un scénario"),
-                ),
-              );
+              //RestartWidget.restartApp(context); //Reload la page de tchat
+              reloadUI(context);
+            },
+            child: Text("Bonjour !"),
+          ),
+        ),
+      );
     }
   }
 }
