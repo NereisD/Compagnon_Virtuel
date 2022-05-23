@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/Message.dart';

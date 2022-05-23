@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:flutter/cupertino.dart';

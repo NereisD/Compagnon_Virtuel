@@ -42,7 +42,6 @@ class Variable {
         value: value ?? this.value,
       );
 
-
   //Transforme un Json en map
   static Variable fromJson(Map<String, Object> json) => Variable(
       id: json[VariableField.id] as int,
@@ -52,7 +51,7 @@ class Variable {
         json[VariableField.createdTime] as String,
       ));
 
-  String getName(){
+  String getName() {
     return name;
   }
 
@@ -63,4 +62,12 @@ class Variable {
         VariableField.value: value,
         VariableField.createdTime: createdTime.toIso8601String(),
       };
+
+  void displayContent() {
+    print("--- Content variable : ---");
+    print("id : $id");
+    print("createdTime : $createdTime");
+    print("name : $name");
+    print("value : $value");
+  }
 }

@@ -25,7 +25,7 @@ void requestPermission() async {
   ].request();
 }
 
-void importScenarios() async {
+Future<int> importScenarios() async {
   final String response =
       await rootBundle.loadString('lib/json/items_scenarios.json');
   final data = await json.decode(response);
@@ -137,7 +137,9 @@ void importScenarios() async {
   }
 
   //Pour voir la DB nouvellement créée
-  displayDB();
+  //displayDB();
+
+  return 0;
 }
 
 /* Affiche la base de données
@@ -165,7 +167,7 @@ void displayDB() {
 
   //Affiche la base des relationsQR
   ScenariosDatabase.instance.readAllRelationsQR().then((liste) {
-    print("----- table réponses ----- taille :");
+    print("----- table relations QR ----- taille :");
     print(liste.length);
     for (var l in liste) {
       print(l.idQuestion);

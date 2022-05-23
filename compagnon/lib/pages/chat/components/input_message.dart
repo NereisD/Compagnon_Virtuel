@@ -4,8 +4,9 @@ import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:provider/provider.dart';
 
 class InputMessage extends StatelessWidget {

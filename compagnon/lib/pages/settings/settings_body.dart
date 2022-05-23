@@ -1,4 +1,4 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/db/import_json.dart';
 import 'package:compagnon/db/scenarios_database.dart';
@@ -7,6 +7,7 @@ import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/journal/components/add_todo_dialog_widget.dart';
 import 'package:compagnon/pages/journal/components/completed_list_widget.dart';
 import 'package:compagnon/pages/journal/components/todo_list_widget.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

@@ -1,4 +1,6 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/db/import_json.dart';
+import 'package:compagnon/db/scenarios_database.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/pages/chat/components/Interact_Message.dart';
 import 'package:compagnon/pages/chat/components/input_message.dart';
 import 'package:compagnon/pages/chat/components/chat_box.dart';
@@ -36,31 +38,51 @@ class _RestartWidgetState extends State<RestartWidget> {
 }
 
 class ChatBody extends StatelessWidget {
-  /*
-  Future<String> getLocalPath() async {
-  final directory = await ExtStorage.getExternalStoragePublicDirectory(
-      ExtStorage.DIRECTORY_DOWNLOADS);
-  return directory;
-}*/
+  /* permet de reload l'UI apres le temps d'accès à la BD
+  */
+  Future reloadUI(BuildContext context) async {
+    await Future.delayed(const Duration(milliseconds: 500));
+    print("restart widget");
+    RestartWidget.restartApp(context);
+  }
+
+  /* Fonction qui permet de lancer le scénario d'init ou de reprendre 
+  *  un scénario en cours
+  */
+  void initLifeCycle(BuildContext context) {
+    //Get la variable idCurrentScenario depuis les bases
+    ScenariosDatabase.instance.readVariable('idCurrentScenario').then(
+      (var_idScenario) {
+        //print("idCurrentScenario = ${var_idScenario.value}");
+        //Si null, on démarre le 1er scénario
+        if (var_idScenario == null && reloadInit) {
+          reloadInit = false;
+          //Si null on n'a pas encore créer cette variable
+          //On import les scénarios par défault
+          importScenarios().then((value) {
+            print("Init welcome scenario (1)");
+            currentScenario.initScenario(1); //id 1 = scénario de bienvenue
+            reloadUI(context);
+          });
+          //Sinon null et avec une valeur, on reprend le scénario en cours
+        } else if (var_idScenario.value != '' && reloadInit) {
+          reloadInit = false;
+          //Si non vide on a pas finit d'exécuter un scénario
+          print("Resume ongoing scénario");
+          currentScenario.resumesOngoingScenario();
+          reloadUI(context);
+          //Sinon, on ne fait rien
+        } else {
+          print("var_idScenario.value = ${var_idScenario.value}");
+          print("initLifeCycle -> else");
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    /* Fonction qui attend qu'un message soit posté pour relad l'UI
-    */
-    /*
-    Future waitLoadingMessage() async {
-      await Future.delayed(const Duration(seconds: 1), () {
-        print("Restarting ChatApp ...");
-        RestartWidget.restartApp(context);
-      });
-    }
-
-    print("(ChatBody) loadingMessage = ");
-    print(loadingMessage);
-    if (loadingMessage) {
-      //waitLoadingMessage();
-    }*/
-
+    //initLifeCycle(context);
     return Column(
       children: [
         Expanded(
@@ -69,8 +91,6 @@ class ChatBody extends StatelessWidget {
         ),
         InputMessage(),
         interactMessage(),
-
-
       ],
     );
   }

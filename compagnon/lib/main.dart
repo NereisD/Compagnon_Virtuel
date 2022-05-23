@@ -1,6 +1,7 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/providers/todos.dart';
 import 'package:compagnon/pages/home_page.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,11 +1,13 @@
 import 'dart:io';
 
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/db/import_json.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/models/scenario.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
 import 'package:compagnon/pages/settings/settings_body.dart';
 import 'package:compagnon/pages/journal/journal_screen.dart';
+import 'package:compagnon/values/languages.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -114,34 +116,17 @@ class MyHomeScreen extends State<HomeScreen> {
     if (selectedIndex == 1) {
       return _journalBody;
     } else if (selectedIndex == 0) {
-      //exportData();
-      //final provider = Provider.of<ScenarioProvider>(context);
-      //provider.initScenario(1);
-
-      //loadingMessage = true;
-
-      // currentScenario.initScenario(1);
-      // selectedIndex = -1;
-
-      /*
-      while (loadingMessage) {
-        print("Waiting ...");
-      }*/
-
-      //Ici wait 200ms
-      /*
-      print("Waiting 5s ...");
-      sleep(const Duration(seconds: 5));
-      print("Waiting end");*/
-
       print("return chatBody");
+      return _chatBody;
+
+      /*
       if (chatBodyOptions) {
         chatBodyOptions = false;
         return _chatBody;
       } else {
         chatBodyOptions = true;
         return _chatBody2;
-      }
+      }*/
     } else if (selectedIndex == 2) {
       return _configBody;
     }

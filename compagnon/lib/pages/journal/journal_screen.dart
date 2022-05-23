@@ -1,7 +1,8 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/pages/journal/components/add_todo_dialog_widget.dart';
 import 'package:compagnon/pages/journal/components/completed_list_widget.dart';
 import 'package:compagnon/pages/journal/components/todo_list_widget.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 
 class JournalScreen extends StatefulWidget {

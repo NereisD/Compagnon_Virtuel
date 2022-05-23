@@ -1,8 +1,9 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_theme.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/pages/chat/chat_body.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
@@ -20,16 +21,15 @@ class ChatBox extends StatefulWidget {
 class MyChatBox extends State<ChatBox> {
   final ScrollController _scrollController = ScrollController();
 
+  _scrollToEnd() async {
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent,
+    );
+  }
 
-    _scrollToEnd() async {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        );
-    }
   @override
   Widget build(BuildContext context) {
     return chatbox(scrollController: _scrollController);
-
   }
 }
 
@@ -37,7 +37,8 @@ class chatbox extends StatelessWidget {
   const chatbox({
     Key key,
     @required ScrollController scrollController,
-  }) : _scrollController = scrollController, super(key: key);
+  })  : _scrollController = scrollController,
+        super(key: key);
 
   final ScrollController _scrollController;
 
@@ -52,49 +53,45 @@ class chatbox extends StatelessWidget {
             List<Message> messages = snapshot.data;
 
             return GroupedListView<Message, DateTime>(
-              controller: _scrollController, //The Controller
-              shrinkWrap: true,
-              padding: const EdgeInsets.all(8),
-              reverse: false,
-              sort: false, //Avant : pas ici (défault true)
-              order: GroupedListOrder.DESC,
-              useStickyGroupSeparators: true,
-              floatingHeader: true,
-              elements: messages, // La liste des messages va ici
-              groupBy: (message) => DateTime(
-                //On regroupe les messages d'un même jour ensemble
-                message.date.year,
-                message.date.month,
-                message.date.day,
-              ),
-
-              groupHeaderBuilder: (Message message) => SizedBox(
-                height: 40,
-                child: Center(
-                  child: Card(
-                    color: Theme.of(context).secondaryHeaderColor,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        //Nécessite la librairie intl
-                        DateFormat.yMMMd().format(message.date),
-                        //Style du widget date (le fond bleu)
-                        style: const TextStyle(color: Colors.white),
+                controller: _scrollController, //The Controller
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(8),
+                reverse: false,
+                sort: false, //Avant : pas ici (défault true)
+                order: GroupedListOrder.DESC,
+                useStickyGroupSeparators: true,
+                floatingHeader: true,
+                elements: messages, // La liste des messages va ici
+                groupBy: (message) => DateTime(
+                      //On regroupe les messages d'un même jour ensemble
+                      message.date.year,
+                      message.date.month,
+                      message.date.day,
+                    ),
+                groupHeaderBuilder: (Message message) => SizedBox(
+                      height: 40,
+                      child: Center(
+                        child: Card(
+                          color: Theme.of(context).secondaryHeaderColor,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Text(
+                              //Nécessite la librairie intl
+                              DateFormat.yMMMd().format(message.date),
+                              //Style du widget date (le fond bleu)
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-              //itemCount: messages.length,
-              itemBuilder: (context, Message message) {
-              
-                 return  MessagePlacement(
-                  message: message,
-                  key: null,
-                );    
-              }
-              
-            );
+                //itemCount: messages.length,
+                itemBuilder: (context, Message message) {
+                  return MessagePlacement(
+                    message: message,
+                    key: null,
+                  );
+                });
           } else {
             return Center(
               child: Text(

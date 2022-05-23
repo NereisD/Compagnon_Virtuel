@@ -1,4 +1,4 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';

@@ -184,7 +184,7 @@ CREATE TABLE $tableReplies(
 
   //Créer une question
   Future<Question> createQuestion(Question question) async {
-    question.displayContent();
+    //question.displayContent();
 
     final db = await instance.database;
 
@@ -365,7 +365,7 @@ CREATE TABLE $tableRelationsQR(
     return variable.copy(id: id);
   }
 
-  //Récupère une variable en fonction de son ID
+  //Récupère une variable en fonction de son nom
   Future<Variable> readVariable(String name) async {
     final db = await instance.database;
 
@@ -397,6 +397,13 @@ CREATE TABLE $tableRelationsQR(
   //Modifie une variable
   Future<int> updateVariable(Variable variable) async {
     final db = await instance.database;
+
+    readVariable(variable.name).then(
+      (old) {
+        //old.displayContent();
+        deleteVariable(old.id);
+      },
+    );
 
     return db.update(
       tableVariables,

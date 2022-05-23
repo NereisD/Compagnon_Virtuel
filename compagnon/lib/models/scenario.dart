@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/db/scenarios_database.dart';
@@ -192,10 +192,22 @@ class Scenario {
   }
 
   //Init les variables de la DB
-  void initScenarioVariables() async {
+  Future<int> initScenarioVariables() async {
     //Appel DB variables
-
-    _variables = await ScenariosDatabase.instance.readAllVariables();
+    print("call initScenarioVariables()");
+    try {
+      _variables = await ScenariosDatabase.instance.readAllVariables();
+      print("Length _variables : ");
+      print(_variables.length);
+      for (Variable V in _variables) {
+        print("Variable : ");
+        print(V.name);
+        print(V.value);
+      }
+    } catch (e) {
+      print("Error : table variables doesn't exist");
+    }
+    return 0;
   }
 
   /* getQuestionByReply renvoie un la question qui suit une réponse
@@ -328,7 +340,7 @@ class Scenario {
         return _variables[i].value;
       }
     }
-    print("Error : variable.name not found");
+    print("Error : variable $name not found");
     return null;
   }
 
@@ -365,26 +377,29 @@ class Scenario {
 
   /* Fonction pour contrinuer un scénario en cours.
   */
-  void resumesOngoingScenario() async {
-    initScenarioVariables();
-    int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
+  void resumesOngoingScenario() {
+    initScenarioVariables().then(
+      (value) async {
+        int idScenario = int.tryParse(getVariableByName("idCurrentScenario"));
 
-    if (idScenario != 0) {
-      //Permet de ne pas afficher la question 2 fois
-      isResumeScenario = true;
+        if (idScenario != 0 && idScenario != null) {
+          //Permet de ne pas afficher la question 2 fois
+          isResumeScenario = true;
 
-      //On init le scenario
-      _questions = await getScenarioQuestions(idScenario);
-      _replies = await getScenarioReplies(idScenario);
-      _relationsQR = await initScenarioRelationsQR(idScenario);
+          //On init le scenario
+          _questions = await getScenarioQuestions(idScenario);
+          _replies = await getScenarioReplies(idScenario);
+          _relationsQR = await initScenarioRelationsQR(idScenario);
 
-      //On récupère la question en cours
-      Question currentQuestion = getCurrentQuestion();
+          //On récupère la question en cours
+          Question currentQuestion = getCurrentQuestion();
 
-      displayQuestion(currentQuestion);
-    } else {
-      print("resumesOngoingScenario : Pas de scénario en cours");
-    }
+          displayQuestion(currentQuestion);
+        } else {
+          print("resumesOngoingScenario : Pas de scénario en cours");
+        }
+      },
+    );
   }
 
   /* Démarre un nouveau scénario
@@ -449,6 +464,15 @@ class Scenario {
     //print("Display question");
     //Update l'id de la question
     setVariable("idCurrentQuestion", question.id.toString());
+    setVariable("idCurrentScenario", question.idScenario.toString());
+
+    /*
+    ScenariosDatabase.instance
+        .readVariable('idCurrentScenario')
+        .then((var_idScenario) {
+      print("idCurrentScenario = ");
+      print(var_idScenario.value);
+    });*/
 
     //Ajoute les varialbes au texte si nécessaire
     String text = replaceStringToVariable(question.textFR);

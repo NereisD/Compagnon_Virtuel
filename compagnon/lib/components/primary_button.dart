@@ -1,4 +1,4 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {

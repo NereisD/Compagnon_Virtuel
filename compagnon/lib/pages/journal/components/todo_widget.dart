@@ -1,8 +1,9 @@
-import 'package:compagnon/constants.dart';
+import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/models/todo.dart';
 import 'package:compagnon/providers/todos.dart';
 import 'package:compagnon/pages/journal/edit_todo_page.dart';
 import 'package:compagnon/utils.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
