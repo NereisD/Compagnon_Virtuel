@@ -50,31 +50,42 @@ class ChatBody extends StatelessWidget {
   *  un scénario en cours
   */
   void initLifeCycle(BuildContext context) {
+    print("call initLifeCycle");
+
     //Get la variable idCurrentScenario depuis les bases
-    ScenariosDatabase.instance.readVariable('idCurrentScenario').then(
-      (var_idScenario) {
-        //print("idCurrentScenario = ${var_idScenario.value}");
+    ScenariosDatabase.instance.readVariable('isInitialized').then(
+      (variable) {
         //Si null, on démarre le 1er scénario
-        if (var_idScenario == null && reloadInit) {
+        if (variable == null && reloadInit) {
           reloadInit = false;
-          //Si null on n'a pas encore créer cette variable
-          //On import les scénarios par défault
-          importScenarios().then((value) {
-            print("Init welcome scenario (1)");
-            currentScenario.initScenario(1); //id 1 = scénario de bienvenue
-            reloadUI(context);
-          });
-          //Sinon null et avec une valeur, on reprend le scénario en cours
-        } else if (var_idScenario.value != '' && reloadInit) {
-          reloadInit = false;
-          //Si non vide on a pas finit d'exécuter un scénario
-          print("Resume ongoing scénario");
-          currentScenario.resumesOngoingScenario();
-          reloadUI(context);
-          //Sinon, on ne fait rien
+          importScenarios().then(
+            (value) {
+              print("Init welcome scenario (1)");
+              currentScenario.setVariable('isInitialized', '1');
+              currentScenario.initScenario(1); //id 1 = scénario de bienvenue
+              reloadUI(context);
+            },
+          );
         } else {
-          print("var_idScenario.value = ${var_idScenario.value}");
-          print("initLifeCycle -> else");
+          //currentScenario.initScenarioVariables();
+          //On lit l'id du scénario
+          ScenariosDatabase.instance.readVariable('idCurrentScenario').then(
+            (variableID) {
+              if (variableID != null && reloadInit) {
+                //print("idCurrentScenario = ${variableID.value}");
+                //Si il est non vide, on reprend le scénario en cours
+                if (variableID.value != '') {
+                  reloadInit = false;
+                  print("Resume ongoing scénario");
+                  //Fonction qui reprend le scénario
+                  currentScenario.resumesOngoingScenario();
+                  reloadUI(context);
+                }
+              } else {
+                print("Else : idCurrentScenario = ${variableID.value}");
+              }
+            },
+          );
         }
       },
     );
@@ -82,7 +93,7 @@ class ChatBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //initLifeCycle(context);
+    initLifeCycle(context);
     return Column(
       children: [
         Expanded(

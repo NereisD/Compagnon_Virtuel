@@ -197,12 +197,9 @@ class Scenario {
     print("call initScenarioVariables()");
     try {
       _variables = await ScenariosDatabase.instance.readAllVariables();
-      print("Length _variables : ");
-      print(_variables.length);
+      print("Length _variables : ${_variables.length}");
       for (Variable V in _variables) {
-        print("Variable : ");
-        print(V.name);
-        print(V.value);
+        print("Variable : ${V.name} Value : ${V.value}");
       }
     } catch (e) {
       print("Error : table variables doesn't exist");

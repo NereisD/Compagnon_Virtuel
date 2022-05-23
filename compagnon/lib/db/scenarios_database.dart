@@ -361,7 +361,12 @@ CREATE TABLE $tableRelationsQR(
   Future<Variable> createVariable(Variable variable) async {
     final db = await instance.database;
     //id généré par la db
-    final id = await db.insert(tableVariables, variable.toJson());
+    int id;
+    try {
+      id = await db.insert(tableVariables, variable.toJson());
+    } catch (e) {
+      print("Error : createVariable failed");
+    }
     return variable.copy(id: id);
   }
 
@@ -398,19 +403,24 @@ CREATE TABLE $tableRelationsQR(
   Future<int> updateVariable(Variable variable) async {
     final db = await instance.database;
 
+    variable.displayContent();
+
     readVariable(variable.name).then(
       (old) {
         //old.displayContent();
         deleteVariable(old.id);
+        createVariable(variable);
       },
     );
 
+    return 0;
+    /*
     return db.update(
       tableVariables,
       variable.toJson(),
       where: '${VariableField.id} = ?',
       whereArgs: [variable.id],
-    );
+    );*/
   }
 
   //Supprime une variable
