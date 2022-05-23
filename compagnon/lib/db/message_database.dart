@@ -137,6 +137,15 @@ CREATE TABLE $tableMessages (
     );
   }
 
+  //Supprime tous les messages en fonction de son ID
+  Future<int> deleteAll() async {
+    final db = await instance.database;
+
+    return await db.delete(
+      tableMessages,
+    );
+  }
+
   //Close DB
   Future close() async {
     final db = await instance.database;

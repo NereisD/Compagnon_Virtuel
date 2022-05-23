@@ -29,21 +29,6 @@ class MyChatBox extends State<ChatBox> {
 
   @override
   Widget build(BuildContext context) {
-    return chatbox(scrollController: _scrollController);
-  }
-}
-
-class chatbox extends StatelessWidget {
-  const chatbox({
-    Key key,
-    @required ScrollController scrollController,
-  })  : _scrollController = scrollController,
-        super(key: key);
-
-  final ScrollController _scrollController;
-
-  @override
-  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: FutureBuilder<List<Message>>(
@@ -245,6 +230,11 @@ class MessageWidget extends State<MessagePlacement> {
               final provider =
                   Provider.of<TodosProvider>(context, listen: false);
               provider.reloadUI();*/
+                } else if (keyValue == 0) {
+                  MessageDatabase.instance.deleteAll();
+                  keyValue = 0;
+                  setState(() {});
+                  RestartWidget.restartApp(context);
                 }
               },
             ),
