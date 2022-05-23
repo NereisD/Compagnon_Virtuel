@@ -5,7 +5,6 @@
 -- Compte rendu des rendez-vous  --
 -----------------------------------
 
-
 étudiants présents aux RDVs : Ruffieux Mathis et Dugaleix Nereis 
 enseignante chercheuse : Mme. Lydie du Bousquet
 
@@ -199,6 +198,7 @@ Par exemple, la pertinence des dialogues peut être mesurée grâce à un retour
 
 Une autre idée de fonctionnalité a émergée : la possibilité de “skip” les dialogues avec un bouton. 
 
+
 -----------------------------------
 jeudi 27 janvier 2022 - RDV en visioconférence
 
@@ -209,7 +209,6 @@ Les prochaines étapes sont la possibilité d’écrire des réponses ouvertes d
 L’implémentation de la BD sur SQF lite ne viendra qu’une fois que nous pourrons écrire des réponses ouvertes pour les enregistrer dans des variables (tel que le genre, le nom et l'âge de la personne) car ces données devront être aussi enregistrées sur le téléphone. 
 
 Pour nous aider au débogage, nous pouvons écrire ifdef pour l'affichage des print. 
-
 Le prochain RDV sera le mercredi 9 février. 
 
 
@@ -233,7 +232,7 @@ Nous avons brièvement parlé du Japon et les frontières sont toujours fermées
 
 Le prochain RDV aura lieu le mardi 1er mars. 
 
-—------------
+-----------------------------------
 mardi 1 mars 2022
 
 Nous avons montré de nouveaux exemples de BDD et parlé de la conception du backend avec SQLITE pour notre application.
@@ -241,7 +240,7 @@ Pour les dialogues, il y aura des phrases qui incitent l’utilisateur à n’é
 
 Le focus sur le dernier message posté a été implémenté.
 
-—------------
+-----------------------------------
 Jeudi 17 mars 2022
 
 Présentation d’une nouvelle interface de dialogue avec des objets messages.
@@ -250,17 +249,92 @@ On pourra aussi passer des messages écrits dans le journal en secret.
 
 Pour la génération de nouveaux scénarios il faudra pouvoir lire un fichier de type csv.
 
-—------------
+-----------------------------------
 lundi 11 avril 2022
 
 Nous avons parlé de l’organisation du stage au Japon et des documents à remplir pour les demandes de VISA. 
 Il faut attendre une réponse positive de l’administration de l’université de Kobe avant de pouvoir remplir la convention de stage et d’autres documents. 
 
 
+-----------------------------------
+lundi 2 mai
+
+Au début du stage, nous allons commencer par travailler sur l’implémentation du journal.
+
+-----------------------------------
+jeudi 5 mai
+
+Néreis a refactoré le code du dialogue
+Mathis a implémenté la partie UI du journal, avec un indicateur de message secrets.
+On souhaite remplacer les titres des pages du journal par l’heure à laquelle elle est écrite.
+On souhaite créer un tableau de variables pour afficher les boutons dans les 3 langues : anglais français japonais.
+
+-----------------------------------
+Lundi 9 mai
+
+Nous avons discuté des modifications de l’interface du journal.
+Pour la prochaine fois nous allonrs fusionner les 2 projets (actuellements séparés) du chat et du journal. 
 
 
+-----------------------------------
+Jeudi 12 mai
+
+Nous avons fusionner les 2 projets (chat et journal) en un seul projet. 
+Les messages sont groupés par date.
+Le bouton envoyer un message a été implémenté.
+Les boutons likes, secret et delete on été remis.
+Le chat se reload lors du post d’un nouveau message afin de le voir apparaitre.
+Le bouton journal mène vers la page journal.
+Les messages ont une max width pour ne pas sortir de l’écran. 
+
+Travail a faire ensuite :
+refactorer la navbar
+mettre les différentes langues dans des variables
+export des données de l’historique du chat
+
+-----------------------------------
+lundi 16 mai
+
+Nous avons réalisé l’export des données dans un fichier json accessible depuis le répertoire download du téléphone. Pour cela l’application demande les droits en écriture sur le téléphone de l’utilisateur. Ce fichier json est récupérable par l’ordinateur à des fins d’analyses (réalisées par Lydie).
+
+Les boutons sont maintenant dans différentes langues en fonction d’une variable locale des langues.
+
+Nous devrons prochainement implémenter les fonctions qui gèrent les scénarios et importer les scénarios. 
+
+-----------------------------------
+jeudi 19 mai
+
+On cherche un Mac (apple) pour tester l’export des données sur IOS.
+On a fait les modèles des scénarios : 
+Question
+Réponse
+Relation Questions / Réponses
+Variables
+Ainsi que toutes les fonctions permettant de faire tourner un scénario correctement. 
+Il faudrait qu’on dessine un diagramme UML pour représenter tout ça. 
+
+Prochainement nous devrons : 
+régler un bug au niveau du scroll des messages 
+faire le backend des scénarios pour les écrires en SQFlite 
+réaliser l’import des scénarios via un fichier Json (comme pour l’export)
+réfléchir a comment reprendre un scénario en cours lors qu’on ferme et réouvre l’application.
+ainsi que de réaliser une page pour modifier les options tel que le nom, age langue ou la fréquence des questions posées par le robot.
+
+-----------------------------------
+Lundi 23 mai
+
+Mathis a fait le crud pour accéder en bases pour les modèles des scénarios : questions, réponses, relations QR et variables 
+ainsi qu’une fonction pour importer les données depuis un fichier Json du projet.
+Néreis a fait l’interface UI de la page options qui changera le nom/prénom/age/fréquence des questions et la langue. Depuis cette interface se trouve les boutons d’import et d’export des données. 
+
+A faire : 
+toujours régler le problème du scroll des messages qui ne se fait pas automatiquement 
+importer les scénarios depuis le répertoire download du téléphone et donc demander a l’utilisateur les droits en lecture sur le téléphone
+sauvegarder les variables des options en base 
+écrire un tutoriel pour créer les scénarios via un fichier json 
+implémenter la fonction de reprise d’un scénario en cours lors de la fermeture / réouverture de l’application
+implémenter le scénario de bienvenu qui ne s’exécutera qu’une seule fois et enregistrera les données écrites par l’utilisateur (nom prénom age genre etc.) en bases
+réfléchir a  comment envoyer des notifications quotidiennes pour la question du jour.
+ 
 
 
-
-
-eof
