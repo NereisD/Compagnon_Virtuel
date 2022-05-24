@@ -214,16 +214,16 @@ class MessageWidget extends State<MessagePlacement> {
                 if (keyValue == 2) {
                   message.setIsLiked(!message.isLiked);
                   MessageDatabase.instance.update(message);
-                  keyValue = 0;
+                  keyValue = -1;
                   setState(() {});
                 } else if (keyValue == 3) {
                   message.setIsSecret(!message.isSecret);
                   MessageDatabase.instance.update(message);
-                  keyValue = 0;
+                  keyValue = -1;
                   setState(() {});
                 } else if (keyValue == 1) {
                   MessageDatabase.instance.delete(message.id);
-                  keyValue = 0;
+                  keyValue = -1;
                   setState(() {});
                   RestartWidget.restartApp(context);
                   /*
@@ -232,7 +232,7 @@ class MessageWidget extends State<MessagePlacement> {
               provider.reloadUI();*/
                 } else if (keyValue == 0) {
                   MessageDatabase.instance.deleteAll();
-                  keyValue = 0;
+                  keyValue = -1;
                   setState(() {});
                   RestartWidget.restartApp(context);
                 }

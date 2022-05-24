@@ -58,7 +58,7 @@ class ChatBody extends StatelessWidget {
         //Si null, on démarre le 1er scénario
         if (variable == null && reloadInit) {
           reloadInit = false;
-          importScenarios().then(
+          importScenarios(true).then(
             (value) {
               print("Init welcome scenario (1)");
               currentScenario.setVariable('isInitialized', '1');
@@ -93,7 +93,9 @@ class ChatBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    initLifeCycle(context);
+    if (reloadInit) {
+      initLifeCycle(context);
+    }
     return Column(
       children: [
         Expanded(

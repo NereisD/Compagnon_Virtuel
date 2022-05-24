@@ -16,11 +16,11 @@ Future<String> getLocalPath() async {
   Future<String> directory;
   if (Platform.isAndroid) {
     final directory = await ExtStorage.getExternalStoragePublicDirectory(
-      ExtStorage.DIRECTORY_DOWNLOADS);
+        ExtStorage.DIRECTORY_DOWNLOADS);
   } else {
     final directory = await getApplicationDocumentsDirectory();
   }
-  
+
   return directory;
 }
 
@@ -33,28 +33,36 @@ void requestPermission() async {
   ].request();
 }
 
-Future<int> importScenarios() async {
+Future<int> importScenarios(bool isFirstLaunch) async {
+  String response;
 
+  //Si c'est le premier lancement de l'application on importe en local
+  if (isFirstLaunch) {
+    print("importScenarios firstLaunch");
+    response = await rootBundle.loadString('lib/json/items_scenarios.json');
 
-  final String response =
-      await rootBundle.loadString('lib/json/items_scenarios.json');
+    //Sinon on importe depuis le répertoire Downloads
+  } else {
+    print("importScenarios NOT firstLaunch");
+    getLocalPath().then(
+      (String affichePath) async {
+        print("directory path: " + affichePath);
 
+        try {
+          //Créer un nouveau fichier
+          response = await rootBundle
+              .loadString(affichePath + "/items_scenarios.json");
+          // response =
+          // await rootBundle.loadString('lib/json/items_scenarios.json');
+          //Sinon on affiche l'erreur
+        } catch (e) {
+          print('Error $e : PATH invalide');
+          return 1;
+        }
+      },
+    );
+  }
 
-
-  getLocalPath().then((String affichePath) async {
-    print("directory path: " + affichePath);
-
-    try {
-      //Créer un nouveau fichier
-      String response =
-      await rootBundle.loadString(affichePath + "/importFileChat.json");
-      // response =
-      // await rootBundle.loadString('lib/json/items_scenarios.json');
-      //Sinon on affiche l'erreur
-    } catch (e) {
-      print('Error: $e');
-    }
-  });
   final data = await json.decode(response);
 
   //Creation des questions
@@ -164,7 +172,7 @@ Future<int> importScenarios() async {
   }
 
   //Pour voir la DB nouvellement créée
-  //displayDB();
+  displayDB();
 
   return 0;
 }

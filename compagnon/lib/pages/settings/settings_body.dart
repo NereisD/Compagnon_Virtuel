@@ -27,7 +27,6 @@ class _SettingsPage extends State<SettingsBody> {
   String _birthday = '';
   String _frequence = '';
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,21 +45,22 @@ class _SettingsPage extends State<SettingsBody> {
             TextFormField(
               initialValue: currentScenario.getVariableByName("surname"),
               decoration: InputDecoration(labelText: "Ton nom"),
-              onChanged: (value){
+              onChanged: (value) {
                 (value) => setState(() => this._surname = value);
               },
             ),
             TextFormField(
               initialValue: currentScenario.getVariableByName("name"),
               decoration: InputDecoration(labelText: "Ton prenom"),
-              onChanged: (value){
+              onChanged: (value) {
                 (value) => setState(() => this._name = value);
               },
             ),
             TextFormField(
               controller: dateinput,
-              decoration: InputDecoration(labelText: "Date de naissance (DD-MM-YYYY)"),
-              onChanged: (value){
+              decoration:
+                  InputDecoration(labelText: "Date de naissance (DD-MM-YYYY)"),
+              onChanged: (value) {
                 (value) => setState(() => this._birthday = value);
               },
               readOnly:
@@ -88,14 +88,13 @@ class _SettingsPage extends State<SettingsBody> {
                 } else {
                   print("Date is not selected");
                 }
-              
               },
             ),
             TextFormField(
               keyboardType: TextInputType.number,
               decoration:
                   InputDecoration(labelText: "heure du scénario (HH:MM)"),
-              onChanged: (value){
+              onChanged: (value) {
                 (value) => setState(() => this._frequence = value);
               },
             ),
@@ -201,7 +200,7 @@ class _SettingsPage extends State<SettingsBody> {
                         MaterialStateProperty.all<Color>(Colors.blue),
                   ),
                   onPressed: () {
-                    importScenarios();
+                    importScenarios(false);
                   },
                   child: Text('Importer'),
                 ),
