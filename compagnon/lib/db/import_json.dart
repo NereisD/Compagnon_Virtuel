@@ -33,13 +33,13 @@ void requestPermission() async {
   ].request();
 }
 
-Future<int> importScenarios(bool isFirstLaunch) async {
+Future<int> importScenarios(bool isLocalPath) async {
   String response;
 
   //Si c'est le premier lancement de l'application on importe en local
-  if (isFirstLaunch) {
+  if (isLocalPath) {
     print("importScenarios firstLaunch");
-    response = await rootBundle.loadString('lib/json/items_scenarios.json');
+    response = await rootBundle.loadString('lib/json/welcome_scenario.json');
 
     //Sinon on importe depuis le répertoire Downloads
   } else {

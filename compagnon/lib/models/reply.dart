@@ -71,16 +71,17 @@ class Reply {
 
   //Transforme un Json en map
   static Reply fromJson(Map<String, Object> json) => Reply(
-      id: json[ReplyField.id] as int,
-      idScenario: json[ReplyField.idScenario] as int,
-      textEN: json[ReplyField.textEN] as String,
-      textFR: json[ReplyField.textFR] as String,
-      textJP: json[ReplyField.textJP] as String,
-      idQuestion: json[ReplyField.idQuestion] as int,
-      nameVariable: json[ReplyField.nameVariable] as String,
-      createdTime: DateTime.parse(
+        id: json[ReplyField.id] as int,
+        idScenario: json[ReplyField.idScenario] as int,
+        textEN: json[ReplyField.textEN] as String,
+        textFR: json[ReplyField.textFR] as String,
+        textJP: json[ReplyField.textJP] as String,
+        idQuestion: json[ReplyField.idQuestion] as int,
+        nameVariable: json[ReplyField.nameVariable] as String,
+        /*createdTime: DateTime.parse(
         json[ReplyField.createdTime] as String,
-      ));
+      ),*/
+      );
 
   //Transforme une map to Json
   Map<String, Object> toJson() => {

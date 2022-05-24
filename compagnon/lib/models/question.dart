@@ -90,20 +90,21 @@ class Question {
 
   //Transforme un Json en map
   static Question fromJson(Map<String, Object> json) => Question(
-      id: json[QuestionField.id] as int,
-      idScenario: json[QuestionField.idScenario] as int,
-      textEN: json[QuestionField.textEN] as String,
-      textFR: json[QuestionField.textFR] as String,
-      textJP: json[QuestionField.textJP] as String,
-      idNextQuestion: json[QuestionField.idNextQuestion] as int,
-      isOpenQuestion:
-          json[QuestionField.isOpenQuestion] == 1, //True si 1 false si 0
-      isFirst: json[QuestionField.isFirst] == 1,
-      isEnd: json[QuestionField.isEnd] == 1,
-      nameVariable: json[QuestionField.nameVariable] as String,
-      createdTime: DateTime.parse(
-        json[QuestionField.createdTime] as String,
-      ));
+        id: json[QuestionField.id] as int,
+        idScenario: json[QuestionField.idScenario] as int,
+        textEN: json[QuestionField.textEN] as String,
+        textFR: json[QuestionField.textFR] as String,
+        textJP: json[QuestionField.textJP] as String,
+        idNextQuestion: json[QuestionField.idNextQuestion] as int,
+        isOpenQuestion:
+            json[QuestionField.isOpenQuestion] == 1, //True si 1 false si 0
+        isFirst: json[QuestionField.isFirst] == 1,
+        isEnd: json[QuestionField.isEnd] == 1,
+        nameVariable: json[QuestionField.nameVariable] as String,
+        /*createdTime: DateTime.parse(
+          json[QuestionField.createdTime] as String,
+        ),*/
+      );
 
   //Transforme une map to Json
   Map<String, Object> toJson() => {

@@ -41,7 +41,7 @@ class ChatBody extends StatelessWidget {
   /* permet de reload l'UI apres le temps d'accès à la BD
   */
   Future reloadUI(BuildContext context) async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 800));
     print("restart widget");
     RestartWidget.restartApp(context);
   }
@@ -56,8 +56,8 @@ class ChatBody extends StatelessWidget {
     ScenariosDatabase.instance.readVariable('isInitialized').then(
       (variable) {
         //Si null, on démarre le 1er scénario
-        if (variable == null && reloadInit) {
-          reloadInit = false;
+        if (variable == null) {
+          //reloadInit = false;
           importScenarios(true).then(
             (value) {
               print("Init welcome scenario (1)");
@@ -71,11 +71,11 @@ class ChatBody extends StatelessWidget {
           //On lit l'id du scénario
           ScenariosDatabase.instance.readVariable('idCurrentScenario').then(
             (variableID) {
-              if (variableID != null && reloadInit) {
+              if (variableID != null) {
                 //print("idCurrentScenario = ${variableID.value}");
                 //Si il est non vide, on reprend le scénario en cours
                 if (variableID.value != '') {
-                  reloadInit = false;
+                  //reloadInit = false;
                   print("Resume ongoing scénario");
                   //Fonction qui reprend le scénario
                   currentScenario.resumesOngoingScenario();
@@ -94,6 +94,7 @@ class ChatBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (reloadInit) {
+      reloadInit = false;
       initLifeCycle(context);
     }
     return Column(

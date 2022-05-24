@@ -1,0 +1,294 @@
+{
+    "questions" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Bienvenue ! Je suis Bob votre nouveau compagnon virtuel.",
+            "textJP": "",
+            "isFirst": 1
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Pour démarrer, je vais vous poser quelques questions.",
+            "textJP": "",
+            "idNextQuestion": 3
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Quel est votre prénom ?",
+            "textJP": "",
+            "idNextQuestion": 4,
+            "isOpenQuestion": 1,
+            "nameVariable": "surname"
+        },
+        {
+            "id": 4,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Et votre nom ?",
+            "textJP": "",
+            "idNextQuestion": 5,
+            "isOpenQuestion": 1,
+            "nameVariable": "name"
+        },
+        {
+            "id": 5,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Vous vous appelez bien %%surname %%name c'est ça ?",
+            "textJP": ""
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Heureux de vous rencontrer %%surname",
+            "textJP": "",
+            "idNextQuestion": 7
+        },
+        {
+            "id": 7,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Etes vous un homme ou une femme ?",
+            "textJP": ""
+        },
+        {
+            "id": 8,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Et quelle est votre date de naissance ? (JJ/MM/AAAA)",
+            "textJP": "",
+            "idNextQuestion": 9,
+            "isOpenQuestion": 1,
+            "nameVariable": "birthDate"
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "C'est noté ! Je vais maintenant vous expliquer mon fonctionnement.",
+            "textJP": "",
+            "idNextQuestion": 10
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Sur le chat, vous pouvez liker ❤️ ou mettre un message en secret 🔑",
+            "textJP": ""
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Un message secret ne pourra être lu que par vous et personne d’autre !",
+            "textJP": ""
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Vous avez un journal 📰 à disposition sur lequel écrire vos notes personnelles.",
+            "textJP": "",
+            "idNextQuestion": 13
+        },
+        {
+            "id": 13,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Comme pour les messages, vous pouvez mettre des notes du journal en secret 🔑",
+            "textJP": ""
+        },
+        {
+            "id": 14,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Une page du journal secrète ne pourra être lu que par vous et personne d’autre !",
+            "textJP": ""
+        },
+        {
+            "id": 15,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "De plus, vous pouvez modifier vos informations personnelles depuis les options.",
+            "textJP": ""
+        },
+        {
+            "id": 16,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Très bien ! Nous pouvons maintenant commencer à discuter.",
+            "textJP": "",
+            "isEnd": 1
+        }
+    ],
+    "replies" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Bonjour Bob !",
+            "textJP": "",
+            "idQuestion": 2,
+            "nameVariable": ""
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Oui c'est bien ça",
+            "textJP": "",
+            "idQuestion": 6
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Non ce n'est pas ça",
+            "textJP": "",
+            "idQuestion": 3
+        },
+        {
+            "id": 4,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Homme",
+            "textJP": "",
+            "idQuestion": 8,
+            "nameVariable": "gender"
+        },
+        {
+            "id": 5,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Femme",
+            "textJP": "",
+            "idQuestion": 8,
+            "nameVariable": "gender"
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "D'accord",
+            "textJP": "",
+            "idQuestion": 12
+        },
+        {
+            "id": 7,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "C'est quoi un secret ?",
+            "textJP": "",
+            "idQuestion": 11
+        },
+        {
+            "id": 8,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Oui d'accord",
+            "textJP": "",
+            "idQuestion": 12
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "D'accord",
+            "textJP": "",
+            "idQuestion": 15
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "C'est quoi déjà un secret ?",
+            "textJP": "",
+            "idQuestion": 14
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "Oui d'accord",
+            "textJP": "",
+            "idQuestion": 15
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "",
+            "textFR": "J'ai compris",
+            "textJP": "",
+            "idQuestion": 16
+        }
+    ],
+    "relationsQR" : [
+        {
+            "idScenario": 1,
+            "idQuestion": 1,
+            "idReply": 1
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 5,
+            "idReply": 2
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 5,
+            "idReply": 3
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 7,
+            "idReply": 4
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 7,
+            "idReply": 5
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 6
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 7
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 11,
+            "idReply": 8
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 9
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 10
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 14,
+            "idReply": 11
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 15,
+            "idReply": 12
+        }
+    ]
+}

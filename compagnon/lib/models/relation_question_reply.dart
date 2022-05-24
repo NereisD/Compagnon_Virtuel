@@ -54,13 +54,14 @@ class RelationQR {
 
   //Transforme un Json en map
   static RelationQR fromJson(Map<String, Object> json) => RelationQR(
-      id: json[RelationQRField.id] as int,
-      idScenario: json[RelationQRField.idScenario] as int,
-      idQuestion: json[RelationQRField.idQuestion] as int,
-      idReply: json[RelationQRField.idReply] as int,
-      createdTime: DateTime.parse(
-        json[RelationQRField.createdTime] as String,
-      ));
+        id: json[RelationQRField.id] as int,
+        idScenario: json[RelationQRField.idScenario] as int,
+        idQuestion: json[RelationQRField.idQuestion] as int,
+        idReply: json[RelationQRField.idReply] as int,
+        /*createdTime: DateTime.parse(
+          json[RelationQRField.createdTime] as String,
+        ),*/
+      );
 
   //Transforme une map to Json
   Map<String, Object> toJson() => {
