@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/models/Message.dart';
@@ -7,12 +8,19 @@ import 'package:compagnon/models/relation_question_reply.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:flutter/services.dart';
 import 'package:ext_storage/ext_storage.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 //Renvoie le path du ficher dans lequel écrire
 Future<String> getLocalPath() async {
-  final directory = await ExtStorage.getExternalStoragePublicDirectory(
+  Future<String> directory;
+  if (Platform.isAndroid) {
+    final directory = await ExtStorage.getExternalStoragePublicDirectory(
       ExtStorage.DIRECTORY_DOWNLOADS);
+  } else {
+    final directory = await getApplicationDocumentsDirectory();
+  }
+  
   return directory;
 }
 
@@ -26,8 +34,27 @@ void requestPermission() async {
 }
 
 Future<int> importScenarios() async {
+
+
   final String response =
       await rootBundle.loadString('lib/json/items_scenarios.json');
+
+
+
+  getLocalPath().then((String affichePath) async {
+    print("directory path: " + affichePath);
+
+    try {
+      //Créer un nouveau fichier
+      String response =
+      await rootBundle.loadString(affichePath + "/importFileChat.json");
+      // response =
+      // await rootBundle.loadString('lib/json/items_scenarios.json');
+      //Sinon on affiche l'erreur
+    } catch (e) {
+      print('Error: $e');
+    }
+  });
   final data = await json.decode(response);
 
   //Creation des questions

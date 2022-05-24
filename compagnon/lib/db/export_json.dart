@@ -13,8 +13,14 @@ import 'package:permission_handler/permission_handler.dart';
 
 //Renvoie le path du ficher dans lequel écrire
 Future<String> getLocalPath() async {
-  final directory = await ExtStorage.getExternalStoragePublicDirectory(
+  Future<String> directory;
+  if (Platform.isAndroid) {
+    final directory = await ExtStorage.getExternalStoragePublicDirectory(
       ExtStorage.DIRECTORY_DOWNLOADS);
+  } else {
+    final directory = await getApplicationDocumentsDirectory();
+  }
+  
   return directory;
 }
 

@@ -18,13 +18,22 @@ class SettingsBody extends StatefulWidget {
 
 class _SettingsPage extends State<SettingsBody> {
   int selectedIndex = 0;
+  final _formKey = GlobalKey<FormState>();
+
   TextEditingController dateinput = TextEditingController(
       text: DateFormat('dd-MM-yyyy').format(DateTime.now()));
+  String _surname = '';
+  String _name = '';
+  String _birthday = '';
+  String _frequence = '';
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(kDefaultPadding * 3),
       child: Form(
+        key: _formKey,
         child: Column(
           children: [
             Text(
@@ -37,22 +46,30 @@ class _SettingsPage extends State<SettingsBody> {
             TextFormField(
               initialValue: currentScenario.getVariableByName("surname"),
               decoration: InputDecoration(labelText: "Ton nom"),
+              onChanged: (value){
+                (value) => setState(() => this._surname = value);
+              },
             ),
             TextFormField(
               initialValue: currentScenario.getVariableByName("name"),
               decoration: InputDecoration(labelText: "Ton prenom"),
+              onChanged: (value){
+                (value) => setState(() => this._name = value);
+              },
             ),
             TextFormField(
               controller: dateinput,
-              decoration: InputDecoration(labelText: "Ta Date de naissance"),
+              decoration: InputDecoration(labelText: "Date de naissance (DD-MM-YYYY)"),
+              onChanged: (value){
+                (value) => setState(() => this._birthday = value);
+              },
               readOnly:
                   true, //set it true, so that user will not able to edit text
               onTap: () async {
                 DateTime pickedDate = await showDatePicker(
                     context: context,
-                    initialDate: DateTime.now(),
                     firstDate: DateTime(
-                        2000), //DateTime.now() - not to allow to choose before today.
+                        1900), //DateTime.now() - not to allow to choose before today.
                     lastDate: DateTime(2101));
 
                 if (pickedDate != null) {
@@ -71,14 +88,16 @@ class _SettingsPage extends State<SettingsBody> {
                 } else {
                   print("Date is not selected");
                 }
+              
               },
             ),
             TextFormField(
               keyboardType: TextInputType.number,
-              initialValue: "2",
               decoration:
-                  InputDecoration(labelText: "Fréquence de scénario par jour"),
-              onTap: () {},
+                  InputDecoration(labelText: "heure du scénario (HH:MM)"),
+              onChanged: (value){
+                (value) => setState(() => this._frequence = value);
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(kDefaultPadding / 2),
