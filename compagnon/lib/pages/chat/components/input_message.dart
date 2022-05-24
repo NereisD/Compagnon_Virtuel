@@ -212,13 +212,13 @@ class InputMessage extends StatelessWidget {
               textStyle: const TextStyle(fontSize: 18),
             ),
             onPressed: () {
-              currentScenario.addMessage("Bonjour !", true);
+              currentScenario.addMessage(helloField[lang], true);
               currentScenario.initScenario(1); // ICI lancer un scénario random
 
               //RestartWidget.restartApp(context); //Reload la page de tchat
               reloadUI(context);
             },
-            child: Text("Bonjour !"),
+            child: Text(waveButton[lang]),
           ),
         ),
       );

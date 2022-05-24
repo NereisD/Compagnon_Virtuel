@@ -73,7 +73,7 @@ class _interactMessageState extends State<interactMessage> {
       print(selectedIndex);
 
       if (keyValue == index) {
-        keyValue = 0;
+        keyValue = -1;
       } else {
         keyValue = index;
       }

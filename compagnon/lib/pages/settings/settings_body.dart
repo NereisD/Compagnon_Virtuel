@@ -34,30 +34,35 @@ class _SettingsPage extends State<SettingsBody> {
         child: Column(
           children: [
             Text(
-              "Paramètres",
+              settingsField[lang],
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextFormField(
-              initialValue: currentScenario.getVariableByName("surname"),
-              decoration: InputDecoration(labelText: "Ton nom"),
+              initialValue: _surname,
+              decoration: InputDecoration(
+                labelText: surnameField[lang],
+              ),
               onChanged: (value) {
                 (value) => setState(() => _surname = value);
               },
             ),
             TextFormField(
-              initialValue: currentScenario.getVariableByName("name"),
-              decoration: InputDecoration(labelText: "Ton prenom"),
+              initialValue: _name,
+              decoration: InputDecoration(
+                labelText: nameField[lang],
+              ),
               onChanged: (value) {
                 (value) => setState(() => _name = value);
               },
             ),
             TextFormField(
               controller: dateinput,
-              decoration:
-                  InputDecoration(labelText: "Date de naissance (DD-MM-YYYY)"),
+              decoration: InputDecoration(
+                labelText: birthField[lang],
+              ),
               onChanged: (value) {
                 (value) => setState(() => _birthday = value);
               },
@@ -92,7 +97,7 @@ class _SettingsPage extends State<SettingsBody> {
             TextFormField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: "heure du scénario (HH:MM)",
+                labelText: notificationTimeField[lang],
               ),
               onChanged: (value) {
                 (value) => setState(() => _notificationTime = value);
@@ -102,7 +107,7 @@ class _SettingsPage extends State<SettingsBody> {
               padding: const EdgeInsets.all(kDefaultPadding / 2),
             ),
             Text(
-              "Langue",
+              langField[lang],
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -206,10 +211,10 @@ class _SettingsPage extends State<SettingsBody> {
                       "notificationTime", _notificationTime);
                   //modifie le genre
                   currentScenario.setVariable("gender", _gender);
-                  showSnackbar(context, "Enregistrements effectués");
+                  showSnackbar(context, saveDataSnack[lang]);
                 },
                 child: Text(
-                  'Valider',
+                  validateButton[lang],
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -228,7 +233,7 @@ class _SettingsPage extends State<SettingsBody> {
                   onPressed: () {
                     importScenarios(false);
                   },
-                  child: Text('Importer'),
+                  child: Text(importButton[lang]),
                 ),
                 TextButton(
                   style: ButtonStyle(
@@ -238,7 +243,7 @@ class _SettingsPage extends State<SettingsBody> {
                   onPressed: () {
                     exportData();
                   },
-                  child: Text('Exporter'),
+                  child: Text(exportButton[lang]),
                 )
               ],
             )

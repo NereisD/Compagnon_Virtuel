@@ -9,7 +9,7 @@ const kLighterBackgroundColor = Color(0xFF80CBC4);
 const kDefaultPadding = 10.0;
 
 //valeur de la bottom nav bar
-int keyValue = 0;
+int keyValue = -1;
 int selectedIndex = -1;
 //permet relaod l'UI du journal au démarrage
 bool journalReloadUI = true;

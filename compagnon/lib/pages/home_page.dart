@@ -113,7 +113,9 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   Widget bodySelected() {
-    currentScenario.initScenarioVariables();
+    currentScenario.initScenarioVariables().then((value) {
+      lang = getLanguage();
+    });
     if (selectedIndex == 1) {
       return _journalBody;
     } else if (selectedIndex == 0) {
@@ -139,7 +141,7 @@ class MyHomeScreen extends State<HomeScreen> {
       print(selectedIndex);
 
       if (keyValue == index) {
-        keyValue = 0;
+        keyValue = -1;
       } else {
         keyValue = index;
       }

@@ -1,3 +1,4 @@
+import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/values/constants.dart';
 
 int lang = getLanguage();
@@ -29,6 +30,10 @@ const deleteAllButton = ["Delete all", "Supprimer tout", "消去"];
 const journalButton = ["Journal", "Journal", "ジャーナル"];
 const secretsButton = ["Secrets", "Secrets", "秘密"];
 const likeButton = ["Like", "Aimer", "お気に入り"];
+const waveButton = ["Wave to Bob 👋", "Saluer Bob 👋", "こんにちはボブ 👋"];
+const validateButton = ["Validate", "Valider", "確認"];
+const importButton = ["Import", "Importer", "輸入"];
+const exportButton = ["Export", "Exporter", "書き出す"];
 
 /* Fields */
 const noDataField = ["No data", "Aucune donnée", "データなし"];
@@ -44,6 +49,21 @@ const writeTextField = [
   "Ecrivez un message ici",
   "ここにテキストを書く"
 ];
+const helloField = ["Hello Bob !", "Bonjour Bob !", "こんにちはボブ！"];
+const settingsField = ["Settings", "Paramètres", "設定"];
+const surnameField = ["Surname", "Nom", "名前"];
+const nameField = ["Name", "Prénom", "ファーストネーム"];
+const birthField = [
+  "Date of birth (DD-MM-YYYY) ",
+  "Date de naissance (JJ-MM-AAAA)",
+  "生年月日"
+];
+const notificationTimeField = [
+  "Notification time",
+  "Heure des notifications",
+  "通知時間"
+];
+const langField = ["Langugage", "Langue", "言語"];
 
 /* Snack bar */
 const noteSecretSnack = [
@@ -62,6 +82,7 @@ const exportSnack = [
   "Export des données ...",
   "データのエクスポート"
 ];
+const saveDataSnack = ["Changes made", "Enregistrements effectués", "加えられた変更"];
 
 /* Warnings */
 const emptyTitleWarning = [
