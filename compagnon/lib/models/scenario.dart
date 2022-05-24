@@ -9,6 +9,7 @@ import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/relation_question_reply.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/models/variable.dart';
+import 'package:compagnon/values/languages.dart';
 import 'package:flutter/cupertino.dart';
 
 class Scenario {
@@ -306,6 +307,10 @@ class Scenario {
 
       ScenariosDatabase.instance.createVariable(newVariable);
     }
+    //Si la langue est changée, la change en local aussi
+    if (name == "lang") {
+      lang = getLanguage();
+    }
   }
 
   /* Renvoie la première question d'un scénario
@@ -472,7 +477,16 @@ class Scenario {
     });*/
 
     //Ajoute les varialbes au texte si nécessaire
-    String text = replaceStringToVariable(question.textFR);
+    String text;
+    if (lang == 0) {
+      text = replaceStringToVariable(question.textEN);
+    } else if (lang == 1) {
+      text = replaceStringToVariable(question.textFR);
+    } else if (lang == 2) {
+      text = replaceStringToVariable(question.textJP);
+    } else {
+      print("Error : lang $lang");
+    }
 
     //On ne réaffiche pas le message lorsqu'on reprend un scénario en cours
     if (isResumeScenario) {
@@ -520,10 +534,27 @@ class Scenario {
   */
   void displayClosedReply(Reply reply) {
     //On ajoute le message
-    addMessage(reply.textFR, true);
+    if (lang == 0) {
+      addMessage(reply.textEN, true);
+    } else if (lang == 1) {
+      addMessage(reply.textFR, true);
+    } else if (lang == 2) {
+      addMessage(reply.textJP, true);
+    } else {
+      print("Error lang $lang");
+    }
+
     //On enregistre une variable si besoin
     if (reply.nameVariable != '') {
-      setVariable(reply.nameVariable, reply.textFR);
+      if (lang == 0) {
+        setVariable(reply.nameVariable, reply.textEN);
+      } else if (lang == 1) {
+        setVariable(reply.nameVariable, reply.textFR);
+      } else if (lang == 2) {
+        setVariable(reply.nameVariable, reply.textJP);
+      } else {
+        print("Error lang $lang");
+      }
     }
     //On vérifie si c'est la dernière réplique
     if (replyIsEnd(reply)) {

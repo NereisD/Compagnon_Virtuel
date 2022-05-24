@@ -139,7 +139,11 @@ class InputMessage extends StatelessWidget {
                     currentScenario.displayClosedReply(reply);
                     RestartWidget.restartApp(context); //Reload la page de tchat
                   },
-                  child: Text(reply.textFR),
+                  child: lang == 0
+                      ? Text(reply.textEN)
+                      : lang == 1
+                          ? Text(reply.textFR)
+                          : Text(reply.textJP),
                 ),
               ),
           ],

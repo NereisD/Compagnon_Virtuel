@@ -1,12 +1,7 @@
 import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/export_json.dart';
 import 'package:compagnon/db/import_json.dart';
-import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/flutter_flow/flutter_flow_util.dart';
-import 'package:compagnon/models/scenario.dart';
-import 'package:compagnon/pages/journal/components/add_todo_dialog_widget.dart';
-import 'package:compagnon/pages/journal/components/completed_list_widget.dart';
-import 'package:compagnon/pages/journal/components/todo_list_widget.dart';
 import 'package:compagnon/values/languages.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -22,10 +17,13 @@ class _SettingsPage extends State<SettingsBody> {
 
   TextEditingController dateinput = TextEditingController(
       text: DateFormat('dd-MM-yyyy').format(DateTime.now()));
-  String _surname = '';
-  String _name = '';
-  String _birthday = '';
-  String _frequence = '';
+  String _surname = currentScenario.getVariableByName("surname");
+  String _name = currentScenario.getVariableByName("name");
+  String _birthday = currentScenario.getVariableByName("birthday");
+  String _notificationTime =
+      currentScenario.getVariableByName("notificationTime");
+  String _gender = currentScenario.getVariableByName("gender");
+  int _lang = getLanguage();
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +44,14 @@ class _SettingsPage extends State<SettingsBody> {
               initialValue: currentScenario.getVariableByName("surname"),
               decoration: InputDecoration(labelText: "Ton nom"),
               onChanged: (value) {
-                (value) => setState(() => this._surname = value);
+                (value) => setState(() => _surname = value);
               },
             ),
             TextFormField(
               initialValue: currentScenario.getVariableByName("name"),
               decoration: InputDecoration(labelText: "Ton prenom"),
               onChanged: (value) {
-                (value) => setState(() => this._name = value);
+                (value) => setState(() => _name = value);
               },
             ),
             TextFormField(
@@ -61,13 +59,14 @@ class _SettingsPage extends State<SettingsBody> {
               decoration:
                   InputDecoration(labelText: "Date de naissance (DD-MM-YYYY)"),
               onChanged: (value) {
-                (value) => setState(() => this._birthday = value);
+                (value) => setState(() => _birthday = value);
               },
               readOnly:
                   true, //set it true, so that user will not able to edit text
               onTap: () async {
                 DateTime pickedDate = await showDatePicker(
                     context: context,
+                    initialDate: DateTime.now(),
                     firstDate: DateTime(
                         1900), //DateTime.now() - not to allow to choose before today.
                     lastDate: DateTime(2101));
@@ -92,10 +91,11 @@ class _SettingsPage extends State<SettingsBody> {
             ),
             TextFormField(
               keyboardType: TextInputType.number,
-              decoration:
-                  InputDecoration(labelText: "heure du scénario (HH:MM)"),
+              decoration: InputDecoration(
+                labelText: "heure du scénario (HH:MM)",
+              ),
               onChanged: (value) {
-                (value) => setState(() => this._frequence = value);
+                (value) => setState(() => _notificationTime = value);
               },
             ),
             Padding(
@@ -117,30 +117,7 @@ class _SettingsPage extends State<SettingsBody> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      lang = 1;
-                    });
-                  }, // Image tapped
-                  child: Card(
-                    elevation: 8,
-                    child: Image.asset(
-                      'assets/images/france.png',
-                      fit: BoxFit.cover, // Fixes border issues
-                      width: 48.0,
-                      height: 32,
-                      color: lang == 1
-                          ? Colors.white.withOpacity(1)
-                          : Colors.white.withOpacity(0.3),
-                      colorBlendMode: BlendMode.modulate,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(kDefaultPadding),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      lang = 0;
+                      _lang = 0;
                     });
                   }, // Image tapped
                   child: Card(
@@ -150,9 +127,9 @@ class _SettingsPage extends State<SettingsBody> {
                       fit: BoxFit.cover, // Fixes border issues
                       width: 48.0,
                       height: 32,
-                      color: lang == 0
+                      color: _lang == 0
                           ? Colors.white.withOpacity(1)
-                          : Colors.white.withOpacity(0.3),
+                          : Colors.white.withOpacity(0.4),
                       colorBlendMode: BlendMode.modulate,
                     ),
                   ),
@@ -163,7 +140,30 @@ class _SettingsPage extends State<SettingsBody> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      lang = 2;
+                      _lang = 1;
+                    });
+                  }, // Image tapped
+                  child: Card(
+                    elevation: 8,
+                    child: Image.asset(
+                      'assets/images/france.png',
+                      fit: BoxFit.cover, // Fixes border issues
+                      width: 48.0,
+                      height: 32,
+                      color: _lang == 1
+                          ? Colors.white.withOpacity(1)
+                          : Colors.white.withOpacity(0.4),
+                      colorBlendMode: BlendMode.modulate,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(kDefaultPadding),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _lang = 2;
                     });
                   }, // Image tapped
                   child: Card(
@@ -173,9 +173,9 @@ class _SettingsPage extends State<SettingsBody> {
                       fit: BoxFit.cover, // Fixes border issues
                       width: 48.0,
                       height: 32,
-                      color: lang == 2
+                      color: _lang == 2
                           ? Colors.white.withOpacity(1)
-                          : Colors.white.withOpacity(0.3),
+                          : Colors.white.withOpacity(0.4),
                       colorBlendMode: BlendMode.modulate,
                     ),
                   ),
@@ -183,12 +183,38 @@ class _SettingsPage extends State<SettingsBody> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 18.0),
               child: RaisedButton(
+                color: kSecondaryColor,
                 onPressed: () {
-                  showSnackbar(context, "Enregistrement éffectué");
+                  //modifie la langue
+                  if (_lang == 0) {
+                    currentScenario.setVariable("lang", "en");
+                  } else if (_lang == 1) {
+                    currentScenario.setVariable("lang", "fr");
+                  } else if (_lang == 2) {
+                    currentScenario.setVariable("lang", "jp");
+                  }
+                  //modifie le nom
+                  currentScenario.setVariable("surname", _surname);
+                  //modifie le prénom
+                  currentScenario.setVariable("name", _name);
+                  //modifie la date de naissance
+                  currentScenario.setVariable("birthday", _birthday);
+                  //modifie l'heure des notifications
+                  currentScenario.setVariable(
+                      "notificationTime", _notificationTime);
+                  //modifie le genre
+                  currentScenario.setVariable("gender", _gender);
+                  showSnackbar(context, "Enregistrements effectués");
                 },
-                child: Text('Valider'),
+                child: Text(
+                  'Valider',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
               ),
             ),
             Row(

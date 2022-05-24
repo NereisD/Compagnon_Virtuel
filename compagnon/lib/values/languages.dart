@@ -1,14 +1,28 @@
-int lang = 1;
+import 'package:compagnon/values/constants.dart';
+
+int lang = getLanguage();
 
 /* Variables des strings en différentes langues
 * indice 0 : Anglais
 * indice 1 : Français
 * indice 2 : Japonais
 */
+
+int getLanguage() {
+  String l = currentScenario.getVariableByName("lang");
+  if (l == "Français 🇫🇷" || l == "fr") {
+    return 1;
+  } else if (l == "日本 🇯🇵" || l == "jp") {
+    return 2;
+  } else {
+    return 0;
+  }
+}
+
 const appTitle = ["Compagnon", "Compagnon", "仲間"];
 
 /* Buttons */
-const chatButton = ["Chat", "Discussion", ""];
+const chatButton = ["Chat", "Discussion", "討論"];
 const optionsButton = ["Options", "Reglages", "設定"];
 const deleteButton = ["Delete", "Supprimer", "消去"];
 const deleteAllButton = ["Delete all", "Supprimer tout", "消去"];

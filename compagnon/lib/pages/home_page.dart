@@ -113,12 +113,12 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   Widget bodySelected() {
+    currentScenario.initScenarioVariables();
     if (selectedIndex == 1) {
       return _journalBody;
     } else if (selectedIndex == 0) {
       print("return chatBody");
       return _chatBody;
-
       /*
       if (chatBodyOptions) {
         chatBodyOptions = false;
