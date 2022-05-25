@@ -37,6 +37,7 @@ dependencies:
   provider: ^4.3.2+2
   flutter_slidable: ^0.5.7
   grouped_list: ^4.2.0
+  splashscreen :
 
   sqflite: ^2.0.0+3
   intl: ^0.17.0
