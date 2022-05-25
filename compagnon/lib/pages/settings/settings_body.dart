@@ -46,7 +46,7 @@ class _SettingsPage extends State<SettingsBody> {
                 labelText: surnameField[lang],
               ),
               onChanged: (value) {
-                (value) => setState(() => _surname = value);
+                setState(() => _surname = value);
               },
             ),
             TextFormField(
@@ -55,7 +55,7 @@ class _SettingsPage extends State<SettingsBody> {
                 labelText: nameField[lang],
               ),
               onChanged: (value) {
-                (value) => setState(() => _name = value);
+                setState(() => _name = value);
               },
             ),
             TextFormField(
@@ -64,7 +64,7 @@ class _SettingsPage extends State<SettingsBody> {
                 labelText: birthField[lang],
               ),
               onChanged: (value) {
-                (value) => setState(() => _birthday = value);
+                setState(() => _birthday = value);
               },
               readOnly:
                   true, //set it true, so that user will not able to edit text
@@ -100,7 +100,7 @@ class _SettingsPage extends State<SettingsBody> {
                 labelText: notificationTimeField[lang],
               ),
               onChanged: (value) {
-                (value) => setState(() => _notificationTime = value);
+                setState(() => _notificationTime = value);
               },
             ),
             Padding(

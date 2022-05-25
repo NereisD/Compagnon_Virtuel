@@ -32,18 +32,20 @@ class SplashScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 5,
+      seconds: 0,
       navigateAfterSeconds: HomeScreen(),
       backgroundColor: Colors.teal,
-      title: new Text('Compagnon',textScaleFactor: 2,),
+      title: new Text(
+        'Compagnon',
+        textScaleFactor: 2,
+      ),
       image: Image.asset(
-            'assets/images/robot.png',
-            fit: BoxFit.cover,
-          ),
+        'assets/images/robot.png',
+        fit: BoxFit.cover,
+      ),
       loadingText: Text("Loading"),
       photoSize: 110.0,
       loaderColor: Colors.white,
     );
   }
 }
-

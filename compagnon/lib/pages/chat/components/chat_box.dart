@@ -19,16 +19,32 @@ class ChatBox extends StatefulWidget {
 }
 
 class MyChatBox extends State<ChatBox> {
-  final ScrollController _scrollController = ScrollController();
+  ScrollController _scrollController = ScrollController();
 
-  _scrollToEnd() async {
-    _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent,
-    );
+  //Fonction pour scroller en bas du chat
+  scrollToEnd() async {
+    if (_scrollController.hasClients) {
+      //print("IF inside ${_scrollController.position.maxScrollExtent}");
+
+      //On peut trouver la taille max facilement
+      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    } else {
+      /* Sinon il faut compter le nombre de messages pour sauter tant de
+      *  pixels à chaque fois.
+      */
+      MessageDatabase.instance.readAllMessages().then((value) {
+        double size = value.length * 80.0; //80 pixels mini
+        print("ELSE inside $size");
+        _scrollController = ScrollController(initialScrollOffset: size);
+      });
+
+      //_scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    scrollToEnd();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: FutureBuilder<List<Message>>(

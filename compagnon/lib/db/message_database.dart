@@ -100,6 +100,15 @@ CREATE TABLE $tableMessages (
     return result.map((json) => Message.fromJson(json)).toList();
   }
 
+  /* RENVOIE LE NOMBRE DE MESSAGES DANS LA BASE MAIS CA MARCHE PAS
+  Future<String> countMessages() async {
+    final db = await instance.database;
+    final result = await db.execute('''
+SELECT COUNT(*) from $tableMessages
+''');
+    return result;
+  }*/
+
   //Pour lire les messages non secrets
   Future<List<Message>> readAllMessagesNotSecret() async {
     final db = await instance.database;

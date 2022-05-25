@@ -121,14 +121,6 @@ class MyHomeScreen extends State<HomeScreen> {
     } else if (selectedIndex == 0) {
       print("return chatBody");
       return _chatBody;
-      /*
-      if (chatBodyOptions) {
-        chatBodyOptions = false;
-        return _chatBody;
-      } else {
-        chatBodyOptions = true;
-        return _chatBody2;
-      }*/
     } else if (selectedIndex == 2) {
       return _configBody;
     }
