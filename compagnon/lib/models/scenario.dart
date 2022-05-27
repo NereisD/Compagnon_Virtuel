@@ -376,6 +376,8 @@ class Scenario {
     setVariable("idCurrentScenario", '');
     setVariable("idCurrentQuestion", '');
     currentReplies = [];
+    isClosedQuestion = false;
+    isOpenQuestion = false;
   }
 
   /* Fonction pour contrinuer un scénario en cours.
