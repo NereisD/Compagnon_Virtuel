@@ -39,7 +39,7 @@ Future<int> importScenarios(bool isLocalPath) async {
   //Si c'est le premier lancement de l'application on importe en local
   if (isLocalPath) {
     print("importScenarios firstLaunch");
-    response = await rootBundle.loadString('lib/json/welcome_scenario.json');
+    response = await rootBundle.loadString('lib/json/items_scenarios.json');
 
     //Sinon on importe depuis le répertoire Downloads
   } else {
@@ -63,7 +63,14 @@ Future<int> importScenarios(bool isLocalPath) async {
     );
   }
 
-  final data = await json.decode(response);
+  var data;
+
+  try {
+    data = await json.decode(response);
+  } catch (e) {
+    print('Error $e : PATH invalide');
+    return 1;
+  }
 
   //Creation des questions
   List listQuestions = data["questions"];

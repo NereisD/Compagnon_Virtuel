@@ -213,7 +213,7 @@ class InputMessage extends StatelessWidget {
             ),
             onPressed: () {
               currentScenario.addMessage(helloField[lang], true);
-              currentScenario.initScenario(1); // ICI lancer un scénario random
+              currentScenario.initScenario(2); // ICI lancer un scénario random
 
               //RestartWidget.restartApp(context); //Reload la page de tchat
               reloadUI(context);

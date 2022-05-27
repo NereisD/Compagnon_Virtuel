@@ -375,6 +375,7 @@ class Scenario {
   void endScenario() {
     setVariable("idCurrentScenario", '');
     setVariable("idCurrentQuestion", '');
+    currentReplies = [];
   }
 
   /* Fonction pour contrinuer un scénario en cours.
