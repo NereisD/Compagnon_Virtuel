@@ -206,11 +206,79 @@
             "id": 28,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Très bien, au revoir %%prenom !",
+            "textFR": "Très bien, au revoir %%name !",
             "textJP": ""
         },
         {
             "id": 29
+        },
+        {
+            "id": 30,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Bonjour ! Comment allez-vous aujourd'hui ?",
+            "textJP": "",
+            "idNextQuestion": 31,
+            "isFirst": 1
+        },
+        {
+            "id": 31,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Avez-vous manqué d'appétit ou de motivation cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 32,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !",
+            "textJP": ""
+        },
+        {
+            "id": 33,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Très bien, au revoir %%name !",
+            "textJP": "",
+            "isEnd": 1
+        },
+        {
+            "id": 34,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Quelque chose vous préoccupe ?",
+            "textJP": "",
+            "idNextQuestion": 35
+        },
+        {
+            "id": 35,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Vous pouvez m’en parler si vous le souhaitez.",
+            "textJP": ""
+        },
+        {
+            "id": 36,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je vous écoute.",
+            "textJP": "",
+            "idNextQuestion": 37,
+            "isOpenQuestion": 1
+        },
+        {
+            "id": 37,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "C'est étonnant ! Vous pouvez continuer.",
+            "textJP": ""
+        },
+        {
+            "id": 38
+        },
+        {
+            "id": 39
         }
     ],
     "replies" : [
@@ -425,6 +493,81 @@
         },
         {
             "id": 29
+        },
+        {
+            "id": 30,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Non tout va bien",
+            "textJP": "",
+            "idQuestion": 32
+        },
+        {
+            "id": 31,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai manqué d'appétit",
+            "textJP": "",
+            "idQuestion": 34
+        },
+        {
+            "id": 32,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai manqué de motivation",
+            "textJP": "",
+            "idQuestion": 34
+        },
+        {
+            "id": 33,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "C'est noté, au revoir !",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 34,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai quelque chose à vous dire",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 35,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je ne souhaite pas en parler",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 36,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je souhaite en parler",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 37,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Continuer",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 38,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai terminé",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 39
         }
     ],
     "relationsQR" : [
@@ -547,6 +690,51 @@
             "idScenario": 2,
             "idQuestion": 28,
             "idReply": 28
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 30
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 31
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 32
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 32,
+            "idReply": 33
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 32,
+            "idReply": 34
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 35,
+            "idReply": 35
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 35,
+            "idReply": 36
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 37,
+            "idReply": 37
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 37,
+            "idReply": 38
         }
     ]
 }
