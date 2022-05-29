@@ -11,6 +11,7 @@ import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/models/variable.dart';
 import 'package:compagnon/values/languages.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:math';
 
 class Scenario {
   //On initialise les listes vides
@@ -586,5 +587,38 @@ class Scenario {
       //On appelle la question suivante
       displayQuestion(getQuestionById(question.idNextQuestion));
     }
+  }
+
+  /* Fonction qui initialise un scénario aléatoire
+  *  parmi les scénarios ayant une firstQuestion
+  */
+  Future<int> initRandomScenario() async {
+    _questions = await ScenariosDatabase.instance.readAllQuestions();
+    List<int> numbers = [];
+
+    //On compte les scénarios ayant une firstQuestion
+    for (int i = 0; i < _questions.length; i++) {
+      if (_questions[i].isFirst && _questions[i].idScenario > 1) {
+        numbers.add(_questions[i].idScenario);
+      }
+    }
+
+    //On stop l'exécution
+    if (numbers.isEmpty) {
+      print("Error : random scénarios vide");
+      return 1;
+    }
+
+    //On créer une variable random
+    Random random = Random();
+    int randomIndice = random.nextInt(numbers.length); //entre 0 et length
+
+    print("Init scenario ${numbers[randomIndice]}");
+
+    //On initialise le scénario correspondant a cet indice
+    initScenario(numbers[randomIndice]);
+
+    //Pas d'erreur
+    return 0;
   }
 }
