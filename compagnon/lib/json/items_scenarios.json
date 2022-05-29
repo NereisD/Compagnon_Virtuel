@@ -1,0 +1,1692 @@
+{
+    "questions" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "Welcome! My name is Bob, I am your new virtual companion 😀",
+            "textFR": "Bienvenue ! Je suis Bob votre nouveau compagnon virtuel 😀",
+            "textJP": "いらっしゃいませ ！私はあなたの新しい仮想コンパニオンのボブです 😀"
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "To start with, I have to ask you some questions.",
+            "textFR": "Pour démarrer, je vais vous poser quelques questions.",
+            "textJP": "まず、いくつか質問をします。",
+            "idNextQuestion": 3
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "textEN": "What is your first name?",
+            "textFR": "Quel est votre prénom ?",
+            "textJP": "おなまえは？",
+            "idNextQuestion": 4,
+            "isOpenQuestion": 1,
+            "nameVariable": "name"
+        },
+        {
+            "id": 4,
+            "idScenario": 1,
+            "textEN": "And your last name ?",
+            "textFR": "Et votre nom ?",
+            "textJP": "そしてあなたの名前は何ですか？",
+            "idNextQuestion": 5,
+            "isOpenQuestion": 1,
+            "nameVariable": "surname"
+        },
+        {
+            "id": 5,
+            "idScenario": 1,
+            "textEN": "So your full name is %%name %%surname right ?",
+            "textFR": "Vous vous appelez bien %%name %%surname c'est ça ?",
+            "textJP": "あなたの名前は %%name %%surname ですよね？"
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "Nice to meet you %%name !",
+            "textFR": "Heureux de vous rencontrer %%name !",
+            "textJP": "はじめまして %%name ",
+            "idNextQuestion": 7
+        },
+        {
+            "id": 7,
+            "idScenario": 1,
+            "textEN": "Are you a man or a woman ?",
+            "textFR": "Etes vous un homme ou une femme ?",
+            "textJP": "男性ですか、女性ですか ？"
+        },
+        {
+            "id": 8,
+            "idScenario": 1,
+            "textEN": "And what is your date of birth? (DD-MM-YYYY)",
+            "textFR": "Et quelle est votre date de naissance ? (JJ-MM-AAAA)",
+            "textJP": "そして、あなたの生年月日は何ですか？（日月年）",
+            "idNextQuestion": 9,
+            "isOpenQuestion": 1,
+            "nameVariable": "birthday"
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "Got it! I will now explain how I work.",
+            "textFR": "C'est noté ! Je vais maintenant vous expliquer mon fonctionnement.",
+            "textJP": "了解しました ！それがどのように機能するかを説明します。",
+            "idNextQuestion": 10
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "On the chat, you can like ❤️ or put a message in secret 🔑",
+            "textFR": "Sur le chat, vous pouvez liker ❤️ ou mettre un message en secret 🔑",
+            "textJP": "チャットでは、❤️を気に入ったり、メッセージを秘密にしたりできます🔑"
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "A secret message can only be read by you and nobody else !",
+            "textFR": "Un message secret ne pourra être lu que par vous et personne d’autre !",
+            "textJP": "秘密のメッセージはあなただけが読むことができ、他の誰も読むことができません！"
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "You have a journal 📰 on which to write your personal notes.",
+            "textFR": "Vous avez un journal 📰 à disposition sur lequel écrire vos notes personnelles.",
+            "textJP": "あなたはあなたの個人的なメモを書くために利用可能なジャーナル📰を持っています。",
+            "idNextQuestion": 13
+        },
+        {
+            "id": 13,
+            "idScenario": 1,
+            "textEN": "As with messages, you can put journal entries in secret 🔑",
+            "textFR": "Comme pour les messages, vous pouvez mettre des notes du journal en secret 🔑",
+            "textJP": "メッセージと同じように、日記を秘密にすることができます🔑"
+        },
+        {
+            "id": 14,
+            "idScenario": 1,
+            "textEN": "A page of the secret diary can only be read by you and nobody else !",
+            "textFR": "Une page du journal secrète ne pourra être lu que par vous et personne d’autre !",
+            "textJP": "秘密の日記のページはあなただけが読むことができ、他の誰も読むことができません！"
+        },
+        {
+            "id": 15,
+            "idScenario": 1,
+            "textEN": "In addition, you can change your personal information from the options.",
+            "textFR": "De plus, vous pouvez modifier vos informations personnelles depuis les options.",
+            "textJP": "さらに、オプションから個人情報を変更することができます。"
+        },
+        {
+            "id": 16,
+            "idScenario": 1,
+            "textEN": "Very good! We can now start discussing.",
+            "textFR": "Très bien ! Nous pouvons maintenant commencer à discuter.",
+            "textJP": "結構 ！これで話し始めることができます。",
+            "isEnd": 1
+        },
+        {
+            "id": 17,
+            "idScenario": 1,
+            "textEN": "Choose a language : ",
+            "textFR": "Choisissez une langue : ",
+            "textJP": "言語を選択してください：",
+            "isFirst": 1
+        },
+        {
+            "id": 18
+        },
+        {
+            "id": 19
+        },
+        {
+            "id": 20,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Bonjour ! J'espère que vous allez bien aujourd'hui.",
+            "textJP": "",
+            "idNextQuestion": 21,
+            "isFirst": 1
+        },
+        {
+            "id": 21,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Avez-vous bien dormi cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 22,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Bonne nouvelle ! ",
+            "textJP": "",
+            "idNextQuestion": 23
+        },
+        {
+            "id": 23,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Si vous voulez me parler de votre sommeil ou autre, n'hésitez pas.",
+            "textJP": ""
+        },
+        {
+            "id": 24,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Quelque chose vous préoccupe ?",
+            "textJP": "",
+            "idNextQuestion": 25
+        },
+        {
+            "id": 25,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "N'hésitez pas à m'en faire part, même si c'est quelque chose d'anodin.",
+            "textJP": ""
+        },
+        {
+            "id": 26,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Comment se passe votre sommeil ?",
+            "textJP": "",
+            "idNextQuestion": 27,
+            "isOpenQuestion": 1
+        },
+        {
+            "id": 27,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Je comprends, n’hésitez pas à m’en dire d’avantage.",
+            "textJP": ""
+        },
+        {
+            "id": 28,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Très bien, au revoir %%name !",
+            "textJP": ""
+        },
+        {
+            "id": 29
+        },
+        {
+            "id": 30,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Bonjour ! Comment allez-vous aujourd'hui ?",
+            "textJP": "",
+            "idNextQuestion": 31,
+            "isFirst": 1
+        },
+        {
+            "id": 31,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Avez-vous manqué d'appétit ou de motivation cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 32,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !",
+            "textJP": ""
+        },
+        {
+            "id": 33,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Très bien, au revoir %%name !",
+            "textJP": "",
+            "isEnd": 1
+        },
+        {
+            "id": 34,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Quelque chose vous préoccupe ?",
+            "textJP": "",
+            "idNextQuestion": 35
+        },
+        {
+            "id": 35,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Vous pouvez m’en parler si vous le souhaitez.",
+            "textJP": ""
+        },
+        {
+            "id": 36,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je vous écoute.",
+            "textJP": "",
+            "idNextQuestion": 37,
+            "isOpenQuestion": 1
+        },
+        {
+            "id": 37,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "C'est étonnant ! Vous pouvez continuer.",
+            "textJP": ""
+        },
+        {
+            "id": 38
+        },
+        {
+            "id": 39
+        },
+        {
+            "id": 40,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Bonjour, j'espère que vous êtes en forme.",
+            "textJP": "",
+            "idNextQuestion": 41,
+            "isFirst": 1
+        },
+        {
+            "id": 41,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Avez-vous ressenti de la fatigue ou une douleur cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 42,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Super ! Si vous souhaitez me dire quelque chose, je vous écoute.",
+            "textJP": ""
+        },
+        {
+            "id": 43,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Où avez-vous mal ?",
+            "textJP": "",
+            "idNextQuestion": 45
+        },
+        {
+            "id": 44,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Pourquoi êtes-vous fatigué ?",
+            "textJP": "",
+            "idNextQuestion": 45
+        },
+        {
+            "id": 45,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Dites m'en plus, s'il vous plaît.",
+            "textJP": "",
+            "idNextQuestion": 46,
+            "isOpenQuestion": 1
+        },
+        {
+            "id": 46,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "ça doit être éprouvant. Souhaitez vous m’en dire plus ?",
+            "textJP": ""
+        },
+        {
+            "id": 47,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Je vous écoute.",
+            "textJP": "",
+            "isOpenQuestion": 1,
+            "idNextQuestion": 48
+        },
+        {
+            "id": 48,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Je vois, souhaitez vous me dire autre chose ?",
+            "textJP": ""
+        },
+        {
+            "id": 49,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Très bien, je vous souhaite une bonne journée %%name !",
+            "textJP": ""
+        },
+        {
+            "id": 50,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Bonjour ! Je viens prendre de vos nouvelles.",
+            "textJP": "",
+            "isFirst": 1,
+            "idNextQuestion": 51
+        },
+        {
+            "id": 51,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Avez-vous fait quelque chose d'agréable cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 52,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Je suis content pour vous %%name . Vous me raconter ?",
+            "textJP": ""
+        },
+        {
+            "id": 53,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Très bien, à la prochaine alors !",
+            "textJP": ""
+        },
+        {
+            "id": 54,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Vraiment ? Vous sentez-vous triste, fatigué ou malade ? ",
+            "textJP": "",
+            "idNextQuestion": 55
+        },
+        {
+            "id": 55,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Si c'est le cas, dites le moi !",
+            "textJP": ""
+        },
+        {
+            "id": 56,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Je vous écoute.",
+            "textJP": "",
+            "isOpenQuestion": 1,
+            "idNextQuestion": 57
+        },
+        {
+            "id": 57,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "C'est intéressant ! Il y a autre chose ?",
+            "textJP": ""
+        },
+        {
+            "id": 58
+        },
+        {
+            "id": 59
+        },
+        {
+            "id": 60,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Bonjour %%name . J'espère que vous allez bien.",
+            "textJP": "",
+            "idNextQuestion": 61,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 61,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Avez-vous oublié ou avez-vous l'impression d'avoir oublié quelque chose cette semaine ?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 62,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Tant mieux ! Mais si cela vous inquiète, racontez-moi.",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 63,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Très bien, passez une bonne journée !",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 64,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Si ca arrive parfois, voulez vous en parler ?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 65,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Racontez-moi ce qui est arrivé.",
+            "textJP": "",
+            "idNextQuestion": 66,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 66,
+            "idScenario": 6,
+            "textEN": "",
+            "textFR": "Ca alors, vous voulez me dire autre chose ?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 67
+        },
+        {
+            "id": 68
+        },
+        {
+            "id": 69
+        },
+        {
+            "id": 70,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Bonjour %%name . J'espère que vous êtes en forme.",
+            "textJP": "",
+            "idNextQuestion": 71,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 71,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Êtes-vous sorti ou avez-vous eu des discussions cette semaine?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 72,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Qu'avez vous fait de sympa ? Racontez-moi s'il vous plaît.",
+            "textJP": "",
+            "idNextQuestion": 73,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 73,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "C'est bien ! Et avec qui avez-vous parlé ?",
+            "textJP": "",
+            "idNextQuestion": 76,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 74,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Est-ce qu'il y a des raisons pour lesquelles vous n'êtes pas sorti ou vous n'avez pas rencontré des gens ?",
+            "textJP": "",
+            "idNextQuestion": 75,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 75,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Est-ce aue vous avez envie de rencontrer quelqu'un ou d'aller quelque part ?",
+            "textJP": "",
+            "idNextQuestion": 76,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 76,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "D'accord je vois, Souhaitez vous me dire autre chose ?",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 77,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Je vous écoute",
+            "textJP": "",
+            "idNextQuestion": 76,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 78,
+            "idScenario": 7,
+            "textEN": "",
+            "textFR": "Très bien, à la prochaine alors !",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+        },
+        {
+            "id": 79
+        },
+        {
+            "id": 80,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Bonjour ! Je viens prendre de vos nouvelles",
+            "textJP": "",
+            "idNextQuestion": 81,
+            "isFirst": 1
+        },
+        {
+            "id": 81,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Vous-êtes vous senti inquiet ou anxieux cette semaine ?",
+            "textJP": ""
+        },
+        {
+            "id": 82,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "C'est bien. Si quelque chose vous préoccupe, n'hésiter pas à m'en parler !",
+            "textJP": ""
+        },
+        {
+            "id": 83,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Super, passer une agréable journée !",
+            "textJP": ""
+        },
+        {
+            "id": 84,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Qu'est-ce qui vous rend anxieux ou stressé ? Pouvez-vous me le dire, s'il vous plaît ?",
+            "textJP": ""
+        },
+        {
+            "id": 85,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Allez-y, je vous écoute %%name .",
+            "textJP": "",
+            "idNextQuestion": 86,
+            "isOpenQuestion": 1
+        },
+        {
+            "id": 86,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Ca alors, il y at-il autre chose ?",
+            "textJP": ""
+        },
+        {
+            "id": 87,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Si il y a le moindre soucis n'hésitez pas à me le dire plus tard.",
+            "textJP": ""
+        },
+        {
+            "id": 88,
+            "idScenario": 8,
+            "textEN": "",
+            "textFR": "Au revoir %%name 1",
+            "textJP": "",
+            "isEnd": 1
+        },
+        {
+            "id": 89
+        }
+    ],
+    "replies" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "Hello Bob !",
+            "textFR": "Bonjour Bob !",
+            "textJP": "こんにちはボブ！",
+            "idQuestion": 2,
+            "nameVariable": ""
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "Yes it is",
+            "textFR": "Oui c'est bien ça",
+            "textJP": "はい、そうです",
+            "idQuestion": 6
+        },
+        {
+            "id": 3,
+            "idScenario": 1,
+            "textEN": "No it isn't",
+            "textFR": "Non ce n'est pas ça",
+            "textJP": "いいえ、そうではありません",
+            "idQuestion": 3
+        },
+        {
+            "id": 4,
+            "idScenario": 1,
+            "textEN": "Man",
+            "textFR": "Homme",
+            "textJP": "男",
+            "idQuestion": 8,
+            "nameVariable": "gender"
+        },
+        {
+            "id": 5,
+            "idScenario": 1,
+            "textEN": "Woman",
+            "textFR": "Femme",
+            "textJP": "女性",
+            "idQuestion": 8,
+            "nameVariable": "gender"
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "Agreed",
+            "textFR": "D'accord",
+            "textJP": "わかった",
+            "idQuestion": 12
+        },
+        {
+            "id": 7,
+            "idScenario": 1,
+            "textEN": "What is a secret?",
+            "textFR": "C'est quoi un secret ?",
+            "textJP": "秘密は何ですか？",
+            "idQuestion": 11
+        },
+        {
+            "id": 8,
+            "idScenario": 1,
+            "textEN": "Yes okay",
+            "textFR": "Oui d'accord",
+            "textJP": "はい大丈夫",
+            "idQuestion": 12
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "Agreed",
+            "textFR": "D'accord",
+            "textJP": "わかった",
+            "idQuestion": 15
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "What is a secret again?",
+            "textFR": "C'est quoi déjà un secret ?",
+            "textJP": "すでに秘密は何ですか？",
+            "idQuestion": 14
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "Yes okay",
+            "textFR": "Oui d'accord",
+            "textJP": "はい大丈夫",
+            "idQuestion": 15
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "I understood",
+            "textFR": "J'ai compris",
+            "textJP": "わかった",
+            "idQuestion": 16
+        },
+        {
+            "id": 13,
+            "idScenario": 1,
+            "textEN": "English 🇬🇧",
+            "textFR": "English 🇬🇧",
+            "textJP": "English 🇬🇧",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 14,
+            "idScenario": 1,
+            "textEN": "Français 🇫🇷",
+            "textFR": "Français 🇫🇷",
+            "textJP": "Français 🇫🇷",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 15,
+            "idScenario": 1,
+            "textEN": "日本 🇯🇵",
+            "textFR": "日本 🇯🇵",
+            "textJP": "日本 🇯🇵",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 16
+        },
+        {
+            "id": 17
+        },
+        {
+            "id": 18
+        },
+        {
+            "id": 19
+        },
+        {
+            "id": 20,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Oui, merci",
+            "textJP": "",
+            "idQuestion": 22
+        },
+        {
+            "id": 21,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Non, pas vraiment",
+            "textJP": "",
+            "idQuestion": 24
+        },
+        {
+            "id": 22,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "C'est noté",
+            "textJP": "",
+            "idQuestion": 28
+        },
+        {
+            "id": 23,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Je souhaite en parler",
+            "textJP": "",
+            "idQuestion": 26
+        },
+        {
+            "id": 24,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Je ne souhaite pas en parler",
+            "textJP": "",
+            "idQuestion": 28
+        },
+        {
+            "id": 25,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Je souhaite en parler",
+            "textJP": "",
+            "idQuestion": 26
+        },
+        {
+            "id": 26,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Continuer",
+            "textJP": "",
+            "idQuestion": 26
+        },
+        {
+            "id": 27,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Terminer",
+            "textJP": "",
+            "idQuestion": 28
+        },
+        {
+            "id": 28,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Au revoir Bob !",
+            "textJP": ""
+        },
+        {
+            "id": 29
+        },
+        {
+            "id": 30,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Non tout va bien",
+            "textJP": "",
+            "idQuestion": 32
+        },
+        {
+            "id": 31,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai manqué d'appétit",
+            "textJP": "",
+            "idQuestion": 34
+        },
+        {
+            "id": 32,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai manqué de motivation",
+            "textJP": "",
+            "idQuestion": 34
+        },
+        {
+            "id": 33,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "C'est noté, au revoir !",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 34,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai quelque chose à vous dire",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 35,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je ne souhaite pas en parler",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 36,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Je souhaite en parler",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 37,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "Continuer",
+            "textJP": "",
+            "idQuestion": 36
+        },
+        {
+            "id": 38,
+            "idScenario": 3,
+            "textEN": "",
+            "textFR": "J'ai terminé",
+            "textJP": "",
+            "idQuestion": 33
+        },
+        {
+            "id": 39
+        },
+        {
+            "id": 40,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Non tout va bien",
+            "textJP": "",
+            "idQuestion": 42
+        },
+        {
+            "id": 41,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "J'ai mal quelque part",
+            "textJP": "",
+            "idQuestion": 43
+        },
+        {
+            "id": 42,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Je suis fatigué",
+            "textJP": "",
+            "idQuestion": 44
+        },
+        {
+            "id": 43,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Pas besoin, au revoir !",
+            "textJP": "",
+            "idQuestion": 49
+        },
+        {
+            "id": 44,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Je veux vous dire quelque chose",
+            "textJP": "",
+            "idQuestion": 47
+        },
+        {
+            "id": 45,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Je veux en dire plus",
+            "textJP": "",
+            "idQuestion": 47
+        },
+        {
+            "id": 46,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Oui",
+            "textJP": "",
+            "idQuestion": 47
+        },
+        {
+            "id": 47,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "J'ai terminé",
+            "textJP": "",
+            "idQuestion": 49
+        },
+        {
+            "id": 48,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Bonne journée Bob !",
+            "textJP": "",
+            "idQuestion": 0
+        },
+        {
+            "id": 49,
+            "idScenario": 4,
+            "textEN": "",
+            "textFR": "Non merci",
+            "textJP": "",
+            "idQuestion": 49
+        },
+        {
+            "id": 50,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Oui au moins une fois",
+            "textJP": "",
+            "idQuestion": 52
+        },
+        {
+            "id": 51,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Pas vraiment",
+            "textJP": "",
+            "idQuestion": 54
+        },
+        {
+            "id": 52,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Non merci",
+            "textJP": "",
+            "idQuestion": 53
+        },
+        {
+            "id": 53,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Bien sur !",
+            "textJP": "",
+            "idQuestion": 56
+        },
+        {
+            "id": 54,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Oui, je vous raconte",
+            "textJP": "",
+            "idQuestion": 56
+        },
+        {
+            "id": 55,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Non tout va bien",
+            "textJP": "",
+            "idQuestion": 53
+        },
+        {
+            "id": 56,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Oui",
+            "textJP": "",
+            "idQuestion": 56
+        },
+        {
+            "id": 57,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "Non c'est tout",
+            "textJP": "",
+            "idQuestion": 53
+        },
+        {
+            "id": 58,
+            "idScenario": 5,
+            "textEN": "",
+            "textFR": "A la prochaine !",
+            "textJP": "",
+            "idQuestion": 0
+        },
+        {
+            "id": 59
+        },
+        {
+            "id": 60,
+            "idScenario": 6,
+            "textFR": "Non pas vraiment",
+            "idQuestion": 62
+        },
+        {
+            "id": 61,
+            "idScenario": 6,
+            "textFR": "Oui je crois",
+            "idQuestion": 64
+        },
+        {
+            "id": 62,
+            "idScenario": 6,
+            "textFR": "Je vais très bien",
+            "idQuestion": 63
+        },
+        {
+            "id": 63,
+            "idScenario": 6,
+            "textFR": "Je souhaite en parler",
+            "idQuestion": 65
+        },
+        {
+            "id": 64,
+            "idScenario": 6,
+            "textFR": "Je souhaite en parler",
+            "idQuestion": 65
+        },
+        {
+            "id": 65,
+            "idScenario": 6,
+            "textFR": "Non merci",
+            "idQuestion": 63
+        },
+        {
+            "id": 66,
+            "idScenario": 6,
+            "textFR": "Oui",
+            "idQuestion": 65
+        },
+        {
+            "id": 67,
+            "idScenario": 6,
+            "textFR": "C'est tout pour le moment",
+            "idQuestion": 63
+        },
+        {
+            "id": 68,
+            "idScenario": 6,
+            "textFR": "Au revoir !",
+            "idQuestion": 0
+        },
+        {
+            "id": 69
+        },
+        {
+            "id": 70,
+            "idScenario": 7,
+            "textFR": "Oui plusieurs fois",
+            "idQuestion": 72
+        },
+        {
+            "id": 71,
+            "idScenario": 7,
+            "textFR": "Non pas vraiment",
+            "idQuestion": 74
+        },
+        {
+            "id": 72,
+            "idScenario": 7,
+            "textFR": "Oui",
+            "idQuestion": 77
+        },
+        {
+            "id": 73,
+            "idScenario": 7,
+            "textFR": "Non merci",
+            "idQuestion": 78
+        },
+        {
+            "id": 74,
+            "idScenario": 7,
+            "textFR": "A plus tard Bob !",
+            "idQuestion": 0
+        },
+        {
+            "id": 75
+        },
+        {
+            "id": 76
+        },
+        {
+            "id": 77
+        },
+        {
+            "id": 78
+        },
+        {
+            "id": 79
+        },
+        {
+            "id": 80,
+            "idScenario": 8,
+            "textFR": "Pas du tout",
+            "idQuestion": 82
+        },
+        {
+            "id": 81,
+            "idScenario": 8,
+            "textFR": "Quelques fois",
+            "idQuestion": 84
+        },
+        {
+            "id": 82,
+            "idScenario": 8,
+            "textFR": "Tout va bien , merci",
+            "idQuestion": 83
+        },
+        {
+            "id": 83,
+            "idScenario": 8,
+            "textFR": "J’ai quelque chose à vous dire",
+            "idQuestion": 85
+        },
+        {
+            "id": 84,
+            "idScenario": 8,
+            "textFR": "Au revoir bob !",
+            "idQuestion": 0
+        },
+        {
+            "id": 85,
+            "idScenario": 8,
+            "textFR": "Je vais vous raconter",
+            "idQuestion": 85
+        },
+        {
+            "id": 86,
+            "idScenario": 8,
+            "textFR": "Je souhaite pas en parler",
+            "idQuestion": 87
+        },
+        {
+            "id": 87,
+            "idScenario": 8,
+            "textFR": "Oui",
+            "idQuestion": 85
+        },
+        {
+            "id": 88,
+            "idScenario": 8,
+            "textFR": "D'accord, au revoir !",
+            "idQuestion": 88
+        },
+        {
+            "id": 89,
+            "idScenario": 8,
+            "textFR": "Non c'est tout",
+            "idQuestion": 83
+        }
+    ],
+    "relationsQR" : [
+        {
+            "idScenario": 1,
+            "idQuestion": 1,
+            "idReply": 1
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 5,
+            "idReply": 2
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 5,
+            "idReply": 3
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 7,
+            "idReply": 4
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 7,
+            "idReply": 5
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 6
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 7
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 11,
+            "idReply": 8
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 9
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 10
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 14,
+            "idReply": 11
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 15,
+            "idReply": 12
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 13
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 14
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 15
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 21,
+            "idReply": 20
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 21,
+            "idReply": 21
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 25,
+            "idReply": 24
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 25,
+            "idReply": 25
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 23,
+            "idReply": 23
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 23,
+            "idReply": 22
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 27,
+            "idReply": 26
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 27,
+            "idReply": 27
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 28,
+            "idReply": 28
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 30
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 31
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 31,
+            "idReply": 32
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 32,
+            "idReply": 33
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 32,
+            "idReply": 34
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 35,
+            "idReply": 35
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 35,
+            "idReply": 36
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 37,
+            "idReply": 37
+        },
+        {
+            "idScenario": 3,
+            "idQuestion": 37,
+            "idReply": 38
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 41,
+            "idReply": 40
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 41,
+            "idReply": 42
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 41,
+            "idReply": 41
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 42,
+            "idReply": 43
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 42,
+            "idReply": 44
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 46,
+            "idReply": 45
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 46,
+            "idReply": 49
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 48,
+            "idReply": 46
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 48,
+            "idReply": 47
+        },
+        {
+            "idScenario": 4,
+            "idQuestion": 49,
+            "idReply": 48
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 51,
+            "idReply": 50
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 51,
+            "idReply": 51
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 55,
+            "idReply": 54
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 55,
+            "idReply": 55
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 52,
+            "idReply": 52
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 52,
+            "idReply": 53
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 57,
+            "idReply": 56
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 57,
+            "idReply": 57
+        },
+        {
+            "idScenario": 5,
+            "idQuestion": 53,
+            "idReply": 58
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 61,
+            "idReply": 60
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 61,
+            "idReply": 61
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 62,
+            "idReply": 62
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 62,
+            "idReply": 63
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 63,
+            "idReply": 68
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 66,
+            "idReply": 66
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 66,
+            "idReply": 67
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 64,
+            "idReply": 64
+        },
+        {
+            "idScenario": 6,
+            "idQuestion": 64,
+            "idReply": 65
+        },
+        {
+            "idScenario": 7,
+            "idQuestion": 71,
+            "idReply": 70
+        },
+        {
+            "idScenario": 7,
+            "idQuestion": 71,
+            "idReply": 71
+        },
+        {
+            "idScenario": 7,
+            "idQuestion": 76,
+            "idReply": 72
+        },
+        {
+            "idScenario": 7,
+            "idQuestion": 76,
+            "idReply": 73
+        },
+        {
+            "idScenario": 7,
+            "idQuestion": 78,
+            "idReply": 74
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 81,
+            "idReply": 80
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 81,
+            "idReply": 81
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 82,
+            "idReply": 82
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 82,
+            "idReply": 83
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 83,
+            "idReply": 84
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 84,
+            "idReply": 85
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 84,
+            "idReply": 86
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 87,
+            "idReply": 88
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 86,
+            "idReply": 87
+        },
+        {
+            "idScenario": 8,
+            "idQuestion": 86,
+            "idReply": 89
+        }
+    ]
+}
