@@ -1,4 +1,4 @@
-package com.example.compagnon
+package com.virtualcompanion.v1
 
 import io.flutter.embedding.android.FlutterActivity
 

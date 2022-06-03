@@ -1,3 +1,4 @@
+import 'package:compagnon/pages/splash_screen.dart';
 import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/providers/todos.dart';
 import 'package:compagnon/pages/home_page.dart';
@@ -26,26 +27,4 @@ class MyApp extends StatelessWidget {
           home: SplashScreenPage(),
         ),
       );
-}
-
-class SplashScreenPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: 0,
-      navigateAfterSeconds: HomeScreen(),
-      backgroundColor: Colors.teal,
-      title: new Text(
-        'Compagnon',
-        textScaleFactor: 2,
-      ),
-      image: Image.asset(
-        'assets/images/robot.png',
-        fit: BoxFit.cover,
-      ),
-      loadingText: Text("Loading"),
-      photoSize: 110.0,
-      loaderColor: Colors.white,
-    );
-  }
 }

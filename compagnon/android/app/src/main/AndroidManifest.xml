@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.compagnon">
+    package="com.virtualcompanion.v1">
    <application
         android:label="compagnon"
         android:name="${applicationName}"
