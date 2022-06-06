@@ -1,4 +1,4 @@
-package com.virtualcompanion.v1
+package com.uga.virtualcompanion
 
 import io.flutter.embedding.android.FlutterActivity
 

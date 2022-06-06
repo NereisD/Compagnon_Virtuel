@@ -227,31 +227,28 @@ class MessageWidget extends State<MessagePlacement> {
               onTap: () {
                 print("Id du message : " + message.id.toString());
                 //var keyValue = 2; // a changer !!!
-                if (keyValue == 2) {
+                if (keyValue == 1) {
                   message.setIsLiked(!message.isLiked);
                   MessageDatabase.instance.update(message);
                   keyValue = -1;
                   setState(() {});
-                } else if (keyValue == 3) {
+                } else if (keyValue == 2) {
                   message.setIsSecret(!message.isSecret);
                   MessageDatabase.instance.update(message);
                   keyValue = -1;
                   setState(() {});
-                } else if (keyValue == 1) {
+                } else if (keyValue == 0) {
                   MessageDatabase.instance.delete(message.id);
                   keyValue = -1;
                   setState(() {});
                   RestartWidget.restartApp(context);
-                  /*
-              final provider =
-                  Provider.of<TodosProvider>(context, listen: false);
-              provider.reloadUI();*/
-                } else if (keyValue == 0) {
+                }
+                /*else if (keyValue == 0) {
                   MessageDatabase.instance.deleteAll();
                   keyValue = -1;
                   setState(() {});
                   RestartWidget.restartApp(context);
-                }
+                }*/
               },
             ),
           ),

@@ -52,7 +52,7 @@ class ChatBody extends StatelessWidget {
 
   /* Fonction qui permet de lancer le scénario d'init ou de reprendre 
   *  un scénario en cours
-  */
+  
   void initLifeCycle(BuildContext context) {
     print("call initLifeCycle");
 
@@ -93,7 +93,7 @@ class ChatBody extends StatelessWidget {
         }
       },
     );
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {

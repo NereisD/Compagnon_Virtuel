@@ -22,6 +22,7 @@ class _interactMessageState extends State<interactMessage> {
         this.onTapHandler(index);
       },
       items: [
+        /*
         BottomNavigationBarItem(
           icon: Icon(
             Icons.delete_forever,
@@ -31,11 +32,11 @@ class _interactMessageState extends State<interactMessage> {
           ),
           label: deleteAllButton[lang],
           backgroundColor: kSecondaryColor,
-        ),
+        ),*/
         BottomNavigationBarItem(
           icon: Icon(
             Icons.delete,
-            color: keyValue == 1 ? Colors.black : Colors.white,
+            color: keyValue == 0 ? Colors.black87 : Colors.white,
             size: 25.0,
             semanticLabel: "Text",
           ),
@@ -45,7 +46,7 @@ class _interactMessageState extends State<interactMessage> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.favorite,
-            color: keyValue == 2 ? Colors.red : Colors.white,
+            color: keyValue == 1 ? Colors.red : Colors.white,
             size: 25.0,
             semanticLabel: "Text",
           ),
@@ -55,7 +56,7 @@ class _interactMessageState extends State<interactMessage> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.vpn_key,
-            color: keyValue == 3 ? Colors.orange : Colors.white,
+            color: keyValue == 2 ? Colors.orange : Colors.white,
             size: 25.0,
             semanticLabel: "Text",
           ),
@@ -68,9 +69,9 @@ class _interactMessageState extends State<interactMessage> {
 
   void onTapHandler(int index) {
     this.setState(() {
-      selectedIndex = index;
+      /*selectedIndex = index;
       print("(onTap) selectedIndex = ");
-      print(selectedIndex);
+      print(selectedIndex);*/
 
       if (keyValue == index) {
         keyValue = -1;
