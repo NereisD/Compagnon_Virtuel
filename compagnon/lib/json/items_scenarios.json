@@ -10,37 +10,21 @@
         {
             "id": 2,
             "idScenario": 1,
-            "textEN": "To start with, I have to ask you some questions.",
-            "textFR": "Pour démarrer, je vais vous poser quelques questions.",
-            "textJP": "まず、いくつか質問をします。",
-            "idNextQuestion": 3
-        },
-        {
-            "id": 3,
-            "idScenario": 1,
-            "textEN": "What is your first name?",
-            "textFR": "Quel est votre prénom ?",
-            "textJP": "おなまえは？",
-            "idNextQuestion": 4,
+            "textEN": "How should I call you?",
+            "textFR": "Comment dois-je vous appeler ?",
+            "textJP": "どう呼べばいいの？",
+            "idNextQuestion": 6,
             "isOpenQuestion": 1,
             "nameVariable": "name"
         },
         {
-            "id": 4,
-            "idScenario": 1,
-            "textEN": "And your last name ?",
-            "textFR": "Et votre nom ?",
-            "textJP": "そしてあなたの名前は何ですか？",
-            "idNextQuestion": 5,
-            "isOpenQuestion": 1,
-            "nameVariable": "surname"
+            "id": 3
         },
         {
-            "id": 5,
-            "idScenario": 1,
-            "textEN": "So your full name is %%name %%surname right ?",
-            "textFR": "Vous vous appelez bien %%name %%surname c'est ça ?",
-            "textJP": "あなたの名前は %%name %%surname ですよね？"
+            "id": 4
+        },
+        {
+            "id": 5
         },
         {
             "id": 6,
@@ -48,39 +32,27 @@
             "textEN": "Nice to meet you %%name !",
             "textFR": "Heureux de vous rencontrer %%name !",
             "textJP": "はじめまして %%name ",
-            "idNextQuestion": 7
+            "idNextQuestion": 9
         },
         {
-            "id": 7,
-            "idScenario": 1,
-            "textEN": "Are you a man or a woman ?",
-            "textFR": "Etes vous un homme ou une femme ?",
-            "textJP": "男性ですか、女性ですか ？"
+            "id": 7
         },
         {
-            "id": 8,
-            "idScenario": 1,
-            "textEN": "And what is your date of birth? (DD-MM-YYYY)",
-            "textFR": "Et quelle est votre date de naissance ? (JJ-MM-AAAA)",
-            "textJP": "そして、あなたの生年月日は何ですか？（日月年）",
-            "idNextQuestion": 9,
-            "isOpenQuestion": 1,
-            "nameVariable": "birthday"
+            "id": 8
         },
         {
             "id": 9,
             "idScenario": 1,
-            "textEN": "Got it! I will now explain how I work.",
-            "textFR": "C'est noté ! Je vais maintenant vous expliquer mon fonctionnement.",
-            "textJP": "了解しました ！それがどのように機能するかを説明します。",
-            "idNextQuestion": 10
+            "textEN": "I will now explain how I work.",
+            "textFR": "Je vais maintenant vous expliquer mon fonctionnement.",
+            "textJP": "それがどのように機能するかを説明します。"
         },
         {
             "id": 10,
             "idScenario": 1,
-            "textEN": "On the chat, you can like ❤️ or put a message in secret 🔑",
-            "textFR": "Sur le chat, vous pouvez liker ❤️ ou mettre un message en secret 🔑",
-            "textJP": "チャットでは、❤️を気に入ったり、メッセージを秘密にしたりできます🔑"
+            "textEN": "On the chat, you can like or put a message in secret ",
+            "textFR": "Sur le chat, vous pouvez liker ou mettre un message en secret ",
+            "textJP": "チャットでは、を気に入ったり、メッセージを秘密にしたりできます"
         },
         {
             "id": 11,
@@ -92,17 +64,17 @@
         {
             "id": 12,
             "idScenario": 1,
-            "textEN": "You have a journal 📰 on which to write your personal notes.",
-            "textFR": "Vous avez un journal 📰 à disposition sur lequel écrire vos notes personnelles.",
-            "textJP": "あなたはあなたの個人的なメモを書くために利用可能なジャーナル📰を持っています。",
+            "textEN": "You have a journal on which to write your personal notes.",
+            "textFR": "Vous avez un journal à disposition sur lequel écrire vos notes personnelles.",
+            "textJP": "あなたはあなたの個人的なメモを書くために利用可能なジャーナルを持っています。",
             "idNextQuestion": 13
         },
         {
             "id": 13,
             "idScenario": 1,
-            "textEN": "As with messages, you can put journal entries in secret 🔑",
-            "textFR": "Comme pour les messages, vous pouvez mettre des notes du journal en secret 🔑",
-            "textJP": "メッセージと同じように、日記を秘密にすることができます🔑"
+            "textEN": "As with messages, you can put journal entries in secret ",
+            "textFR": "Comme pour les messages, vous pouvez mettre des notes du journal en secret ",
+            "textJP": "メッセージと同じように、日記を秘密にすることができます"
         },
         {
             "id": 14,
@@ -199,7 +171,7 @@
             "id": 27,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Je comprends, n’hésitez pas à m’en dire d’avantage.",
+            "textFR": "Je comprends, n’hésitez pas à m’en dire davantage.",
             "textJP": ""
         },
         {
@@ -708,42 +680,24 @@
             "textEN": "Hello Bob !",
             "textFR": "Bonjour Bob !",
             "textJP": "こんにちはボブ！",
-            "idQuestion": 2,
-            "nameVariable": ""
+            "idQuestion": 2
         },
         {
             "id": 2,
             "idScenario": 1,
-            "textEN": "Yes it is",
-            "textFR": "Oui c'est bien ça",
-            "textJP": "はい、そうです",
-            "idQuestion": 6
+            "textEN": "I'm listening",
+            "textFR": "Je vous écoute",
+            "textJP": "私が聞いている",
+            "idQuestion": 10
         },
         {
-            "id": 3,
-            "idScenario": 1,
-            "textEN": "No it isn't",
-            "textFR": "Non ce n'est pas ça",
-            "textJP": "いいえ、そうではありません",
-            "idQuestion": 3
+            "id": 3
         },
         {
-            "id": 4,
-            "idScenario": 1,
-            "textEN": "Man",
-            "textFR": "Homme",
-            "textJP": "男",
-            "idQuestion": 8,
-            "nameVariable": "gender"
+            "id": 4
         },
         {
-            "id": 5,
-            "idScenario": 1,
-            "textEN": "Woman",
-            "textFR": "Femme",
-            "textJP": "女性",
-            "idQuestion": 8,
-            "nameVariable": "gender"
+            "id": 5
         },
         {
             "id": 6,
@@ -926,17 +880,12 @@
             "id": 31,
             "idScenario": 3,
             "textEN": "",
-            "textFR": "J'ai manqué d'appétit",
+            "textFR": "Oui un peu",
             "textJP": "",
             "idQuestion": 34
         },
         {
-            "id": 32,
-            "idScenario": 3,
-            "textEN": "",
-            "textFR": "J'ai manqué de motivation",
-            "textJP": "",
-            "idQuestion": 34
+            "id": 32
         },
         {
             "id": 33,
@@ -1315,23 +1264,8 @@
         },
         {
             "idScenario": 1,
-            "idQuestion": 5,
+            "idQuestion": 9,
             "idReply": 2
-        },
-        {
-            "idScenario": 1,
-            "idQuestion": 5,
-            "idReply": 3
-        },
-        {
-            "idScenario": 1,
-            "idQuestion": 7,
-            "idReply": 4
-        },
-        {
-            "idScenario": 1,
-            "idQuestion": 7,
-            "idReply": 5
         },
         {
             "idScenario": 1,
@@ -1437,11 +1371,6 @@
             "idScenario": 3,
             "idQuestion": 31,
             "idReply": 31
-        },
-        {
-            "idScenario": 3,
-            "idQuestion": 31,
-            "idReply": 32
         },
         {
             "idScenario": 3,
