@@ -336,5 +336,66 @@ implémenter la fonction de reprise d’un scénario en cours lors de la fermetu
 implémenter le scénario de bienvenu qui ne s’exécutera qu’une seule fois et enregistrera les données écrites par l’utilisateur (nom prénom age genre etc.) en bases
 réfléchir a  comment envoyer des notifications quotidiennes pour la question du jour.
  
+-----------------------------------
+Mercredi 25 mai
+
+Nous avons montré le scénario d’initialisation de l’application qui ne s’effectue qu’une seule fois après l’installation de l’application pour demander le nom/prénom/âge/genre à l’utilisateur.
+Ces informations sont enregistrées en BD et modifiables depuis la page des options. 
+Lydie souhaite faire quelques modifications sur le dialogue de démarrage, notamment en contextualisant mieux l’objectif de l’application et du rôle des messages secrets.
+Le robot dira quelque chose comme : “J’ai été créé pour un suivi quotidien” etc. 
+
+
+
+-----------------------------------
+Lundi 30 mai
+Nous avons réalisé et implémenté 8 scénarios différents permettant de poser plusieurs questions du jour à l'utilisateur et de faire un vrai fil de discussion.
+Nous avons aussi réglé le problème de défilement, on a maintenant toujours la vue sur le dernier message qui a été envoyé.
+Prochainement nous devrons continuer à rédiger les documents d'utilisations et d'installations ainsi que d'implémenter les notifications afin de démarrer un scénario tous les jours à une heure précise.
+
+-----------------------------------
+Jeudi 2 juin
+
+Première soumission des documents : manuel d’utilisation et manuel d'installation à Lydie pour avoir un retour.
+
+Débug de l’affichage tardif du scénario d’initialisation
+
+Lydie nous a demandé d’installer l’application sur le Play Store afin de pouvoir la télécharger avec des appareils Android. L’opération de création d’un compte développeur sur Google Play coûte 25$.
+
+-----------------------------------
+Mardi 7 juin
+
+Retour sur les documents manuel d'utilisation et d'installation : 
+Les images ne doivent pas être en annexes mais directement dans le manuel. 
+Attention à bien séparer les parties pour l’utilisateur classique et le développeur qui exportera les données.
+
+Modification du scénario d’introduction :
+“Comment dois-je vous appeler ?” Au lieu de demander le nom et le prénom.
+
+idée : faire l’évaluation de l’application sur des sujets de notre famille. 
+
+Ajouter des remerciements sur tous les documents et expliquer le contexte historique de l’application.
+
+Lydie nous a montré un pdf sur le Japon en nous expliquant comment les tickets des transports en commun fonctionnent, l’orientation des cartes et d’autres informations utiles.
+
+
+-----------------------------------
+Vendredi 10 juin
+
+Soumission de nouveaux documents :
+Manuels d’utilisation et d'installation révisés 
+Documentation interne 
+Plan de tests pour les tests fonctionnels et d’intégration
+Résumé de l’application en Français 
+
+Le compte développeur Android a été créé et l’application est désormais téléchargeable en accès restreints pour une catégorie de testeurs. 
+
+Nous avons récupéré nos visa à l’ambassade et nous partirons le mercredi 15 juin pour le Japon.
+ 
+
+
+
+
+
+
 
 
