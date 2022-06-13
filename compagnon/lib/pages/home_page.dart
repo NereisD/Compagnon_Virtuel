@@ -39,20 +39,22 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   BottomNavigationBar navigationbar() {
+    //int selectedIndex = 0;
     return BottomNavigationBar(
       backgroundColor: Colors.teal,
       unselectedItemColor: Colors.white.withOpacity(0.8),
-      selectedItemColor: Colors.white.withOpacity(0.8),
+      selectedItemColor: Colors.white.withOpacity(1),
       showSelectedLabels: true, // <-- HERE
       showUnselectedLabels: true,
+      currentIndex: selectedIndex,
       onTap: (int index) {
-        this.onTapHandler(index);
+        onTapHandler(index);
       },
       items: [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.chat,
-            color: Colors.white,
+            //color: Colors.white,
             size: 30.0,
             semanticLabel: "Text",
           ),
@@ -62,7 +64,7 @@ class MyHomeScreen extends State<HomeScreen> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.book,
-            color: Colors.white,
+            //color: Colors.white,
             size: 30.0,
             semanticLabel: "Text",
           ),
@@ -72,7 +74,7 @@ class MyHomeScreen extends State<HomeScreen> {
         BottomNavigationBarItem(
           icon: Icon(
             Icons.settings,
-            color: Colors.white,
+            //color: Colors.white,
             size: 30.0,
             semanticLabel: "Text",
           ),
@@ -127,16 +129,10 @@ class MyHomeScreen extends State<HomeScreen> {
   }
 
   void onTapHandler(int index) {
-    this.setState(() {
+    setState(() {
       selectedIndex = index;
       print("(onTap) selectedIndex = ");
       print(selectedIndex);
-
-      if (keyValue == index) {
-        keyValue = -1;
-      } else {
-        keyValue = index;
-      }
     });
   }
 }

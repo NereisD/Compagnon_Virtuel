@@ -1,58 +1,14 @@
 import 'package:compagnon/db/import_json.dart';
 import 'package:compagnon/db/scenarios_database.dart';
+import 'package:compagnon/pages/home_page.dart';
 import 'package:compagnon/values/constants.dart';
-import 'package:compagnon/pages/chat/components/Interact_Message.dart';
-import 'package:compagnon/pages/chat/components/input_message.dart';
-import 'package:compagnon/pages/chat/components/chat_box.dart';
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
-class RestartWidget extends StatefulWidget {
-  RestartWidget({this.child});
-
-  final Widget child;
-
-  static void restartApp(BuildContext context) {
-    context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
-  }
-
-  @override
-  _RestartWidgetState createState() => _RestartWidgetState();
-}
-
-class _RestartWidgetState extends State<RestartWidget> {
-  Key key = UniqueKey();
-
-  void restartApp() {
-    setState(() {
-      key = UniqueKey();
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return KeyedSubtree(
-      key: key,
-      child: ChatBody(),
-    );
-  }
-}
-
-class ChatBody extends StatelessWidget {
-  /* permet de reload l'UI apres le temps d'accès à la BD
-  */
-  Future reloadUI(BuildContext context, bool isFirstStart) async {
-    if (isFirstStart) {
-      await Future.delayed(const Duration(milliseconds: 8000));
-    } else {
-      await Future.delayed(const Duration(milliseconds: 600));
-    }
-    print("restart widget");
-    RestartWidget.restartApp(context);
-  }
-
+class SplashScreenPage extends StatelessWidget {
   /* Fonction qui permet de lancer le scénario d'init ou de reprendre 
   *  un scénario en cours
-  
+  */
   void initLifeCycle(BuildContext context) {
     print("call initLifeCycle");
 
@@ -67,7 +23,7 @@ class ChatBody extends StatelessWidget {
               print("Init welcome scenario (1)");
               currentScenario.setVariable('isInitialized', '1');
               currentScenario.initScenario(1); //id 1 = scénario de bienvenue
-              reloadUI(context, true);
+              //reloadUI(context, true);
             },
           );
         } else {
@@ -83,7 +39,7 @@ class ChatBody extends StatelessWidget {
                   print("Resume ongoing scénario");
                   //Fonction qui reprend le scénario
                   currentScenario.resumesOngoingScenario();
-                  reloadUI(context, false);
+                  //reloadUI(context, false);
                 }
               } else {
                 print("Else : idCurrentScenario = ${variableID.value}");
@@ -93,24 +49,29 @@ class ChatBody extends StatelessWidget {
         }
       },
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
-    /*
     if (reloadInit) {
       reloadInit = false;
       initLifeCycle(context);
-    }*/
-    return Column(
-      children: [
-        Expanded(
-          flex: 5,
-          child: ChatBox(),
-        ),
-        InputMessage(),
-        interactMessage(),
-      ],
+    }
+    return SplashScreen(
+      seconds: 8,
+      navigateAfterSeconds: HomeScreen(),
+      backgroundColor: Colors.teal,
+      title: const Text(
+        'Compagnon',
+        textScaleFactor: 2,
+      ),
+      image: Image.asset(
+        'assets/images/robot.png',
+        fit: BoxFit.cover,
+      ),
+      loadingText: Text("Loading"),
+      photoSize: 110.0,
+      loaderColor: Colors.white,
     );
   }
 }

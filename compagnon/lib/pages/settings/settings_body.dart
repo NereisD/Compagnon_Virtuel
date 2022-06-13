@@ -234,7 +234,7 @@ class _SettingsPage extends State<SettingsBody> {
                     ),
                     onPressed: () {
                       importScenarios(
-                          true); //mettre a false pour lire dans le répertoire DOWNLOAD
+                          false); //mettre a false pour lire dans le répertoire DOWNLOAD
                     },
                     child: Text(importButton[lang]),
                   ),
