@@ -115,7 +115,7 @@
         {
             "id": 20,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Hello ! I hope you are well today.",
             "textFR": "Bonjour ! J'espère que vous allez bien aujourd'hui.",
             "textJP": "",
             "idNextQuestion": 21,
@@ -124,14 +124,14 @@
         {
             "id": 21,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Did you sleep well this week?",
             "textFR": "Avez-vous bien dormi cette semaine ?",
             "textJP": ""
         },
         {
             "id": 22,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Good news!",
             "textFR": "Bonne nouvelle ! ",
             "textJP": "",
             "idNextQuestion": 23
@@ -139,14 +139,14 @@
         {
             "id": 23,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "If you want to talk to me about your sleep or anything else, don't hesitate.",
             "textFR": "Si vous voulez me parler de votre sommeil ou autre, n'hésitez pas.",
             "textJP": ""
         },
         {
             "id": 24,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Is there something on your mind?",
             "textFR": "Quelque chose vous préoccupe ?",
             "textJP": "",
             "idNextQuestion": 25
@@ -154,14 +154,14 @@
         {
             "id": 25,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Don't hesitate to let me know, even if it's something trivial.",
             "textFR": "N'hésitez pas à m'en faire part, même si c'est quelque chose d'anodin.",
             "textJP": ""
         },
         {
             "id": 26,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "How is your sleep?",
             "textFR": "Comment se passe votre sommeil ?",
             "textJP": "",
             "idNextQuestion": 27,
@@ -170,14 +170,14 @@
         {
             "id": 27,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "I understand, feel free to tell me more.",
             "textFR": "Je comprends, n’hésitez pas à m’en dire davantage.",
             "textJP": ""
         },
         {
             "id": 28,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Very well, goodbye %%name !",
             "textFR": "Très bien, au revoir %%name !",
             "textJP": ""
         },
@@ -187,7 +187,7 @@
         {
             "id": 30,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Hello ! How are you today?",
             "textFR": "Bonjour ! Comment allez-vous aujourd'hui ?",
             "textJP": "",
             "idNextQuestion": 31,
@@ -196,21 +196,21 @@
         {
             "id": 31,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Have you lacked appetite or motivation this week?",
             "textFR": "Avez-vous manqué d'appétit ou de motivation cette semaine ?",
             "textJP": ""
         },
         {
             "id": 32,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Take care of yourself, if something is bothering you, tell me!",
             "textFR": "Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !",
             "textJP": ""
         },
         {
             "id": 33,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Very well, goodbye %%name !",
             "textFR": "Très bien, au revoir %%name !",
             "textJP": "",
             "isEnd": 1
@@ -218,7 +218,7 @@
         {
             "id": 34,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Is there something on your mind?",
             "textFR": "Quelque chose vous préoccupe ?",
             "textJP": "",
             "idNextQuestion": 35
@@ -226,14 +226,14 @@
         {
             "id": 35,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "You can tell me about it if you like.",
             "textFR": "Vous pouvez m’en parler si vous le souhaitez.",
             "textJP": ""
         },
         {
             "id": 36,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "I am listening.",
             "textFR": "Je vous écoute.",
             "textJP": "",
             "idNextQuestion": 37,
@@ -242,7 +242,7 @@
         {
             "id": 37,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "It's amazing! You can continue.",
             "textFR": "C'est étonnant ! Vous pouvez continuer.",
             "textJP": ""
         },
@@ -255,7 +255,7 @@
         {
             "id": 40,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Hello, I hope you are well.",
             "textFR": "Bonjour, j'espère que vous êtes en forme.",
             "textJP": "",
             "idNextQuestion": 41,
@@ -264,21 +264,21 @@
         {
             "id": 41,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Have you experienced any fatigue or pain this week?",
             "textFR": "Avez-vous ressenti de la fatigue ou une douleur cette semaine ?",
             "textJP": ""
         },
         {
             "id": 42,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Great! If you want to tell me something, I'm listening.",
             "textFR": "Super ! Si vous souhaitez me dire quelque chose, je vous écoute.",
             "textJP": ""
         },
         {
             "id": 43,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Where does it hurt?",
             "textFR": "Où avez-vous mal ?",
             "textJP": "",
             "idNextQuestion": 45
@@ -286,7 +286,7 @@
         {
             "id": 44,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Why are you tired?",
             "textFR": "Pourquoi êtes-vous fatigué ?",
             "textJP": "",
             "idNextQuestion": 45
@@ -294,7 +294,7 @@
         {
             "id": 45,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Please tell me more.",
             "textFR": "Dites m'en plus, s'il vous plaît.",
             "textJP": "",
             "idNextQuestion": 46,
@@ -303,14 +303,14 @@
         {
             "id": 46,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "It must be hard. Would you like to tell me more?",
             "textFR": "ça doit être éprouvant. Souhaitez vous m’en dire plus ?",
             "textJP": ""
         },
         {
             "id": 47,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I am listening to you.",
             "textFR": "Je vous écoute.",
             "textJP": "",
             "isOpenQuestion": 1,
@@ -319,21 +319,21 @@
         {
             "id": 48,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I see, is there anything else you want to tell me?",
             "textFR": "Je vois, souhaitez vous me dire autre chose ?",
             "textJP": ""
         },
         {
             "id": 49,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Very well, I wish you a good day %%name !",
             "textFR": "Très bien, je vous souhaite une bonne journée %%name !",
             "textJP": ""
         },
         {
             "id": 50,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Hello ! I've come to check on you.",
             "textFR": "Bonjour ! Je viens prendre de vos nouvelles.",
             "textJP": "",
             "isFirst": 1,
@@ -342,28 +342,28 @@
         {
             "id": 51,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Did you do anything enjoyable this week?",
             "textFR": "Avez-vous fait quelque chose d'agréable cette semaine ?",
             "textJP": ""
         },
         {
             "id": 52,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "I'm happy for you %%name . Will you tell me about it?",
             "textFR": "Je suis content pour vous %%name . Vous me raconter ?",
             "textJP": ""
         },
         {
             "id": 53,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "All right, see you next time then!",
             "textFR": "Très bien, à la prochaine alors !",
             "textJP": ""
         },
         {
             "id": 54,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Do you? Do you feel sad, tired or ill?",
             "textFR": "Vraiment ? Vous sentez-vous triste, fatigué ou malade ? ",
             "textJP": "",
             "idNextQuestion": 55
@@ -371,14 +371,14 @@
         {
             "id": 55,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "If so, please tell me!",
             "textFR": "Si c'est le cas, dites le moi !",
             "textJP": ""
         },
         {
             "id": 56,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "I am listening.",
             "textFR": "Je vous écoute.",
             "textJP": "",
             "isOpenQuestion": 1,
@@ -387,7 +387,7 @@
         {
             "id": 57,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "That's interesting! Is there anything else?",
             "textFR": "C'est intéressant ! Il y a autre chose ?",
             "textJP": ""
         },
@@ -400,7 +400,7 @@
         {
             "id": 60,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "Hello %%name . I hope you are well.",
             "textFR": "Bonjour %%name . J'espère que vous allez bien.",
             "textJP": "",
             "idNextQuestion": 61,
@@ -412,7 +412,7 @@
         {
             "id": 61,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "Have you forgotten or do you feel you have forgotten something this week?",
             "textFR": "Avez-vous oublié ou avez-vous l'impression d'avoir oublié quelque chose cette semaine ?",
             "textJP": "",
             "idNextQuestion": 0,
@@ -424,7 +424,7 @@
         {
             "id": 62,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "Good for you! But if you're worried about it, tell me about it.",
             "textFR": "Tant mieux ! Mais si cela vous inquiète, racontez-moi.",
             "textJP": "",
             "idNextQuestion": 0,
@@ -436,7 +436,7 @@
         {
             "id": 63,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "All right, have a good day!",
             "textFR": "Très bien, passez une bonne journée !",
             "textJP": "",
             "idNextQuestion": 0,
@@ -448,7 +448,7 @@
         {
             "id": 64,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "If this happens sometimes, do you want to talk about it?",
             "textFR": "Si ca arrive parfois, voulez vous en parler ?",
             "textJP": "",
             "idNextQuestion": 0,
@@ -460,7 +460,7 @@
         {
             "id": 65,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "Tell me what happened.",
             "textFR": "Racontez-moi ce qui est arrivé.",
             "textJP": "",
             "idNextQuestion": 66,
@@ -472,7 +472,7 @@
         {
             "id": 66,
             "idScenario": 6,
-            "textEN": "",
+            "textEN": "Is there anything else you want to tell me?",
             "textFR": "Ca alors, vous voulez me dire autre chose ?",
             "textJP": "",
             "idNextQuestion": 0,
@@ -493,7 +493,7 @@
         {
             "id": 70,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "Hello %%name . I hope you are well.",
             "textFR": "Bonjour %%name . J'espère que vous êtes en forme.",
             "textJP": "",
             "idNextQuestion": 71,
@@ -505,7 +505,7 @@
         {
             "id": 71,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "Have you been out or had any discussions this week?",
             "textFR": "Êtes-vous sorti ou avez-vous eu des discussions cette semaine?",
             "textJP": "",
             "idNextQuestion": 0,
@@ -517,7 +517,7 @@
         {
             "id": 72,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "What did you do that was so nice? Please tell me about it.",
             "textFR": "Qu'avez vous fait de sympa ? Racontez-moi s'il vous plaît.",
             "textJP": "",
             "idNextQuestion": 73,
@@ -529,7 +529,7 @@
         {
             "id": 73,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "That's good! And who did you talk to?",
             "textFR": "C'est bien ! Et avec qui avez-vous parlé ?",
             "textJP": "",
             "idNextQuestion": 76,
@@ -541,7 +541,7 @@
         {
             "id": 74,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "Are there any reasons why you didn't go out or meet people?",
             "textFR": "Est-ce qu'il y a des raisons pour lesquelles vous n'êtes pas sorti ou vous n'avez pas rencontré des gens ?",
             "textJP": "",
             "idNextQuestion": 75,
@@ -553,7 +553,7 @@
         {
             "id": 75,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "Do you want to meet someone or go somewhere?",
             "textFR": "Est-ce aue vous avez envie de rencontrer quelqu'un ou d'aller quelque part ?",
             "textJP": "",
             "idNextQuestion": 76,
@@ -565,7 +565,7 @@
         {
             "id": 76,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "Okay I see, is there anything else you want to tell me?",
             "textFR": "D'accord je vois, Souhaitez vous me dire autre chose ?",
             "textJP": "",
             "idNextQuestion": 0,
@@ -577,7 +577,7 @@
         {
             "id": 77,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "I am listening to you",
             "textFR": "Je vous écoute",
             "textJP": "",
             "idNextQuestion": 76,
@@ -589,7 +589,7 @@
         {
             "id": 78,
             "idScenario": 7,
-            "textEN": "",
+            "textEN": "All right, see you next time then!",
             "textFR": "Très bien, à la prochaine alors !",
             "textJP": "",
             "idNextQuestion": 0,
@@ -604,7 +604,7 @@
         {
             "id": 80,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "Hello ! I've come to see how you are doing",
             "textFR": "Bonjour ! Je viens prendre de vos nouvelles",
             "textJP": "",
             "idNextQuestion": 81,
@@ -613,35 +613,35 @@
         {
             "id": 81,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "Have you felt worried or anxious this week?",
             "textFR": "Vous-êtes vous senti inquiet ou anxieux cette semaine ?",
             "textJP": ""
         },
         {
             "id": 82,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "That's good. If you have any concerns, please let me know!",
             "textFR": "C'est bien. Si quelque chose vous préoccupe, n'hésiter pas à m'en parler !",
             "textJP": ""
         },
         {
             "id": 83,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "Great, have a nice day!",
             "textFR": "Super, passer une agréable journée !",
             "textJP": ""
         },
         {
             "id": 84,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "What makes you anxious or stressed? Can you please tell me?",
             "textFR": "Qu'est-ce qui vous rend anxieux ou stressé ? Pouvez-vous me le dire, s'il vous plaît ?",
             "textJP": ""
         },
         {
             "id": 85,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "Go ahead, I'm listening %%name .",
             "textFR": "Allez-y, je vous écoute %%name .",
             "textJP": "",
             "idNextQuestion": 86,
@@ -650,22 +650,22 @@
         {
             "id": 86,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "Is there anything else?",
             "textFR": "Ca alors, il y at-il autre chose ?",
             "textJP": ""
         },
         {
             "id": 87,
             "idScenario": 8,
-            "textEN": "",
+            "textEN": "If there are any concerns, please let me know later.",
             "textFR": "Si il y a le moindre soucis n'hésitez pas à me le dire plus tard.",
             "textJP": ""
         },
         {
             "id": 88,
             "idScenario": 8,
-            "textEN": "",
-            "textFR": "Au revoir %%name 1",
+            "textEN": "Goodbye %%name !",
+            "textFR": "Au revoir %%name !",
             "textJP": "",
             "isEnd": 1
         },
@@ -797,7 +797,7 @@
         {
             "id": 20,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Yes, thank you",
             "textFR": "Oui, merci",
             "textJP": "",
             "idQuestion": 22
@@ -805,7 +805,7 @@
         {
             "id": 21,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "No, not really",
             "textFR": "Non, pas vraiment",
             "textJP": "",
             "idQuestion": 24
@@ -813,7 +813,7 @@
         {
             "id": 22,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "It is noted",
             "textFR": "C'est noté",
             "textJP": "",
             "idQuestion": 28
@@ -821,7 +821,7 @@
         {
             "id": 23,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "I want to talk about it",
             "textFR": "Je souhaite en parler",
             "textJP": "",
             "idQuestion": 26
@@ -829,7 +829,7 @@
         {
             "id": 24,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "I don't want to talk about it",
             "textFR": "Je ne souhaite pas en parler",
             "textJP": "",
             "idQuestion": 28
@@ -837,7 +837,7 @@
         {
             "id": 25,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "I want to talk about this",
             "textFR": "Je souhaite en parler",
             "textJP": "",
             "idQuestion": 26
@@ -845,7 +845,7 @@
         {
             "id": 26,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Continue",
             "textFR": "Continuer",
             "textJP": "",
             "idQuestion": 26
@@ -853,7 +853,7 @@
         {
             "id": 27,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Finish",
             "textFR": "Terminer",
             "textJP": "",
             "idQuestion": 28
@@ -861,7 +861,7 @@
         {
             "id": 28,
             "idScenario": 2,
-            "textEN": "",
+            "textEN": "Goodbye Bob!",
             "textFR": "Au revoir Bob !",
             "textJP": ""
         },
@@ -871,7 +871,7 @@
         {
             "id": 30,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "No, everything is fine",
             "textFR": "Non tout va bien",
             "textJP": "",
             "idQuestion": 32
@@ -879,7 +879,7 @@
         {
             "id": 31,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Yes, a little",
             "textFR": "Oui un peu",
             "textJP": "",
             "idQuestion": 34
@@ -890,7 +890,7 @@
         {
             "id": 33,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "All right, goodbye!",
             "textFR": "C'est noté, au revoir !",
             "textJP": "",
             "idQuestion": 33
@@ -898,7 +898,7 @@
         {
             "id": 34,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "I have something to tell you",
             "textFR": "J'ai quelque chose à vous dire",
             "textJP": "",
             "idQuestion": 36
@@ -906,7 +906,7 @@
         {
             "id": 35,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "I don't want to talk about it",
             "textFR": "Je ne souhaite pas en parler",
             "textJP": "",
             "idQuestion": 33
@@ -914,7 +914,7 @@
         {
             "id": 36,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "I want to talk about it",
             "textFR": "Je souhaite en parler",
             "textJP": "",
             "idQuestion": 36
@@ -922,7 +922,7 @@
         {
             "id": 37,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "Continue",
             "textFR": "Continuer",
             "textJP": "",
             "idQuestion": 36
@@ -930,7 +930,7 @@
         {
             "id": 38,
             "idScenario": 3,
-            "textEN": "",
+            "textEN": "I have finished",
             "textFR": "J'ai terminé",
             "textJP": "",
             "idQuestion": 33
@@ -941,7 +941,7 @@
         {
             "id": 40,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "No, everything is fine",
             "textFR": "Non tout va bien",
             "textJP": "",
             "idQuestion": 42
@@ -949,7 +949,7 @@
         {
             "id": 41,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I have pain somewhere",
             "textFR": "J'ai mal quelque part",
             "textJP": "",
             "idQuestion": 43
@@ -957,7 +957,7 @@
         {
             "id": 42,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I am tired",
             "textFR": "Je suis fatigué",
             "textJP": "",
             "idQuestion": 44
@@ -965,7 +965,7 @@
         {
             "id": 43,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "No need, goodbye!",
             "textFR": "Pas besoin, au revoir !",
             "textJP": "",
             "idQuestion": 49
@@ -973,7 +973,7 @@
         {
             "id": 44,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I want to tell you something",
             "textFR": "Je veux vous dire quelque chose",
             "textJP": "",
             "idQuestion": 47
@@ -981,7 +981,7 @@
         {
             "id": 45,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I want to say more",
             "textFR": "Je veux en dire plus",
             "textJP": "",
             "idQuestion": 47
@@ -989,7 +989,7 @@
         {
             "id": 46,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Yes",
             "textFR": "Oui",
             "textJP": "",
             "idQuestion": 47
@@ -997,7 +997,7 @@
         {
             "id": 47,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "I have finished",
             "textFR": "J'ai terminé",
             "textJP": "",
             "idQuestion": 49
@@ -1005,7 +1005,7 @@
         {
             "id": 48,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "Have a nice day Bob!",
             "textFR": "Bonne journée Bob !",
             "textJP": "",
             "idQuestion": 0
@@ -1013,7 +1013,7 @@
         {
             "id": 49,
             "idScenario": 4,
-            "textEN": "",
+            "textEN": "No thanks",
             "textFR": "Non merci",
             "textJP": "",
             "idQuestion": 49
@@ -1021,7 +1021,7 @@
         {
             "id": 50,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Yes at least once",
             "textFR": "Oui au moins une fois",
             "textJP": "",
             "idQuestion": 52
@@ -1029,7 +1029,7 @@
         {
             "id": 51,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Not really",
             "textFR": "Pas vraiment",
             "textJP": "",
             "idQuestion": 54
@@ -1037,7 +1037,7 @@
         {
             "id": 52,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "No thanks",
             "textFR": "Non merci",
             "textJP": "",
             "idQuestion": 53
@@ -1045,7 +1045,7 @@
         {
             "id": 53,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Of course!",
             "textFR": "Bien sur !",
             "textJP": "",
             "idQuestion": 56
@@ -1053,7 +1053,7 @@
         {
             "id": 54,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Yes, I am telling you",
             "textFR": "Oui, je vous raconte",
             "textJP": "",
             "idQuestion": 56
@@ -1061,7 +1061,7 @@
         {
             "id": 55,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "No, everything is fine",
             "textFR": "Non tout va bien",
             "textJP": "",
             "idQuestion": 53
@@ -1069,7 +1069,7 @@
         {
             "id": 56,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "Yes",
             "textFR": "Oui",
             "textJP": "",
             "idQuestion": 56
@@ -1077,7 +1077,7 @@
         {
             "id": 57,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "No, that's all",
             "textFR": "Non c'est tout",
             "textJP": "",
             "idQuestion": 53
@@ -1085,7 +1085,7 @@
         {
             "id": 58,
             "idScenario": 5,
-            "textEN": "",
+            "textEN": "See you next time!",
             "textFR": "A la prochaine !",
             "textJP": "",
             "idQuestion": 0
@@ -1096,55 +1096,73 @@
         {
             "id": 60,
             "idScenario": 6,
+            "textEN": "No, not really",
             "textFR": "Non pas vraiment",
+            "textJP": "",
             "idQuestion": 62
         },
         {
             "id": 61,
             "idScenario": 6,
+            "textEN": "Yes, I think so.",
             "textFR": "Oui je crois",
+            "textJP": "",
             "idQuestion": 64
         },
         {
             "id": 62,
             "idScenario": 6,
+            "textEN": "I am very well",
             "textFR": "Je vais très bien",
+            "textJP": "",
             "idQuestion": 63
         },
         {
             "id": 63,
             "idScenario": 6,
+            "textEN": "I want to talk about it",
             "textFR": "Je souhaite en parler",
+            "textJP": "",
             "idQuestion": 65
         },
         {
             "id": 64,
             "idScenario": 6,
+            "textEN": "I want to talk about it",
             "textFR": "Je souhaite en parler",
+            "textJP": "",
             "idQuestion": 65
         },
         {
             "id": 65,
             "idScenario": 6,
+            "textEN": "No thanks",
             "textFR": "Non merci",
+            "textJP": "",
             "idQuestion": 63
         },
         {
             "id": 66,
             "idScenario": 6,
+            "textEN": "Yes",
             "textFR": "Oui",
+            "textJP": "",
             "idQuestion": 65
         },
         {
             "id": 67,
             "idScenario": 6,
+            "textEN": "That's all for now",
             "textFR": "C'est tout pour le moment",
+            "textJP": "",
             "idQuestion": 63
         },
         {
             "id": 68,
             "idScenario": 6,
+            "textEN": "Goodbye!",
             "textFR": "Au revoir !",
+            "textJP": "",
             "idQuestion": 0
         },
         {
@@ -1153,31 +1171,41 @@
         {
             "id": 70,
             "idScenario": 7,
+            "textEN": "Yes several times",
             "textFR": "Oui plusieurs fois",
+            "textJP": "",
             "idQuestion": 72
         },
         {
             "id": 71,
             "idScenario": 7,
+            "textEN": "No, not really",
             "textFR": "Non pas vraiment",
+            "textJP": "",
             "idQuestion": 74
         },
         {
             "id": 72,
             "idScenario": 7,
+            "textEN": "Yes",
             "textFR": "Oui",
+            "textJP": "",
             "idQuestion": 77
         },
         {
             "id": 73,
             "idScenario": 7,
+            "textEN": "No thanks",
             "textFR": "Non merci",
+            "textJP": "",
             "idQuestion": 78
         },
         {
             "id": 74,
             "idScenario": 7,
+            "textEN": "See you later Bob!",
             "textFR": "A plus tard Bob !",
+            "textJP": "",
             "idQuestion": 0
         },
         {
@@ -1198,61 +1226,81 @@
         {
             "id": 80,
             "idScenario": 8,
+            "textEN": "Not at all",
             "textFR": "Pas du tout",
+            "textJP": "",
             "idQuestion": 82
         },
         {
             "id": 81,
             "idScenario": 8,
+            "textEN": "Sometimes",
             "textFR": "Quelques fois",
+            "textJP": "",
             "idQuestion": 84
         },
         {
             "id": 82,
             "idScenario": 8,
-            "textFR": "Tout va bien , merci",
+            "textEN": "Everything is fine, thank you",
+            "textFR": "Tout va bien, merci",
+            "textJP": "",
             "idQuestion": 83
         },
         {
             "id": 83,
             "idScenario": 8,
+            "textEN": "I have something to tell you",
             "textFR": "J’ai quelque chose à vous dire",
+            "textJP": "",
             "idQuestion": 85
         },
         {
             "id": 84,
             "idScenario": 8,
-            "textFR": "Au revoir bob !",
+            "textEN": "Bye Bob!",
+            "textFR": "Au revoir Bob !",
+            "textJP": "",
             "idQuestion": 0
         },
         {
             "id": 85,
             "idScenario": 8,
+            "textEN": "I will tell you",
             "textFR": "Je vais vous raconter",
+            "textJP": "",
             "idQuestion": 85
         },
         {
             "id": 86,
             "idScenario": 8,
+            "textEN": "I don't want to talk about it",
             "textFR": "Je souhaite pas en parler",
+            "textJP": "",
             "idQuestion": 87
         },
         {
             "id": 87,
             "idScenario": 8,
+            "textEN": "Yes",
             "textFR": "Oui",
+            "textJP": "",
             "idQuestion": 85
         },
         {
             "id": 88,
             "idScenario": 8,
+            "textEN": "Okay, bye!",
             "textFR": "D'accord, au revoir !",
+            "textJP": "",
             "idQuestion": 88
         },
         {
             "id": 89,
             "idScenario": 8,
+            "textEN": "No, that's all",
             "textFR": "Non c'est tout",
+            "textJP": "",
             "idQuestion": 83
         }
     ],
