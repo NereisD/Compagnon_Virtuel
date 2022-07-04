@@ -58,7 +58,7 @@ class SplashScreenPage extends StatelessWidget {
       initLifeCycle(context);
     }
     return SplashScreen(
-      seconds: 8,
+      seconds: 12,
       navigateAfterSeconds: HomeScreen(),
       backgroundColor: Colors.teal,
       title: const Text(
