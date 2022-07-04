@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/scenarios_database.dart';
-import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/question.dart';
 import 'package:compagnon/models/relation_question_reply.dart';
 import 'package:compagnon/models/reply.dart';
@@ -114,6 +112,8 @@ Future<int> importScenarios(bool isLocalPath) async {
       textJP: item.textJP ?? '',
       idQuestion: item.idQuestion ?? 0,
       nameVariable: item.nameVariable ?? '',
+      dataType: item.dataType ?? '',
+      dataValue: item.dataValue ?? 0,
     ));
   }
 

@@ -46,7 +46,9 @@ CREATE TABLE $tableMessages (
   ${MessageField.date} $textType,
   ${MessageField.isSentByMe} $boolType,
   ${MessageField.isLiked} $boolType,
-  ${MessageField.isSecret} $boolType
+  ${MessageField.isSecret} $boolType,
+  ${MessageField.dataType} $textType,
+  ${MessageField.dataValue} $integerType
 )
 ''');
 
