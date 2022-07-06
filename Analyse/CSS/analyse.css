@@ -6,6 +6,7 @@
 	align-items: center;
     justify-content: center;
 	padding: 5vh;
+	display: none; /*true - none*/
 }
 #addJson p{
 	margin: 20px;
@@ -18,4 +19,32 @@
 #addJson button{
 	height: 2.5em;
 	width: 8em;
+}
+
+#graphics{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding-top: 10vh;
+	display: true; /*none - true*/
+}
+#graph1{
+    width: 47%;
+}
+#carouselExample{
+    width: 47%;
+}
+#carousel-buttons{
+	display: flex;
+	justify-content: space-between;
+}
+#carousel-buttons button{
+	width: 80px;
+	height: 30px;
+	border: 1px solid black; 
+	border-radius: 8px;
+}
+#carousel-buttons button:hover{
+	background-color: white;
+	transition: 0.2s;
 }

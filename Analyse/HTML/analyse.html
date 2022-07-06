@@ -3,6 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="../CSS/common.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/analyse.css">
 	<title>Virtual Companion - Analyse</title>
@@ -10,7 +15,7 @@
 <body>
 	<div class='header'>
 		<div id='title'>
-			<h1>Virtual Companion - Analyse</h1>
+			<h1>Data Analyse</h1>
 		</div>
 		<ul id='nav'>
     		<li><a href="../index.html">Home</a></li>
@@ -24,9 +29,36 @@
 			<textarea rows="25" cols="80" type="text" size="50" rows="100" placeholder="Copy here"></textarea><br/>
 			<button>Submit</button>
 		</div>
+
+	  <div id='graphics'>
+		<div id="graph1">
+        	<canvas id="myChart"></canvas>
+    	</div>
+
+		<div id="carouselExample" class="carousel slide" data-bs-touch="false" data-bs-interval="false">
+        	<div class="carousel-inner">
+          		<div class="carousel-item active">
+                	<canvas id="barChart2"></canvas>
+        		</div>
+          		<div class="carousel-item">
+                	<canvas id="barChart3"></canvas>
+          		</div>
+          		<div class="carousel-item">
+                	<canvas id="barChart4"></canvas>         
+        		</div>
+        	</div>
+        	<div id="carousel-buttons">
+        		<button type="button" data-bs-target="#carouselExample" data-bs-slide="prev">Previous</button>
+        		<button type="button" data-bs-target="#carouselExample" data-bs-slide="next">Next</button>
+        	</div>
+    	</div>
+      </div>
 	</div>
 	<div class='footer'>
-
+		<p id='copyright'>Copyright © Mathis Ruffieux, Nereis Dugaleix, Lydie Du Bousquet, 2022</p>
 	</div>
 </body>
 </html>
+
+
+<script src="../JS/graph.js"></script>
