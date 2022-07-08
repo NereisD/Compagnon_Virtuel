@@ -21,11 +21,10 @@
 }
 
 #graphics{
-	display: flex;
+	display: none; /*none - flex*/
 	flex-direction: row;
 	justify-content: space-evenly;
 	padding-top: 10vh;
-	display: none; /*none - true*/
 }
 #graph1{
     width: 47%;
