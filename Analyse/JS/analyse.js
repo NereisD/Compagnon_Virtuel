@@ -2,6 +2,8 @@
 //List des objets messages
 var listOfMessages = [];
 
+
+
 function analyse(){
 	console.log("analyse ...");
 

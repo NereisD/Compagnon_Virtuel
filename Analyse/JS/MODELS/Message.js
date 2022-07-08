@@ -16,4 +16,28 @@ class Message{
 	}
 
 
+	getDate(){
+		return this.date;
+	}
+
+	getAnnee(){
+		return this.date.substr(0,4)
+	}
+
+	getMois(){
+		return this.date.substr(5,2);
+	}
+
+	getJour(){
+		return this.date.substr(8,2);
+	}
+
+	getDataValue(){
+		return this.dataValue;
+	}
+
+	getDataValue(){
+		return this.dataType;
+	}
+
 }
