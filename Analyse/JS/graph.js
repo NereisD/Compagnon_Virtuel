@@ -18,46 +18,28 @@ const labels = [
     datasets: [{
       label: 'Physically',
       backgroundColor: [
-      'rgba(255, 99, 132, 1)',
-      'rgba(255, 159, 64, 1)',
-      'rgba(255, 205, 86, 1)',
-      'rgba(75, 192, 192, 1)',
-      'rgba(54, 162, 235, 1)',
-      'rgba(153, 102, 255, 1)',
-      'rgba(201, 203, 207, 1)'
+      'rgba(255, 99, 132, 1)'
     ],
       borderColor: 'rgb(255, 0, 0)',
-      data: [0, -10, 5, 2, 6, 12, 20],
+      data: [0, -2, -4, -5, -3, 0, 4],
 
     },
     {
       label: 'Mentally',
       backgroundColor: [
-      'rgba(255, 99, 132, 1)',
-      'rgba(255, 159, 64, 1)',
-      'rgba(255, 205, 86, 1)',
-      'rgba(75, 192, 192, 1)',
-      'rgba(54, 162, 235, 1)',
-      'rgba(153, 102, 255, 1)',
-      'rgba(201, 203, 207, 1)'
+      'rgba(0, 255, 0, 1)'
     ],
-      borderColor: 'rgb(0, 255, 0)',
-      data: [0, 10, -5, -2, 10, 1, 8],
+      borderColor: 'rgb(24, 179, 34)',
+      data: [0, 2, 1, 3, 5, 8, 4],
 
     },
     {
       label: 'Sociability',
       backgroundColor: [
-      'rgba(255, 99, 132, 1)',
-      'rgba(255, 159, 64, 1)',
-      'rgba(255, 205, 86, 1)',
-      'rgba(75, 192, 192, 1)',
-      'rgba(54, 162, 235, 1)',
-      'rgba(153, 102, 255, 1)',
-      'rgba(201, 203, 207, 1)'
+      'rgba(31, 179, 208, 1)'
     ],
       borderColor: 'rgb(0, 0, 255)',
-      data: [0, 4, 1, -7, 14, 12, 6],
+      data: [0, -1, -3, -3, -2, -3, -5],
 
     },
     ]
@@ -115,132 +97,132 @@ const config2 = {
 
 
 const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+  document.getElementById('myChart'),
+  config
+);
 
-  const barChart = new Chart(
-    document.getElementById('barChart0'),
-    config2
-  );
+const barChart = new Chart(
+  document.getElementById('barChart0'),
+  config2
+);
 
 
 
-  const nbrsemaine = 8;
-  var tabplot = {};
+const nbrsemaine = 8;
+var tabplot = {};
 
-  createDataPlot();
+createDataPlot();
 
-    //fonction permettant de creer la div et le canvas pour une bar Chart
-    function createDOMChart(params) {
-      var carousselDOM = document.getElementById("caroussel");
-      //creation de la div carousel item
-      var divDOM = document.createElement("div");
-      divDOM.setAttribute("class", "carousel-item");
+//fonction permettant de creer la div et le canvas pour une bar Chart
+function createDOMChart(params) {
+  var carousselDOM = document.getElementById("caroussel");
+  //creation de la div carousel item
+  var divDOM = document.createElement("div");
+  divDOM.setAttribute("class", "carousel-item");
       
-      //creation de la balise canvas
-      var canvasDOM = document.createElement("canvas");
-      canvasDOM.setAttribute("id", "barChart"+params);
+  //creation de la balise canvas
+  var canvasDOM = document.createElement("canvas");
+  canvasDOM.setAttribute("id", "barChart"+params);
   
-      divDOM.append(canvasDOM);
-      carousselDOM.appendChild(divDOM);
+  divDOM.append(canvasDOM);
+  carousselDOM.appendChild(divDOM);
   
-      return canvasDOM;
-    }
+  return canvasDOM;
+}
 
-        //fonction permettant de creer la div et le canvas pour une bar Chart
-        function createDOMChartActive(params) {
-          var carousselDOM = document.getElementById("caroussel");
-          //creation de la div carousel item
-          var divDOM = document.createElement("div");
-          divDOM.setAttribute("class", "carousel-item active");
+//fonction permettant de creer la div et le canvas pour une bar Chart
+function createDOMChartActive(params) {
+  var carousselDOM = document.getElementById("caroussel");
+  //creation de la div carousel item
+  var divDOM = document.createElement("div");
+  divDOM.setAttribute("class", "carousel-item active");
           
-          //creation de la balise canvas
-          var canvasDOM = document.createElement("canvas");
-          canvasDOM.setAttribute("id", "barChart"+params);
+  //creation de la balise canvas
+  var canvasDOM = document.createElement("canvas");
+  canvasDOM.setAttribute("id", "barChart"+params);
       
-          divDOM.append(canvasDOM);
-          carousselDOM.appendChild(divDOM);
+  divDOM.append(canvasDOM);
+  carousselDOM.appendChild(divDOM);
       
-          return canvasDOM;
+  return canvasDOM;
+}
+
+
+function createDataPlot() {
+
+  //creation de la premiere semaine pour set le caroussel avec un chart active
+  new Chart(
+    createDOMChartActive(0),
+    {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'semaine 0',
+          data: [Math.floor(Math.random() * 50), -Math.floor(Math.random() * 50), Math.floor(Math.random() * 50)],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+          
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+          
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-
-
-  function createDataPlot() {
-
-    //creation de la premiere semaine pour set le caroussel avec un chart active
-    new Chart(
-      createDOMChartActive(0),
-      {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: 'semaine 0',
-              data: [Math.floor(Math.random() * 50), -Math.floor(Math.random() * 50), Math.floor(Math.random() * 50)],
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-          
-              ],
-              borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-          
-              ],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          },
-      }
-    );
+      },
+    }
+  );
 
     //creation des autres semaine pour le caroussel
 
-    for (let i = 1; i < nbrsemaine; i++) {
+for (let i = 1; i < nbrsemaine; i++) {
 
-      tabplot[i] = new Chart(
-        createDOMChart(i),
-        {
-            type: 'bar',
-            data: {
-              labels: labels,
-              datasets: [{
-                label: 'semaine '+ i,
-                data: [Math.floor(Math.random() * 50), -Math.floor(Math.random() * 50), Math.floor(Math.random() * 50)],
-                backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 205, 86, 0.2)',
+  tabplot[i] = new Chart(
+    createDOMChart(i),
+    {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'semaine '+ i,
+          data: [Math.floor(Math.random() * 50), -Math.floor(Math.random() * 50), Math.floor(Math.random() * 50)],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
             
-                ],
-                borderColor: [
-                  'rgb(255, 99, 132)',
-                  'rgb(255, 159, 64)',
-                  'rgb(255, 205, 86)',
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
             
-                ],
-                borderWidth: 1
-              }]
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true
-                }
-              }
-            },
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-      );
-      
+      },
     }
+  );
+      
   }
+}
 
