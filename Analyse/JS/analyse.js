@@ -3,7 +3,6 @@
 var listOfMessages = [];
 
 
-
 function analyse(){
 	console.log("analyse ...");
 
@@ -22,6 +21,13 @@ function analyse(){
 	}
 
 	//ICI appel de la fonction qui génère les graphes
+	var labels = createLabels();
+	var days = [];
+	var dates = createDates();
+	var data = createData();
+	var config = createConfig();
+
+	createGraph2();
 
 	//On affiche les graphes 
 	afficheGraphes();
@@ -66,7 +72,10 @@ function createMessage(s){
  */
 function afficheGraphes(){
 	document.getElementById("addJson").style.display = "none";
-	console.log("prout");
 	document.getElementById("graphics").style.display = "flex";
-	console.log("prout 2");
 }
+
+
+
+
+

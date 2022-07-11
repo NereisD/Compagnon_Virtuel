@@ -15,29 +15,16 @@ class Message{
 		console.log("id : "+this.id+" date : "+this.date+" text : "+this.text+" isSentByMe : "+this.isSentByMe+" isLiked : "+this.isLiked+" isSecret : "+this.isSecret+" dataType : "+this.dataType+ " dataValue : "+this.dataValue);
 	}
 
-
-	getDate(){
-		return this.date;
-	}
-
-	getAnnee(){
+	getYear(){
 		return this.date.substr(0,4)
 	}
 
-	getMois(){
+	getMonth(){
 		return this.date.substr(5,2);
 	}
 
-	getJour(){
+	getDay(){
 		return this.date.substr(8,2);
-	}
-
-	getDataValue(){
-		return this.dataValue;
-	}
-
-	getDataValue(){
-		return this.dataType;
 	}
 
 }
