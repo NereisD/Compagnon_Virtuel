@@ -1,6 +1,8 @@
 
 //List des objets messages
 var listOfMessages = [];
+//List des objets jours
+var days = [];
 
 
 function analyse(){
@@ -22,9 +24,11 @@ function analyse(){
 
 	//ICI appel de la fonction qui génère les graphes
 	var labels = createLabels();
-	var days = [];
-	var dates = createDates();
-	var data = createData();
+	var dates = createDates(days);
+	var cumulatedPhysically = createCumulatedPhysically(days);
+	var cumulatedMentally = createCumulatedMentally(days);
+	var cumulatedSociability = createCumulatedSociability(days);
+	var data = createData(cumulatedPhysically,cumulatedMentally,cumulatedSociability);
 	var config = createConfig();
 
 	createGraph2();

@@ -9,17 +9,47 @@ function createLabels(){
   return labels;
 }
 
-function createDates(){
+function createDates(days){
 
   dates = [];
-  dates.push(listOfMessages[1].getDay());
+  var currentDay = listOfMessages[1].getDay();
+  dates.push(currentDay);
+  days.push(new Day(listOfMessages[1].date));
 
   for(var i=1; i<listOfMessages.length;i++){
+    currentDay = listOfMessages[i].getDay();
+
+    //On créer un nouveau jour si on change de date
     if(listOfMessages[i].getDay() != dates[dates.length-1]){
-      dates.push(listOfMessages[i].getDay());
+
+      //Création des dates
+      dates.push(currentDay);
+
+      //Création des objets Days
+      days.push(new Day(listOfMessages[i].date));
+      if(days.length>1){
+        days[days.length-1].cumulatedPhysically = days[days.length-2].cumulatedPhysically;
+        days[days.length-1].cumulatedMentally = days[days.length-2].cumulatedMentally;
+        days[days.length-1].cumulatedSociability = days[days.length-2].cumulatedSociability;
+      }
     }
 
-    //ICI créer les objets Days au fur et a mesure 
+    //Update des variables du jour
+    if(days.length>0){
+
+      if(listOfMessages[i].dataType.includes("physically")){
+        days[days.length-1].physically = parseInt(days[days.length-1].physically) + parseInt(listOfMessages[i].dataValue);
+        days[days.length-1].cumulatedPhysically = parseInt(days[days.length-1].cumulatedPhysically) + parseInt(listOfMessages[i].dataValue);
+      } 
+      if(listOfMessages[i].dataType.includes("mentally")){
+        days[days.length-1].mentally = parseInt(days[days.length-1].mentally) + parseInt(listOfMessages[i].dataValue);
+        days[days.length-1].cumulatedMentally = parseInt(days[days.length-1].cumulatedMentally) + parseInt(listOfMessages[i].dataValue);
+      } 
+      if(listOfMessages[i].dataType.includes("sociability")){
+        days[days.length-1].sociability = parseInt(days[days.length-1].sociability) + parseInt(listOfMessages[i].dataValue);
+        days[days.length-1].cumulatedSociability = parseInt(days[days.length-1].cumulatedSociability) + parseInt(listOfMessages[i].dataValue);
+      } 
+    }
 
   }
 
@@ -35,7 +65,37 @@ function createDates(){
   return dates;
 }
 
-function createData(){
+//Création d'une liste physically cumulée
+function createCumulatedPhysically(days){
+  var cumulatedPhysically = [];
+
+  for(var i=0; i<days.length; i++){
+    cumulatedPhysically[i]=parseInt(days[i].cumulatedPhysically);
+  }
+  return cumulatedPhysically;
+}
+
+//Création d'une liste mentally cumulée
+function createCumulatedMentally(days){
+  var cumulatedMentally = [];
+
+  for(var i=0; i<days.length; i++){
+    cumulatedMentally[i]=parseInt(days[i].cumulatedMentally);
+  }
+  return cumulatedMentally;
+}
+
+//Création d'une liste sociability cumulée 
+function createCumulatedSociability(days){
+  var cumulatedSociability = [];
+
+  for(var i=0; i<days.length; i++){
+    cumulatedSociability[i]=parseInt(days[i].cumulatedSociability);
+  }
+  return cumulatedSociability;
+}
+
+function createData(cumulatedPhysically,cumulatedMentally,cumulatedSociability){
   data = {
     labels: dates,
     datasets: [{
@@ -44,7 +104,7 @@ function createData(){
       'rgba(255, 99, 132, 1)'
     ],
       borderColor: 'rgb(255, 0, 0)',
-      data: [0, -2, -4, -5, -3, 0, 4],
+      data: cumulatedPhysically,
 
     },
     {
@@ -53,7 +113,7 @@ function createData(){
       'rgba(0, 255, 0, 1)'
     ],
       borderColor: 'rgb(24, 179, 34)',
-      data: [0, 2, 1, 3, 5, 8, 4],
+      data: cumulatedMentally,
 
     },
     {
@@ -62,7 +122,7 @@ function createData(){
       'rgba(31, 179, 208, 1)'
     ],
       borderColor: 'rgb(0, 0, 255)',
-      data: [0, -1, -3, -3, -2, -3, -5],
+      data: cumulatedSociability,
 
     },
     ]
