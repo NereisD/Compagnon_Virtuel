@@ -5,6 +5,7 @@ var listOfMessages = [];
 var days = [];
 
 
+
 function analyse(){
 	console.log("analyse ...");
 
@@ -79,7 +80,10 @@ function afficheGraphes(){
 	document.getElementById("graphics").style.display = "flex";
 }
 
-
-
+/* Ajoute un fichier Json example dans l'input
+ */
+function seeExample(){
+	document.getElementById("content").value=text_json;
+}
 
 

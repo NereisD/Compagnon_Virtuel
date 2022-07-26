@@ -18,6 +18,11 @@
 #addJson button{
 	height: 2.5em;
 	width: 8em;
+	margin: 6px;
+}
+#addJson button:hover{
+	background-color: white;
+	transition: 0.2s;
 }
 
 #graphics{
@@ -31,6 +36,7 @@
 }
 #carouselExample{
     width: 47%;
+    display: none; /* true pour l'afficher */
 }
 #carousel-buttons{
 	display: flex;
