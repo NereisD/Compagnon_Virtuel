@@ -11,6 +11,8 @@ class MessageField {
     isSentByMe,
     isLiked,
     isSecret,
+    dataType,
+    dataValue,
   ];
 
   static const String id = '_id';
@@ -19,6 +21,8 @@ class MessageField {
   static const String isSentByMe = 'isSentByMe';
   static const String isLiked = 'isLiked';
   static const String isSecret = 'isSecret';
+  static const String dataType = 'dataType';
+  static const String dataValue = 'dataValue';
 }
 
 /* Un Message correspond a une bulle de dialogue
@@ -31,6 +35,8 @@ class Message {
   final bool isSentByMe;
   bool isLiked;
   bool isSecret;
+  String dataType; //Type : physically, mentally, socially
+  int dataValue;
 
   //Constructeur du message
   Message({
@@ -40,6 +46,8 @@ class Message {
     @required this.isSentByMe,
     this.isLiked = false,
     this.isSecret = false,
+    this.dataType = '',
+    this.dataValue = 0,
   });
 
   Message copy({
@@ -49,6 +57,8 @@ class Message {
     bool isSentByMe,
     bool isLiked,
     bool isSecret,
+    String dataType,
+    int dataValue,
   }) =>
       Message(
         id: id ?? this.id,
@@ -57,6 +67,8 @@ class Message {
         isSentByMe: isSentByMe ?? this.isSentByMe,
         isLiked: isLiked ?? this.isLiked,
         isSecret: isSecret ?? this.isSecret,
+        dataType: dataType ?? this.dataType,
+        dataValue: dataValue ?? this.dataValue,
       );
 
   //Transforme Json Message en map
@@ -69,6 +81,8 @@ class Message {
         isSentByMe: json[MessageField.isSentByMe] == 1,
         isLiked: json[MessageField.isLiked] == 1,
         isSecret: json[MessageField.isSecret] == 1,
+        dataType: json[MessageField.dataType] as String,
+        dataValue: json[MessageField.dataValue] as int,
       );
 
   //Transforme une map en Json Message
@@ -79,6 +93,8 @@ class Message {
         MessageField.isSentByMe: isSentByMe ? 1 : 0,
         MessageField.isLiked: isLiked ? 1 : 0,
         MessageField.isSecret: isSecret ? 1 : 0,
+        MessageField.dataType: dataType,
+        MessageField.dataValue: dataValue,
       };
 
   /*
@@ -118,5 +134,7 @@ class Message {
     print("isSentByMe : $isSentByMe");
     print("isLiked : $isLiked");
     print("isSecret : $isSecret");
+    print("dataType : $dataType");
+    print("dataValue : $dataValue");
   }
 }

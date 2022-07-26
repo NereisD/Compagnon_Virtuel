@@ -1,12 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/message_database.dart';
 import 'package:compagnon/db/notes_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/todo.dart';
-import 'package:compagnon/utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:ext_storage/ext_storage.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -28,9 +25,13 @@ Future<String> getLocalPath() async {
 * peut accéder à ses dossiers en écriture
 */
 void requestPermission() async {
+  try{
   Map<Permission, PermissionStatus> statuses = await [
     Permission.storage,
   ].request();
+  }catch(e){
+    print(e);
+  }
 }
 
 void exportData() {
@@ -60,7 +61,12 @@ void exportChat() async {
 
   //Concatène les messages en fichier Json
   listOfMessages.forEach((item) => jsonList.add(json.encode(item.toJson())));
-  print("listOfMessages = " + jsonList.toString());
+  //print("listOfMessages = " + jsonList.toString());
+
+  //Affiche chaque objet de la jsonList dans la console
+  for (var mess in jsonList) {
+    print(mess.toString());
+  }
 
   //Récupère le path du fichier en String
   getLocalPath().then((String affichePath) {

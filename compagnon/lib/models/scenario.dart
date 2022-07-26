@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
-import 'package:compagnon/values/constants.dart';
 import 'package:compagnon/db/message_database.dart';
-import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/db/scenarios_database.dart';
 import 'package:compagnon/models/Message.dart';
 import 'package:compagnon/models/question.dart';
@@ -10,7 +8,6 @@ import 'package:compagnon/models/relation_question_reply.dart';
 import 'package:compagnon/models/reply.dart';
 import 'package:compagnon/models/variable.dart';
 import 'package:compagnon/values/languages.dart';
-import 'package:flutter/cupertino.dart';
 import 'dart:math';
 
 class Scenario {
@@ -444,6 +441,35 @@ class Scenario {
     MessageDatabase.instance.create(message); //Creer un message dans la BD
   }
 
+  /* Fonction qui permet de créer un message en y ajoutant les variables a analyser.
+  *  Appelée lors d'une réponse fermée.
+  */ 
+  void addMessageData(Reply r){
+    String text = '';
+
+    //On choisit la langue
+    if (lang == 0) {
+      text = r.textEN;
+    } else if (lang == 1) {
+      text = r.textFR;
+    } else if (lang == 2) {
+      text = r.textJP;
+    } else {
+      print("Error lang $lang");
+    }
+
+    //On creer l'objet message
+    final message = Message(
+      date: DateTime.now(),
+      text: text,
+      isSentByMe: true,
+      dataType: r.dataType,
+      dataValue: r.dataValue
+    );
+
+    MessageDatabase.instance.create(message);
+  }
+
   /* Retire les %% d'une chaine de caractère
   */
   String removePercent(String text) {
@@ -538,6 +564,8 @@ class Scenario {
   */
   void displayClosedReply(Reply reply) {
     //On ajoute le message
+    addMessageData(reply);
+    /*
     if (lang == 0) {
       addMessage(reply.textEN, true);
     } else if (lang == 1) {
@@ -546,7 +574,7 @@ class Scenario {
       addMessage(reply.textJP, true);
     } else {
       print("Error lang $lang");
-    }
+    }*/
 
     //On enregistre une variable si besoin
     if (reply.nameVariable != '') {

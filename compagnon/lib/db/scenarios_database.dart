@@ -49,7 +49,9 @@ CREATE TABLE $tableReplies(
   ${ReplyField.textJP} $textType,
   ${ReplyField.idQuestion} $integerType,
   ${ReplyField.nameVariable} $textType,
-  ${ReplyField.createdTime} $textType
+  ${ReplyField.createdTime} $textType,
+  ${ReplyField.dataType} $textType,
+  ${ReplyField.dataValue} $integerType
 )
 ''');
 
@@ -175,7 +177,9 @@ CREATE TABLE $tableReplies(
   ${ReplyField.textJP} $textType,
   ${ReplyField.idQuestion} $integerType,
   ${ReplyField.nameVariable} $textType,
-  ${ReplyField.createdTime} $textType
+  ${ReplyField.createdTime} $textType,
+  ${ReplyField.dataType} $textType,
+  ${ReplyField.dataValue} $integerType
 )
 ''');
   }

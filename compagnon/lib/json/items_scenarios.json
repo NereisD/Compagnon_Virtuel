@@ -800,7 +800,9 @@
             "textEN": "Yes, thank you",
             "textFR": "Oui, merci",
             "textJP": "",
-            "idQuestion": 22
+            "idQuestion": 22,
+            "dataType": "physically",
+            "dataValue": 1
         },
         {
             "id": 21,
@@ -808,7 +810,9 @@
             "textEN": "No, not really",
             "textFR": "Non, pas vraiment",
             "textJP": "",
-            "idQuestion": 24
+            "idQuestion": 24,
+            "dataType": "physically",
+            "dataValue": -1
         },
         {
             "id": 22,
@@ -874,7 +878,9 @@
             "textEN": "No, everything is fine",
             "textFR": "Non tout va bien",
             "textJP": "",
-            "idQuestion": 32
+            "idQuestion": 32,
+            "dataType": "physically, mentally",
+            "dataValue": 1
         },
         {
             "id": 31,
@@ -882,7 +888,9 @@
             "textEN": "Yes, a little",
             "textFR": "Oui un peu",
             "textJP": "",
-            "idQuestion": 34
+            "idQuestion": 34,
+            "dataType": "physically, mentally",
+            "dataValue": -1
         },
         {
             "id": 32
@@ -944,7 +952,9 @@
             "textEN": "No, everything is fine",
             "textFR": "Non tout va bien",
             "textJP": "",
-            "idQuestion": 42
+            "idQuestion": 42,
+            "dataType": "physically",
+            "dataValue": 1
         },
         {
             "id": 41,
@@ -952,7 +962,9 @@
             "textEN": "I have pain somewhere",
             "textFR": "J'ai mal quelque part",
             "textJP": "",
-            "idQuestion": 43
+            "idQuestion": 43,
+            "dataType": "physically",
+            "dataValue": -1
         },
         {
             "id": 42,
@@ -960,7 +972,9 @@
             "textEN": "I am tired",
             "textFR": "Je suis fatigué",
             "textJP": "",
-            "idQuestion": 44
+            "idQuestion": 44,
+            "dataType": "physically",
+            "dataValue": -1
         },
         {
             "id": 43,
@@ -1024,7 +1038,9 @@
             "textEN": "Yes at least once",
             "textFR": "Oui au moins une fois",
             "textJP": "",
-            "idQuestion": 52
+            "idQuestion": 52,
+            "dataType": "mentally",
+            "dataValue": 1
         },
         {
             "id": 51,
@@ -1032,7 +1048,9 @@
             "textEN": "Not really",
             "textFR": "Pas vraiment",
             "textJP": "",
-            "idQuestion": 54
+            "idQuestion": 54,
+            "dataType": "mentally",
+            "dataValue": -1
         },
         {
             "id": 52,
@@ -1099,7 +1117,9 @@
             "textEN": "No, not really",
             "textFR": "Non pas vraiment",
             "textJP": "",
-            "idQuestion": 62
+            "idQuestion": 62,
+            "dataType": "mentally",
+            "dataValue": 1
         },
         {
             "id": 61,
@@ -1107,7 +1127,9 @@
             "textEN": "Yes, I think so.",
             "textFR": "Oui je crois",
             "textJP": "",
-            "idQuestion": 64
+            "idQuestion": 64,
+            "dataType": "mentally",
+            "dataValue": -1
         },
         {
             "id": 62,
@@ -1174,7 +1196,9 @@
             "textEN": "Yes several times",
             "textFR": "Oui plusieurs fois",
             "textJP": "",
-            "idQuestion": 72
+            "idQuestion": 72,
+            "dataType": "socially",
+            "dataValue": 1
         },
         {
             "id": 71,
@@ -1182,7 +1206,9 @@
             "textEN": "No, not really",
             "textFR": "Non pas vraiment",
             "textJP": "",
-            "idQuestion": 74
+            "idQuestion": 74,
+            "dataType": "socially",
+            "dataValue": -1
         },
         {
             "id": 72,
@@ -1229,7 +1255,9 @@
             "textEN": "Not at all",
             "textFR": "Pas du tout",
             "textJP": "",
-            "idQuestion": 82
+            "idQuestion": 82,
+            "dataType": "mentally",
+            "dataValue": 1
         },
         {
             "id": 81,
@@ -1237,7 +1265,9 @@
             "textEN": "Sometimes",
             "textFR": "Quelques fois",
             "textJP": "",
-            "idQuestion": 84
+            "idQuestion": 84,
+            "dataType": "mentally",
+            "dataValue": -1
         },
         {
             "id": 82,

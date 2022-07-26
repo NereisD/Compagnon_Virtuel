@@ -11,7 +11,9 @@ class ReplyField {
     textFR,
     textJP,
     idQuestion,
-    nameVariable
+    nameVariable,
+    dataType,
+    dataValue,
   ];
 
   static const String id = '_id';
@@ -22,6 +24,8 @@ class ReplyField {
   static const String idQuestion = 'idQuestion';
   static const String nameVariable = 'nameVariable';
   static const String createdTime = 'createdTime';
+  static const String dataType = 'dataType';
+  static const String dataValue = 'dataValue';
 }
 
 /* Reply est une réponse fermée de l'utilisateur dans 
@@ -36,6 +40,8 @@ class Reply {
   String textJP;
   int idQuestion;
   String nameVariable;
+  String dataType; //Type : physically, mentally, socially
+  int dataValue;
 
   Reply({
     this.id,
@@ -46,6 +52,8 @@ class Reply {
     this.textJP = '',
     this.idQuestion = 0,
     this.nameVariable = '',
+    this.dataType = '',
+    this.dataValue = 0,
   });
 
   Reply copy({
@@ -57,6 +65,8 @@ class Reply {
     String textJP,
     int idQuestion,
     String nameVariable,
+    String dataType,
+    int dataValue,
   }) =>
       Reply(
         id: id ?? this.id,
@@ -67,6 +77,8 @@ class Reply {
         textJP: textJP ?? this.textJP,
         idQuestion: idQuestion ?? this.idQuestion,
         nameVariable: nameVariable ?? this.nameVariable,
+        dataType: dataType ?? this.dataType,
+        dataValue: dataValue ?? this.dataValue,
       );
 
   //Transforme un Json en map
@@ -78,6 +90,8 @@ class Reply {
         textJP: json[ReplyField.textJP] as String,
         idQuestion: json[ReplyField.idQuestion] as int,
         nameVariable: json[ReplyField.nameVariable] as String,
+        dataType: json[ReplyField.dataType] as String,
+        dataValue: json[ReplyField.dataValue] as int,
         /*createdTime: DateTime.parse(
         json[ReplyField.createdTime] as String,
       ),*/
@@ -93,5 +107,7 @@ class Reply {
         ReplyField.idQuestion: idQuestion,
         ReplyField.nameVariable: nameVariable,
         ReplyField.createdTime: createdTime.toIso8601String(),
+        ReplyField.dataType: dataType,
+        ReplyField.dataValue: dataValue,
       };
 }
