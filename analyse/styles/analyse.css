@@ -32,7 +32,7 @@
 	padding-top: 10vh;
 }
 #graph1{
-    width: 47%;
+    width: 60%; /* 47% si 2 graphiques */
 }
 #carouselExample{
     width: 47%;
