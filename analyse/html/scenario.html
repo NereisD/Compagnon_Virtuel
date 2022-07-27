@@ -21,10 +21,83 @@
 		</ul>
 	</div>
 	<div class='main'>
-		
+		<div id='scenario_box'>
+			<div class='question' id='30'>
+				<div id="btn_question">
+					<p>Id : 30</p>
+					<button onclick="" id="btn_isFirst">First</button>
+					<button onclick="" id="btn_isEnd">End</button>
+					<button onclick="">X</button>
+				</div>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Write question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textJP" placeholder="Write question">おはようございます ！ 今日は元気ですか ？</textarea>
+				<div id="input_variable">
+					<label>Variable :</label>
+					<input id="nameVariable" type="text">
+				</div>
+			</div>
+			<div class='question' id='30'>
+				<div id="btn_question">
+					<p>Id : 30</p>
+					<button onclick="" id="btn_isFirst">First</button>
+					<button onclick="" id="btn_isEnd">End</button>
+					<button onclick="">X</button>
+				</div>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Write question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textJP" placeholder="Write question">おはようございます ！ 今日は元気ですか ？</textarea>
+				<div id="input_variable">
+					<label>Variable :</label>
+					<input id="nameVariable" type="text">
+				</div>
+			</div>
+			<div class='question' id='31'>
+				<p id="textFR">Avez-vous manqué d'appétit ou de motivation cette semaine ?</p>
+				<p id="nameVariable"></p>
+			</div>
+			<div class='question' id='32'>
+				<p id="textFR">Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !</p>
+				<p id="nameVariable"></p>
+			</div>
+			<div class='question' id='33'>
+				<p id="textFR">Très bien, au revoir %%prénom !</p>
+				<p id="nameVariable"></p>
+			</div>
+			<div class='question' id='34'>
+				<p id="textFR">Quelque chose vous préoccupe ?</p>
+				<p id="nameVariable"></p>
+			</div>
+			<div class='question' id='35'>
+				<p id="textFR">Vous pouvez m’en parler si vous le souhaitez.</p>
+				<p id="nameVariable"></p>
+			</div>
+			<div class='question' id='36'>
+				<p id="textFR">Je vous écoute</p>
+				<p id="nameVariable">history</p>
+			</div>
+			<div class='question' id='37'>
+				<p id="textFR">C’est étonnant ! Vous pouvez continuer</p>
+				<p id="nameVariable"></p>
+			</div>
+		</div>
+	</div>
+	<div class='controls'>
+		<div id='btn_lang'>
+			<button onclick="changeLanguage(0)" id="btn_selected">EN</button>
+			<button onclick="changeLanguage(1)" >FR</button>
+			<button onclick="changeLanguage(2)" >JP</button>
+		</div>
+		<button onclick="">Add Question</button>
+		<button onclick="">Add Answer</button>
+		<button onclick="">Generate Json</button>
+		<button onclick="" id='btn_delete'>Delete All</button>
 	</div>
 	<div class='footer'>
 		<p id='copyright'>Copyright © Mathis Ruffieux, Nereis Dugaleix, Lydie Du Bousquet, 2022</p>
 	</div>
 </body>
 </html>
+
+<script src="../js/scenario.js"></script>
+

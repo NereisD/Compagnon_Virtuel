@@ -1,0 +1,108 @@
+
+.footer{
+	display: none;
+}
+
+.controls{
+	height: 10vh;
+	background-color: seagreen;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.controls button{
+	height: 6vh;
+	margin: 2vh;
+	border-radius: 4px;
+	background-color: seagreen;
+	color: white;
+	border: 2px solid white;
+}
+.controls #btn_lang button{
+	height: 4vh;
+	margin: 1.5vh;
+	margin-top: 3vh;
+}
+.controls #btn_lang #btn_selected{
+	background-color: white;
+	color: seagreen;
+}
+
+.controls button:hover{
+	background-color: white;
+	color: seagreen;
+	transition: 0.2s;
+}
+.controls #btn_delete:hover{
+	background-color: red;
+	color: white;
+}
+
+#scenario_box{
+	overflow: auto;
+	height: 80vh;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.question{
+	min-height: 160px;
+	max-height: 160px;
+	min-width: 240px;
+	max-width: 240px;
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin: 50px;
+	font-size: 1em;
+}
+.question textarea{
+	margin: 5px;
+}
+.question #input_variable{
+	display: flex;
+	flex-direction: row;
+	margin-left: 12px;
+	font-size: 0.8em;
+}
+.question #input_variable input{
+	height: 20px;
+	width: 130px;
+	margin-left: 12px;
+}
+
+.question #btn_question{
+	height: 25px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 4px;
+	font-size: 0.75em;
+}
+.question #btn_question button{
+	border-radius: 3px;
+}
+.question #btn_question button:hover{
+	background-color: white;
+}
+#btn_isFirst{
+	background-color: lightgreen;
+}
+#btn_isEnd{
+	background-color: lightcoral;
+}
+
+/*
+#textEN{
+	display: true;
+}
+#textFR{
+	display: none;
+}
+#textJP{
+	display: none;
+}*/
+
+
