@@ -16,6 +16,7 @@ var ID_SCENARIO = 3;
 
 list_questions = [
 	new Question(ID_SCENARIO*10,ID_SCENARIO),
+	new Question(ID_SCENARIO*10+1,ID_SCENARIO),
 ];
 
 
@@ -149,7 +150,8 @@ function deleteQuestion(id){
  * Ajouter choix ID_SCENARIO
  * 
  * Plus tard :
- * implémenter les Replies 
+ * implémenter les Replies - pop up new reply
+ * possibilité de mettre les replies en dessous des questions 
  * generer le fichier Json
  */
 
