@@ -10,7 +10,27 @@
  0 2 = Jp
  */
 var lang = 0;
-changeLanguage(lang)
+changeLanguage(lang);
+
+var ID_SCENARIO = 3;
+
+list_questions = [
+	new Question(ID_SCENARIO*10,ID_SCENARIO),
+];
+
+
+/* Renvoie une question de la liste en fonction
+ * de son id
+ */
+function findQuestion(id){
+	for(var i=0; i<list_questions.length; i++){
+		if(list_questions[i].id == id){
+			return list_questions[i];
+		}
+	}
+	print("Error findQuestion("+id+") not found");
+	return 1;
+}
 
 
 
@@ -61,7 +81,76 @@ function changeLanguage(l){
 
 }
 
+/* Passe une question à isFirst
+ * retire le isEnd si nécessaire
+ * retire le isFirst si il est déjà existant
+ */
+function setIsFirst(id){
+	var element = document.getElementById(id);
+	var text = element.getAttribute("class");
+	var q = findQuestion(id);
+
+	//Si déjà isFirst on retire le isFirst
+	if(text == "question isFirst"){
+		element.setAttribute("class","question");
+		q.isFirst = false;
+	//Sinon on ajoute le isFirst et retire le isEnd
+	}else{
+		element.setAttribute("class","question isFirst");
+		q.isEnd = false;
+		q.isFirst = true;
+	}
+}
+
+/* Passe une question à isEnd
+ * retire le isFirst si nécessaire
+ * retire le isEnd si il est déjà existant
+ */
+function setIsEnd(id){
+	var element = document.getElementById(id);
+	var text = element.getAttribute("class");
+	var q = findQuestion(id);
+
+	//Si déjà isEnd on retire le isEnd
+	if(text == "question isEnd"){
+		element.setAttribute("class","question");
+		q.isEnd = false;
+		
+	//Sinon on ajoute le isEnd
+	}else{
+		element.setAttribute("class","question isEnd");
+		q.isFirst = false;
+		q.isEnd = true;
+	}
+}
+
+/* Supprime une question 
+ */
+function deleteQuestion(id){
+	var element = document.getElementById(id);
+	element.remove();
+
+	//On trouve la question
+	var q = findQuestion(id);
+
+	//On trouve l'indice dans la liste
+	var index = list_questions.indexOf(q);
+
+	//On retire l'objet a cet indice
+	list_questions.splice(index,1);
+
+}
 
 
+/* A faire :
+ * Fonction qui créer une question
+ * Enregistrer les textEN FR JP dans le modèle
+ * Enregistrer les variables dans le modèle
+ * Ajouter choix ID_SCENARIO
+ * 
+ * Plus tard :
+ * implémenter les Replies 
+ * generer le fichier Json
+ */
 
 

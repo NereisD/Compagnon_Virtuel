@@ -25,24 +25,9 @@
 			<div class='question' id='30'>
 				<div id="btn_question">
 					<p>Id : 30</p>
-					<button onclick="" id="btn_isFirst">First</button>
-					<button onclick="" id="btn_isEnd">End</button>
-					<button onclick="">X</button>
-				</div>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Write question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textJP" placeholder="Write question">おはようございます ！ 今日は元気ですか ？</textarea>
-				<div id="input_variable">
-					<label>Variable :</label>
-					<input id="nameVariable" type="text">
-				</div>
-			</div>
-			<div class='question' id='30'>
-				<div id="btn_question">
-					<p>Id : 30</p>
-					<button onclick="" id="btn_isFirst">First</button>
-					<button onclick="" id="btn_isEnd">End</button>
-					<button onclick="">X</button>
+					<button onclick="setIsFirst(30)" id="btn_isFirst">First</button>
+					<button onclick="setIsEnd(30)" id="btn_isEnd">End</button>
+					<button onclick="deleteQuestion(30)" id="btn_delete">X</button>
 				</div>
 				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
 				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Write question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
@@ -99,5 +84,6 @@
 </body>
 </html>
 
+<script src="../js/models/Question.js"></script>
 <script src="../js/scenario.js"></script>
 
