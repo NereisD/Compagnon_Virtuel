@@ -149,9 +149,13 @@ function deleteQuestion(id){
  * Enregistrer les variables dans le modèle
  * Ajouter choix ID_SCENARIO
  * 
+ * Fonction New Reply
+ * Fonction Edit Reply
+ * Fonction Delete Reply
+ * 
  * Plus tard :
- * implémenter les Replies - pop up new reply
- * possibilité de mettre les replies en dessous des questions 
+ * implémenter les Replies - pop up new reply V
+ * possibilité de mettre les replies en dessous des questions V
  * generer le fichier Json
  */
 

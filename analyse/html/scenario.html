@@ -22,31 +22,51 @@
 	</div>
 	<div class='main'>
 		<div id='scenario_box'>
+		  <div class='zone_question'>
 			<div class='question' id='30'>
 				<div id="btn_question">
-					<p>Id : 30</p>
+					<p>Id question : 30</p>
 					<button onclick="setIsFirst(30)" id="btn_isFirst">First</button>
 					<button onclick="setIsEnd(30)" id="btn_isEnd">End</button>
 					<button onclick="deleteQuestion(30)" id="btn_delete">X</button>
 				</div>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Ecrire une question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textJP" placeholder="しつもんをする">おはようございます ！ 今日は元気ですか ？</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textEN" placeholder="Write question">Hello ! How are you today ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textFR" placeholder="Ecrire une question">Bonjour ! Comment allez-vous aujourd'hui ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textJP" placeholder="しつもんをする">おはようございます ！ 今日は元気ですか ？</textarea>
 				<div id="input_variable">
 					<label>Variable :</label>
 					<input id="nameVariable" type="text">
 				</div>
 			</div>
+			<div class='reply' id='r30'>
+				<div id="btn_reply">
+					<p>Id reply : 30</p>
+					<button onclick="">Edit</button>
+					<button onclick="" id="btn_delete">X</button>
+				</div>
+				<div class="double">
+					<p>Previous : 30</p> 
+					<p>Next : 31</p>
+				</div>
+				<div class="double">
+					<p>Type : mentally</p>
+					<p>Value : -1</p>
+				</div>
+				<p id="textEN">Reply 1 very long reply</p>
+				<p id="textFR">Réponse 1</p>
+				<p id="textJP">回答1</p>
+			</div>
+		  </div>
 			<div class='question' id='31'>
 				<div id="btn_question">
-					<p>Id : 31</p>
+					<p>Id question : 31</p>
 					<button onclick="setIsFirst(31)" id="btn_isFirst">First</button>
 					<button onclick="setIsEnd(31)" id="btn_isEnd">End</button>
 					<button onclick="deleteQuestion(31)" id="btn_delete">X</button>
 				</div>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textEN" placeholder="Write question">Have you lost your appetite or motivation this week?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textFR" placeholder="Ecrire une question">Avez-vous manqué d'appétit ou de motivation cette semaine ?</textarea>
-				<textarea rows="3" cols="28" type="text" size="50" rows="100" id="textJP" placeholder="しつもんをする">今週は食欲がなかったり、やる気が出なかったりしませんでしたか？</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textEN" placeholder="Write question">Have you lost your appetite or motivation this week?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textFR" placeholder="Ecrire une question">Avez-vous manqué d'appétit ou de motivation cette semaine ?</textarea>
+				<textarea rows="3" cols="28" type="text" size="50" rows="10" id="textJP" placeholder="しつもんをする">今週は食欲がなかったり、やる気が出なかったりしませんでしたか？</textarea>
 				<div id="input_variable">
 					<label>Variable :</label>
 					<input id="nameVariable" type="text">
@@ -99,16 +119,23 @@
 			<button onclick="" id="btn_delete">X</button>
 		</div>
 		<div id='select_id'>
-			<p>Select Question IDs</p>
+			<p>- Select Question IDs -</p>
 			<label>Previous :</label>
-			<input id="" type="text">
+			<input id="" type="text" placeholder="E.g. 30">
 			<label>Next :</label>
-			<input id="" type="text">
+			<input id="" type="text" placeholder="E.g. 31">
+		</div>
+		<div id="input_data">
+			<p>- Select Data Type and Value -</p>
+			<label>Type :</label>
+			<input id="dataType" type="text" placeholder="E.g. mentally">
+			<label>Value :</label>
+			<input id="dataValue" type="text" placeholder="E.g. -1">
 		</div>
 		<div id='textarea'>
-			<textarea rows="2" cols="42" type="text" size="50" rows="100" id="textEN" placeholder="Write reply"></textarea>
-			<textarea rows="2" cols="42" type="text" size="50" rows="100" id="textFR" placeholder="Ecrire une réponse"></textarea>
-			<textarea rows="2" cols="42" type="text" size="50" rows="100" id="textJP" placeholder="へんとうをつける"></textarea>
+			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textEN" placeholder="Write reply"></textarea>
+			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textFR" placeholder="Ecrire une réponse"></textarea>
+			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textJP" placeholder="へんとうをつける"></textarea>
 		</div>
 		<button onclick="" id='btn_validate'>Validate</button>
 		
