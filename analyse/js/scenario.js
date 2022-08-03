@@ -11,12 +11,17 @@
  */
 var lang = 0;
 changeLanguage(lang);
+displayEdit_reply(false);
 
 var ID_SCENARIO = 3;
 
 list_questions = [
 	new Question(ID_SCENARIO*10,ID_SCENARIO),
 	new Question(ID_SCENARIO*10+1,ID_SCENARIO),
+];
+
+list_replies = [
+	new Reply(ID_SCENARIO*10, ID_SCENARIO, 30, 31),	
 ];
 
 
@@ -33,6 +38,18 @@ function findQuestion(id){
 	return 1;
 }
 
+/* Renvoie une reply de la liste en fonction
+ * de son id
+ */
+function findReply(id){
+	for(var i=0; i<list_replies.length; i++){
+		if(list_replies[i].id == id){
+			return list_replies[i];
+		}
+	}
+	print("Error findReply("+id+") not found");
+	return 1;
+}
 
 
 /* Change la langue pour afficher le 
@@ -129,7 +146,7 @@ function setIsEnd(id){
  */
 function deleteQuestion(id){
 	var element = document.getElementById(id);
-	element.remove();
+	element.parentNode.remove();
 
 	//On trouve la question
 	var q = findQuestion(id);
@@ -140,23 +157,131 @@ function deleteQuestion(id){
 	//On retire l'objet a cet indice
 	list_questions.splice(index,1);
 
+	//On supprime les réponses associées à la question
+	for(var i=0; i<list_replies.length; i++){
+		if(list_replies[i].idQuestion == id){
+			list_replies.splice(i,1);
+		}
+	}
+
+}
+
+/* Affiche ou non le pop-up edit_reply
+*/
+function displayEdit_reply(display){
+	var element = document.querySelector("[class='edit_reply']");
+	if(display){
+		element.style.display='';
+	}else{
+		element.style.display='none';
+		clearEdit_reply();
+	}
+}
+
+/* Vide le pop-up edit_reply
+*/
+function clearEdit_reply(){
+	var edit_reply_id = document.getElementById("edit_reply_id");
+	edit_reply_id.innerText="Id reply : ";
+
+	var edit_reply_previous = document.getElementById("edit_reply_previous");
+	edit_reply_previous.value="";
+
+	var edit_reply_next = document.getElementById("edit_reply_next");
+	edit_reply_next.value="";
+
+	var edit_reply_type = document.getElementById("edit_reply_type");
+	edit_reply_type.value="";
+
+	var edit_reply_value = document.getElementById("edit_reply_value");
+	edit_reply_value.value="";
+
+	var edit_reply_textarea = document.querySelector("[id='edit_reply_textarea']");
+	edit_reply_textarea.children[0].value="";
+	edit_reply_textarea.children[1].value="";
+	edit_reply_textarea.children[2].value="";
+	
+}
+
+/* Ouvre le pop-up de modification d'une Reply
+ */
+function editEdit_reply(id){
+	var r = findReply(id);
+
+	var edit_reply_id = document.getElementById("edit_reply_id");
+	edit_reply_id.innerText="Id reply : "+r.id;
+
+	var edit_reply_previous = document.getElementById("edit_reply_previous");
+	edit_reply_previous.value=r.idQuestion;
+
+	var edit_reply_next = document.getElementById("edit_reply_next");
+	edit_reply_next.value=r.idNextQuestion;
+
+	var edit_reply_type = document.getElementById("edit_reply_type");
+	edit_reply_type.value=r.dataType;
+
+	var edit_reply_value = document.getElementById("edit_reply_value");
+	edit_reply_value.value=r.dataValue;
+
+	var edit_reply_textarea = document.querySelector("[id='edit_reply_textarea']");
+	edit_reply_textarea.children[0].value=r.textEN;
+	edit_reply_textarea.children[1].value=r.textFR;
+	edit_reply_textarea.children[2].value=r.textJP;
+
+	displayEdit_reply(true);
 }
 
 
-/* A faire :
- * Fonction qui créer une question
- * Enregistrer les textEN FR JP dans le modèle
- * Enregistrer les variables dans le modèle
+/* Supprime une réponse dans le DOM et en objet
+ */
+function deleteReply(id){
+	var element = document.querySelector("[idReply='"+id+"']");
+	element.remove();
+
+	//On trouve la réponse
+	var r = findReply(id);
+
+	//On trouve l'indice dans la liste
+	var index = list_replies.indexOf(r);
+
+	//On retire l'objet a cet indice
+	list_replies.splice(index,1);
+}
+
+
+
+
+
+/* ------------------
+ * A faire :
+ * Fonction qui créer une question en DOM
  * Ajouter choix ID_SCENARIO
  * 
- * Fonction New Reply
- * Fonction Edit Reply
- * Fonction Delete Reply
+ * Fonction New Reply (displayEdit_reply) V
+ * Fonction Edit Reply V
+ * Fonction Delete Reply V
+ * Fonction Validate Reply :
+ *  - Si déja existant, modifie
+ *  - Sinon créer 
+ * Fonction qui créer une Reply en DOM
  * 
- * Plus tard :
  * implémenter les Replies - pop up new reply V
  * possibilité de mettre les replies en dessous des questions V
- * generer le fichier Json
+ * generer le fichier Json :
+ *  - Enregistrer les textEN FR JP dans le modèle
+ *  - Enregistrer les variables dans le modèle
+ *  - Generer Question, Reply, RelationQR pour Bob San
+ *  - optionnel : générer Question, Reply pour Mei Chan
+ * 
+ * -------------------
  */
 
+
+/* -------------------
+ * Méthode agile :
+ * découper en petit bout, générer Json 
+ * étape suivante
+ * 
+ * -------------------
+ */
 

@@ -22,7 +22,7 @@
 	</div>
 	<div class='main'>
 		<div id='scenario_box'>
-		  <div class='zone_question'>
+		  <div class='zone_question' idZone='30'>
 			<div class='question' id='30'>
 				<div id="btn_question">
 					<p>Id question : 30</p>
@@ -38,11 +38,11 @@
 					<input id="nameVariable" type="text">
 				</div>
 			</div>
-			<div class='reply' id='r30'>
+			<div class='reply' idReply='30'>
 				<div id="btn_reply">
 					<p>Id reply : 30</p>
-					<button onclick="">Edit</button>
-					<button onclick="" id="btn_delete">X</button>
+					<button onclick="editEdit_reply(30)">Edit</button>
+					<button onclick="deleteReply(30)" id="btn_delete">X</button>
 				</div>
 				<div class="double">
 					<p>Previous : 30</p> 
@@ -57,6 +57,7 @@
 				<p id="textJP">回答1</p>
 			</div>
 		  </div>
+		  <div class='zone_question' idZone='30'>
 			<div class='question' id='31'>
 				<div id="btn_question">
 					<p>Id question : 31</p>
@@ -72,6 +73,7 @@
 					<input id="nameVariable" type="text">
 				</div>
 			</div>
+		  </div>
 			<div class='question' id='32'>
 				<p id="textFR">Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !</p>
 				<p id="nameVariable"></p>
@@ -105,7 +107,7 @@
 			<button onclick="changeLanguage(2)" >JP</button>
 		</div>
 		<button onclick="">New Question</button>
-		<button onclick="">New Reply</button>
+		<button onclick="displayEdit_reply(true)">New Reply</button>
 		<button onclick="">Generate Json</button>
 		<button onclick="" id='btn_delete'>Delete All</button>
 	</div>
@@ -114,25 +116,25 @@
 	</div>
 	<div class='edit_reply'>
 		<div id="header">
-			<p>Id : 30</p>
+			<p id='edit_reply_id'>Id reply : 30</p>
 			<h3>Edit reply</h3>
-			<button onclick="" id="btn_delete">X</button>
+			<button onclick="displayEdit_reply(false)" id="btn_delete">X</button>
 		</div>
 		<div id='select_id'>
 			<p>- Select Question IDs -</p>
 			<label>Previous :</label>
-			<input id="" type="text" placeholder="E.g. 30">
+			<input id="edit_reply_previous" type="text" placeholder="E.g. 30">
 			<label>Next :</label>
-			<input id="" type="text" placeholder="E.g. 31">
+			<input id="edit_reply_next" type="text" placeholder="E.g. 31">
 		</div>
 		<div id="input_data">
 			<p>- Select Data Type and Value -</p>
 			<label>Type :</label>
-			<input id="dataType" type="text" placeholder="E.g. mentally">
+			<input id="edit_reply_type" type="text" placeholder="E.g. mentally">
 			<label>Value :</label>
-			<input id="dataValue" type="text" placeholder="E.g. -1">
+			<input id="edit_reply_value" type="text" placeholder="E.g. -1">
 		</div>
-		<div id='textarea'>
+		<div id='edit_reply_textarea'>
 			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textEN" placeholder="Write reply"></textarea>
 			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textFR" placeholder="Ecrire une réponse"></textarea>
 			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textJP" placeholder="へんとうをつける"></textarea>
@@ -144,5 +146,6 @@
 </html>
 
 <script src="../js/models/Question.js"></script>
+<script src="../js/models/Reply.js"></script>
 <script src="../js/scenario.js"></script>
 
