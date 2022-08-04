@@ -248,6 +248,59 @@ function deleteReply(id){
 	list_replies.splice(index,1);
 }
 
+/* Ouvre la fenètre d'une nouvelle reply 
+ * avec l'id incrémenté
+ */
+function newReply(){
+
+	var id = ID_SCENARIO*10;
+
+	for(var i=0; i<list_replies.length; i++){
+		if(list_replies[i].id >= id){
+			id = list_replies[i].id + 1;
+		}
+	}
+
+	var edit_reply_id = document.getElementById("edit_reply_id");
+	edit_reply_id.innerText="Id reply : "+id;
+
+	displayEdit_reply(true);
+
+}
+
+/* Renvoie le dernier mot d'un string
+ */
+function returnLastWord(text){
+	var n = text.split(" ");
+    return n[n.length - 1];
+}
+
+
+/* Récupère l'id reply et vérifie si il est déjà existant
+ * si oui : modifie
+ * si non : créer
+ */
+function validateReply(){
+
+	//On récupère l'id dans le DOM
+	var edit_reply_id = document.getElementById("edit_reply_id");
+	var id = parseInt(returnLastWord(edit_reply_id.innerText));
+
+	//On vérifie si il existe ou non
+	var exist = false;
+	for(var i=0; i<list_replies.length; i++){
+		if(list_replies[i].id == id){
+			exist = true;
+		}
+	}
+
+	if(exist){
+		//Fonction modifie
+	}else{
+		//Fonction créer 
+	}
+
+}
 
 
 
@@ -260,10 +313,11 @@ function deleteReply(id){
  * Fonction New Reply (displayEdit_reply) V
  * Fonction Edit Reply V
  * Fonction Delete Reply V
- * Fonction Validate Reply :
+ * Fonction Validate Reply : V
  *  - Si déja existant, modifie
  *  - Sinon créer 
  * Fonction qui créer une Reply en DOM
+ * Fonction qui modifie une Reply en DOM
  * 
  * implémenter les Replies - pop up new reply V
  * possibilité de mettre les replies en dessous des questions V
