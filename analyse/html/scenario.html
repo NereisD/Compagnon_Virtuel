@@ -57,7 +57,7 @@
 				<p id="textJP">回答1</p>
 			</div>
 		  </div>
-		  <div class='zone_question' idZone='30'>
+		  <div class='zone_question' idZone='31'>
 			<div class='question' id='31'>
 				<div id="btn_question">
 					<p>Id question : 31</p>
@@ -74,30 +74,7 @@
 				</div>
 			</div>
 		  </div>
-			<div class='question' id='32'>
-				<p id="textFR">Prenez soin de vous, si quelque chose vous préoccupe, dîtes le moi !</p>
-				<p id="nameVariable"></p>
-			</div>
-			<div class='question' id='33'>
-				<p id="textFR">Très bien, au revoir %%prénom !</p>
-				<p id="nameVariable"></p>
-			</div>
-			<div class='question' id='34'>
-				<p id="textFR">Quelque chose vous préoccupe ?</p>
-				<p id="nameVariable"></p>
-			</div>
-			<div class='question' id='35'>
-				<p id="textFR">Vous pouvez m’en parler si vous le souhaitez.</p>
-				<p id="nameVariable"></p>
-			</div>
-			<div class='question' id='36'>
-				<p id="textFR">Je vous écoute</p>
-				<p id="nameVariable">history</p>
-			</div>
-			<div class='question' id='37'>
-				<p id="textFR">C’est étonnant ! Vous pouvez continuer</p>
-				<p id="nameVariable"></p>
-			</div>
+			<!-- Zones des questions ici -->
 		</div>
 	</div>
 	<div class='controls'>
@@ -106,7 +83,7 @@
 			<button onclick="changeLanguage(1)" >FR</button>
 			<button onclick="changeLanguage(2)" >JP</button>
 		</div>
-		<button onclick="">New Question</button>
+		<button onclick="createQuestion()">New Question</button>
 		<button onclick="newReply()">New Reply</button>
 		<button onclick="">Generate Json</button>
 		<button onclick="" id='btn_delete'>Delete All</button>
