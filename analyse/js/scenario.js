@@ -519,10 +519,39 @@ function createQuestion(){
 	elementQuestion.setAttribute('class','question');
 	elementQuestion.setAttribute('id',q.id);
 
-	/* ---------------------------
-	 * ICI on va créer la question
+    var elementBtnQuestion = document.createElement("div");
+    elementBtnQuestion.setAttribute('id','btn_question');
+
+    var elementP1 = document.createElement("p");
+    elementP1.innerText = "Id question : " + q.id;
+
+    var elementBtn1 = document.createElement("button");
+    elementBtn1.setAttribute('onclick','setIsFirst('+q.id+')');
+    elementBtn1.setAttribute('id','btn_isFirst');
+    elementBtn1.innerText = "First";
+
+    var elementBtn2 = document.createElement("button");
+    elementBtn2.setAttribute('onclick','setIsEnd('+q.id+')');
+    elementBtn2.setAttribute('id','btn_isEnd');
+    elementBtn2.innerText = "End";
+
+    var elementBtn3 = document.createElement("button");
+    elementBtn3.setAttribute('onclick','deleteQuestion('+q.id+')');
+    elementBtn3.setAttribute('id','btn_delete');
+    elementBtn3.innerText = "X";
+
+    elementBtnQuestion.appendChild(elementP1);
+    elementBtnQuestion.appendChild(elementBtn1);
+    elementBtnQuestion.appendChild(elementBtn2);
+    elementBtnQuestion.appendChild(elementBtn3);
+
+    elementQuestion.appendChild(elementBtnQuestion);
+
+    /* ---------------------------
+	 * ICI on va créer la suite de la question
      * ---------------------------
      */
+
 
 	//On créer l'élément 
 	elementZone.appendChild(elementQuestion);
