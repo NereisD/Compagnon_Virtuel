@@ -22,6 +22,8 @@
 	</div>
 	<div class='main'>
 		<div id='scenario_box'>
+		<!-- Zones des questions ici -->
+		<!-- Exemple de div question --
 		  <div class='zone_question' idZone='30'>
 			<div class='question' id='30'>
 				<div id="btn_question">
@@ -73,8 +75,7 @@
 					<input id="nameVariable" type="text">
 				</div>
 			</div>
-		  </div>
-			<!-- Zones des questions ici -->
+		  </div> -->
 		</div>
 	</div>
 	<div class='controls'>
@@ -117,7 +118,11 @@
 			<textarea rows="2" cols="42" type="text" size="50" rows="10" id="textJP" placeholder="へんとうをつける"></textarea>
 		</div>
 		<button onclick="validateReply()" id='btn_validate'>Validate</button>
-		
+	</div>
+	<div class='select_id'>
+		<p>Select ID Scenario :</p>
+		<input id="id_selected" type="text">
+		<button onclick="selectID_scenario()" id='btn_validate'>Validate</button>
 	</div>
 </body>
 </html>

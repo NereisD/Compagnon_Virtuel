@@ -187,7 +187,7 @@
 	font-size: 0.9em;
 }
 
-.edit_reply #btn_validate{
+#btn_validate{
 	border-radius: 4px;
 	background-color: mediumseagreen;
 	color: white;
@@ -197,10 +197,32 @@
 	width: 120px;
 	font-size: 1.1em;
 }
-.edit_reply #btn_validate:hover{
+#btn_validate:hover{
 	background-color: white;
 	color: mediumseagreen;
 	transition: 0.2s;
+}
+
+.select_id{
+	/*display: none; /* display "" lorsqu'on edit une reply*/
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 40vh;
+	height: 20vh;
+	background-color: mediumseagreen;
+	color: white;
+	box-shadow: 1px 1px 4px 1px black;
+	border-radius: 3px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding-top: 4vh;
+	padding-left: 20vh;
+}
+.select_id *{
+	transform: translateX(-50%) translateY(-50%);
 }
 
 

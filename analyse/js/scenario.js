@@ -12,16 +12,19 @@
 var lang = 0;
 changeLanguage(lang);
 displayEdit_reply(false);
+hideControls(true);
 
-var ID_SCENARIO = 3;
+var ID_SCENARIO = 1;
 
 list_questions = [
+/*
 	new Question(ID_SCENARIO*10,ID_SCENARIO),
-	new Question(ID_SCENARIO*10+1,ID_SCENARIO),
+	new Question(ID_SCENARIO*10+1,ID_SCENARIO), */
 ];
 
 list_replies = [
-	new Reply(ID_SCENARIO*10, ID_SCENARIO, 30, 31),	
+/*
+	new Reply(ID_SCENARIO*10, ID_SCENARIO, 30, 31),	*/
 ];
 
 
@@ -547,26 +550,102 @@ function createQuestion(){
 
     elementQuestion.appendChild(elementBtnQuestion);
 
-    /* ---------------------------
-	 * ICI on va créer la suite de la question
-     * ---------------------------
-     */
+    var elementEN = document.createElement("textarea");
+    elementEN.setAttribute('rows','3');
+    elementEN.setAttribute('cols','28');
+    elementEN.setAttribute('type','text');
+    elementEN.setAttribute('size','50');
+    elementEN.setAttribute('rows','3');
+    elementEN.setAttribute('id','textEN');
+    elementEN.setAttribute('placeholder','Write question');
 
+    var elementFR = document.createElement("textarea");
+    elementFR.setAttribute('rows','3');
+    elementFR.setAttribute('cols','28');
+    elementFR.setAttribute('type','text');
+    elementFR.setAttribute('size','50');
+    elementFR.setAttribute('rows','3');
+    elementFR.setAttribute('id','textFR');
+    elementFR.setAttribute('placeholder','Ecrire une question');
+
+    var elementJP = document.createElement("textarea");
+    elementJP.setAttribute('rows','3');
+    elementJP.setAttribute('cols','28');
+    elementJP.setAttribute('type','text');
+    elementJP.setAttribute('size','50');
+    elementJP.setAttribute('rows','3');
+    elementJP.setAttribute('id','textJP');
+    elementJP.setAttribute('placeholder','しつもんをする');
+
+    elementQuestion.appendChild(elementEN);
+    elementQuestion.appendChild(elementFR);
+    elementQuestion.appendChild(elementJP);
+
+    var elementVariable = document.createElement("div");
+	elementVariable.setAttribute('id','input_variable');
+
+	var elementLabel = document.createElement("label");
+	elementLabel.innerText = "Variable :";
+
+	var elementInput = document.createElement("input");
+	elementInput.setAttribute('id','nameVariable');
+	elementInput.setAttribute('type','text');
+
+	elementVariable.appendChild(elementLabel);
+	elementVariable.appendChild(elementInput);
+
+	elementQuestion.appendChild(elementVariable);
 
 	//On créer l'élément 
 	elementZone.appendChild(elementQuestion);
 	document.getElementById("scenario_box").appendChild(elementZone);
+
+	//Reset la langue pour cacher les divs de langues multiples 
+	changeLanguage(lang);
 	
 	//-----------------------------------
 
+}
+
+/* Selectionne un ID de scénario puis
+ * cache la fenètre 
+ */
+function selectID_scenario(){
+
+	id = parseInt(document.getElementById("id_selected").value);
+	if(id > 0){
+		this.ID_SCENARIO = id;
+		console.log("id selected : "+this.ID_SCENARIO);
+
+		element = document.querySelector("[class='select_id']");
+		element.style.display = "none";
+
+		hideControls(false);
+	}else{
+		alert("ID Scenario shoud be a number > 0");
+	}
+	
+}
+
+/* Cache ou affiche les controls 
+ * True : hide
+ * False : affiche
+ */
+function hideControls(b){
+	elementControls = document.querySelector("[class='controls']");
+	if(b){
+		elementControls.style.display = "none";
+	}else{
+		elementControls.style.display = "";
+	}
 }
 
 
 
 /* ------------------
  * A faire :
- * Fonction qui créer une question en DOM
- * Ajouter choix ID_SCENARIO
+ * Fonction qui créer une question en DOM V
+ * Ajouter choix ID_SCENARIO V
  * 
  * Fonction New Reply (displayEdit_reply) V
  * Fonction Edit Reply V
