@@ -641,6 +641,172 @@ function hideControls(b){
 }
 
 
+/* Copie les les TEXTs et Variable d'une question en DOM  
+ * dans un objet Question
+ */
+function collectQuestion(id){
+	elementQuestion = document.getElementById(id);
+	var textEN = elementQuestion.children.item(1).value;
+	var textFR = elementQuestion.children.item(2).value;
+	var textJP = elementQuestion.children.item(3).value;
+	var variable = elementQuestion.children.item(4).children.item(1).value;
+
+	var q = findQuestion(id);
+	q.textEN = textEN;
+	q.textFR = textFR;
+	q.textJP = textJP;
+	q.nameVariable = variable;
+
+	var nbReplies = 0;
+	var isOpenQuestion = true;
+
+	//Vérifie si il y a au moins 1 réponse
+	for(var i=0;i<list_replies.length;i++){
+		if(list_replies[i].idQuestion == id){
+			nbReplies++;
+			if(list_replies[i].textEN != "" || list_replies[i].textFR != "" || list_replies[i].textJP != ""){
+				isOpenQuestion = false;
+			}
+		}
+	}
+	if(nbReplies > 0){
+		q.isUserResponse = true;
+	}else{
+		q.isUserResponse = false;
+	}
+
+	if(nbReplies == 1){
+		q.isOpenQuestion = isOpenQuestion;
+	}else{
+		q.isOpenQuestion = false;
+	}
+
+	/* Trouve idNextQuestion dans le cas où :
+	 * -pas isEnd
+	 * -pas de réponse
+	 */
+	 if(q.isEnd == false && nbReplies == 0){
+	 	for(var j=0;j<list_questions.length;j++){
+	 		if(list_questions[j].id==id){
+	 			if((j+1)<list_questions.length){
+	 				q.idNextQuestion = list_questions[j+1].id;
+	 			}else{
+	 				console.log("Error : no idNextQuestion for question "+id);
+	 			}
+	 		}
+	 	}
+	 }else{
+	 	q.idNextQuestion = 0;
+	 }
+	
+
+}
+
+/* Récupère en DOM les données de toutes les questions
+ */
+function collectAllQuestions(){
+	for(var i=0;i<list_questions.length;i++){
+		collectQuestion(list_questions[i].id);
+	}
+}
+
+/* Génère un fichier Json à partir des
+ * scénarios créés
+ */
+function generateJson(){
+
+	//Enregistre les données des questions
+	collectAllQuestions();
+
+	var stringQuestions = jsonAllQuestions();
+	console.log(stringQuestions);
+
+	//A COMPLETER
+	//stringReplies 
+	//stringRelationsQR
+
+}
+
+/* ---------------
+ * Pour Bob San
+ * ---------------
+ */
+
+/* Renvoie une chaine de caractères du Json
+ * pour une question 
+ */
+function jsonQuestion(id){
+
+	var chaine = "{\n";
+
+	var q = findQuestion(id);
+
+	chaine = chaine + '"id": '+q.id+',\n';
+	chaine = chaine + '"idScenario": '+ID_SCENARIO+',\n';
+	chaine = chaine + '"textEN": "'+q.textEN+'",\n';
+	chaine = chaine + '"textFR": "'+q.textFR+'",\n';
+	chaine = chaine + '"textJP": "'+q.textJP+'",\n';
+	chaine = chaine + '"idNextQuestion": '+q.idNextQuestion+',\n';
+
+	if(q.isOpenQuestion){
+		chaine = chaine + '"isOpenQuestion": 1,\n';
+	}else{
+		chaine = chaine + '"isOpenQuestion": 0,\n';
+	}
+	if(q.isFirst){
+		chaine = chaine + '"isFirst": 1,\n';
+	}else{
+		chaine = chaine + '"isFirst": 0,\n';
+	}
+	if(q.isEnd){
+		chaine = chaine + '"isEnd": 1,\n';
+	}else{
+		chaine = chaine + '"isEnd": 0,\n';
+	}
+	chaine = chaine + '"nameVariable": "'+q.nameVariable+'",\n';
+	chaine = chaine + '}\n';
+
+	return chaine;
+}
+
+/* Retourne une empty question
+ */
+function jsonEmptyQuestion(id){
+	var chaine = '{\n"id": '+id+',\n}\n';
+
+	return chaine;
+}
+
+
+/* Renvoie une chaine de caractères du Json
+ * pour toutes les questions 
+ */
+function jsonAllQuestions(){
+
+	var chaine = "";
+
+	for(var i=0; i<list_questions.length;i++){
+		chaine = chaine + jsonQuestion(list_questions[i].id);
+
+		//On ajoute les empty questions si nécessaire
+		if((i+1)<list_questions.length){
+			if((list_questions[i+1].id-list_questions[i].id)>1){
+				for(var j=list_questions[i].id+1;j<list_questions[i+1].id;j++){
+					chaine = chaine + jsonEmptyQuestion(j);
+				}
+			}
+		}
+	}
+
+	return chaine;
+}
+
+
+//Générer replies 
+
+//Génrer relationsQR
+
+
 
 /* ------------------
  * A faire :
@@ -659,8 +825,8 @@ function hideControls(b){
  * implémenter les Replies - pop up new reply V
  * possibilité de mettre les replies en dessous des questions V
  * generer le fichier Json :
- *  - Enregistrer les textEN FR JP dans le modèle
- *  - Enregistrer les variables dans le modèle
+ *  - Enregistrer les textEN FR JP dans le modèle V
+ *  - Enregistrer les variables dans le modèle V
  *  - Generer Question, Reply, RelationQR pour Bob San
  *  - optionnel : générer Question, Reply pour Mei Chan
  * 
