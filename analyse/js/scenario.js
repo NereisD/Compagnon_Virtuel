@@ -803,6 +803,11 @@ function jsonAllQuestions(){
 		}
 	}
 
+	//Complète les questions vides jusqu'à la dizaine supérieure
+	for(var k=list_questions[list_questions.length-1].id; (k % 10) != 9; k++){
+		chaine = chaine + jsonEmptyID(k+1);
+	}
+
 	return chaine;
 }
 
@@ -845,6 +850,11 @@ function jsonAllReplies(){
 		}
 	}
 
+	//Complète les réponses vides jusqu'à la dizaine supérieure
+	for(var k=list_replies[list_replies.length-1].id; (k % 10) != 9; k++){
+		chaine = chaine + jsonEmptyID(k+1);
+	}
+
 	return chaine;
 }
 
@@ -852,10 +862,16 @@ function jsonAllReplies(){
 /* Génère une relation QR en fonction d'une réponse
  */
 function jsonRelationQR(idReply){
-	var chaine = "{\n";
 
 	var r = findReply(idReply);
 
+	//Ne créer pas de relationQR si question ouverte
+	var q = findQuestion(r.idQuestion);
+	if(q.isOpenQuestion){
+		return "";
+	}
+
+	var chaine = "{\n";
 	chaine = chaine + '"idScenario": '+ID_SCENARIO+',\n';
 	chaine = chaine + '"idQuestion": '+r.idNextQuestion+',\n';
 	chaine = chaine + '"idReply": '+idReply+',\n';
@@ -897,8 +913,8 @@ function jsonAllRelationsQR(){
  * generer le fichier Json :
  *  - Enregistrer les textEN FR JP dans le modèle V
  *  - Enregistrer les variables dans le modèle V
- *  - Generer Question, Reply, RelationQR pour Bob San
- *  - optionnel : générer Question, Reply pour Mei Chan
+ *  - Generer Question, Reply, RelationQR pour Bob San V 
+ *  - optionnel : générer Question, Reply pour Mei Chan X
  * 
  * -------------------
  */
