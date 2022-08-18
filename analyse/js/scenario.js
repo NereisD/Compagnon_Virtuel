@@ -692,6 +692,7 @@ function collectQuestion(id){
 	 				q.idNextQuestion = list_questions[j+1].id;
 	 			}else{
 	 				console.log("Error : no idNextQuestion for question "+id);
+	 				alert("Error : no next question for question "+id);
 	 			}
 	 		}
 	 	}
@@ -721,10 +722,14 @@ function generateJson(){
 	var stringQuestions = jsonAllQuestions();
 	console.log(stringQuestions);
 
-	//A COMPLETER
-	//stringReplies 
-	//stringRelationsQR
+	var stringReplies = jsonAllReplies();
+	console.log(stringReplies);
 
+	var stringRelationsQRr = jsonAllRelationsQR();
+	console.log(stringRelationsQRr);
+
+	//ICI afficher dans la fenètre 
+	
 }
 
 /* ---------------
@@ -769,9 +774,9 @@ function jsonQuestion(id){
 	return chaine;
 }
 
-/* Retourne une empty question
+/* Retourne une empty question ou reply
  */
-function jsonEmptyQuestion(id){
+function jsonEmptyID(id){
 	var chaine = '{\n"id": '+id+',\n}\n';
 
 	return chaine;
@@ -792,7 +797,49 @@ function jsonAllQuestions(){
 		if((i+1)<list_questions.length){
 			if((list_questions[i+1].id-list_questions[i].id)>1){
 				for(var j=list_questions[i].id+1;j<list_questions[i+1].id;j++){
-					chaine = chaine + jsonEmptyQuestion(j);
+					chaine = chaine + jsonEmptyID(j);
+				}
+			}
+		}
+	}
+
+	return chaine;
+}
+
+/* Renvoie la chaine de caractère d'une réponse
+ */
+function jsonReply(id){
+	var chaine = "{\n";
+
+	var r = findReply(id);
+
+	chaine = chaine + '"id": '+r.id+',\n';
+	chaine = chaine + '"idScenario": '+ID_SCENARIO+',\n';
+	chaine = chaine + '"textEN": "'+r.textEN+'",\n';
+	chaine = chaine + '"textFR": "'+r.textFR+'",\n';
+	chaine = chaine + '"textJP": "'+r.textJP+'",\n';
+	chaine = chaine + '"idQuestion": "'+r.idNextQuestion+'",\n';
+	chaine = chaine + '"dataType": "'+r.dataType+'",\n';
+	chaine = chaine + '"dataValue": "'+r.dataValue+'",\n';
+	chaine = chaine + '}\n';
+
+	return chaine;
+
+}
+
+
+/* Renvoie une chaine de caractères de toutes les réponses
+ */
+function jsonAllReplies(){
+	var chaine = "";
+	for(var i=0; i<list_replies.length;i++){
+		chaine = chaine + jsonReply(list_replies[i].id);
+
+		//On ajoute les empty IDs si nécessaire
+		if((i+1)<list_replies.length){
+			if((list_replies[i+1].id-list_replies[i].id)>1){
+				for(var j=list_replies[i].id+1;j<list_replies[i+1].id;j++){
+					chaine = chaine + jsonEmptyID(j);
 				}
 			}
 		}
@@ -802,10 +849,33 @@ function jsonAllQuestions(){
 }
 
 
-//Générer replies 
+/* Génère une relation QR en fonction d'une réponse
+ */
+function jsonRelationQR(idReply){
+	var chaine = "{\n";
 
-//Génrer relationsQR
+	var r = findReply(idReply);
 
+	chaine = chaine + '"idScenario": '+ID_SCENARIO+',\n';
+	chaine = chaine + '"idQuestion": '+r.idNextQuestion+',\n';
+	chaine = chaine + '"idReply": '+idReply+',\n';
+	chaine = chaine + '}\n';
+
+	return chaine;
+}
+
+
+/* Génère les relations QR
+ */
+function jsonAllRelationsQR(){
+	var chaine = "";
+
+	for(var i=0; i<list_replies.length;i++){
+		chaine = chaine + jsonRelationQR(list_replies[i].id);
+	}
+
+	return chaine;
+}
 
 
 /* ------------------
