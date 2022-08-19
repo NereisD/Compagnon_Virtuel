@@ -38,6 +38,7 @@ Future<int> importScenarios(bool isLocalPath) async {
   if (isLocalPath) {
     print("importScenarios firstLaunch");
     response = await rootBundle.loadString('lib/json/items_scenarios.json');
+    //response = await rootBundle.loadString('lib/json/generated_json.json');
 
     //Sinon on importe depuis le répertoire Downloads
   } else {

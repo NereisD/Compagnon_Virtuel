@@ -664,6 +664,7 @@ function collectQuestion(id){
 	//Vérifie si il y a au moins 1 réponse
 	for(var i=0;i<list_replies.length;i++){
 		if(list_replies[i].idQuestion == id){
+			var lastReply = list_replies[i]; //Pour la question ouverte
 			nbReplies++;
 			if(list_replies[i].textEN != "" || list_replies[i].textFR != "" || list_replies[i].textJP != ""){
 				isOpenQuestion = false;
@@ -678,6 +679,10 @@ function collectQuestion(id){
 
 	if(nbReplies == 1){
 		q.isOpenQuestion = isOpenQuestion;
+		//Récupère l'idNextQuestion
+		if(isOpenQuestion){
+			q.idNextQuestion = lastReply.idNextQuestion;
+		}
 	}else{
 		q.isOpenQuestion = false;
 	}
@@ -685,6 +690,7 @@ function collectQuestion(id){
 	/* Trouve idNextQuestion dans le cas où :
 	 * -pas isEnd
 	 * -pas de réponse
+	 * (-open question) pas ici
 	 */
 	 if(q.isEnd == false && nbReplies == 0){
 	 	for(var j=0;j<list_questions.length;j++){
@@ -698,7 +704,9 @@ function collectQuestion(id){
 	 		}
 	 	}
 	 }else{
-	 	q.idNextQuestion = 0;
+	 	if(!isOpenQuestion){
+	 		q.idNextQuestion = 0;
+	 	}
 	 }
 	
 
@@ -770,8 +778,8 @@ function jsonQuestion(id){
 	}else{
 		chaine = chaine + '"isEnd": 0,\n';
 	}
-	chaine = chaine + '"nameVariable": "'+q.nameVariable+'",\n';
-	chaine = chaine + '}\n';
+	chaine = chaine + '"nameVariable": "'+q.nameVariable+'"\n';
+	chaine = chaine + '},\n';
 
 	return chaine;
 }
@@ -779,7 +787,7 @@ function jsonQuestion(id){
 /* Retourne une empty question ou reply
  */
 function jsonEmptyID(id){
-	var chaine = '{\n"id": '+id+',\n}\n';
+	var chaine = '{\n"id": '+id+'\n},\n';
 
 	return chaine;
 }
@@ -825,10 +833,10 @@ function jsonReply(id){
 	chaine = chaine + '"textEN": "'+r.textEN+'",\n';
 	chaine = chaine + '"textFR": "'+r.textFR+'",\n';
 	chaine = chaine + '"textJP": "'+r.textJP+'",\n';
-	chaine = chaine + '"idQuestion": "'+r.idNextQuestion+'",\n';
+	chaine = chaine + '"idQuestion": '+r.idNextQuestion+',\n';
 	chaine = chaine + '"dataType": "'+r.dataType+'",\n';
-	chaine = chaine + '"dataValue": "'+r.dataValue+'",\n';
-	chaine = chaine + '}\n';
+	chaine = chaine + '"dataValue": '+r.dataValue+'\n';
+	chaine = chaine + '},\n';
 
 	return chaine;
 
@@ -875,9 +883,9 @@ function jsonRelationQR(idReply){
 
 	var chaine = "{\n";
 	chaine = chaine + '"idScenario": '+ID_SCENARIO+',\n';
-	chaine = chaine + '"idQuestion": '+r.idNextQuestion+',\n';
-	chaine = chaine + '"idReply": '+idReply+',\n';
-	chaine = chaine + '}\n';
+	chaine = chaine + '"idQuestion": '+r.idQuestion+',\n';
+	chaine = chaine + '"idReply": '+idReply+'\n';
+	chaine = chaine + '},\n';
 
 	return chaine;
 }

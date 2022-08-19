@@ -1,0 +1,437 @@
+{
+    "questions" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "Welcome! My name is Bob, I am your new virtual companion 😀",
+            "textFR": "Bienvenue ! Je suis Bob votre nouveau compagnon virtuel 😀",
+            "textJP": "いらっしゃいませ ！私はあなたの新しい仮想コンパニオンのボブです 😀"
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "How should I call you?",
+            "textFR": "Comment dois-je vous appeler ?",
+            "textJP": "どう呼べばいいの？",
+            "idNextQuestion": 6,
+            "isOpenQuestion": 1,
+            "nameVariable": "name"
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4
+        },
+        {
+            "id": 5
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "Nice to meet you %%name !",
+            "textFR": "Heureux de vous rencontrer %%name !",
+            "textJP": "はじめまして %%name ",
+            "idNextQuestion": 9
+        },
+        {
+            "id": 7
+        },
+        {
+            "id": 8
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "I will now explain how I work.",
+            "textFR": "Je vais maintenant vous expliquer mon fonctionnement.",
+            "textJP": "それがどのように機能するかを説明します。"
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "On the chat, you can like or put a message in secret ",
+            "textFR": "Sur le chat, vous pouvez liker ou mettre un message en secret ",
+            "textJP": "チャットでは、を気に入ったり、メッセージを秘密にしたりできます"
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "A secret message can only be read by you and nobody else !",
+            "textFR": "Un message secret ne pourra être lu que par vous et personne d’autre !",
+            "textJP": "秘密のメッセージはあなただけが読むことができ、他の誰も読むことができません！"
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "You have a journal on which to write your personal notes.",
+            "textFR": "Vous avez un journal à disposition sur lequel écrire vos notes personnelles.",
+            "textJP": "あなたはあなたの個人的なメモを書くために利用可能なジャーナルを持っています。",
+            "idNextQuestion": 13
+        },
+        {
+            "id": 13,
+            "idScenario": 1,
+            "textEN": "As with messages, you can put journal entries in secret ",
+            "textFR": "Comme pour les messages, vous pouvez mettre des notes du journal en secret ",
+            "textJP": "メッセージと同じように、日記を秘密にすることができます"
+        },
+        {
+            "id": 14,
+            "idScenario": 1,
+            "textEN": "A page of the secret diary can only be read by you and nobody else !",
+            "textFR": "Une page du journal secrète ne pourra être lu que par vous et personne d’autre !",
+            "textJP": "秘密の日記のページはあなただけが読むことができ、他の誰も読むことができません！"
+        },
+        {
+            "id": 15,
+            "idScenario": 1,
+            "textEN": "In addition, you can change your personal information from the options.",
+            "textFR": "De plus, vous pouvez modifier vos informations personnelles depuis les options.",
+            "textJP": "さらに、オプションから個人情報を変更することができます。"
+        },
+        {
+            "id": 16,
+            "idScenario": 1,
+            "textEN": "Very good! We can now start discussing.",
+            "textFR": "Très bien ! Nous pouvons maintenant commencer à discuter.",
+            "textJP": "結構 ！これで話し始めることができます。",
+            "isEnd": 1
+        },
+        {
+            "id": 17,
+            "idScenario": 1,
+            "textEN": "Choose a language : ",
+            "textFR": "Choisissez une langue : ",
+            "textJP": "言語を選択してください：",
+            "isFirst": 1
+        },
+        {
+            "id": 18
+        },
+        {
+            "id": 19
+        },
+        {
+            "id": 20,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Bonjour %%name !",
+            "textJP": "",
+            "idNextQuestion": 21,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+            },
+            {
+            "id": 21,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Aimez vous les bananes? ",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": ""
+            },
+            {
+            "id": 22,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "J'aime aussi les bananes !",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 1,
+            "nameVariable": ""
+            },
+            {
+            "id": 23,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "D'accord, alors quel fruit préférez vous ? ",
+            "textJP": "",
+            "idNextQuestion": 24,
+            "isOpenQuestion": 1,
+            "isFirst": 0,
+            "isEnd": 0,
+            "nameVariable": "favoriteFruit"
+            },
+            {
+            "id": 24,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Les %%favoriteFruit sont bonnes !",
+            "textJP": "",
+            "idNextQuestion": 0,
+            "isOpenQuestion": 0,
+            "isFirst": 0,
+            "isEnd": 1,
+            "nameVariable": ""
+            },
+            {
+            "id": 25
+            },
+            {
+            "id": 26
+            },
+            {
+            "id": 27
+            },
+            {
+            "id": 28
+            },
+            {
+            "id": 29
+            }
+    ],
+    "replies" : [
+        {
+            "id": 1,
+            "idScenario": 1,
+            "textEN": "Hello Bob !",
+            "textFR": "Bonjour Bob !",
+            "textJP": "こんにちはボブ！",
+            "idQuestion": 2
+        },
+        {
+            "id": 2,
+            "idScenario": 1,
+            "textEN": "I'm listening",
+            "textFR": "Je vous écoute",
+            "textJP": "私が聞いている",
+            "idQuestion": 10
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4
+        },
+        {
+            "id": 5
+        },
+        {
+            "id": 6,
+            "idScenario": 1,
+            "textEN": "Agreed",
+            "textFR": "D'accord",
+            "textJP": "わかった",
+            "idQuestion": 12
+        },
+        {
+            "id": 7,
+            "idScenario": 1,
+            "textEN": "What is a secret?",
+            "textFR": "C'est quoi un secret ?",
+            "textJP": "秘密は何ですか？",
+            "idQuestion": 11
+        },
+        {
+            "id": 8,
+            "idScenario": 1,
+            "textEN": "Yes okay",
+            "textFR": "Oui d'accord",
+            "textJP": "はい大丈夫",
+            "idQuestion": 12
+        },
+        {
+            "id": 9,
+            "idScenario": 1,
+            "textEN": "Agreed",
+            "textFR": "D'accord",
+            "textJP": "わかった",
+            "idQuestion": 15
+        },
+        {
+            "id": 10,
+            "idScenario": 1,
+            "textEN": "What is a secret again?",
+            "textFR": "C'est quoi déjà un secret ?",
+            "textJP": "すでに秘密は何ですか？",
+            "idQuestion": 14
+        },
+        {
+            "id": 11,
+            "idScenario": 1,
+            "textEN": "Yes okay",
+            "textFR": "Oui d'accord",
+            "textJP": "はい大丈夫",
+            "idQuestion": 15
+        },
+        {
+            "id": 12,
+            "idScenario": 1,
+            "textEN": "I understood",
+            "textFR": "J'ai compris",
+            "textJP": "わかった",
+            "idQuestion": 16
+        },
+        {
+            "id": 13,
+            "idScenario": 1,
+            "textEN": "English 🇬🇧",
+            "textFR": "English 🇬🇧",
+            "textJP": "English 🇬🇧",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 14,
+            "idScenario": 1,
+            "textEN": "Français 🇫🇷",
+            "textFR": "Français 🇫🇷",
+            "textJP": "Français 🇫🇷",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 15,
+            "idScenario": 1,
+            "textEN": "日本語 🇯🇵",
+            "textFR": "日本語 🇯🇵",
+            "textJP": "日本語 🇯🇵",
+            "idQuestion": 1,
+            "nameVariable": "lang"
+        },
+        {
+            "id": 16
+        },
+        {
+            "id": 17
+        },
+        {
+            "id": 18
+        },
+        {
+            "id": 19
+        },
+        
+        {
+            "id": 20,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Oui j'adore",
+            "textJP": "",
+            "idQuestion": 22,
+            "dataType": "",
+            "dataValue": 0
+            },
+            {
+            "id": 21,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Je n'aime pas les bananes",
+            "textJP": "",
+            "idQuestion": 23,
+            "dataType": "",
+            "dataValue": 0
+            },
+            {
+            "id": 22,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "",
+            "textJP": "",
+            "idQuestion": 24,
+            "dataType": "",
+            "dataValue": 0
+            },
+            {
+            "id": 23
+            },
+            {
+            "id": 24
+            },
+            {
+            "id": 25
+            },
+            {
+            "id": 26
+            },
+            {
+            "id": 27
+            },
+            {
+            "id": 28
+            },
+            {
+            "id": 29
+            }
+    ],
+    "relationsQR" : [
+        {
+            "idScenario": 1,
+            "idQuestion": 1,
+            "idReply": 1
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 9,
+            "idReply": 2
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 6
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 10,
+            "idReply": 7
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 11,
+            "idReply": 8
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 9
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 13,
+            "idReply": 10
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 14,
+            "idReply": 11
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 15,
+            "idReply": 12
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 13
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 14
+        },
+        {
+            "idScenario": 1,
+            "idQuestion": 17,
+            "idReply": 15
+        },
+        {
+            "idScenario": 2,
+            "idQuestion": 21,
+            "idReply": 20
+            },
+            {
+            "idScenario": 2,
+            "idQuestion": 21,
+            "idReply": 21
+            }
+    ]
+}
