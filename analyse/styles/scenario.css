@@ -225,4 +225,40 @@
 	transform: translateX(-50%) translateY(-50%);
 }
 
+.json{
+	/*display: none;*/
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 90%;
+	height: 70%;
+	background-color: white;
+	box-shadow: 2px 2px 5px 1px black;
+	border-radius: 3px;
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.json #btn_delete{
+	height: 29px;
+	width: 26px;
+}
+.json h3{
+	font-size: 1em;
+	margin: 1em;
+}
+.json div{
+	max-width: 30%;
+}
+.json .scrollable{
+	border: 1px solid black;
+	margin: 10px;
+	max-height: 85%;
+	max-width: 95%;
+	overflow: auto;
+
+}
+
 

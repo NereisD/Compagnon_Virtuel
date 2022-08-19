@@ -12,6 +12,7 @@
 var lang = 0;
 changeLanguage(lang);
 displayEdit_reply(false);
+displayJson(false);
 hideControls(true);
 
 var ID_SCENARIO = 1;
@@ -720,16 +721,17 @@ function generateJson(){
 	collectAllQuestions();
 
 	var stringQuestions = jsonAllQuestions();
-	console.log(stringQuestions);
+	//console.log(stringQuestions);
 
 	var stringReplies = jsonAllReplies();
-	console.log(stringReplies);
+	//console.log(stringReplies);
 
-	var stringRelationsQRr = jsonAllRelationsQR();
-	console.log(stringRelationsQRr);
+	var stringRelationsQR = jsonAllRelationsQR();
+	//console.log(stringRelationsQR);
 
-	//ICI afficher dans la fenètre 
-	
+	clearJson();
+	fillJson(stringQuestions, stringReplies, stringRelationsQR);
+	displayJson(true);
 }
 
 /* ---------------
@@ -891,6 +893,44 @@ function jsonAllRelationsQR(){
 	}
 
 	return chaine;
+}
+
+/* Affiche ou non le pop-up Json
+*/
+function displayJson(display){
+	var element = document.querySelector("[class='json']");
+	if(display){
+		element.style.display='';
+	}else{
+		element.style.display='none';
+		//clearJson();
+	}
+}
+
+/* Vide le texte du Json
+ */
+function clearJson(){
+	var element_questions = document.getElementById("json_questions");
+	element_questions.children.item(1).innerText = "";
+	
+	var element_replies = document.getElementById("json_replies");
+	element_replies.children.item(1).innerText = "";
+
+	var element_relationsQR = document.getElementById("json_relationsQR");
+	element_relationsQR.children.item(1).innerText = "";
+}
+
+/* Remplit le Json avec des chaines de caractères
+ */
+function fillJson(questions, replies, relationsQR){
+	var element_questions = document.getElementById("json_questions");
+	element_questions.children.item(1).innerText = questions;
+	
+	var element_replies = document.getElementById("json_replies");
+	element_replies.children.item(1).innerText = replies;
+
+	var element_relationsQR = document.getElementById("json_relationsQR");
+	element_relationsQR.children.item(1).innerText = relationsQR;
 }
 
 
