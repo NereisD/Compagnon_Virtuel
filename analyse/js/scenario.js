@@ -693,6 +693,7 @@ function collectQuestion(id){
 	 * (-open question) pas ici
 	 */
 	 if(q.isEnd == false && nbReplies == 0){
+	 	/*
 	 	for(var j=0;j<list_questions.length;j++){
 	 		if(list_questions[j].id==id){
 	 			if((j+1)<list_questions.length){
@@ -702,6 +703,13 @@ function collectQuestion(id){
 	 				alert("Error : no next question for question "+id);
 	 			}
 	 		}
+	 	}*/
+	 	if(q.nameVariable == ""){
+	 		console.log("Error : no idNextQuestion for question "+id);
+	 		alert("Error : no next question for question "+id);
+	 	}else{
+	 		q.idNextQuestion = q.nameVariable;
+	 		q.nameVariable = "";
 	 	}
 	 }else{
 	 	if(!isOpenQuestion){
@@ -956,6 +964,7 @@ function fillJson(questions, replies, relationsQR){
 function meiQuestion(id){
 
 	var q = findQuestion(id);
+	//console.log(q.textEN);
 
 	var chaine = "new Question(" 
 	+ q.id 
@@ -1066,7 +1075,7 @@ function meiAllReplies(){
 			+ ","
 			+ q.id
 			+ ","
-			+ q.nameVariable //remplace idNextQuestion
+			+ q.idNextQuestion //nameVariable remplace idNextQuestion
 			+ ',"*","*","*","none",0),\n';
 		}
 	}
