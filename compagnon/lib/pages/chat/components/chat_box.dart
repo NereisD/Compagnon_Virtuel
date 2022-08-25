@@ -143,8 +143,8 @@ class MessageWidget extends State<MessagePlacement> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 20, 0, 0),
               child: Container(
-                width: 45,
-                height: 45,
+                width: (screenWidth < 400) ? 45 : (screenWidth < 800) ? 55 : 65,
+                height: (screenWidth < 400) ? 45 : (screenWidth < 800) ? 55 : 65,
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
@@ -156,7 +156,7 @@ class MessageWidget extends State<MessagePlacement> {
               ),
             ),
           Card(
-            elevation: 8, //L'ombre des messages
+            elevation: 6, //L'ombre des messages
             child: InkWell(
               // InkWell Permet de cliquer sur un message
               child: Stack(
@@ -164,7 +164,8 @@ class MessageWidget extends State<MessagePlacement> {
                   //Le container du message
                   Container(
                     //Largeur max du widget message
-                    constraints: const BoxConstraints(maxWidth: 250),
+                    //(screenWidth-screenWidth/3) -> 2 tiers de l'écran
+                    constraints: BoxConstraints(maxWidth: (screenWidth-screenWidth/3)), //Largeur max des bulles
                     color: message.isSentByMe
                         ? Colors.lightGreen[100]
                         : Colors.blueGrey[50],
@@ -175,7 +176,9 @@ class MessageWidget extends State<MessagePlacement> {
                         //Ici on modifie le style du texte des bulles
                         style: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Poppins',
-                          fontSize: 14,
+                          //fontSize: 16, 
+                          //Taille de la police des bulles
+                          fontSize: (screenWidth < 400) ? 14 : (screenWidth < 800) ? 16 : 18,
                         ),
                       ),
                     ),
@@ -258,8 +261,8 @@ class MessageWidget extends State<MessagePlacement> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(5, 20, 0, 0),
               child: Container(
-                width: 45,
-                height: 45,
+                width: (screenWidth < 400) ? 45 : (screenWidth < 800) ? 55 : 65,
+                height: (screenWidth < 400) ? 45 : (screenWidth < 800) ? 55 : 65,
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,

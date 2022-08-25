@@ -693,6 +693,7 @@ function collectQuestion(id){
 	 * (-open question) pas ici
 	 */
 	 if(q.isEnd == false && nbReplies == 0){
+	 	/*
 	 	for(var j=0;j<list_questions.length;j++){
 	 		if(list_questions[j].id==id){
 	 			if((j+1)<list_questions.length){
@@ -702,6 +703,13 @@ function collectQuestion(id){
 	 				alert("Error : no next question for question "+id);
 	 			}
 	 		}
+	 	}*/
+	 	if(q.nameVariable == ""){
+	 		console.log("Error : no idNextQuestion for question "+id);
+	 		alert("Error : no next question for question "+id);
+	 	}else{
+	 		q.idNextQuestion = q.nameVariable;
+	 		q.nameVariable = "";
 	 	}
 	 }else{
 	 	if(!isOpenQuestion){
@@ -740,6 +748,13 @@ function generateJson(){
 	clearJson();
 	fillJson(stringQuestions, stringReplies, stringRelationsQR);
 	displayJson(true);
+
+	var stringMeiQuestions = meiAllQuestions();
+	console.log("--- Mei questions : ---\n" + stringMeiQuestions);
+
+	var stringMeiReplies = meiAllReplies();
+	console.log("--- Mei replies : ---\n" + stringMeiReplies);
+
 }
 
 /* ---------------
@@ -940,6 +955,134 @@ function fillJson(questions, replies, relationsQR){
 	var element_relationsQR = document.getElementById("json_relationsQR");
 	element_relationsQR.children.item(1).innerText = relationsQR;
 }
+
+/* ---------------
+ * Pour Mei Chan
+ * ---------------
+ */
+
+function meiQuestion(id){
+
+	var q = findQuestion(id);
+	//console.log(q.textEN);
+
+	var chaine = "new Question(" 
+	+ q.id 
+	+','
+	+ q.idScenario 
+	+',"'
+	+ q.textEN
+	+'","'
+	+ q.textFR
+	+'","'
+	+ q.textJP
+	+'",';
+	if(q.isFirst){
+		chaine = chaine + "true,";
+	}else{
+		chaine = chaine + "false,";
+	}
+	if(q.isEnd){
+		chaine = chaine + "true,";
+	}else{
+		chaine = chaine + "false,";
+	}
+	if(q.isUserResponse){
+		chaine = chaine + "true,";
+	}else{
+		chaine = chaine + "false,";
+	}
+	if(q.nameVariable == ""){
+		chaine = chaine + '"none"';
+	}else{
+		chaine = chaine + '"' + q.nameVariable + '"';
+	}
+ 	chaine = chaine + "),\n";
+
+	return chaine;
+
+}
+
+function meiAllQuestions(){
+	var chaine = "";
+	for(var i=0; i<list_questions.length;i++){
+		chaine = chaine + meiQuestion(list_questions[i].id);
+	}
+	return chaine;
+} 
+
+
+function meiReply(id){
+
+	var r = findReply(id);
+
+	var chaine = "new Reply("
+	+ r.id
+	+ ','
+	+ r.idScenario
+	+ ','
+	+ r.idQuestion
+	+ ','
+	+ r.idNextQuestion
+	+ ',"';
+
+	if(r.textEN == ""){
+		chaine = chaine + '*","'; 
+	}else{
+		chaine = chaine + r.textEN + '","';
+	}
+	if(r.textFR == ""){
+		chaine = chaine + '*","'; 
+	}else{
+		chaine = chaine + r.textFR + '","';
+	}
+	if(r.textJP == ""){
+		chaine = chaine + '*","'; 
+	}else{
+		chaine = chaine + r.textJP + '","';
+	}
+	if(r.dataType == ""){
+		chaine = chaine + 'none",'; 
+	}else{
+		chaine = chaine + r.dataType + '",';
+	}
+
+	chaine = chaine + r.dataValue + "),\n"
+
+	return chaine;
+}
+
+function meiAllReplies(){
+	var chaine = "";
+	var lastIdReply = 0;
+	for(var i=0; i<list_replies.length;i++){
+		chaine = chaine + meiReply(list_replies[i].id);
+		if(list_replies[i].id > lastIdReply){
+			lastIdReply = list_replies[i].id;
+		}
+	}
+
+	//fait le lien avec les questions sans réponse
+	for(var j=0; j<list_questions.length;j++){
+		if(list_questions[j].isUserResponse == false && list_questions[j].isEnd == false){
+			q = list_questions[j];
+			lastIdReply = lastIdReply + 1;
+			chaine = chaine 
+			+ "new Reply("
+			+ lastIdReply
+			+ ","
+			+ q.idScenario
+			+ ","
+			+ q.id
+			+ ","
+			+ q.idNextQuestion //nameVariable remplace idNextQuestion
+			+ ',"*","*","*","none",0),\n';
+		}
+	}
+
+	return chaine;
+} 
+
 
 
 /* ------------------

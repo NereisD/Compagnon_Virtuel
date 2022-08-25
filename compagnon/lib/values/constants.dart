@@ -20,3 +20,5 @@ Scenario currentScenario = Scenario();
 bool chatBodyOptions = false;
 
 bool reloadInit = true;
+
+double screenWidth = 0;

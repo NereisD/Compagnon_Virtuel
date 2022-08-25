@@ -116,19 +116,7 @@
             "id": 20,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Bonjour %%name !",
-            "textJP": "",
-            "idNextQuestion": 21,
-            "isOpenQuestion": 0,
-            "isFirst": 1,
-            "isEnd": 0,
-            "nameVariable": ""
-            },
-            {
-            "id": 21,
-            "idScenario": 2,
-            "textEN": "",
-            "textFR": "Aimez vous les bananes? ",
+            "textFR": "Comment ça va ?",
             "textJP": "",
             "idNextQuestion": 0,
             "isOpenQuestion": 0,
@@ -137,10 +125,22 @@
             "nameVariable": ""
             },
             {
+            "id": 21,
+            "idScenario": 2,
+            "textEN": "",
+            "textFR": "Bonjour",
+            "textJP": "",
+            "idNextQuestion": 20,
+            "isOpenQuestion": 0,
+            "isFirst": 1,
+            "isEnd": 0,
+            "nameVariable": ""
+            },
+            {
             "id": 22,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "J'aime aussi les bananes !",
+            "textFR": "Tant mieux!",
             "textJP": "",
             "idNextQuestion": 0,
             "isOpenQuestion": 0,
@@ -152,19 +152,19 @@
             "id": 23,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "D'accord, alors quel fruit préférez vous ? ",
+            "textFR": "Dommage, pourquoi ?",
             "textJP": "",
             "idNextQuestion": 24,
             "isOpenQuestion": 1,
             "isFirst": 0,
             "isEnd": 0,
-            "nameVariable": "favoriteFruit"
+            "nameVariable": ""
             },
             {
             "id": 24,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Les %%favoriteFruit sont bonnes !",
+            "textFR": "J'ai compris, au revoir.",
             "textJP": "",
             "idNextQuestion": 0,
             "isOpenQuestion": 0,
@@ -187,6 +187,7 @@
             {
             "id": 29
             }
+        
     ],
     "replies" : [
         {
@@ -309,26 +310,25 @@
         {
             "id": 19
         },
-        
         {
             "id": 20,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Oui j'adore",
+            "textFR": "Je vais bien, merci",
             "textJP": "",
             "idQuestion": 22,
-            "dataType": "",
-            "dataValue": 0
+            "dataType": "mentally",
+            "dataValue": 1
             },
             {
             "id": 21,
             "idScenario": 2,
             "textEN": "",
-            "textFR": "Je n'aime pas les bananes",
+            "textFR": "Je me sens pas bien",
             "textJP": "",
             "idQuestion": 23,
-            "dataType": "",
-            "dataValue": 0
+            "dataType": "mentally",
+            "dataValue": -1
             },
             {
             "id": 22,
@@ -361,6 +361,7 @@
             {
             "id": 29
             }
+        
     ],
     "relationsQR" : [
         {
@@ -425,12 +426,12 @@
         },
         {
             "idScenario": 2,
-            "idQuestion": 21,
+            "idQuestion": 20,
             "idReply": 20
             },
             {
             "idScenario": 2,
-            "idQuestion": 21,
+            "idQuestion": 20,
             "idReply": 21
             }
     ]

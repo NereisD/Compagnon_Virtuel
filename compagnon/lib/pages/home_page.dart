@@ -28,6 +28,7 @@ class MyHomeScreen extends State<HomeScreen> {
   Widget _chatBody2 = RestartWidget();
   Widget _journalBody = JournalScreen();
   Widget _configBody = SettingsBody();
+  
 
   @override
   Widget build(BuildContext context) {
